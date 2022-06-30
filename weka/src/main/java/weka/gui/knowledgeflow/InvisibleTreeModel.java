@@ -32,85 +32,87 @@ import javax.swing.tree.TreeNode;
  */
 public class InvisibleTreeModel extends DefaultTreeModel {
 
-  /**
-   * For serialization
-   */
-  private static final long serialVersionUID = 6940101211275068260L;
+    /**
+     * For serialization
+     */
+    private static final long serialVersionUID = 6940101211275068260L;
 
-  /** True if the visibility filter is active */
-  protected boolean m_filterIsActive;
+    /**
+     * True if the visibility filter is active
+     */
+    protected boolean m_filterIsActive;
 
-  /**
-   * Constructor
-   *
-   * @param root the root of the tree
-   */
-  public InvisibleTreeModel(TreeNode root) {
-    this(root, false);
-  }
-
-  /**
-   * Constuctor
-   * 
-   * @param root the root of the tree
-   * @param asksAllowsChildren asksAllowsChildren - a boolean, false if any node
-   *          can have children, true if each node is asked to see if it can
-   *          have children
-   */
-  public InvisibleTreeModel(TreeNode root, boolean asksAllowsChildren) {
-    this(root, false, false);
-  }
-
-  /**
-   * Constructor
-   *
-   * @param root the root of the tree
-   * @param asksAllowsChildren asksAllowsChildren - a boolean, false if any node
-   *          can have children, true if each node is asked to see if it can
-   *          have children
-   * @param filterIsActive true if the visibility filter is active
-   */
-  public InvisibleTreeModel(TreeNode root, boolean asksAllowsChildren,
-    boolean filterIsActive) {
-    super(root, asksAllowsChildren);
-    this.m_filterIsActive = filterIsActive;
-  }
-
-  /**
-   * Activate/deactivate the visibility filter
-   *
-   * @param newValue true if the visibility filter should be active
-   */
-  public void activateFilter(boolean newValue) {
-    m_filterIsActive = newValue;
-  }
-
-  /**
-   * Return true if the visibility filter is active
-   *
-   * @return true if the visibility filter is active
-   */
-  public boolean isActivatedFilter() {
-    return m_filterIsActive;
-  }
-
-  @Override
-  public Object getChild(Object parent, int index) {
-    if (m_filterIsActive) {
-      if (parent instanceof InvisibleNode) {
-        return ((InvisibleNode) parent).getChildAt(index, m_filterIsActive);
-      }
+    /**
+     * Constructor
+     *
+     * @param root the root of the tree
+     */
+    public InvisibleTreeModel(TreeNode root) {
+        this(root, false);
     }
-    return ((TreeNode) parent).getChildAt(index);
-  }
 
-  @Override
-  public int getChildCount(Object parent) {
-    if (m_filterIsActive) {
-      if (parent instanceof InvisibleNode) {
-        return ((InvisibleNode) parent).getChildCount(m_filterIsActive);
-      }
+    /**
+     * Constuctor
+     *
+     * @param root               the root of the tree
+     * @param asksAllowsChildren asksAllowsChildren - a boolean, false if any node
+     *                           can have children, true if each node is asked to see if it can
+     *                           have children
+     */
+    public InvisibleTreeModel(TreeNode root, boolean asksAllowsChildren) {
+        this(root, false, false);
     }
-    return ((TreeNode) parent).getChildCount();
-  }
+
+    /**
+     * Constructor
+     *
+     * @param root               the root of the tree
+     * @param asksAllowsChildren asksAllowsChildren - a boolean, false if any node
+     *                           can have children, true if each node is asked to see if it can
+     *                           have children
+     * @param filterIsActive     true if the visibility filter is active
+     */
+    public InvisibleTreeModel(TreeNode root, boolean asksAllowsChildren,
+                              boolean filterIsActive) {
+        super(root, asksAllowsChildren);
+        this.m_filterIsActive = filterIsActive;
+    }
+
+    /**
+     * Activate/deactivate the visibility filter
+     *
+     * @param newValue true if the visibility filter should be active
+     */
+    public void activateFilter(boolean newValue) {
+        m_filterIsActive = newValue;
+    }
+
+    /**
+     * Return true if the visibility filter is active
+     *
+     * @return true if the visibility filter is active
+     */
+    public boolean isActivatedFilter() {
+        return m_filterIsActive;
+    }
+
+    @Override
+    public Object getChild(Object parent, int index) {
+        if (m_filterIsActive) {
+            if (parent instanceof InvisibleNode) {
+                return ((InvisibleNode) parent).getChildAt(index, m_filterIsActive);
+            }
+        }
+        return ((TreeNode) parent).getChildAt(index);
+    }
+
+    @Override
+    public int getChildCount(Object parent) {
+        if (m_filterIsActive) {
+            if (parent instanceof InvisibleNode) {
+                return ((InvisibleNode) parent).getChildCount(m_filterIsActive);
+            }
+        }
+        return ((TreeNode) parent).getChildCount();
+    }
 }

@@ -14,7 +14,7 @@
  */
 
 /*
- * Copyright (C) 2006 University of Waikato 
+ * Copyright (C) 2006 University of Waikato
  */
 
 package weka.attributeSelection;
@@ -32,64 +32,63 @@ import weka.core.CheckScheme.PostProcessor;
  *
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
- *
  * @see CheckAttributeSelection
  * @see CheckAttributeSelection#testsPerClassType(int, boolean, boolean)
  * @see PostProcessor
  */
-public abstract class AbstractSearchTest 
-  extends AbstractAttributeSelectionTest {
-  
-  /**
-   * Constructs the <code>AbstractSearchTest</code>. Called by subclasses.
-   *
-   * @param name the name of the test class
-   */
-  public AbstractSearchTest(String name) { 
-    super(name); 
-  }
-  
-  /**
-   * configures the CheckAttributeSelection instance used throughout the tests
-   * 
-   * @return	the fully configured CheckAttributeSelection instance used for testing
-   */
-  protected CheckAttributeSelection getTester() {
-    CheckAttributeSelection	result;
-    
-    result = super.getTester();
-    result.setTestEvaluator(false);
-    
-    return result;
-  }
-  
-  /**
-   * Configures the CheckOptionHandler uses for testing the optionhandling.
-   * Sets the scheme to test.
-   * 
-   * @return	the fully configured CheckOptionHandler
-   */
-  protected CheckOptionHandler getOptionTester() {
-    CheckOptionHandler		result;
-    
-    result = super.getOptionTester();
-    if (getSearch() instanceof OptionHandler)
-      result.setOptionHandler((OptionHandler) getSearch());
-    
-    return result;
-  }
-  
-  /**
-   * Configures the CheckGOE used for testing GOE stuff.
-   * 
-   * @return	the fully configured CheckGOE
-   */
-  protected CheckGOE getGOETester() {
-    CheckGOE		result;
+public abstract class AbstractSearchTest
+        extends AbstractAttributeSelectionTest {
 
-    result = super.getGOETester();
-    result.setObject(getSearch());
-    
-    return result;
-  }
+    /**
+     * Constructs the <code>AbstractSearchTest</code>. Called by subclasses.
+     *
+     * @param name the name of the test class
+     */
+    public AbstractSearchTest(String name) {
+        super(name);
+    }
+
+    /**
+     * configures the CheckAttributeSelection instance used throughout the tests
+     *
+     * @return the fully configured CheckAttributeSelection instance used for testing
+     */
+    protected CheckAttributeSelection getTester() {
+        CheckAttributeSelection result;
+
+        result = super.getTester();
+        result.setTestEvaluator(false);
+
+        return result;
+    }
+
+    /**
+     * Configures the CheckOptionHandler uses for testing the optionhandling.
+     * Sets the scheme to test.
+     *
+     * @return the fully configured CheckOptionHandler
+     */
+    protected CheckOptionHandler getOptionTester() {
+        CheckOptionHandler result;
+
+        result = super.getOptionTester();
+        if (getSearch() instanceof OptionHandler)
+            result.setOptionHandler((OptionHandler) getSearch());
+
+        return result;
+    }
+
+    /**
+     * Configures the CheckGOE used for testing GOE stuff.
+     *
+     * @return the fully configured CheckGOE
+     */
+    protected CheckGOE getGOETester() {
+        CheckGOE result;
+
+        result = super.getGOETester();
+        result.setObject(getSearch());
+
+        return result;
+    }
 }

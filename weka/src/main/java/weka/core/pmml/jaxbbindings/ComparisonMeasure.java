@@ -20,9 +20,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for ComparisonMeasure element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="ComparisonMeasure">
  *   &lt;complexType>
@@ -58,21 +58,19 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "extension",
-    "euclidean",
-    "squaredEuclidean",
-    "chebychev",
-    "cityBlock",
-    "minkowski",
-    "simpleMatching",
-    "jaccard",
-    "tanimoto",
-    "binarySimilarity"
+        "extension",
+        "euclidean",
+        "squaredEuclidean",
+        "chebychev",
+        "cityBlock",
+        "minkowski",
+        "simpleMatching",
+        "jaccard",
+        "tanimoto",
+        "binarySimilarity"
 })
 @XmlRootElement(name = "ComparisonMeasure")
 public class ComparisonMeasure {
@@ -108,25 +106,23 @@ public class ComparisonMeasure {
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extension }
-     * 
-     * 
      */
     public List<Extension> getExtension() {
         if (extension == null) {
@@ -137,11 +133,9 @@ public class ComparisonMeasure {
 
     /**
      * Gets the value of the euclidean property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Euclidean }
-     *     
+     *
+     * @return possible object is
+     * {@link Euclidean }
      */
     public Euclidean getEuclidean() {
         return euclidean;
@@ -149,11 +143,9 @@ public class ComparisonMeasure {
 
     /**
      * Sets the value of the euclidean property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Euclidean }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Euclidean }
      */
     public void setEuclidean(Euclidean value) {
         this.euclidean = value;
@@ -161,11 +153,9 @@ public class ComparisonMeasure {
 
     /**
      * Gets the value of the squaredEuclidean property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link SquaredEuclidean }
-     *     
+     *
+     * @return possible object is
+     * {@link SquaredEuclidean }
      */
     public SquaredEuclidean getSquaredEuclidean() {
         return squaredEuclidean;
@@ -173,11 +163,9 @@ public class ComparisonMeasure {
 
     /**
      * Sets the value of the squaredEuclidean property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link SquaredEuclidean }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link SquaredEuclidean }
      */
     public void setSquaredEuclidean(SquaredEuclidean value) {
         this.squaredEuclidean = value;
@@ -185,11 +173,9 @@ public class ComparisonMeasure {
 
     /**
      * Gets the value of the chebychev property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Chebychev }
-     *     
+     *
+     * @return possible object is
+     * {@link Chebychev }
      */
     public Chebychev getChebychev() {
         return chebychev;
@@ -197,11 +183,9 @@ public class ComparisonMeasure {
 
     /**
      * Sets the value of the chebychev property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Chebychev }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Chebychev }
      */
     public void setChebychev(Chebychev value) {
         this.chebychev = value;
@@ -209,11 +193,9 @@ public class ComparisonMeasure {
 
     /**
      * Gets the value of the cityBlock property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CityBlock }
-     *     
+     *
+     * @return possible object is
+     * {@link CityBlock }
      */
     public CityBlock getCityBlock() {
         return cityBlock;
@@ -221,11 +203,9 @@ public class ComparisonMeasure {
 
     /**
      * Sets the value of the cityBlock property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link CityBlock }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link CityBlock }
      */
     public void setCityBlock(CityBlock value) {
         this.cityBlock = value;
@@ -233,11 +213,9 @@ public class ComparisonMeasure {
 
     /**
      * Gets the value of the minkowski property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Minkowski }
-     *     
+     *
+     * @return possible object is
+     * {@link Minkowski }
      */
     public Minkowski getMinkowski() {
         return minkowski;
@@ -245,11 +223,9 @@ public class ComparisonMeasure {
 
     /**
      * Sets the value of the minkowski property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Minkowski }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Minkowski }
      */
     public void setMinkowski(Minkowski value) {
         this.minkowski = value;
@@ -257,11 +233,9 @@ public class ComparisonMeasure {
 
     /**
      * Gets the value of the simpleMatching property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link SimpleMatching }
-     *     
+     *
+     * @return possible object is
+     * {@link SimpleMatching }
      */
     public SimpleMatching getSimpleMatching() {
         return simpleMatching;
@@ -269,11 +243,9 @@ public class ComparisonMeasure {
 
     /**
      * Sets the value of the simpleMatching property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link SimpleMatching }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link SimpleMatching }
      */
     public void setSimpleMatching(SimpleMatching value) {
         this.simpleMatching = value;
@@ -281,11 +253,9 @@ public class ComparisonMeasure {
 
     /**
      * Gets the value of the jaccard property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Jaccard }
-     *     
+     *
+     * @return possible object is
+     * {@link Jaccard }
      */
     public Jaccard getJaccard() {
         return jaccard;
@@ -293,11 +263,9 @@ public class ComparisonMeasure {
 
     /**
      * Sets the value of the jaccard property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Jaccard }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Jaccard }
      */
     public void setJaccard(Jaccard value) {
         this.jaccard = value;
@@ -305,11 +273,9 @@ public class ComparisonMeasure {
 
     /**
      * Gets the value of the tanimoto property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Tanimoto }
-     *     
+     *
+     * @return possible object is
+     * {@link Tanimoto }
      */
     public Tanimoto getTanimoto() {
         return tanimoto;
@@ -317,11 +283,9 @@ public class ComparisonMeasure {
 
     /**
      * Sets the value of the tanimoto property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Tanimoto }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Tanimoto }
      */
     public void setTanimoto(Tanimoto value) {
         this.tanimoto = value;
@@ -329,11 +293,9 @@ public class ComparisonMeasure {
 
     /**
      * Gets the value of the binarySimilarity property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BinarySimilarity }
-     *     
+     *
+     * @return possible object is
+     * {@link BinarySimilarity }
      */
     public BinarySimilarity getBinarySimilarity() {
         return binarySimilarity;
@@ -341,11 +303,9 @@ public class ComparisonMeasure {
 
     /**
      * Sets the value of the binarySimilarity property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BinarySimilarity }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link BinarySimilarity }
      */
     public void setBinarySimilarity(BinarySimilarity value) {
         this.binarySimilarity = value;
@@ -353,11 +313,9 @@ public class ComparisonMeasure {
 
     /**
      * Gets the value of the compareFunction property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link COMPAREFUNCTION }
-     *     
+     *
+     * @return possible object is
+     * {@link COMPAREFUNCTION }
      */
     public COMPAREFUNCTION getCompareFunction() {
         if (compareFunction == null) {
@@ -369,11 +327,9 @@ public class ComparisonMeasure {
 
     /**
      * Sets the value of the compareFunction property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link COMPAREFUNCTION }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link COMPAREFUNCTION }
      */
     public void setCompareFunction(COMPAREFUNCTION value) {
         this.compareFunction = value;
@@ -381,11 +337,9 @@ public class ComparisonMeasure {
 
     /**
      * Gets the value of the kind property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getKind() {
         return kind;
@@ -393,11 +347,9 @@ public class ComparisonMeasure {
 
     /**
      * Sets the value of the kind property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setKind(String value) {
         this.kind = value;
@@ -405,11 +357,9 @@ public class ComparisonMeasure {
 
     /**
      * Gets the value of the maximum property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public Double getMaximum() {
         return maximum;
@@ -417,11 +367,9 @@ public class ComparisonMeasure {
 
     /**
      * Sets the value of the maximum property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setMaximum(Double value) {
         this.maximum = value;
@@ -429,11 +377,9 @@ public class ComparisonMeasure {
 
     /**
      * Gets the value of the minimum property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public Double getMinimum() {
         return minimum;
@@ -441,11 +387,9 @@ public class ComparisonMeasure {
 
     /**
      * Sets the value of the minimum property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setMinimum(Double value) {
         this.minimum = value;

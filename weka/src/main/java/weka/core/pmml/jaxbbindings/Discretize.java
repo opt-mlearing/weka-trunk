@@ -20,9 +20,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for Discretize element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="Discretize">
  *   &lt;complexType>
@@ -41,13 +41,11 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "extension",
-    "discretizeBin"
+        "extension",
+        "discretizeBin"
 })
 @XmlRootElement(name = "Discretize")
 public class Discretize {
@@ -67,25 +65,23 @@ public class Discretize {
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extension }
-     * 
-     * 
      */
     public List<Extension> getExtension() {
         if (extension == null) {
@@ -96,25 +92,23 @@ public class Discretize {
 
     /**
      * Gets the value of the discretizeBin property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the discretizeBin property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getDiscretizeBin().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link DiscretizeBin }
-     * 
-     * 
      */
     public List<DiscretizeBin> getDiscretizeBin() {
         if (discretizeBin == null) {
@@ -125,11 +119,9 @@ public class Discretize {
 
     /**
      * Gets the value of the dataType property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link DATATYPE }
-     *     
+     *
+     * @return possible object is
+     * {@link DATATYPE }
      */
     public DATATYPE getDataType() {
         return dataType;
@@ -137,11 +129,9 @@ public class Discretize {
 
     /**
      * Sets the value of the dataType property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link DATATYPE }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link DATATYPE }
      */
     public void setDataType(DATATYPE value) {
         this.dataType = value;
@@ -149,11 +139,9 @@ public class Discretize {
 
     /**
      * Gets the value of the defaultValue property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getDefaultValue() {
         return defaultValue;
@@ -161,11 +149,9 @@ public class Discretize {
 
     /**
      * Sets the value of the defaultValue property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setDefaultValue(String value) {
         this.defaultValue = value;
@@ -173,11 +159,9 @@ public class Discretize {
 
     /**
      * Gets the value of the field property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getField() {
         return field;
@@ -185,11 +169,9 @@ public class Discretize {
 
     /**
      * Sets the value of the field property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setField(String value) {
         this.field = value;
@@ -197,11 +179,9 @@ public class Discretize {
 
     /**
      * Gets the value of the mapMissingTo property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getMapMissingTo() {
         return mapMissingTo;
@@ -209,11 +189,9 @@ public class Discretize {
 
     /**
      * Sets the value of the mapMissingTo property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setMapMissingTo(String value) {
         this.mapMissingTo = value;

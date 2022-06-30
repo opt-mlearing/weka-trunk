@@ -32,14 +32,14 @@ import weka.core.Instance;
  */
 public interface ConditionalDensityEstimator {
 
-  /**
-   * Returns natural logarithm of density estimate for given value based on given instance.
-   *
-   * @param instance the instance to make the prediction for.
-   * @param value the value to make the prediction for.
-   * @return the natural logarithm of the density estimate
-   * @exception Exception if the density cannot be computed
-   */
-  public double logDensity(Instance instance, double value) throws Exception;
+    /**
+     * Returns natural logarithm of density estimate for given value based on given instance.
+     *
+     * @param instance the instance to make the prediction for.
+     * @param value    the value to make the prediction for.
+     * @return the natural logarithm of the density estimate
+     * @throws Exception if the density cannot be computed
+     */
+    public double logDensity(Instance instance, double value) throws Exception;
 }
 

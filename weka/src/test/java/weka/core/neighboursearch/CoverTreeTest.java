@@ -30,22 +30,24 @@ import junit.framework.TestSuite;
  * @version $Revision$
  */
 public class CoverTreeTest
-  extends AbstractNearestNeighbourSearchTest {
+        extends AbstractNearestNeighbourSearchTest {
 
-  public CoverTreeTest(String name) {
-    super(name);
-  }
+    public CoverTreeTest(String name) {
+        super(name);
+    }
 
-  /** Creates a default CoverTree */
-  public NearestNeighbourSearch getNearestNeighbourSearch() {
-    return new CoverTree();
-  }
-  
-  public static Test suite() {
-    return new TestSuite(CoverTreeTest.class);
-  }
+    /**
+     * Creates a default CoverTree
+     */
+    public NearestNeighbourSearch getNearestNeighbourSearch() {
+        return new CoverTree();
+    }
 
-  public static void main(String[] args){
-    junit.textui.TestRunner.run(suite());
-  }
+    public static Test suite() {
+        return new TestSuite(CoverTreeTest.class);
+    }
+
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 }

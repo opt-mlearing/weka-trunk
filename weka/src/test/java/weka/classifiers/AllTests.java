@@ -14,7 +14,7 @@
  */
 
 /*
- * Copyright (C) 2002 University of Waikato 
+ * Copyright (C) 2002 University of Waikato
  */
 
 package weka.classifiers;
@@ -27,26 +27,26 @@ import weka.test.WekaTestSuite;
  * Test class for all classifiers. Run from the command line with:
  * <p/>
  * java weka.classifiers.AllTests
- * 
+ *
  * @author <a href="mailto:len@reeltwo.com">Len Trigg</a>
  * @author FracPete (frapcete at waikato dot ac dot nz)
  * @version $Revision$
  */
 public class AllTests
-  extends WekaTestSuite {
+        extends WekaTestSuite {
 
-  public static Test suite() {
-    TestSuite suite = new TestSuite();
+    public static Test suite() {
+        TestSuite suite = new TestSuite();
 
-    suite.addTest(new TestSuite(weka.classifiers.CostMatrixTest.class));
-    suite.addTest(weka.classifiers.pmml.consumer.AllTests.suite());
-    suite.addTest(suite("weka.classifiers.Classifier"));
-    suite.addTest(suite("weka.classifiers.functions.supportVector.Kernel"));
+        suite.addTest(new TestSuite(weka.classifiers.CostMatrixTest.class));
+        suite.addTest(weka.classifiers.pmml.consumer.AllTests.suite());
+        suite.addTest(suite("weka.classifiers.Classifier"));
+        suite.addTest(suite("weka.classifiers.functions.supportVector.Kernel"));
 
-    return suite;
-  }
+        return suite;
+    }
 
-  public static void main(String[] args) {
-    junit.textui.TestRunner.run(suite());
-  }
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 }

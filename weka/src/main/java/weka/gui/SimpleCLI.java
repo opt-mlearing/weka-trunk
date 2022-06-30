@@ -40,54 +40,56 @@ import weka.gui.scripting.ScriptingPanel;
  * @version $Revision$
  */
 public class SimpleCLI
-  extends JFrame {
-  
-  /** for serialization. */
-  static final long serialVersionUID = -50661410800566036L;
-  
-  /**
-   * Constructor.
-   *
-   * @throws Exception if an error occurs
-   */
-  public SimpleCLI() throws Exception {
-    SimpleCLIPanel	panel;
+        extends JFrame {
 
-    panel = new SimpleCLIPanel();
+    /**
+     * for serialization.
+     */
+    static final long serialVersionUID = -50661410800566036L;
 
-    addWindowListener(new WindowAdapter() {
-      @Override
-      public void windowClosing(WindowEvent w) {
-        panel.terminate();
-        dispose();
-      }
-    });
+    /**
+     * Constructor.
+     *
+     * @throws Exception if an error occurs
+     */
+    public SimpleCLI() throws Exception {
+        SimpleCLIPanel panel;
 
-    setLayout(new BorderLayout());
-    setTitle(panel.getTitle());
-    setIconImage(panel.getIcon().getImage());
-    add(panel);
-    pack();
-    setSize(600, 500);
-    setLocationRelativeTo(null);
-    setVisible(true);
-  }
+        panel = new SimpleCLIPanel();
 
-  /**
-   * Method to start up the simple cli.
-   *
-   * @param args 	Not used.
-   */
-  public static void main(String[] args) {
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent w) {
+                panel.terminate();
+                dispose();
+            }
+        });
 
-    weka.core.logging.Logger.log(weka.core.logging.Logger.Level.INFO,
-            "Logging started");
+        setLayout(new BorderLayout());
+        setTitle(panel.getTitle());
+        setIconImage(panel.getIcon().getImage());
+        add(panel);
+        pack();
+        setSize(600, 500);
+        setLocationRelativeTo(null);
+        setVisible(true);
+    }
 
-    LookAndFeel.setLookAndFeel();
-    // make sure that packages are loaded and the GenericPropertiesCreator
-    // executes to populate the lists correctly
-    weka.gui.GenericObjectEditor.determineClasses();
+    /**
+     * Method to start up the simple cli.
+     *
+     * @param args Not used.
+     */
+    public static void main(String[] args) {
 
-    ScriptingPanel.showPanel(new SimpleCLIPanel(), args, 600, 500);
-  }
+        weka.core.logging.Logger.log(weka.core.logging.Logger.Level.INFO,
+                "Logging started");
+
+        LookAndFeel.setLookAndFeel();
+        // make sure that packages are loaded and the GenericPropertiesCreator
+        // executes to populate the lists correctly
+        weka.gui.GenericObjectEditor.determineClasses();
+
+        ScriptingPanel.showPanel(new SimpleCLIPanel(), args, 600, 500);
+    }
 }

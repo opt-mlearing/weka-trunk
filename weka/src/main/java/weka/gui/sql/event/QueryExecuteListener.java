@@ -26,15 +26,15 @@ import java.util.EventListener;
 /**
  * A listener for executing queries.
  *
- * @author      FracPete (fracpete at waikato dot ac dot nz)
- * @version     $Revision$
+ * @author FracPete (fracpete at waikato dot ac dot nz)
+ * @version $Revision$
  */
 
 public interface QueryExecuteListener extends EventListener {
-  /**
-   * This method gets called when a query has been executed.
-   * 
-   * @param evt		the event
-   */
-  public void queryExecuted(QueryExecuteEvent evt);
+    /**
+     * This method gets called when a query has been executed.
+     *
+     * @param evt the event
+     */
+    public void queryExecuted(QueryExecuteEvent evt);
 }

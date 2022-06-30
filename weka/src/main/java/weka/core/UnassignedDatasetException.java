@@ -29,27 +29,28 @@ package weka.core;
  * @version $Revision$
  */
 public class UnassignedDatasetException
-  extends RuntimeException {
+        extends RuntimeException {
 
-  /** for serialization */
-  private static final long serialVersionUID = -9000116786626328854L;
+    /**
+     * for serialization
+     */
+    private static final long serialVersionUID = -9000116786626328854L;
 
-  /**
-   * Creates a new UnassignedDatasetException with no message.
-   *
-   */
-  public UnassignedDatasetException() {
+    /**
+     * Creates a new UnassignedDatasetException with no message.
+     */
+    public UnassignedDatasetException() {
 
-    super();
-  }
+        super();
+    }
 
-  /**
-   * Creates a new UnassignedDatasetException.
-   *
-   * @param message the reason for raising an exception.
-   */
-  public UnassignedDatasetException(String message) {
+    /**
+     * Creates a new UnassignedDatasetException.
+     *
+     * @param message the reason for raising an exception.
+     */
+    public UnassignedDatasetException(String message) {
 
-    super(message);
-  }
+        super(message);
+    }
 }

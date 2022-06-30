@@ -35,40 +35,44 @@ import junit.framework.TestSuite;
  * @version $Revision$
  */
 public class StandardizeTest extends AbstractFilterTest {
-  
-  public StandardizeTest(String name) { super(name);  }
 
-  /** Creates an example Standardize */
-  public Filter getFilter() {
-    Standardize f = new Standardize();
-    return f;
-  }
-
-  public void testTypical() {
-    Instances result = useFilter();
-    // Number of attributes and instances shouldn't change
-    assertEquals(m_Instances.numAttributes(), result.numAttributes());
-    assertEquals(m_Instances.numInstances(),  result.numInstances());
-
-    // Check conversion is OK
-    for (int j = 0; j < result.numAttributes(); j++) {
-      if (result.attribute(j).isNumeric()) {
-	double mean = result.meanOrMode(j);
-	assertTrue("Mean should be 0", Utils.eq(mean, 0));
-	double stdDev = Math.sqrt(result.variance(j));
-	assertTrue("StdDev should be 1 (or 0)", 
-		   Utils.eq(stdDev, 0) || Utils.eq(stdDev, 1));
-      }
+    public StandardizeTest(String name) {
+        super(name);
     }
-  }
+
+    /**
+     * Creates an example Standardize
+     */
+    public Filter getFilter() {
+        Standardize f = new Standardize();
+        return f;
+    }
+
+    public void testTypical() {
+        Instances result = useFilter();
+        // Number of attributes and instances shouldn't change
+        assertEquals(m_Instances.numAttributes(), result.numAttributes());
+        assertEquals(m_Instances.numInstances(), result.numInstances());
+
+        // Check conversion is OK
+        for (int j = 0; j < result.numAttributes(); j++) {
+            if (result.attribute(j).isNumeric()) {
+                double mean = result.meanOrMode(j);
+                assertTrue("Mean should be 0", Utils.eq(mean, 0));
+                double stdDev = Math.sqrt(result.variance(j));
+                assertTrue("StdDev should be 1 (or 0)",
+                        Utils.eq(stdDev, 0) || Utils.eq(stdDev, 1));
+            }
+        }
+    }
 
 
-  public static Test suite() {
-    return new TestSuite(StandardizeTest.class);
-  }
+    public static Test suite() {
+        return new TestSuite(StandardizeTest.class);
+    }
 
-  public static void main(String[] args){
-    junit.textui.TestRunner.run(suite());
-  }
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 
 }

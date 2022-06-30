@@ -32,47 +32,47 @@ import java.beans.SimpleBeanInfo;
  * @version $Revision$
  */
 public class ClassifierBeanInfo extends SimpleBeanInfo {
- 
-  public EventSetDescriptor [] getEventSetDescriptors() {
-    try {
-      EventSetDescriptor [] esds = { 
-	new EventSetDescriptor(Classifier.class, 
-			       "batchClassifier", 
-			       BatchClassifierListener.class, 
-			       "acceptClassifier"),
-	new EventSetDescriptor(Classifier.class,
-			       "graph",
-			       GraphListener.class,
-			       "acceptGraph"),
-	new EventSetDescriptor(Classifier.class,
-			       "text",
-			       TextListener.class,
-			       "acceptText"),
-	new EventSetDescriptor(Classifier.class,
-			       "incrementalClassifier",
-			       IncrementalClassifierListener.class,
-			       "acceptClassifier"),
-	new EventSetDescriptor(Classifier.class,
-	                       "configuration",
-	                        ConfigurationListener.class,
-	                        "acceptConfiguration")
-			       
-	};
-      return esds;
-    } catch (Exception ex) {
-      ex.printStackTrace();
-    }
-    return null;
-  }
 
-  /**
-   * Get the bean descriptor for this bean
-   *
-   * @return a <code>BeanDescriptor</code> value
-   */
-  public BeanDescriptor getBeanDescriptor() {
-    return new BeanDescriptor(weka.gui.beans.Classifier.class, 
-			      ClassifierCustomizer.class);
-  }
+    public EventSetDescriptor[] getEventSetDescriptors() {
+        try {
+            EventSetDescriptor[] esds = {
+                    new EventSetDescriptor(Classifier.class,
+                            "batchClassifier",
+                            BatchClassifierListener.class,
+                            "acceptClassifier"),
+                    new EventSetDescriptor(Classifier.class,
+                            "graph",
+                            GraphListener.class,
+                            "acceptGraph"),
+                    new EventSetDescriptor(Classifier.class,
+                            "text",
+                            TextListener.class,
+                            "acceptText"),
+                    new EventSetDescriptor(Classifier.class,
+                            "incrementalClassifier",
+                            IncrementalClassifierListener.class,
+                            "acceptClassifier"),
+                    new EventSetDescriptor(Classifier.class,
+                            "configuration",
+                            ConfigurationListener.class,
+                            "acceptConfiguration")
+
+            };
+            return esds;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * Get the bean descriptor for this bean
+     *
+     * @return a <code>BeanDescriptor</code> value
+     */
+    public BeanDescriptor getBeanDescriptor() {
+        return new BeanDescriptor(weka.gui.beans.Classifier.class,
+                ClassifierCustomizer.class);
+    }
 }
 

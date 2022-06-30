@@ -20,9 +20,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for LinearNorm element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="LinearNorm">
  *   &lt;complexType>
@@ -38,12 +38,10 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "extension"
+        "extension"
 })
 @XmlRootElement(name = "LinearNorm")
 public class LinearNorm {
@@ -57,25 +55,23 @@ public class LinearNorm {
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extension }
-     * 
-     * 
      */
     public List<Extension> getExtension() {
         if (extension == null) {
@@ -86,7 +82,6 @@ public class LinearNorm {
 
     /**
      * Gets the value of the norm property.
-     * 
      */
     public double getNorm() {
         return norm;
@@ -94,7 +89,6 @@ public class LinearNorm {
 
     /**
      * Sets the value of the norm property.
-     * 
      */
     public void setNorm(double value) {
         this.norm = value;
@@ -102,7 +96,6 @@ public class LinearNorm {
 
     /**
      * Gets the value of the orig property.
-     * 
      */
     public double getOrig() {
         return orig;
@@ -110,7 +103,6 @@ public class LinearNorm {
 
     /**
      * Sets the value of the orig property.
-     * 
      */
     public void setOrig(double value) {
         this.orig = value;

@@ -21,9 +21,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for RuleSet element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="RuleSet">
  *   &lt;complexType>
@@ -44,15 +44,13 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "extension",
-    "ruleSelectionMethod",
-    "scoreDistribution",
-    "rule"
+        "extension",
+        "ruleSelectionMethod",
+        "scoreDistribution",
+        "rule"
 })
 @XmlRootElement(name = "RuleSet")
 public class RuleSet {
@@ -64,8 +62,8 @@ public class RuleSet {
     @XmlElement(name = "ScoreDistribution", namespace = "http://www.dmg.org/PMML-4_1", required = true)
     protected List<ScoreDistribution> scoreDistribution;
     @XmlElements({
-        @XmlElement(name = "SimpleRule", namespace = "http://www.dmg.org/PMML-4_1", required = true, type = SimpleRule.class),
-        @XmlElement(name = "CompoundRule", namespace = "http://www.dmg.org/PMML-4_1", required = true, type = CompoundRule.class)
+            @XmlElement(name = "SimpleRule", namespace = "http://www.dmg.org/PMML-4_1", required = true, type = SimpleRule.class),
+            @XmlElement(name = "CompoundRule", namespace = "http://www.dmg.org/PMML-4_1", required = true, type = CompoundRule.class)
     })
     protected List<Object> rule;
     @XmlAttribute
@@ -79,25 +77,23 @@ public class RuleSet {
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extension }
-     * 
-     * 
      */
     public List<Extension> getExtension() {
         if (extension == null) {
@@ -108,25 +104,23 @@ public class RuleSet {
 
     /**
      * Gets the value of the ruleSelectionMethod property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the ruleSelectionMethod property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getRuleSelectionMethod().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link RuleSelectionMethod }
-     * 
-     * 
      */
     public List<RuleSelectionMethod> getRuleSelectionMethod() {
         if (ruleSelectionMethod == null) {
@@ -137,25 +131,23 @@ public class RuleSet {
 
     /**
      * Gets the value of the scoreDistribution property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the scoreDistribution property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getScoreDistribution().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ScoreDistribution }
-     * 
-     * 
      */
     public List<ScoreDistribution> getScoreDistribution() {
         if (scoreDistribution == null) {
@@ -166,26 +158,24 @@ public class RuleSet {
 
     /**
      * Gets the value of the rule property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the rule property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getRule().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link SimpleRule }
      * {@link CompoundRule }
-     * 
-     * 
      */
     public List<Object> getRule() {
         if (rule == null) {
@@ -196,11 +186,9 @@ public class RuleSet {
 
     /**
      * Gets the value of the defaultConfidence property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public Double getDefaultConfidence() {
         return defaultConfidence;
@@ -208,11 +196,9 @@ public class RuleSet {
 
     /**
      * Sets the value of the defaultConfidence property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setDefaultConfidence(Double value) {
         this.defaultConfidence = value;
@@ -220,11 +206,9 @@ public class RuleSet {
 
     /**
      * Gets the value of the defaultScore property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getDefaultScore() {
         return defaultScore;
@@ -232,11 +216,9 @@ public class RuleSet {
 
     /**
      * Sets the value of the defaultScore property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setDefaultScore(String value) {
         this.defaultScore = value;
@@ -244,11 +226,9 @@ public class RuleSet {
 
     /**
      * Gets the value of the nbCorrect property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public Double getNbCorrect() {
         return nbCorrect;
@@ -256,11 +236,9 @@ public class RuleSet {
 
     /**
      * Sets the value of the nbCorrect property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setNbCorrect(Double value) {
         this.nbCorrect = value;
@@ -268,11 +246,9 @@ public class RuleSet {
 
     /**
      * Gets the value of the recordCount property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public Double getRecordCount() {
         return recordCount;
@@ -280,11 +256,9 @@ public class RuleSet {
 
     /**
      * Sets the value of the recordCount property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setRecordCount(Double value) {
         this.recordCount = value;

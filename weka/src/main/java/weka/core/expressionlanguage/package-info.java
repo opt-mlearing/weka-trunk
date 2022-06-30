@@ -22,45 +22,45 @@
 /**
  * Package for a framework for simple, flexible and performant expression
  * languages</p>
- * 
+ *
  * <h1>Introduction & Overview</h1>
- * 
+ * <p>
  * The {@link weka.core.expressionlanguage} package provides functionality to
  * easily create simple languages.</p>
- * 
+ * <p>
  * It does so through creating an AST (abstract syntax tree) that can then be
  * evaluated.</p>
- * 
+ * <p>
  * At the heart of the AST is the {@link weka.core.expressionlanguage.core.Node}
  * interface. It's an empty interface to mark types to be an AST node.</br>
  * Thus there are no real constraints on AST nodes so that they have as much
  * freedom as possible to reflect abstractions of programs.</p>
- * 
+ * <p>
  * To give a common base to build upon the {@link weka.core.expressionlanguage.common.Primitives}
- * class provides the subinterfaces for the primitive boolean 
+ * class provides the subinterfaces for the primitive boolean
  * ({@link weka.core.expressionlanguage.common.Primitives.BooleanExpression}),
  * double ({@link weka.core.expressionlanguage.common.Primitives.DoubleExpression})
  * and String ({@link weka.core.expressionlanguage.common.Primitives.StringExpression})
  * types.</br>
  * It furthermore provides implementations of constants and variables of those
  * types.</p>
- * 
+ * <p>
  * Most extensibility is achieved through adding macros to a language. Macros
  * allow for powerful meta-programming since they directly work with AST nodes.
  * </br>
  * The {@link weka.core.expressionlanguage.core.Macro} interface defines what a
  * macro looks like.</p>
- * 
- * Variable and macro lookup is done through 
+ * <p>
+ * Variable and macro lookup is done through
  * {@link weka.core.expressionlanguage.core.VariableDeclarations} and
  * {@link weka.core.expressionlanguage.core.MacroDeclarations} resp. Furthermore,
- * both can be combined through 
+ * both can be combined through
  * {@link weka.core.expressionlanguage.common.VariableDeclarationsCompositor}
  * and {@link weka.core.expressionlanguage.common.MacroDeclarationsCompositor}
  * resp.</br>
  * This really allows to add built-in variables and powerful built-in functions
  * to a language.</p>
- * 
+ * <p>
  * Useful implementations are:</br>
  * <ul>
  * <li>{@link weka.core.expressionlanguage.common.SimpleVariableDeclarations}</li>
@@ -72,7 +72,7 @@
  * <li>{@link weka.core.expressionlanguage.weka.InstancesHelper}</li>
  * <li>{@link weka.core.expressionlanguage.weka.StatsHelper}</li>
  * </ul>
- * 
+ * <p>
  * The described framework doesn't touch the syntax of a language so far. The
  * syntax is seen as a separate element of a language.</br>
  * If a program is given in a textual representation (e.g. "A + sqrt(2.0)" is a
@@ -80,15 +80,15 @@
  * how the AST looks like. That's why the parser's job is to build the AST.</br>
  * There is a parser in the {@link weka.core.expressionlanguage.parser} package.</br>
  * However the framework allows for other means to construct an AST if needed.</p>
- * 
+ * <p>
  * Built-in operators like (+, -, *, / etc) are a special case, since they can
  * be seen as macros, however they are strongly connected to the parser too.</br>
  * To separate the parser and these special macros there  is the
  * {@link weka.core.expressionlanguage.common.Operators} class which can be used
  * by the parser to delegate operator semantics elsewhere.
- * 
+ *
  * <h2>A word on parsers</h2>
- * 
+ * <p>
  * Currently the parser is generated through the CUP parser generator and jflex
  * lexer generator. While parser generators are powerful tools they suffer from
  * some unfortunate drawbacks:</p>
@@ -102,9 +102,9 @@
  * </ul>
  * It's for these reasons why the parser is kept as simple as possible and with
  * as much functionality delegated elsewhere as possible.
- * 
+ *
  * <h2>Summary</h2>
- * 
+ * <p>
  * A flexible AST structure is given by the
  * {@link weka.core.expressionlanguage.core.Node} interface. The
  * {@link weka.core.expressionlanguage.core.Macro} interface allows for powerful
@@ -120,21 +120,21 @@
  * {@link weka.core.expressionlanguage.common.VariableDeclarationsCompositor}
  * and {@link weka.core.expressionlanguage.common.MacroDeclarationsCompositor}
  * classes resp.</p>
- * 
+ *
  * <h1>Usage</h1>
- * 
+ * <p>
  * With the described framework it's possible to create languages in a declarative
  * way. Examples can be found in
  * {@link weka.filters.unsupervised.attribute.MathExpression},
  * {@link weka.filters.unsupervised.attribute.AddExpression} and
  * {@link weka.filters.unsupervised.instance.SubsetByExpression}.</p>
- * 
+ * <p>
  * A commonly used language is:<p>
- * 
+ *
  * <code><pre>
  * // exposes instance values and 'ismissing' macro
  * InstancesHelper instancesHelper = new InstancesHelper(dataset);
- * 
+ *
  * // creates the AST
  * Node node = Parser.parse(
  *   // expression
@@ -153,12 +153,12 @@
  * // type checking is neccessary, but allows for greater flexibility
  * if (!(node instanceof DoubleExpression))
  *   throw new Exception("Expression must be of boolean type!");
- *    
+ *
  * DoubleExpression program = (DoubleExpression) node;
  * </pre></code>
- * 
+ *
  * <h1>History</h1>
- * 
+ * <p>
  * Previously there were three very similar languages in the
  * <code>weka.core.mathematicalexpression</code> package,
  * <code>weka.core.AttributeExpression</code> class and the
@@ -167,7 +167,7 @@
  * However backwards compatibility was an important goal, that's why there are
  * some quite redundant parts in the language (e.g. both 'and' and '&' are operators
  * for logical and).
- * 
+ *
  * @author Benjamin Weber ( benweber at student dot ethz dot ch )
  * @version $Revision: 1000 $
  */

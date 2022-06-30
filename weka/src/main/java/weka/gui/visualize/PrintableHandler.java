@@ -26,61 +26,61 @@ import java.util.Hashtable;
 /**
  * This interface is for all JComponent classes that provide the ability to
  * print itself to a file.
- * 
- * @see PrintableComponent
- * @see PrintablePanel
+ *
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
+ * @see PrintableComponent
+ * @see PrintablePanel
  */
 public interface PrintableHandler {
-  /**
-   * returns a Hashtable with the current available JComponentWriters in the
-   * save dialog. the key of the Hashtable is the description of the writer.
-   * 
-   * @return all currently available JComponentWriters
-   * @see JComponentWriter#getDescription()
-   */
-  public Hashtable<String, JComponentWriter> getWriters();
+    /**
+     * returns a Hashtable with the current available JComponentWriters in the
+     * save dialog. the key of the Hashtable is the description of the writer.
+     *
+     * @return all currently available JComponentWriters
+     * @see JComponentWriter#getDescription()
+     */
+    public Hashtable<String, JComponentWriter> getWriters();
 
-  /**
-   * returns the JComponentWriter associated with the given name, is
-   * <code>null</code> if not found
-   * 
-   * @return the writer associated with the given name
-   * @see JComponentWriter#getDescription()
-   */
-  public JComponentWriter getWriter(String name);
+    /**
+     * returns the JComponentWriter associated with the given name, is
+     * <code>null</code> if not found
+     *
+     * @return the writer associated with the given name
+     * @see JComponentWriter#getDescription()
+     */
+    public JComponentWriter getWriter(String name);
 
-  /**
-   * sets the title for the save dialog
-   */
-  public void setSaveDialogTitle(String title);
+    /**
+     * sets the title for the save dialog
+     */
+    public void setSaveDialogTitle(String title);
 
-  /**
-   * returns the title for the save dialog
-   */
-  public String getSaveDialogTitle();
+    /**
+     * returns the title for the save dialog
+     */
+    public String getSaveDialogTitle();
 
-  /**
-   * sets the scale factor
-   * 
-   * @param x the scale factor for the x-axis
-   * @param y the scale factor for the y-axis
-   */
-  public void setScale(double x, double y);
+    /**
+     * sets the scale factor
+     *
+     * @param x the scale factor for the x-axis
+     * @param y the scale factor for the y-axis
+     */
+    public void setScale(double x, double y);
 
-  /**
-   * returns the scale factor for the x-axis
-   */
-  public double getXScale();
+    /**
+     * returns the scale factor for the x-axis
+     */
+    public double getXScale();
 
-  /**
-   * returns the scale factor for the y-axis
-   */
-  public double getYScale();
+    /**
+     * returns the scale factor for the y-axis
+     */
+    public double getYScale();
 
-  /**
-   * displays a save dialog for saving the component to a file.
-   */
-  public void saveComponent();
+    /**
+     * displays a save dialog for saving the component to a file.
+     */
+    public void saveComponent();
 }

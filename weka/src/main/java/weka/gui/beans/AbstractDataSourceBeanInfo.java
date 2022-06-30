@@ -30,32 +30,32 @@ import java.beans.SimpleBeanInfo;
  *
  * @author <a href="mailto:mhall@cs.waikato.ac.nz">Mark Hall</a>
  * @version $Revision$
- * @since 1.0
  * @see SimpleBeanInfo
+ * @since 1.0
  */
 public class AbstractDataSourceBeanInfo extends SimpleBeanInfo {
 
-  /**
-   * Get the event set descriptors pertinent to data sources
-   *
-   * @return an <code>EventSetDescriptor[]</code> value
-   */
-  public EventSetDescriptor [] getEventSetDescriptors() {
-    try {
-      EventSetDescriptor [] esds =  
-      { new EventSetDescriptor(DataSource.class, 
-			       "dataSet",
-			       DataSourceListener.class,
-			       "acceptDataSet"),
-	new EventSetDescriptor(DataSource.class, 
-			       "instance",
-			       InstanceListener.class,
-			       "acceptInstance")
-         };
-      return esds;
-    } catch (Exception ex) {
-      ex.printStackTrace();
+    /**
+     * Get the event set descriptors pertinent to data sources
+     *
+     * @return an <code>EventSetDescriptor[]</code> value
+     */
+    public EventSetDescriptor[] getEventSetDescriptors() {
+        try {
+            EventSetDescriptor[] esds =
+                    {new EventSetDescriptor(DataSource.class,
+                            "dataSet",
+                            DataSourceListener.class,
+                            "acceptDataSet"),
+                            new EventSetDescriptor(DataSource.class,
+                                    "instance",
+                                    InstanceListener.class,
+                                    "acceptInstance")
+                    };
+            return esds;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return null;
     }
-    return null;
-  }
 }

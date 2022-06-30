@@ -19,9 +19,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for Correlations element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="Correlations">
  *   &lt;complexType>
@@ -38,15 +38,13 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "extension",
-    "correlationFields",
-    "correlationValues",
-    "correlationMethods"
+        "extension",
+        "correlationFields",
+        "correlationValues",
+        "correlationMethods"
 })
 @XmlRootElement(name = "Correlations")
 public class Correlations {
@@ -62,25 +60,23 @@ public class Correlations {
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extension }
-     * 
-     * 
      */
     public List<Extension> getExtension() {
         if (extension == null) {
@@ -91,11 +87,9 @@ public class Correlations {
 
     /**
      * Gets the value of the correlationFields property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CorrelationFields }
-     *     
+     *
+     * @return possible object is
+     * {@link CorrelationFields }
      */
     public CorrelationFields getCorrelationFields() {
         return correlationFields;
@@ -103,11 +97,9 @@ public class Correlations {
 
     /**
      * Sets the value of the correlationFields property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link CorrelationFields }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link CorrelationFields }
      */
     public void setCorrelationFields(CorrelationFields value) {
         this.correlationFields = value;
@@ -115,11 +107,9 @@ public class Correlations {
 
     /**
      * Gets the value of the correlationValues property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CorrelationValues }
-     *     
+     *
+     * @return possible object is
+     * {@link CorrelationValues }
      */
     public CorrelationValues getCorrelationValues() {
         return correlationValues;
@@ -127,11 +117,9 @@ public class Correlations {
 
     /**
      * Sets the value of the correlationValues property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link CorrelationValues }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link CorrelationValues }
      */
     public void setCorrelationValues(CorrelationValues value) {
         this.correlationValues = value;
@@ -139,11 +127,9 @@ public class Correlations {
 
     /**
      * Gets the value of the correlationMethods property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CorrelationMethods }
-     *     
+     *
+     * @return possible object is
+     * {@link CorrelationMethods }
      */
     public CorrelationMethods getCorrelationMethods() {
         return correlationMethods;
@@ -151,11 +137,9 @@ public class Correlations {
 
     /**
      * Sets the value of the correlationMethods property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link CorrelationMethods }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link CorrelationMethods }
      */
     public void setCorrelationMethods(CorrelationMethods value) {
         this.correlationMethods = value;

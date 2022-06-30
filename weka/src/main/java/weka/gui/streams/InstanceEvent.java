@@ -23,49 +23,57 @@ package weka.gui.streams;
 
 import java.util.EventObject;
 
-/** 
+/**
  * An event encapsulating an instance stream event.
  *
  * @author Len Trigg (trigg@cs.waikato.ac.nz)
  * @version $Revision$
  */
 public class InstanceEvent
-  extends EventObject {
+        extends EventObject {
 
-  /** for serialization */
-  private static final long serialVersionUID = 3207259868110667379L;
-  
-  /** Specifies that the instance format is available */
-  public static final int FORMAT_AVAILABLE   = 1;
+    /**
+     * for serialization
+     */
+    private static final long serialVersionUID = 3207259868110667379L;
 
-  /** Specifies that an instance is available */
-  public static final int INSTANCE_AVAILABLE = 2;
+    /**
+     * Specifies that the instance format is available
+     */
+    public static final int FORMAT_AVAILABLE = 1;
 
-  /** Specifies that the batch of instances is finished */
-  public static final int BATCH_FINISHED     = 3;
+    /**
+     * Specifies that an instance is available
+     */
+    public static final int INSTANCE_AVAILABLE = 2;
 
-  private int m_ID;
+    /**
+     * Specifies that the batch of instances is finished
+     */
+    public static final int BATCH_FINISHED = 3;
 
-  /**
-   * Constructs an InstanceEvent with the specified source object and event 
-   * type
-   *
-   * @param source the object generating the InstanceEvent
-   * @param ID the type of the InstanceEvent
-   */
-  public InstanceEvent(Object source, int ID) {
+    private int m_ID;
 
-    super(source);
-    m_ID = ID;
-  }
+    /**
+     * Constructs an InstanceEvent with the specified source object and event
+     * type
+     *
+     * @param source the object generating the InstanceEvent
+     * @param ID     the type of the InstanceEvent
+     */
+    public InstanceEvent(Object source, int ID) {
 
-  /**
-   * Get the event type
-   *
-   * @return the event type
-   */
-  public int getID() {
+        super(source);
+        m_ID = ID;
+    }
 
-    return m_ID;
-  }
+    /**
+     * Get the event type
+     *
+     * @return the event type
+     */
+    public int getID() {
+
+        return m_ID;
+    }
 }

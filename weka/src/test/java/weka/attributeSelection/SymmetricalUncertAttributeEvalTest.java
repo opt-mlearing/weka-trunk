@@ -29,28 +29,32 @@ import junit.framework.TestSuite;
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
-public class SymmetricalUncertAttributeEvalTest 
-  extends AbstractEvaluatorTest {
+public class SymmetricalUncertAttributeEvalTest
+        extends AbstractEvaluatorTest {
 
-  public SymmetricalUncertAttributeEvalTest(String name) { 
-    super(name);  
-  }
+    public SymmetricalUncertAttributeEvalTest(String name) {
+        super(name);
+    }
 
-  /** Creates a default Ranker */
-  public ASSearch getSearch() {
-    return new Ranker();
-  }
+    /**
+     * Creates a default Ranker
+     */
+    public ASSearch getSearch() {
+        return new Ranker();
+    }
 
-  /** Creates a default SymmetricalUncertAttributeEval */
-  public ASEvaluation getEvaluator() {
-    return new SymmetricalUncertAttributeEval();
-  }
+    /**
+     * Creates a default SymmetricalUncertAttributeEval
+     */
+    public ASEvaluation getEvaluator() {
+        return new SymmetricalUncertAttributeEval();
+    }
 
-  public static Test suite() {
-    return new TestSuite(SymmetricalUncertAttributeEvalTest.class);
-  }
+    public static Test suite() {
+        return new TestSuite(SymmetricalUncertAttributeEvalTest.class);
+    }
 
-  public static void main(String[] args){
-    junit.textui.TestRunner.run(suite());
-  }
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 }

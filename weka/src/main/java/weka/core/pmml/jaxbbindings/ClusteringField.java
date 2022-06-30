@@ -20,9 +20,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for ClusteringField element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="ClusteringField">
  *   &lt;complexType>
@@ -49,13 +49,11 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "extension",
-    "comparisons"
+        "extension",
+        "comparisons"
 })
 @XmlRootElement(name = "ClusteringField")
 public class ClusteringField {
@@ -77,25 +75,23 @@ public class ClusteringField {
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extension }
-     * 
-     * 
      */
     public List<Extension> getExtension() {
         if (extension == null) {
@@ -106,11 +102,9 @@ public class ClusteringField {
 
     /**
      * Gets the value of the comparisons property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Comparisons }
-     *     
+     *
+     * @return possible object is
+     * {@link Comparisons }
      */
     public Comparisons getComparisons() {
         return comparisons;
@@ -118,11 +112,9 @@ public class ClusteringField {
 
     /**
      * Sets the value of the comparisons property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Comparisons }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Comparisons }
      */
     public void setComparisons(Comparisons value) {
         this.comparisons = value;
@@ -130,11 +122,9 @@ public class ClusteringField {
 
     /**
      * Gets the value of the compareFunction property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link COMPAREFUNCTION }
-     *     
+     *
+     * @return possible object is
+     * {@link COMPAREFUNCTION }
      */
     public COMPAREFUNCTION getCompareFunction() {
         return compareFunction;
@@ -142,11 +132,9 @@ public class ClusteringField {
 
     /**
      * Sets the value of the compareFunction property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link COMPAREFUNCTION }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link COMPAREFUNCTION }
      */
     public void setCompareFunction(COMPAREFUNCTION value) {
         this.compareFunction = value;
@@ -154,11 +142,9 @@ public class ClusteringField {
 
     /**
      * Gets the value of the field property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getField() {
         return field;
@@ -166,11 +152,9 @@ public class ClusteringField {
 
     /**
      * Sets the value of the field property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setField(String value) {
         this.field = value;
@@ -178,15 +162,13 @@ public class ClusteringField {
 
     /**
      * Gets the value of the fieldWeight property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public double getFieldWeight() {
         if (fieldWeight == null) {
-            return  1.0D;
+            return 1.0D;
         } else {
             return fieldWeight;
         }
@@ -194,11 +176,9 @@ public class ClusteringField {
 
     /**
      * Sets the value of the fieldWeight property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setFieldWeight(Double value) {
         this.fieldWeight = value;
@@ -206,11 +186,9 @@ public class ClusteringField {
 
     /**
      * Gets the value of the isCenterField property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getIsCenterField() {
         if (isCenterField == null) {
@@ -222,11 +200,9 @@ public class ClusteringField {
 
     /**
      * Sets the value of the isCenterField property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setIsCenterField(String value) {
         this.isCenterField = value;
@@ -234,11 +210,9 @@ public class ClusteringField {
 
     /**
      * Gets the value of the similarityScale property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public Double getSimilarityScale() {
         return similarityScale;
@@ -246,11 +220,9 @@ public class ClusteringField {
 
     /**
      * Sets the value of the similarityScale property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setSimilarityScale(Double value) {
         this.similarityScale = value;

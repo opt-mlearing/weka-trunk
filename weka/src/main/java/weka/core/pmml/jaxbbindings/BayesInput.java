@@ -20,9 +20,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for BayesInput element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="BayesInput">
  *   &lt;complexType>
@@ -39,14 +39,12 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "extension",
-    "derivedField",
-    "pairCounts"
+        "extension",
+        "derivedField",
+        "pairCounts"
 })
 @XmlRootElement(name = "BayesInput")
 public class BayesInput {
@@ -62,25 +60,23 @@ public class BayesInput {
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extension }
-     * 
-     * 
      */
     public List<Extension> getExtension() {
         if (extension == null) {
@@ -91,11 +87,9 @@ public class BayesInput {
 
     /**
      * Gets the value of the derivedField property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link DerivedField }
-     *     
+     *
+     * @return possible object is
+     * {@link DerivedField }
      */
     public DerivedField getDerivedField() {
         return derivedField;
@@ -103,11 +97,9 @@ public class BayesInput {
 
     /**
      * Sets the value of the derivedField property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link DerivedField }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link DerivedField }
      */
     public void setDerivedField(DerivedField value) {
         this.derivedField = value;
@@ -115,25 +107,23 @@ public class BayesInput {
 
     /**
      * Gets the value of the pairCounts property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the pairCounts property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getPairCounts().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link PairCounts }
-     * 
-     * 
      */
     public List<PairCounts> getPairCounts() {
         if (pairCounts == null) {
@@ -144,11 +134,9 @@ public class BayesInput {
 
     /**
      * Gets the value of the fieldName property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getFieldName() {
         return fieldName;
@@ -156,11 +144,9 @@ public class BayesInput {
 
     /**
      * Sets the value of the fieldName property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setFieldName(String value) {
         this.fieldName = value;

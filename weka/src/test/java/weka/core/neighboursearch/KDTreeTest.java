@@ -30,22 +30,24 @@ import junit.framework.TestSuite;
  * @version $Revision$
  */
 public class KDTreeTest
-  extends AbstractNearestNeighbourSearchTest {
+        extends AbstractNearestNeighbourSearchTest {
 
-  public KDTreeTest(String name) {
-    super(name);
-  }
+    public KDTreeTest(String name) {
+        super(name);
+    }
 
-  /** Creates a default KDTree */
-  public NearestNeighbourSearch getNearestNeighbourSearch() {
-    return new KDTree();
-  }
-  
-  public static Test suite() {
-    return new TestSuite(KDTreeTest.class);
-  }
+    /**
+     * Creates a default KDTree
+     */
+    public NearestNeighbourSearch getNearestNeighbourSearch() {
+        return new KDTree();
+    }
 
-  public static void main(String[] args){
-    junit.textui.TestRunner.run(suite());
-  }
+    public static Test suite() {
+        return new TestSuite(KDTreeTest.class);
+    }
+
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 }

@@ -32,31 +32,43 @@ package weka.gui.knowledgeflow;
  */
 public class KFGUIConsts {
 
-  /** Base path for step icons */
-  public static final String BASE_ICON_PATH = "weka/gui/knowledgeflow/icons/";
+    /**
+     * Base path for step icons
+     */
+    public static final String BASE_ICON_PATH = "weka/gui/knowledgeflow/icons/";
 
-  /** Flow file directory key */
-  public static final String FLOW_DIRECTORY_KEY =
-    "Internal.knowledgeflow.directory";
+    /**
+     * Flow file directory key
+     */
+    public static final String FLOW_DIRECTORY_KEY =
+            "Internal.knowledgeflow.directory";
 
-  /** Group identifier for built-in knowledge flow templates */
-  public static final String KF_BUILTIN_TEMPLATE_KEY =
-    "weka.knowledgeflow.templates";
+    /**
+     * Group identifier for built-in knowledge flow templates
+     */
+    public static final String KF_BUILTIN_TEMPLATE_KEY =
+            "weka.knowledgeflow.templates";
 
-  /**
-   * Group identifier for plugin knowledge flow templates - packages supplying
-   * templates should use this
-   */
-  public static final String KF_PLUGIN_TEMPLATE_KEY =
-    "weka.knowledgeflow.plugin.templates";
+    /**
+     * Group identifier for plugin knowledge flow templates - packages supplying
+     * templates should use this
+     */
+    public static final String KF_PLUGIN_TEMPLATE_KEY =
+            "weka.knowledgeflow.plugin.templates";
 
-  /** Props for templates */
-  protected static final String TEMPLATE_PROPERTY_FILE =
-    "weka/gui/knowledgeflow/templates/templates.props";
+    /**
+     * Props for templates
+     */
+    protected static final String TEMPLATE_PROPERTY_FILE =
+            "weka/gui/knowledgeflow/templates/templates.props";
 
-  /** Constant for an open dialog (same as JFileChooser.OPEN_DIALOG) */
-  public static final int OPEN_DIALOG = 0;
+    /**
+     * Constant for an open dialog (same as JFileChooser.OPEN_DIALOG)
+     */
+    public static final int OPEN_DIALOG = 0;
 
-  /** Constant for a save dialog (same as JFileChooser.SAVE_DIALOG) */
-  public static final int SAVE_DIALOG = 1;
+    /**
+     * Constant for a save dialog (same as JFileChooser.SAVE_DIALOG)
+     */
+    public static final int SAVE_DIALOG = 1;
 }

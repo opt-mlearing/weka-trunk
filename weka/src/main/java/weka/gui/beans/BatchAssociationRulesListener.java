@@ -23,16 +23,15 @@ package weka.gui.beans;
 
 /**
  * Interface to something that can process a BatchAssociationRulesEvent.
- * 
- * @author Mark Hall (mhall{[at]}pentaho{[dot]}com)
  *
+ * @author Mark Hall (mhall{[at]}pentaho{[dot]}com)
  */
 public interface BatchAssociationRulesListener {
 
-  /**
-   * Accept a <code>BatchAssociationRulesEvent</code>
-   * 
-   * @param e a <code>BatchAssociationRulesEvent</code>
-   */
-  void acceptAssociationRules(BatchAssociationRulesEvent e);
+    /**
+     * Accept a <code>BatchAssociationRulesEvent</code>
+     *
+     * @param e a <code>BatchAssociationRulesEvent</code>
+     */
+    void acceptAssociationRules(BatchAssociationRulesEvent e);
 }

@@ -15,7 +15,7 @@
 
 /*
  * TextSaverCustomizer.java
- * 
+ *
  * Copyright (C) 2012 University of Waikato, Hamilton, New Zealand
  */
 package weka.gui.beans;
@@ -39,169 +39,169 @@ import weka.core.EnvironmentHandler;
 
 /**
  * Customizer for the TextSaver component.
- * 
+ *
  * @author thuvh (thuvh87{[at]}gmail{[dot]}com)
  * @author Mark Hall (mhall{[at]}pentaho{[dot]}com)
  * @version $Revision$
  */
 public class TextSaverCustomizer extends JPanel implements BeanCustomizer,
-    EnvironmentHandler, CustomizerClosingListener, CustomizerCloseRequester {
+        EnvironmentHandler, CustomizerClosingListener, CustomizerCloseRequester {
 
-  /**
-   * For serialization
-   */
-  private static final long serialVersionUID = -1012433373647714743L;
+    /**
+     * For serialization
+     */
+    private static final long serialVersionUID = -1012433373647714743L;
 
-  private TextSaver m_textSaver;
+    private TextSaver m_textSaver;
 
-  private FileEnvironmentField m_fileEditor;
+    private FileEnvironmentField m_fileEditor;
 
-  private final JCheckBox m_append = new JCheckBox("Append to file");
+    private final JCheckBox m_append = new JCheckBox("Append to file");
 
-  private Environment m_env = Environment.getSystemWide();
+    private Environment m_env = Environment.getSystemWide();
 
-  private ModifyListener m_modifyListener;
+    private ModifyListener m_modifyListener;
 
-  private Window m_parent;
+    private Window m_parent;
 
-  private String m_fileBackup;
+    private String m_fileBackup;
 
-  /**
-   * Default Constructor
-   */
-  public TextSaverCustomizer() {
-    setLayout(new BorderLayout());
+    /**
+     * Default Constructor
+     */
+    public TextSaverCustomizer() {
+        setLayout(new BorderLayout());
 
-  }
+    }
 
-  /**
-   * Set the TextSaver object to customize.
-   * 
-   * @param object the TextSaver to customize
-   */
-  @Override
-  public void setObject(Object object) {
-    m_textSaver = (TextSaver) object;
-    m_fileBackup = m_textSaver.getFilename();
-    m_append.setSelected(m_textSaver.getAppend());
+    /**
+     * Set the TextSaver object to customize.
+     *
+     * @param object the TextSaver to customize
+     */
+    @Override
+    public void setObject(Object object) {
+        m_textSaver = (TextSaver) object;
+        m_fileBackup = m_textSaver.getFilename();
+        m_append.setSelected(m_textSaver.getAppend());
 
-    setup();
-  }
+        setup();
+    }
 
-  private void setup() {
-    JPanel holder = new JPanel();
-    holder.setLayout(new BorderLayout());
+    private void setup() {
+        JPanel holder = new JPanel();
+        holder.setLayout(new BorderLayout());
 
-    m_fileEditor = new FileEnvironmentField("Filename", m_env,
-        JFileChooser.SAVE_DIALOG);
-    m_fileEditor.resetFileFilters();
-    JPanel temp = new JPanel();
-    temp.setLayout(new GridLayout(2, 0));
-    temp.add(m_fileEditor);
-    temp.add(m_append);
+        m_fileEditor = new FileEnvironmentField("Filename", m_env,
+                JFileChooser.SAVE_DIALOG);
+        m_fileEditor.resetFileFilters();
+        JPanel temp = new JPanel();
+        temp.setLayout(new GridLayout(2, 0));
+        temp.add(m_fileEditor);
+        temp.add(m_append);
 
-    holder.add(temp, BorderLayout.SOUTH);
+        holder.add(temp, BorderLayout.SOUTH);
 
-    String globalInfo = m_textSaver.globalInfo();
+        String globalInfo = m_textSaver.globalInfo();
 
-    JTextArea jt = new JTextArea();
-    jt.setColumns(30);
-    jt.setFont(new Font("SansSerif", Font.PLAIN, 12));
-    jt.setEditable(false);
-    jt.setLineWrap(true);
-    jt.setWrapStyleWord(true);
-    jt.setText(globalInfo);
-    jt.setBackground(getBackground());
-    JPanel jp = new JPanel();
-    jp.setBorder(BorderFactory.createCompoundBorder(
-        BorderFactory.createTitledBorder("About"),
-        BorderFactory.createEmptyBorder(5, 5, 5, 5)));
-    jp.setLayout(new BorderLayout());
-    jp.add(jt, BorderLayout.CENTER);
+        JTextArea jt = new JTextArea();
+        jt.setColumns(30);
+        jt.setFont(new Font("SansSerif", Font.PLAIN, 12));
+        jt.setEditable(false);
+        jt.setLineWrap(true);
+        jt.setWrapStyleWord(true);
+        jt.setText(globalInfo);
+        jt.setBackground(getBackground());
+        JPanel jp = new JPanel();
+        jp.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createTitledBorder("About"),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+        jp.setLayout(new BorderLayout());
+        jp.add(jt, BorderLayout.CENTER);
 
-    holder.add(jp, BorderLayout.NORTH);
+        holder.add(jp, BorderLayout.NORTH);
 
-    add(holder, BorderLayout.CENTER);
+        add(holder, BorderLayout.CENTER);
 
-    addButtons();
+        addButtons();
 
-    m_fileEditor.setText(m_textSaver.getFilename());
-  }
+        m_fileEditor.setText(m_textSaver.getFilename());
+    }
 
-  private void addButtons() {
-    JButton okBut = new JButton("OK");
-    JButton cancelBut = new JButton("Cancel");
+    private void addButtons() {
+        JButton okBut = new JButton("OK");
+        JButton cancelBut = new JButton("Cancel");
 
-    JPanel butHolder = new JPanel();
-    butHolder.setLayout(new GridLayout(1, 2));
-    butHolder.add(okBut);
-    butHolder.add(cancelBut);
-    add(butHolder, BorderLayout.SOUTH);
+        JPanel butHolder = new JPanel();
+        butHolder.setLayout(new GridLayout(1, 2));
+        butHolder.add(okBut);
+        butHolder.add(cancelBut);
+        add(butHolder, BorderLayout.SOUTH);
 
-    okBut.addActionListener(new ActionListener() {
-      @Override
-      public void actionPerformed(ActionEvent e) {
-        m_textSaver.setFilename(m_fileEditor.getText());
-        m_textSaver.setAppend(m_append.isSelected());
+        okBut.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                m_textSaver.setFilename(m_fileEditor.getText());
+                m_textSaver.setAppend(m_append.isSelected());
 
-        if (m_modifyListener != null) {
-          m_modifyListener.setModifiedStatus(TextSaverCustomizer.this, true);
-        }
-        if (m_parent != null) {
-          m_parent.dispose();
-        }
-      }
-    });
+                if (m_modifyListener != null) {
+                    m_modifyListener.setModifiedStatus(TextSaverCustomizer.this, true);
+                }
+                if (m_parent != null) {
+                    m_parent.dispose();
+                }
+            }
+        });
 
-    cancelBut.addActionListener(new ActionListener() {
-      @Override
-      public void actionPerformed(ActionEvent e) {
+        cancelBut.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
 
-        customizerClosing();
-        if (m_parent != null) {
-          m_parent.dispose();
-        }
-      }
-    });
-  }
+                customizerClosing();
+                if (m_parent != null) {
+                    m_parent.dispose();
+                }
+            }
+        });
+    }
 
-  /**
-   * Set the environment variables to use
-   * 
-   * @param env the environment variables to use
-   */
-  @Override
-  public void setEnvironment(Environment env) {
-    m_env = env;
-  }
+    /**
+     * Set the environment variables to use
+     *
+     * @param env the environment variables to use
+     */
+    @Override
+    public void setEnvironment(Environment env) {
+        m_env = env;
+    }
 
-  /**
-   * Set a listener interested in whether we've modified the TextSaver that
-   * we're customizing
-   * 
-   * @param l the listener
-   */
-  @Override
-  public void setModifiedListener(ModifyListener l) {
-    m_modifyListener = l;
-  }
+    /**
+     * Set a listener interested in whether we've modified the TextSaver that
+     * we're customizing
+     *
+     * @param l the listener
+     */
+    @Override
+    public void setModifiedListener(ModifyListener l) {
+        m_modifyListener = l;
+    }
 
-  /**
-   * Set the parent window of this dialog
-   * 
-   * @param parent the parent window
-   */
-  @Override
-  public void setParentWindow(Window parent) {
-    m_parent = parent;
-  }
+    /**
+     * Set the parent window of this dialog
+     *
+     * @param parent the parent window
+     */
+    @Override
+    public void setParentWindow(Window parent) {
+        m_parent = parent;
+    }
 
-  /**
-   * Gets called if the use closes the dialog via the close widget on the window
-   * - is treated as cancel, so restores the TextSaver to its previous state.
-   */
-  @Override
-  public void customizerClosing() {
-    m_textSaver.setFilename(m_fileBackup);
-  }
+    /**
+     * Gets called if the use closes the dialog via the close widget on the window
+     * - is treated as cancel, so restores the TextSaver to its previous state.
+     */
+    @Override
+    public void customizerClosing() {
+        m_textSaver.setFilename(m_fileBackup);
+    }
 }

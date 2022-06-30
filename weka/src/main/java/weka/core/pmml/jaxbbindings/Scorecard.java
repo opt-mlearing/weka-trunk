@@ -21,9 +21,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for Scorecard element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="Scorecard">
  *   &lt;complexType>
@@ -72,26 +72,24 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "content"
+        "content"
 })
 @XmlRootElement(name = "Scorecard")
 public class Scorecard {
 
     @XmlElementRefs({
-        @XmlElementRef(name = "ModelExplanation", namespace = "http://www.dmg.org/PMML-4_1", type = ModelExplanation.class),
-        @XmlElementRef(name = "ModelStats", namespace = "http://www.dmg.org/PMML-4_1", type = ModelStats.class),
-        @XmlElementRef(name = "Characteristics", namespace = "http://www.dmg.org/PMML-4_1", type = Characteristics.class),
-        @XmlElementRef(name = "Output", namespace = "http://www.dmg.org/PMML-4_1", type = Output.class),
-        @XmlElementRef(name = "LocalTransformations", namespace = "http://www.dmg.org/PMML-4_1", type = LocalTransformations.class),
-        @XmlElementRef(name = "Targets", namespace = "http://www.dmg.org/PMML-4_1", type = Targets.class),
-        @XmlElementRef(name = "MiningSchema", namespace = "http://www.dmg.org/PMML-4_1", type = MiningSchema.class),
-        @XmlElementRef(name = "ModelVerification", namespace = "http://www.dmg.org/PMML-4_1", type = ModelVerification.class),
-        @XmlElementRef(name = "Extension", namespace = "http://www.dmg.org/PMML-4_1", type = Extension.class)
+            @XmlElementRef(name = "ModelExplanation", namespace = "http://www.dmg.org/PMML-4_1", type = ModelExplanation.class),
+            @XmlElementRef(name = "ModelStats", namespace = "http://www.dmg.org/PMML-4_1", type = ModelStats.class),
+            @XmlElementRef(name = "Characteristics", namespace = "http://www.dmg.org/PMML-4_1", type = Characteristics.class),
+            @XmlElementRef(name = "Output", namespace = "http://www.dmg.org/PMML-4_1", type = Output.class),
+            @XmlElementRef(name = "LocalTransformations", namespace = "http://www.dmg.org/PMML-4_1", type = LocalTransformations.class),
+            @XmlElementRef(name = "Targets", namespace = "http://www.dmg.org/PMML-4_1", type = Targets.class),
+            @XmlElementRef(name = "MiningSchema", namespace = "http://www.dmg.org/PMML-4_1", type = MiningSchema.class),
+            @XmlElementRef(name = "ModelVerification", namespace = "http://www.dmg.org/PMML-4_1", type = ModelVerification.class),
+            @XmlElementRef(name = "Extension", namespace = "http://www.dmg.org/PMML-4_1", type = Extension.class)
     })
     protected List<Object> content;
     @XmlAttribute
@@ -114,31 +112,31 @@ public class Scorecard {
     protected Boolean useReasonCodes;
 
     /**
-     * Gets the rest of the content model. 
-     * 
+     * Gets the rest of the content model.
+     *
      * <p>
-     * You are getting this "catch-all" property because of the following reason: 
-     * The field name "Extension" is used by two different parts of a schema. See: 
+     * You are getting this "catch-all" property because of the following reason:
+     * The field name "Extension" is used by two different parts of a schema. See:
      * line 3310 of file:/home/david/workspace/weka/pmml-4-1.xsd
      * line 3301 of file:/home/david/workspace/weka/pmml-4-1.xsd
      * <p>
-     * To get rid of this property, apply a property customization to one 
-     * of both of the following declarations to change their names: 
+     * To get rid of this property, apply a property customization to one
+     * of both of the following declarations to change their names:
      * Gets the value of the content property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the content property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getContent().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ModelExplanation }
@@ -150,8 +148,6 @@ public class Scorecard {
      * {@link MiningSchema }
      * {@link ModelVerification }
      * {@link Extension }
-     * 
-     * 
      */
     public List<Object> getContent() {
         if (content == null) {
@@ -162,11 +158,9 @@ public class Scorecard {
 
     /**
      * Gets the value of the algorithmName property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getAlgorithmName() {
         return algorithmName;
@@ -174,11 +168,9 @@ public class Scorecard {
 
     /**
      * Sets the value of the algorithmName property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setAlgorithmName(String value) {
         this.algorithmName = value;
@@ -186,11 +178,9 @@ public class Scorecard {
 
     /**
      * Gets the value of the baselineMethod property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getBaselineMethod() {
         if (baselineMethod == null) {
@@ -202,11 +192,9 @@ public class Scorecard {
 
     /**
      * Sets the value of the baselineMethod property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setBaselineMethod(String value) {
         this.baselineMethod = value;
@@ -214,11 +202,9 @@ public class Scorecard {
 
     /**
      * Gets the value of the baselineScore property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public Double getBaselineScore() {
         return baselineScore;
@@ -226,11 +212,9 @@ public class Scorecard {
 
     /**
      * Sets the value of the baselineScore property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setBaselineScore(Double value) {
         this.baselineScore = value;
@@ -238,11 +222,9 @@ public class Scorecard {
 
     /**
      * Gets the value of the functionName property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link MININGFUNCTION }
-     *     
+     *
+     * @return possible object is
+     * {@link MININGFUNCTION }
      */
     public MININGFUNCTION getFunctionName() {
         return functionName;
@@ -250,11 +232,9 @@ public class Scorecard {
 
     /**
      * Sets the value of the functionName property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link MININGFUNCTION }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link MININGFUNCTION }
      */
     public void setFunctionName(MININGFUNCTION value) {
         this.functionName = value;
@@ -262,15 +242,13 @@ public class Scorecard {
 
     /**
      * Gets the value of the initialScore property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public double getInitialScore() {
         if (initialScore == null) {
-            return  0.0D;
+            return 0.0D;
         } else {
             return initialScore;
         }
@@ -278,11 +256,9 @@ public class Scorecard {
 
     /**
      * Sets the value of the initialScore property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setInitialScore(Double value) {
         this.initialScore = value;
@@ -290,11 +266,9 @@ public class Scorecard {
 
     /**
      * Gets the value of the isScorable property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     *
+     * @return possible object is
+     * {@link Boolean }
      */
     public boolean isIsScorable() {
         if (isScorable == null) {
@@ -306,11 +280,9 @@ public class Scorecard {
 
     /**
      * Sets the value of the isScorable property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Boolean }
      */
     public void setIsScorable(Boolean value) {
         this.isScorable = value;
@@ -318,11 +290,9 @@ public class Scorecard {
 
     /**
      * Gets the value of the modelName property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getModelName() {
         return modelName;
@@ -330,11 +300,9 @@ public class Scorecard {
 
     /**
      * Sets the value of the modelName property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setModelName(String value) {
         this.modelName = value;
@@ -342,11 +310,9 @@ public class Scorecard {
 
     /**
      * Gets the value of the reasonCodeAlgorithm property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getReasonCodeAlgorithm() {
         if (reasonCodeAlgorithm == null) {
@@ -358,11 +324,9 @@ public class Scorecard {
 
     /**
      * Sets the value of the reasonCodeAlgorithm property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setReasonCodeAlgorithm(String value) {
         this.reasonCodeAlgorithm = value;
@@ -370,11 +334,9 @@ public class Scorecard {
 
     /**
      * Gets the value of the useReasonCodes property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     *
+     * @return possible object is
+     * {@link Boolean }
      */
     public boolean isUseReasonCodes() {
         if (useReasonCodes == null) {
@@ -386,11 +348,9 @@ public class Scorecard {
 
     /**
      * Sets the value of the useReasonCodes property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Boolean }
      */
     public void setUseReasonCodes(Boolean value) {
         this.useReasonCodes = value;

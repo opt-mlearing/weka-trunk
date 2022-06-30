@@ -28,5 +28,6 @@ package weka.gui.beans;
  * @author <a href="mailto:mhall@cs.waikato.ac.nz">Mark Hall</a>
  * @version $Revision$
  */
-public class TrainingSetMakerBeanInfo 
-  extends AbstractTrainingSetProducerBeanInfo { }
+public class TrainingSetMakerBeanInfo
+        extends AbstractTrainingSetProducerBeanInfo {
+}

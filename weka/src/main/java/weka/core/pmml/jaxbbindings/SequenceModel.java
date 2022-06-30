@@ -22,9 +22,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for SequenceModel element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="SequenceModel">
  *   &lt;complexType>
@@ -58,27 +58,25 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "content"
+        "content"
 })
 @XmlRootElement(name = "SequenceModel")
 public class SequenceModel {
 
     @XmlElementRefs({
-        @XmlElementRef(name = "ModelStats", namespace = "http://www.dmg.org/PMML-4_1", type = ModelStats.class),
-        @XmlElementRef(name = "SequenceRule", namespace = "http://www.dmg.org/PMML-4_1", type = SequenceRule.class),
-        @XmlElementRef(name = "SetPredicate", namespace = "http://www.dmg.org/PMML-4_1", type = SetPredicate.class),
-        @XmlElementRef(name = "LocalTransformations", namespace = "http://www.dmg.org/PMML-4_1", type = LocalTransformations.class),
-        @XmlElementRef(name = "Sequence", namespace = "http://www.dmg.org/PMML-4_1", type = Sequence.class),
-        @XmlElementRef(name = "Constraints", namespace = "http://www.dmg.org/PMML-4_1", type = Constraints.class),
-        @XmlElementRef(name = "MiningSchema", namespace = "http://www.dmg.org/PMML-4_1", type = MiningSchema.class),
-        @XmlElementRef(name = "Itemset", namespace = "http://www.dmg.org/PMML-4_1", type = Itemset.class),
-        @XmlElementRef(name = "Extension", namespace = "http://www.dmg.org/PMML-4_1", type = Extension.class),
-        @XmlElementRef(name = "Item", namespace = "http://www.dmg.org/PMML-4_1", type = Item.class)
+            @XmlElementRef(name = "ModelStats", namespace = "http://www.dmg.org/PMML-4_1", type = ModelStats.class),
+            @XmlElementRef(name = "SequenceRule", namespace = "http://www.dmg.org/PMML-4_1", type = SequenceRule.class),
+            @XmlElementRef(name = "SetPredicate", namespace = "http://www.dmg.org/PMML-4_1", type = SetPredicate.class),
+            @XmlElementRef(name = "LocalTransformations", namespace = "http://www.dmg.org/PMML-4_1", type = LocalTransformations.class),
+            @XmlElementRef(name = "Sequence", namespace = "http://www.dmg.org/PMML-4_1", type = Sequence.class),
+            @XmlElementRef(name = "Constraints", namespace = "http://www.dmg.org/PMML-4_1", type = Constraints.class),
+            @XmlElementRef(name = "MiningSchema", namespace = "http://www.dmg.org/PMML-4_1", type = MiningSchema.class),
+            @XmlElementRef(name = "Itemset", namespace = "http://www.dmg.org/PMML-4_1", type = Itemset.class),
+            @XmlElementRef(name = "Extension", namespace = "http://www.dmg.org/PMML-4_1", type = Extension.class),
+            @XmlElementRef(name = "Item", namespace = "http://www.dmg.org/PMML-4_1", type = Item.class)
     })
     protected List<Object> content;
     @XmlAttribute
@@ -103,31 +101,31 @@ public class SequenceModel {
     protected BigInteger numberOfTransactions;
 
     /**
-     * Gets the rest of the content model. 
-     * 
+     * Gets the rest of the content model.
+     *
      * <p>
-     * You are getting this "catch-all" property because of the following reason: 
-     * The field name "Extension" is used by two different parts of a schema. See: 
+     * You are getting this "catch-all" property because of the following reason:
+     * The field name "Extension" is used by two different parts of a schema. See:
      * line 343 of file:/home/david/workspace/weka/pmml-4-1.xsd
      * line 333 of file:/home/david/workspace/weka/pmml-4-1.xsd
      * <p>
-     * To get rid of this property, apply a property customization to one 
-     * of both of the following declarations to change their names: 
+     * To get rid of this property, apply a property customization to one
+     * of both of the following declarations to change their names:
      * Gets the value of the content property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the content property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getContent().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ModelStats }
@@ -140,8 +138,6 @@ public class SequenceModel {
      * {@link MiningSchema }
      * {@link Item }
      * {@link Extension }
-     * 
-     * 
      */
     public List<Object> getContent() {
         if (content == null) {
@@ -152,11 +148,9 @@ public class SequenceModel {
 
     /**
      * Gets the value of the algorithmName property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getAlgorithmName() {
         return algorithmName;
@@ -164,11 +158,9 @@ public class SequenceModel {
 
     /**
      * Sets the value of the algorithmName property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setAlgorithmName(String value) {
         this.algorithmName = value;
@@ -176,11 +168,9 @@ public class SequenceModel {
 
     /**
      * Gets the value of the avgNumberOfItemsPerTransaction property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public Double getAvgNumberOfItemsPerTransaction() {
         return avgNumberOfItemsPerTransaction;
@@ -188,11 +178,9 @@ public class SequenceModel {
 
     /**
      * Sets the value of the avgNumberOfItemsPerTransaction property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setAvgNumberOfItemsPerTransaction(Double value) {
         this.avgNumberOfItemsPerTransaction = value;
@@ -200,11 +188,9 @@ public class SequenceModel {
 
     /**
      * Gets the value of the avgNumberOfTAsPerTAGroup property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public Double getAvgNumberOfTAsPerTAGroup() {
         return avgNumberOfTAsPerTAGroup;
@@ -212,11 +198,9 @@ public class SequenceModel {
 
     /**
      * Sets the value of the avgNumberOfTAsPerTAGroup property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setAvgNumberOfTAsPerTAGroup(Double value) {
         this.avgNumberOfTAsPerTAGroup = value;
@@ -224,11 +208,9 @@ public class SequenceModel {
 
     /**
      * Gets the value of the functionName property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link MININGFUNCTION }
-     *     
+     *
+     * @return possible object is
+     * {@link MININGFUNCTION }
      */
     public MININGFUNCTION getFunctionName() {
         return functionName;
@@ -236,11 +218,9 @@ public class SequenceModel {
 
     /**
      * Sets the value of the functionName property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link MININGFUNCTION }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link MININGFUNCTION }
      */
     public void setFunctionName(MININGFUNCTION value) {
         this.functionName = value;
@@ -248,11 +228,9 @@ public class SequenceModel {
 
     /**
      * Gets the value of the isScorable property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     *
+     * @return possible object is
+     * {@link Boolean }
      */
     public boolean isIsScorable() {
         if (isScorable == null) {
@@ -264,11 +242,9 @@ public class SequenceModel {
 
     /**
      * Sets the value of the isScorable property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Boolean }
      */
     public void setIsScorable(Boolean value) {
         this.isScorable = value;
@@ -276,11 +252,9 @@ public class SequenceModel {
 
     /**
      * Gets the value of the maxNumberOfItemsPerTransaction property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @return possible object is
+     * {@link BigInteger }
      */
     public BigInteger getMaxNumberOfItemsPerTransaction() {
         return maxNumberOfItemsPerTransaction;
@@ -288,11 +262,9 @@ public class SequenceModel {
 
     /**
      * Sets the value of the maxNumberOfItemsPerTransaction property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link BigInteger }
      */
     public void setMaxNumberOfItemsPerTransaction(BigInteger value) {
         this.maxNumberOfItemsPerTransaction = value;
@@ -300,11 +272,9 @@ public class SequenceModel {
 
     /**
      * Gets the value of the maxNumberOfTAsPerTAGroup property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @return possible object is
+     * {@link BigInteger }
      */
     public BigInteger getMaxNumberOfTAsPerTAGroup() {
         return maxNumberOfTAsPerTAGroup;
@@ -312,11 +282,9 @@ public class SequenceModel {
 
     /**
      * Sets the value of the maxNumberOfTAsPerTAGroup property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link BigInteger }
      */
     public void setMaxNumberOfTAsPerTAGroup(BigInteger value) {
         this.maxNumberOfTAsPerTAGroup = value;
@@ -324,11 +292,9 @@ public class SequenceModel {
 
     /**
      * Gets the value of the modelName property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getModelName() {
         return modelName;
@@ -336,11 +302,9 @@ public class SequenceModel {
 
     /**
      * Sets the value of the modelName property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setModelName(String value) {
         this.modelName = value;
@@ -348,11 +312,9 @@ public class SequenceModel {
 
     /**
      * Gets the value of the numberOfTransactionGroups property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @return possible object is
+     * {@link BigInteger }
      */
     public BigInteger getNumberOfTransactionGroups() {
         return numberOfTransactionGroups;
@@ -360,11 +322,9 @@ public class SequenceModel {
 
     /**
      * Sets the value of the numberOfTransactionGroups property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link BigInteger }
      */
     public void setNumberOfTransactionGroups(BigInteger value) {
         this.numberOfTransactionGroups = value;
@@ -372,11 +332,9 @@ public class SequenceModel {
 
     /**
      * Gets the value of the numberOfTransactions property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @return possible object is
+     * {@link BigInteger }
      */
     public BigInteger getNumberOfTransactions() {
         return numberOfTransactions;
@@ -384,11 +342,9 @@ public class SequenceModel {
 
     /**
      * Sets the value of the numberOfTransactions property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link BigInteger }
      */
     public void setNumberOfTransactions(BigInteger value) {
         this.numberOfTransactions = value;

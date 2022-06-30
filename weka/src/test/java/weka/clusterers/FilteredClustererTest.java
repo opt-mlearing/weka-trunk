@@ -32,23 +32,25 @@ import junit.framework.TestSuite;
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
-public class FilteredClustererTest 
-  extends AbstractClustererTest {
+public class FilteredClustererTest
+        extends AbstractClustererTest {
 
-  public FilteredClustererTest(String name) { 
-    super(name);  
-  }
+    public FilteredClustererTest(String name) {
+        super(name);
+    }
 
-  /** Creates a default FilteredClusterer */
-  public Clusterer getClusterer() {
-    return new FilteredClusterer();
-  }
+    /**
+     * Creates a default FilteredClusterer
+     */
+    public Clusterer getClusterer() {
+        return new FilteredClusterer();
+    }
 
-  public static Test suite() {
-    return new TestSuite(FilteredClustererTest.class);
-  }
+    public static Test suite() {
+        return new TestSuite(FilteredClustererTest.class);
+    }
 
-  public static void main(String[] args){
-    junit.textui.TestRunner.run(suite());
-  }
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 }

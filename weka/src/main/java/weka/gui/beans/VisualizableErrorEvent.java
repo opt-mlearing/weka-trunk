@@ -34,24 +34,26 @@ import weka.gui.visualize.PlotData2D;
  * @see EventObject
  */
 public class VisualizableErrorEvent
-  extends EventObject {
+        extends EventObject {
 
-  /** for serialization */
-  private static final long serialVersionUID = -5811819270887223400L;
+    /**
+     * for serialization
+     */
+    private static final long serialVersionUID = -5811819270887223400L;
 
-  private PlotData2D m_dataSet;
+    private PlotData2D m_dataSet;
 
-  public VisualizableErrorEvent(Object source, PlotData2D dataSet) {
-    super(source);
-    m_dataSet = dataSet;
-  }
-  
-  /**
-   * Return the instances of the data set
-   *
-   * @return an <code>Instances</code> value
-   */
-  public PlotData2D getDataSet() {
-    return m_dataSet;
-  }
+    public VisualizableErrorEvent(Object source, PlotData2D dataSet) {
+        super(source);
+        m_dataSet = dataSet;
+    }
+
+    /**
+     * Return the instances of the data set
+     *
+     * @return an <code>Instances</code> value
+     */
+    public PlotData2D getDataSet() {
+        return m_dataSet;
+    }
 }

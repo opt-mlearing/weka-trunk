@@ -20,9 +20,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for PartitionFieldStats element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="PartitionFieldStats">
  *   &lt;complexType>
@@ -48,15 +48,13 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "extension",
-    "counts",
-    "numericInfo",
-    "numarray"
+        "extension",
+        "counts",
+        "numericInfo",
+        "numarray"
 })
 @XmlRootElement(name = "PartitionFieldStats")
 public class PartitionFieldStats {
@@ -76,25 +74,23 @@ public class PartitionFieldStats {
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extension }
-     * 
-     * 
      */
     public List<Extension> getExtension() {
         if (extension == null) {
@@ -105,11 +101,9 @@ public class PartitionFieldStats {
 
     /**
      * Gets the value of the counts property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Counts }
-     *     
+     *
+     * @return possible object is
+     * {@link Counts }
      */
     public Counts getCounts() {
         return counts;
@@ -117,11 +111,9 @@ public class PartitionFieldStats {
 
     /**
      * Sets the value of the counts property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Counts }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Counts }
      */
     public void setCounts(Counts value) {
         this.counts = value;
@@ -129,11 +121,9 @@ public class PartitionFieldStats {
 
     /**
      * Gets the value of the numericInfo property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link NumericInfo }
-     *     
+     *
+     * @return possible object is
+     * {@link NumericInfo }
      */
     public NumericInfo getNumericInfo() {
         return numericInfo;
@@ -141,11 +131,9 @@ public class PartitionFieldStats {
 
     /**
      * Sets the value of the numericInfo property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link NumericInfo }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link NumericInfo }
      */
     public void setNumericInfo(NumericInfo value) {
         this.numericInfo = value;
@@ -153,25 +141,23 @@ public class PartitionFieldStats {
 
     /**
      * Gets the value of the numarray property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the numarray property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getNUMARRAY().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ArrayType }
-     * 
-     * 
      */
     public List<ArrayType> getNUMARRAY() {
         if (numarray == null) {
@@ -182,11 +168,9 @@ public class PartitionFieldStats {
 
     /**
      * Gets the value of the field property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getField() {
         return field;
@@ -194,11 +178,9 @@ public class PartitionFieldStats {
 
     /**
      * Sets the value of the field property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setField(String value) {
         this.field = value;
@@ -206,11 +188,9 @@ public class PartitionFieldStats {
 
     /**
      * Gets the value of the weighted property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getWeighted() {
         if (weighted == null) {
@@ -222,11 +202,9 @@ public class PartitionFieldStats {
 
     /**
      * Sets the value of the weighted property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setWeighted(String value) {
         this.weighted = value;

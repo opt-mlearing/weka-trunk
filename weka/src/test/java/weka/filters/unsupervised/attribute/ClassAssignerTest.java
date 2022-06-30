@@ -34,28 +34,30 @@ import junit.framework.TestSuite;
  * @version $Revision$
  */
 public class ClassAssignerTest extends AbstractFilterTest {
-  
-  public ClassAssignerTest(String name) { 
-    super(name);
-  }
 
-  /** Creates a default ClassAssigner */
-  public Filter getFilter() {
-    return new ClassAssigner();
-  }
+    public ClassAssignerTest(String name) {
+        super(name);
+    }
 
-  public void testTypical() {
-    Instances result = useFilter();
-    // Number of attributes and instances shouldn't change
-    assertEquals(m_Instances.numAttributes(), result.numAttributes());
-    assertEquals(m_Instances.numInstances(), result.numInstances());
-  }
+    /**
+     * Creates a default ClassAssigner
+     */
+    public Filter getFilter() {
+        return new ClassAssigner();
+    }
 
-  public static Test suite() {
-    return new TestSuite(ClassAssignerTest.class);
-  }
+    public void testTypical() {
+        Instances result = useFilter();
+        // Number of attributes and instances shouldn't change
+        assertEquals(m_Instances.numAttributes(), result.numAttributes());
+        assertEquals(m_Instances.numInstances(), result.numInstances());
+    }
 
-  public static void main(String[] args){
-    junit.textui.TestRunner.run(suite());
-  }
+    public static Test suite() {
+        return new TestSuite(ClassAssignerTest.class);
+    }
+
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 }

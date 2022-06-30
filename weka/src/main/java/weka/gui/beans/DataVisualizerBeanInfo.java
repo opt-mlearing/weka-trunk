@@ -32,38 +32,38 @@ import java.beans.SimpleBeanInfo;
  * @version $Revision$
  */
 public class DataVisualizerBeanInfo extends SimpleBeanInfo {
-  
-  /**
-   * Get the event set descriptors for this bean
-   *
-   * @return an <code>EventSetDescriptor[]</code> value
-   */
-  public EventSetDescriptor [] getEventSetDescriptors() {
-    try {
-      EventSetDescriptor [] esds = { 
-        new EventSetDescriptor(DataVisualizer.class,
-                               "dataSet",
-                               DataSourceListener.class,
-                               "acceptDataSet"),
-        new EventSetDescriptor(DataVisualizer.class, 
-            "image", 
-            ImageListener.class, 
-        "acceptImage")
-      };      
-      return esds;
-    } catch (Exception ex) {
-      ex.printStackTrace();
+
+    /**
+     * Get the event set descriptors for this bean
+     *
+     * @return an <code>EventSetDescriptor[]</code> value
+     */
+    public EventSetDescriptor[] getEventSetDescriptors() {
+        try {
+            EventSetDescriptor[] esds = {
+                    new EventSetDescriptor(DataVisualizer.class,
+                            "dataSet",
+                            DataSourceListener.class,
+                            "acceptDataSet"),
+                    new EventSetDescriptor(DataVisualizer.class,
+                            "image",
+                            ImageListener.class,
+                            "acceptImage")
+            };
+            return esds;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return null;
     }
-    return null;
-  }
-  
-  /**
-   * Get the bean descriptor for this bean
-   *
-   * @return a <code>BeanDescriptor</code> value
-   */
-  public BeanDescriptor getBeanDescriptor() {
-    return new BeanDescriptor(weka.gui.beans.DataVisualizer.class,
-                              DataVisualizerCustomizer.class);
-  }
+
+    /**
+     * Get the bean descriptor for this bean
+     *
+     * @return a <code>BeanDescriptor</code> value
+     */
+    public BeanDescriptor getBeanDescriptor() {
+        return new BeanDescriptor(weka.gui.beans.DataVisualizer.class,
+                DataVisualizerCustomizer.class);
+    }
 }

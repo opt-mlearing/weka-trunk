@@ -23,7 +23,7 @@ package weka.estimators;
 
 import weka.core.RevisionUtils;
 
-/** 
+/**
  * Conditional probability estimator for a numeric domain conditional upon
  * a discrete domain (utilises separate kernel estimators for each discrete
  * conditioning value).

@@ -28,15 +28,15 @@ import java.util.EventListener;
  *
  * @author <a href="mailto:mhall@cs.waikato.ac.nz">Mark Hall</a>
  * @version $Revision$
- * @since 1.0
  * @see EventListener
+ * @since 1.0
  */
 public interface BatchClassifierListener extends EventListener {
-  
-  /**
-   * Accept a BatchClassifierEvent
-   *
-   * @param e a <code>BatchClassifierEvent</code> value
-   */
-  void acceptClassifier(BatchClassifierEvent e);
+
+    /**
+     * Accept a BatchClassifierEvent
+     *
+     * @param e a <code>BatchClassifierEvent</code> value
+     */
+    void acceptClassifier(BatchClassifierEvent e);
 }

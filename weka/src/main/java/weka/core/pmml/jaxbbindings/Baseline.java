@@ -19,9 +19,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for Baseline element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="Baseline">
  *   &lt;complexType>
@@ -36,19 +36,17 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "anyDistribution",
-    "gaussianDistribution",
-    "poissonDistribution",
-    "uniformDistribution",
-    "extension",
-    "countTable",
-    "normalizedCountTable",
-    "fieldRef"
+        "anyDistribution",
+        "gaussianDistribution",
+        "poissonDistribution",
+        "uniformDistribution",
+        "extension",
+        "countTable",
+        "normalizedCountTable",
+        "fieldRef"
 })
 @XmlRootElement(name = "Baseline")
 public class Baseline {
@@ -72,11 +70,9 @@ public class Baseline {
 
     /**
      * Gets the value of the anyDistribution property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link AnyDistribution }
-     *     
+     *
+     * @return possible object is
+     * {@link AnyDistribution }
      */
     public AnyDistribution getAnyDistribution() {
         return anyDistribution;
@@ -84,11 +80,9 @@ public class Baseline {
 
     /**
      * Sets the value of the anyDistribution property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link AnyDistribution }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link AnyDistribution }
      */
     public void setAnyDistribution(AnyDistribution value) {
         this.anyDistribution = value;
@@ -96,11 +90,9 @@ public class Baseline {
 
     /**
      * Gets the value of the gaussianDistribution property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link GaussianDistribution }
-     *     
+     *
+     * @return possible object is
+     * {@link GaussianDistribution }
      */
     public GaussianDistribution getGaussianDistribution() {
         return gaussianDistribution;
@@ -108,11 +100,9 @@ public class Baseline {
 
     /**
      * Sets the value of the gaussianDistribution property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link GaussianDistribution }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link GaussianDistribution }
      */
     public void setGaussianDistribution(GaussianDistribution value) {
         this.gaussianDistribution = value;
@@ -120,11 +110,9 @@ public class Baseline {
 
     /**
      * Gets the value of the poissonDistribution property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link PoissonDistribution }
-     *     
+     *
+     * @return possible object is
+     * {@link PoissonDistribution }
      */
     public PoissonDistribution getPoissonDistribution() {
         return poissonDistribution;
@@ -132,11 +120,9 @@ public class Baseline {
 
     /**
      * Sets the value of the poissonDistribution property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link PoissonDistribution }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link PoissonDistribution }
      */
     public void setPoissonDistribution(PoissonDistribution value) {
         this.poissonDistribution = value;
@@ -144,11 +130,9 @@ public class Baseline {
 
     /**
      * Gets the value of the uniformDistribution property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link UniformDistribution }
-     *     
+     *
+     * @return possible object is
+     * {@link UniformDistribution }
      */
     public UniformDistribution getUniformDistribution() {
         return uniformDistribution;
@@ -156,11 +140,9 @@ public class Baseline {
 
     /**
      * Sets the value of the uniformDistribution property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link UniformDistribution }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link UniformDistribution }
      */
     public void setUniformDistribution(UniformDistribution value) {
         this.uniformDistribution = value;
@@ -168,25 +150,23 @@ public class Baseline {
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extension }
-     * 
-     * 
      */
     public List<Extension> getExtension() {
         if (extension == null) {
@@ -197,11 +177,9 @@ public class Baseline {
 
     /**
      * Gets the value of the countTable property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link COUNTTABLETYPE }
-     *     
+     *
+     * @return possible object is
+     * {@link COUNTTABLETYPE }
      */
     public COUNTTABLETYPE getCountTable() {
         return countTable;
@@ -209,11 +187,9 @@ public class Baseline {
 
     /**
      * Sets the value of the countTable property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link COUNTTABLETYPE }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link COUNTTABLETYPE }
      */
     public void setCountTable(COUNTTABLETYPE value) {
         this.countTable = value;
@@ -221,11 +197,9 @@ public class Baseline {
 
     /**
      * Gets the value of the normalizedCountTable property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link COUNTTABLETYPE }
-     *     
+     *
+     * @return possible object is
+     * {@link COUNTTABLETYPE }
      */
     public COUNTTABLETYPE getNormalizedCountTable() {
         return normalizedCountTable;
@@ -233,11 +207,9 @@ public class Baseline {
 
     /**
      * Sets the value of the normalizedCountTable property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link COUNTTABLETYPE }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link COUNTTABLETYPE }
      */
     public void setNormalizedCountTable(COUNTTABLETYPE value) {
         this.normalizedCountTable = value;
@@ -245,25 +217,23 @@ public class Baseline {
 
     /**
      * Gets the value of the fieldRef property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the fieldRef property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getFieldRef().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link FieldRef }
-     * 
-     * 
      */
     public List<FieldRef> getFieldRef() {
         if (fieldRef == null) {

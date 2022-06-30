@@ -32,165 +32,177 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeListener;
 
-/** 
+/**
  * This panel switches between simple and advanced experiment setup panels.
  *
  * @author Richard Kirkby (rkirkby@cs.waikato.ac.nz)
  * @version $Revision$
  */
 public class SetupModePanel
-  extends JPanel {
+        extends JPanel {
 
-  /** for serialization */
-  private static final long serialVersionUID = -3758035565520727822L;
+    /**
+     * for serialization
+     */
+    private static final long serialVersionUID = -3758035565520727822L;
 
-  /** the available panels. */
-  protected AbstractSetupPanel[] m_Panels = AbstractSetupPanel.getPanels();
+    /**
+     * the available panels.
+     */
+    protected AbstractSetupPanel[] m_Panels = AbstractSetupPanel.getPanels();
 
-  /** the combobox with all available setup panels. */
-  protected JComboBox m_ComboBoxPanels;
+    /**
+     * the combobox with all available setup panels.
+     */
+    protected JComboBox m_ComboBoxPanels;
 
-  /** The simple setup panel */
-  protected AbstractSetupPanel m_defaultPanel = null;
+    /**
+     * The simple setup panel
+     */
+    protected AbstractSetupPanel m_defaultPanel = null;
 
-  /** The advanced setup panel */
-  protected AbstractSetupPanel m_advancedPanel = null;
+    /**
+     * The advanced setup panel
+     */
+    protected AbstractSetupPanel m_advancedPanel = null;
 
-  /** the current panel. */
-  protected AbstractSetupPanel m_CurrentPanel;
+    /**
+     * the current panel.
+     */
+    protected AbstractSetupPanel m_CurrentPanel;
 
-  /**
-   * Creates the setup panel with no initial experiment.
-   */
-  public SetupModePanel() {
+    /**
+     * Creates the setup panel with no initial experiment.
+     */
+    public SetupModePanel() {
 
-    // no panels discovered?
-    if (m_Panels.length == 0) {
-      System.err.println("No experimenter setup panels discovered? Using fallback (simple, advanced).");
-      m_Panels = new AbstractSetupPanel[]{
-	new SetupPanel(),
-	new SimpleSetupPanel()
-      };
+        // no panels discovered?
+        if (m_Panels.length == 0) {
+            System.err.println("No experimenter setup panels discovered? Using fallback (simple, advanced).");
+            m_Panels = new AbstractSetupPanel[]{
+                    new SetupPanel(),
+                    new SimpleSetupPanel()
+            };
+        }
+
+        for (AbstractSetupPanel panel : m_Panels) {
+            if (panel.getClass().getName().equals(ExperimenterDefaults.getSetupPanel()))
+                m_defaultPanel = panel;
+            if (panel instanceof SetupPanel)
+                m_advancedPanel = panel;
+            panel.setModePanel(this);
+        }
+
+        // fallback on simple setup panel
+        if (m_defaultPanel == null) {
+            for (AbstractSetupPanel panel : m_Panels) {
+                if (panel instanceof SimpleSetupPanel)
+                    m_defaultPanel = panel;
+            }
+        }
+
+        m_CurrentPanel = m_defaultPanel;
+
+        m_ComboBoxPanels = new JComboBox(m_Panels);
+        m_ComboBoxPanels.setSelectedItem(m_defaultPanel);
+        m_ComboBoxPanels.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (m_ComboBoxPanels.getSelectedIndex() == -1)
+                    return;
+                AbstractSetupPanel panel = (AbstractSetupPanel) m_ComboBoxPanels.getSelectedItem();
+                switchTo(panel, null);
+            }
+        });
+
+        JPanel switchPanel = new JPanel();
+        switchPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
+        switchPanel.add(new JLabel("Experiment Configuration Mode"));
+        switchPanel.add(m_ComboBoxPanels);
+
+        setLayout(new BorderLayout());
+        add(switchPanel, BorderLayout.NORTH);
+        add(m_defaultPanel, BorderLayout.CENTER);
     }
 
-    for (AbstractSetupPanel panel: m_Panels) {
-      if (panel.getClass().getName().equals(ExperimenterDefaults.getSetupPanel()))
-	m_defaultPanel = panel;
-      if (panel instanceof SetupPanel)
-	m_advancedPanel = panel;
-      panel.setModePanel(this);
+    /**
+     * Switches to the advanced panel.
+     *
+     * @param exp the experiment to configure
+     */
+    public void switchToAdvanced(Experiment exp) {
+        switchTo(m_advancedPanel, exp);
+        m_ComboBoxPanels.setSelectedItem(m_advancedPanel);
     }
 
-    // fallback on simple setup panel
-    if (m_defaultPanel == null) {
-      for (AbstractSetupPanel panel: m_Panels) {
-	if (panel instanceof SimpleSetupPanel)
-	  m_defaultPanel = panel;
-      }
+    /**
+     * Switches to the specified panel. Switching from advanced panel to simple panel without conversion
+     * is not permitted by this method.
+     *
+     * @param panel the panel to switch to
+     * @param exp   the experiment to configure
+     */
+    public void switchTo(AbstractSetupPanel panel, Experiment exp) {
+        if (exp == null)
+            exp = m_CurrentPanel.getExperiment();
+
+        if (exp != null) {
+            if (!panel.setExperiment(exp)) {
+                m_ComboBoxPanels.setSelectedItem(m_CurrentPanel);
+                return;
+            }
+        }
+
+        remove(m_CurrentPanel);
+        m_CurrentPanel.cleanUpAfterSwitch();
+        add(panel, BorderLayout.CENTER);
+        validate();
+        repaint();
+
+        m_CurrentPanel = panel;
     }
 
-    m_CurrentPanel = m_defaultPanel;
-
-    m_ComboBoxPanels = new JComboBox(m_Panels);
-    m_ComboBoxPanels.setSelectedItem(m_defaultPanel);
-    m_ComboBoxPanels.addActionListener(new ActionListener() {
-      @Override
-      public void actionPerformed(ActionEvent e) {
-	if (m_ComboBoxPanels.getSelectedIndex() == -1)
-	  return;
-	AbstractSetupPanel panel = (AbstractSetupPanel) m_ComboBoxPanels.getSelectedItem();
-	switchTo(panel, null);
-      }
-    });
-
-    JPanel switchPanel = new JPanel();
-    switchPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
-    switchPanel.add(new JLabel("Experiment Configuration Mode"));
-    switchPanel.add(m_ComboBoxPanels);
-
-    setLayout(new BorderLayout());
-    add(switchPanel, BorderLayout.NORTH);
-    add(m_defaultPanel, BorderLayout.CENTER);
-  }
-
-  /**
-   * Switches to the advanced panel.
-   *
-   * @param exp the experiment to configure
-   */
-  public void switchToAdvanced(Experiment exp) {
-    switchTo(m_advancedPanel, exp);
-    m_ComboBoxPanels.setSelectedItem(m_advancedPanel);
-  }
-
-  /**
-   * Switches to the specified panel. Switching from advanced panel to simple panel without conversion
-   * is not permitted by this method.
-   *
-   * @param panel the panel to switch to
-   * @param exp the experiment to configure
-   */
-  public void switchTo(AbstractSetupPanel panel, Experiment exp) {
-    if (exp == null)
-      exp = m_CurrentPanel.getExperiment();
-
-    if (exp != null) {
-      if (!panel.setExperiment(exp)) {
-        m_ComboBoxPanels.setSelectedItem(m_CurrentPanel);
-        return;
-      }
+    /**
+     * Adds a PropertyChangeListener who will be notified of value changes.
+     *
+     * @param l a value of type 'PropertyChangeListener'
+     */
+    public void addPropertyChangeListener(PropertyChangeListener l) {
+        if (m_Panels != null) {
+            for (AbstractSetupPanel panel : m_Panels)
+                panel.addPropertyChangeListener(l);
+        }
     }
 
-    remove(m_CurrentPanel);
-    m_CurrentPanel.cleanUpAfterSwitch();
-    add(panel, BorderLayout.CENTER);
-    validate();
-    repaint();
-
-    m_CurrentPanel = panel;
-  }
-
-  /**
-   * Adds a PropertyChangeListener who will be notified of value changes.
-   *
-   * @param l a value of type 'PropertyChangeListener'
-   */
-  public void addPropertyChangeListener(PropertyChangeListener l) {
-    if (m_Panels != null) {
-      for (AbstractSetupPanel panel : m_Panels)
-        panel.addPropertyChangeListener(l);
+    /**
+     * Removes a PropertyChangeListener who will be notified of value changes.
+     *
+     * @param l a value of type 'PropertyChangeListener'
+     */
+    public void removePropertyChangeListener(PropertyChangeListener l) {
+        if (m_Panels != null) {
+            for (AbstractSetupPanel panel : m_Panels)
+                panel.removePropertyChangeListener(l);
+        }
     }
-  }
 
-  /**
-   * Removes a PropertyChangeListener who will be notified of value changes.
-   *
-   * @param l a value of type 'PropertyChangeListener'
-   */
-  public void removePropertyChangeListener(PropertyChangeListener l) {
-    if (m_Panels != null) {
-      for (AbstractSetupPanel panel : m_Panels)
-        panel.removePropertyChangeListener(l);
+    /**
+     * Terminates this panel, which means, in the case of this panel, that it sets all references
+     * to associated JFrame objects to null.
+     */
+    public void terminate() {
+        if (m_Panels != null) {
+            for (AbstractSetupPanel panel : m_Panels)
+                panel.terminate();
+        }
     }
-  }
 
-  /**
-   * Terminates this panel, which means, in the case of this panel, that it sets all references
-   * to associated JFrame objects to null.
-   */
-  public void terminate() {
-    if (m_Panels != null) {
-      for (AbstractSetupPanel panel : m_Panels)
-        panel.terminate();
+    /**
+     * Gets the currently configured experiment.
+     *
+     * @return the currently configured experiment.
+     */
+    public Experiment getExperiment() {
+        return m_CurrentPanel.getExperiment();
     }
-  }
-
-  /**
-   * Gets the currently configured experiment.
-   *
-   * @return the currently configured experiment.
-   */
-  public Experiment getExperiment() {
-    return m_CurrentPanel.getExperiment();
-  }
 }

@@ -33,105 +33,116 @@ import weka.gui.JTableHelper;
  * Represents an extended JTable, containing a table model based on a ResultSet
  * and the corresponding query.
  *
- * @author      FracPete (fracpete at waikato dot ac dot nz)
- * @version     $Revision$
+ * @author FracPete (fracpete at waikato dot ac dot nz)
+ * @version $Revision$
  */
 public class ResultSetTable
-  extends JTable {
+        extends JTable {
 
-  /** for serialization */
-  private static final long serialVersionUID = -3391076671854464137L;
+    /**
+     * for serialization
+     */
+    private static final long serialVersionUID = -3391076671854464137L;
 
-  /** the query the table model is based on */
-  protected String m_Query;
+    /**
+     * the query the table model is based on
+     */
+    protected String m_Query;
 
-  /** the connect string with which the query was run */
-  protected String m_URL;
+    /**
+     * the connect string with which the query was run
+     */
+    protected String m_URL;
 
-  /** the user that was used to connect to the DB */
-  protected String m_User;
+    /**
+     * the user that was used to connect to the DB
+     */
+    protected String m_User;
 
-  /** the password that was used to connect to the DB */
-  protected String m_Password;
+    /**
+     * the password that was used to connect to the DB
+     */
+    protected String m_Password;
 
-  /**
-   * initializes the table
-   * @param url         the database URL
-   * @param user        the database user
-   * @param pw          the database password
-   * @param query       the query
-   */
-  public ResultSetTable(String url, String user, String pw, String query, 
-                        ResultSetTableModel model) {
-    super(model);
+    /**
+     * initializes the table
+     *
+     * @param url   the database URL
+     * @param user  the database user
+     * @param pw    the database password
+     * @param query the query
+     */
+    public ResultSetTable(String url, String user, String pw, String query,
+                          ResultSetTableModel model) {
+        super(model);
 
-    m_URL      = url;
-    m_User     = user;
-    m_Password = pw;
-    m_Query    = query;
-    
-    setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        m_URL = url;
+        m_User = user;
+        m_Password = pw;
+        m_Query = query;
 
-    // optimal colwidths (only according to header!)/cell renderer
-    for (int i = 0; i < getColumnCount(); i++) {
-      JTableHelper.setOptimalHeaderWidth(this, i);
-      getColumnModel().getColumn(i).setCellRenderer(
-          new ResultSetTableCellRenderer());
+        setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+
+        // optimal colwidths (only according to header!)/cell renderer
+        for (int i = 0; i < getColumnCount(); i++) {
+            JTableHelper.setOptimalHeaderWidth(this, i);
+            getColumnModel().getColumn(i).setCellRenderer(
+                    new ResultSetTableCellRenderer());
+        }
+
+        // double click on column displays optimal colwidth
+        final JTable table = this;
+        getTableHeader().addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                TableColumnModel columnModel = getColumnModel();
+                int viewColumn = columnModel.getColumnIndexAtX(e.getX());
+                int column = convertColumnIndexToModel(viewColumn);
+                if ((e.getButton() == MouseEvent.BUTTON1)
+                        && (e.getClickCount() == 2)
+                        && (column != -1))
+                    JTableHelper.setOptimalColumnWidth(table, column);
+            }
+        });
+        getTableHeader().setToolTipText("double left click on column displays the column with optimal width");
     }
-    
-    // double click on column displays optimal colwidth
-    final JTable table = this;
-    getTableHeader().addMouseListener(new MouseAdapter() {
-      public void mouseClicked(MouseEvent e) {
-        TableColumnModel columnModel = getColumnModel();
-        int viewColumn = columnModel.getColumnIndexAtX(e.getX());
-        int column = convertColumnIndexToModel(viewColumn);
-        if (    (e.getButton() == MouseEvent.BUTTON1)
-             && (e.getClickCount() == 2)
-             && (column != -1) )
-          JTableHelper.setOptimalColumnWidth(table, column);
-      }
-    });
-    getTableHeader().setToolTipText("double left click on column displays the column with optimal width");
-  }
 
-  /**
-   * returns the database URL that produced the table model
-   */
-  public String getURL() {
-    return m_URL;
-  }
+    /**
+     * returns the database URL that produced the table model
+     */
+    public String getURL() {
+        return m_URL;
+    }
 
-  /**
-   * returns the user that produced the table model
-   */
-  public String getUser() {
-    return m_User;
-  }
+    /**
+     * returns the user that produced the table model
+     */
+    public String getUser() {
+        return m_User;
+    }
 
-  /**
-   * returns the password that produced the table model
-   */
-  public String getPassword() {
-    return m_Password;
-  }
+    /**
+     * returns the password that produced the table model
+     */
+    public String getPassword() {
+        return m_Password;
+    }
 
-  /**
-   * returns the query that produced the table model
-   */
-  public String getQuery() {
-    return m_Query;
-  }
+    /**
+     * returns the query that produced the table model
+     */
+    public String getQuery() {
+        return m_Query;
+    }
 
-  /**
-   * frees up the memory
-   */
-  public void finalize() throws Throwable {
-    if (getModel() != null)
-      ((ResultSetTableModel) getModel()).finalize();
-    
-    super.finalize();
+    /**
+     * frees up the memory
+     */
+    public void finalize() throws Throwable {
+        if (getModel() != null)
+            ((ResultSetTableModel) getModel()).finalize();
 
-    System.gc();
-  }
+        super.finalize();
+
+        System.gc();
+    }
 }

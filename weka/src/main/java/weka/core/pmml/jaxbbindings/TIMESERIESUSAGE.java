@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlEnumValue;
 
 /**
  * <p>Java class for TIMESERIES-USAGE.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
@@ -26,7 +26,6 @@ import javax.xml.bind.annotation.XmlEnumValue;
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
- * 
  */
 @XmlEnum
 public enum TIMESERIESUSAGE {
@@ -48,7 +47,7 @@ public enum TIMESERIESUSAGE {
     }
 
     public static TIMESERIESUSAGE fromValue(String v) {
-        for (TIMESERIESUSAGE c: TIMESERIESUSAGE.values()) {
+        for (TIMESERIESUSAGE c : TIMESERIESUSAGE.values()) {
             if (c.value.equals(v)) {
                 return c;
             }

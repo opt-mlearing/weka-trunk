@@ -30,8 +30,8 @@ package weka.knowledgeflow;
  */
 public interface ExecutionFinishedCallback {
 
-  /**
-   * Notification of the finish of execution
-   */
-  void executionFinished();
+    /**
+     * Notification of the finish of execution
+     */
+    void executionFinished();
 }

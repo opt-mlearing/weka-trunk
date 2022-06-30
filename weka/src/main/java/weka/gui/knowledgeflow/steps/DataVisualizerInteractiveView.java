@@ -53,222 +53,234 @@ import java.util.List;
  */
 public class DataVisualizerInteractiveView extends BaseInteractiveViewer {
 
-  private static final long serialVersionUID = 5345799787154266282L;
+    private static final long serialVersionUID = 5345799787154266282L;
 
-  /** Holds results */
-  protected ResultHistoryPanel m_history;
+    /**
+     * Holds results
+     */
+    protected ResultHistoryPanel m_history;
 
-  /** The actual visualization */
-  protected VisualizePanel m_visPanel = new VisualizePanel();
+    /**
+     * The actual visualization
+     */
+    protected VisualizePanel m_visPanel = new VisualizePanel();
 
-  /** Button for clearing all results */
-  protected JButton m_clearButton = new JButton("Clear results");
+    /**
+     * Button for clearing all results
+     */
+    protected JButton m_clearButton = new JButton("Clear results");
 
-  /** Split pane for separating result list from visualization */
-  protected JSplitPane m_splitPane;
+    /**
+     * Split pane for separating result list from visualization
+     */
+    protected JSplitPane m_splitPane;
 
-  /** Curent plot data */
-  protected PlotData2D m_currentPlot;
+    /**
+     * Curent plot data
+     */
+    protected PlotData2D m_currentPlot;
 
-  /** ID used for identifying settings */
-  protected static final String ID =
-    "weka.gui.knowledgeflow.steps.DataVisualizerInteractiveView";
+    /**
+     * ID used for identifying settings
+     */
+    protected static final String ID =
+            "weka.gui.knowledgeflow.steps.DataVisualizerInteractiveView";
 
-  /**
-   * Get the name of this viewer
-   *
-   * @return the name of this viewer
-   */
-  @Override
-  public String getViewerName() {
-    return "Data Visualizer";
-  }
-
-  /**
-   * Initialize and layout the viewer
-   *
-   * @throws WekaException if a problem occurs
-   */
-  @Override
-  public void init() throws WekaException {
-    addButton(m_clearButton);
-
-    m_history = new ResultHistoryPanel(null);
-    m_history.setBorder(BorderFactory.createTitledBorder("Result list"));
-    m_history.setHandleRightClicks(false);
-    m_history.setDeleteListener(new ResultHistoryPanel.RDeleteListener() {
-      @Override
-      public void entryDeleted(String name, int index) {
-        ((DataVisualizer) getStep()).getPlots().remove(index);
-      }
-
-      @Override
-      public void entriesDeleted(java.util.List<String> names,
-        java.util.List<Integer> indexes) {
-        List<PlotData2D> ds = ((DataVisualizer) getStep()).getPlots();
-        List<PlotData2D> toRemove = new ArrayList<PlotData2D>();
-        for (int i : indexes) {
-          toRemove.add(ds.get(i));
-        }
-
-        ds.removeAll(toRemove);
-      }
-    });
-    m_history.getList().addMouseListener(
-      new ResultHistoryPanel.RMouseAdapter() {
-        private static final long serialVersionUID = -5174882230278923704L;
-
-        @Override
-        public void mouseClicked(MouseEvent e) {
-          int index = m_history.getList().locationToIndex(e.getPoint());
-          if (index != -1) {
-            String name = m_history.getNameAtIndex(index);
-            // doPopup(name);
-            Object plotD = m_history.getNamedObject(name);
-            if (plotD instanceof PlotData2D) {
-              try {
-                if (m_currentPlot != null && m_currentPlot != plotD) {
-                  m_currentPlot.setXindex(m_visPanel.getXIndex());
-                  m_currentPlot.setYindex(m_visPanel.getYIndex());
-                  m_currentPlot.setCindex(m_visPanel.getCIndex());
-                }
-
-                m_currentPlot = (PlotData2D) plotD;
-                int x = m_currentPlot.getXindex();
-                int y = m_currentPlot.getYindex();
-                int c = m_currentPlot.getCindex();
-                if (x == y && x == 0
-                  && m_currentPlot.getPlotInstances().numAttributes() > 1) {
-                  y++;
-                }
-                m_visPanel.setMasterPlot((PlotData2D) plotD);
-                m_visPanel.setXIndex(x);
-                m_visPanel.setYIndex(y);
-                m_visPanel.setColourIndex(c, true);
-                m_visPanel.repaint();
-              } catch (Exception ex) {
-                ex.printStackTrace();
-              }
-            }
-          }
-        }
-      });
-
-    m_history.getList().getSelectionModel()
-      .addListSelectionListener(new ListSelectionListener() {
-        @Override
-        public void valueChanged(ListSelectionEvent e) {
-          if (!e.getValueIsAdjusting()) {
-            ListSelectionModel lm = (ListSelectionModel) e.getSource();
-            for (int i = e.getFirstIndex(); i <= e.getLastIndex(); i++) {
-              if (lm.isSelectedIndex(i)) {
-                // m_AttSummaryPanel.setAttribute(i);
-                if (i != -1) {
-                  String name = m_history.getNameAtIndex(i);
-                  Object plotD = m_history.getNamedObject(name);
-                  if (plotD != null && plotD instanceof PlotData2D) {
-                    try {
-                      if (m_currentPlot != null && m_currentPlot != plotD) {
-                        m_currentPlot.setXindex(m_visPanel.getXIndex());
-                        m_currentPlot.setYindex(m_visPanel.getYIndex());
-                        m_currentPlot.setCindex(m_visPanel.getCIndex());
-                      }
-
-                      m_currentPlot = (PlotData2D) plotD;
-                      int x = m_currentPlot.getXindex();
-                      int y = m_currentPlot.getYindex();
-                      int c = m_currentPlot.getCindex();
-                      if (x == y && x == 0
-                        && m_currentPlot.getPlotInstances().numAttributes() > 1) {
-                        y++;
-                      }
-                      m_visPanel.setMasterPlot((PlotData2D) plotD);
-                      m_visPanel.setXIndex(x);
-                      m_visPanel.setYIndex(y);
-                      m_visPanel.setColourIndex(c, true);
-                      m_visPanel.repaint();
-                    } catch (Exception ex) {
-                      ex.printStackTrace();
-                    }
-                  }
-                }
-                break;
-              }
-            }
-          }
-        }
-      });
-
-    m_visPanel.setPreferredSize(new Dimension(800, 600));
-    m_splitPane =
-      new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, m_history, m_visPanel);
-
-    add(m_splitPane, BorderLayout.CENTER);
-    m_splitPane.setDividerLocation(200 + m_splitPane.getInsets().left);
-    boolean first = true;
-    for (PlotData2D pd : ((DataVisualizer) getStep()).getPlots()) {
-      m_history.addResult(pd.getPlotName(), new StringBuffer());
-      m_history.addObject(pd.getPlotName(), pd);
-      if (first) {
-        try {
-          int x = pd.getXindex();
-          int y = pd.getYindex();
-          int c = pd.getCindex();
-          if (x == 0 && y == 0 && pd.getPlotInstances().numAttributes() > 1) {
-            y++;
-          }
-
-          m_visPanel.setMasterPlot(pd);
-          m_currentPlot = pd;
-          m_visPanel.setXIndex(x);
-          m_visPanel.setYIndex(y);
-          if (pd.getPlotInstances().classIndex() >= 0) {
-            m_visPanel.setColourIndex(pd.getPlotInstances().classIndex(), true);
-          } else {
-            m_visPanel.setColourIndex(c, true);
-          }
-          m_visPanel.repaint();
-          first = false;
-        } catch (Exception ex) {
-          ex.printStackTrace();
-        }
-      }
-
-      applySettings(getSettings());
+    /**
+     * Get the name of this viewer
+     *
+     * @return the name of this viewer
+     */
+    @Override
+    public String getViewerName() {
+        return "Data Visualizer";
     }
 
-    m_clearButton.addActionListener(new ActionListener() {
-      @Override
-      public void actionPerformed(ActionEvent e) {
-        m_history.clearResults();
-        ((DataVisualizer) getStep()).getPlots().clear();
-        m_splitPane.remove(m_visPanel);
-      }
-    });
-  }
+    /**
+     * Initialize and layout the viewer
+     *
+     * @throws WekaException if a problem occurs
+     */
+    @Override
+    public void init() throws WekaException {
+        addButton(m_clearButton);
 
-  /**
-   * Get default settings for this viewer
-   *
-   * @return the default settings of this viewer
-   */
-  @Override
-  public Defaults getDefaultSettings() {
-    Defaults d = new VisualizeUtils.VisualizeDefaults();
-    d.setID(ID);
+        m_history = new ResultHistoryPanel(null);
+        m_history.setBorder(BorderFactory.createTitledBorder("Result list"));
+        m_history.setHandleRightClicks(false);
+        m_history.setDeleteListener(new ResultHistoryPanel.RDeleteListener() {
+            @Override
+            public void entryDeleted(String name, int index) {
+                ((DataVisualizer) getStep()).getPlots().remove(index);
+            }
 
-    return d;
-  }
+            @Override
+            public void entriesDeleted(java.util.List<String> names,
+                                       java.util.List<Integer> indexes) {
+                List<PlotData2D> ds = ((DataVisualizer) getStep()).getPlots();
+                List<PlotData2D> toRemove = new ArrayList<PlotData2D>();
+                for (int i : indexes) {
+                    toRemove.add(ds.get(i));
+                }
 
-  /**
-   * Apply any user changes in the supplied settings object
-   *
-   * @param settings the settings object that might (or might not) have been
-   *          altered by the user
-   */
-  @Override
-  public void applySettings(Settings settings) {
-    m_visPanel.applySettings(settings, ID);
-    m_visPanel.repaint();
-  }
+                ds.removeAll(toRemove);
+            }
+        });
+        m_history.getList().addMouseListener(
+                new ResultHistoryPanel.RMouseAdapter() {
+                    private static final long serialVersionUID = -5174882230278923704L;
+
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        int index = m_history.getList().locationToIndex(e.getPoint());
+                        if (index != -1) {
+                            String name = m_history.getNameAtIndex(index);
+                            // doPopup(name);
+                            Object plotD = m_history.getNamedObject(name);
+                            if (plotD instanceof PlotData2D) {
+                                try {
+                                    if (m_currentPlot != null && m_currentPlot != plotD) {
+                                        m_currentPlot.setXindex(m_visPanel.getXIndex());
+                                        m_currentPlot.setYindex(m_visPanel.getYIndex());
+                                        m_currentPlot.setCindex(m_visPanel.getCIndex());
+                                    }
+
+                                    m_currentPlot = (PlotData2D) plotD;
+                                    int x = m_currentPlot.getXindex();
+                                    int y = m_currentPlot.getYindex();
+                                    int c = m_currentPlot.getCindex();
+                                    if (x == y && x == 0
+                                            && m_currentPlot.getPlotInstances().numAttributes() > 1) {
+                                        y++;
+                                    }
+                                    m_visPanel.setMasterPlot((PlotData2D) plotD);
+                                    m_visPanel.setXIndex(x);
+                                    m_visPanel.setYIndex(y);
+                                    m_visPanel.setColourIndex(c, true);
+                                    m_visPanel.repaint();
+                                } catch (Exception ex) {
+                                    ex.printStackTrace();
+                                }
+                            }
+                        }
+                    }
+                });
+
+        m_history.getList().getSelectionModel()
+                .addListSelectionListener(new ListSelectionListener() {
+                    @Override
+                    public void valueChanged(ListSelectionEvent e) {
+                        if (!e.getValueIsAdjusting()) {
+                            ListSelectionModel lm = (ListSelectionModel) e.getSource();
+                            for (int i = e.getFirstIndex(); i <= e.getLastIndex(); i++) {
+                                if (lm.isSelectedIndex(i)) {
+                                    // m_AttSummaryPanel.setAttribute(i);
+                                    if (i != -1) {
+                                        String name = m_history.getNameAtIndex(i);
+                                        Object plotD = m_history.getNamedObject(name);
+                                        if (plotD != null && plotD instanceof PlotData2D) {
+                                            try {
+                                                if (m_currentPlot != null && m_currentPlot != plotD) {
+                                                    m_currentPlot.setXindex(m_visPanel.getXIndex());
+                                                    m_currentPlot.setYindex(m_visPanel.getYIndex());
+                                                    m_currentPlot.setCindex(m_visPanel.getCIndex());
+                                                }
+
+                                                m_currentPlot = (PlotData2D) plotD;
+                                                int x = m_currentPlot.getXindex();
+                                                int y = m_currentPlot.getYindex();
+                                                int c = m_currentPlot.getCindex();
+                                                if (x == y && x == 0
+                                                        && m_currentPlot.getPlotInstances().numAttributes() > 1) {
+                                                    y++;
+                                                }
+                                                m_visPanel.setMasterPlot((PlotData2D) plotD);
+                                                m_visPanel.setXIndex(x);
+                                                m_visPanel.setYIndex(y);
+                                                m_visPanel.setColourIndex(c, true);
+                                                m_visPanel.repaint();
+                                            } catch (Exception ex) {
+                                                ex.printStackTrace();
+                                            }
+                                        }
+                                    }
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                });
+
+        m_visPanel.setPreferredSize(new Dimension(800, 600));
+        m_splitPane =
+                new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, m_history, m_visPanel);
+
+        add(m_splitPane, BorderLayout.CENTER);
+        m_splitPane.setDividerLocation(200 + m_splitPane.getInsets().left);
+        boolean first = true;
+        for (PlotData2D pd : ((DataVisualizer) getStep()).getPlots()) {
+            m_history.addResult(pd.getPlotName(), new StringBuffer());
+            m_history.addObject(pd.getPlotName(), pd);
+            if (first) {
+                try {
+                    int x = pd.getXindex();
+                    int y = pd.getYindex();
+                    int c = pd.getCindex();
+                    if (x == 0 && y == 0 && pd.getPlotInstances().numAttributes() > 1) {
+                        y++;
+                    }
+
+                    m_visPanel.setMasterPlot(pd);
+                    m_currentPlot = pd;
+                    m_visPanel.setXIndex(x);
+                    m_visPanel.setYIndex(y);
+                    if (pd.getPlotInstances().classIndex() >= 0) {
+                        m_visPanel.setColourIndex(pd.getPlotInstances().classIndex(), true);
+                    } else {
+                        m_visPanel.setColourIndex(c, true);
+                    }
+                    m_visPanel.repaint();
+                    first = false;
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+
+            applySettings(getSettings());
+        }
+
+        m_clearButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                m_history.clearResults();
+                ((DataVisualizer) getStep()).getPlots().clear();
+                m_splitPane.remove(m_visPanel);
+            }
+        });
+    }
+
+    /**
+     * Get default settings for this viewer
+     *
+     * @return the default settings of this viewer
+     */
+    @Override
+    public Defaults getDefaultSettings() {
+        Defaults d = new VisualizeUtils.VisualizeDefaults();
+        d.setID(ID);
+
+        return d;
+    }
+
+    /**
+     * Apply any user changes in the supplied settings object
+     *
+     * @param settings the settings object that might (or might not) have been
+     *                 altered by the user
+     */
+    @Override
+    public void applySettings(Settings settings) {
+        m_visPanel.applySettings(settings, ID);
+        m_visPanel.repaint();
+    }
 }

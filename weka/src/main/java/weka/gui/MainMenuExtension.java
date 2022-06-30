@@ -28,48 +28,48 @@ import javax.swing.JFrame;
 /**
  * Classes implementing this interface will be displayed in the "Extensions"
  * menu in the main GUI of Weka.
- * 
- * @author  fracpete (fracpete at waikato dot ac dot nz)
+ *
+ * @author fracpete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
 public interface MainMenuExtension {
-  
-  /**
-   * Returns the name of the submenu. If there is no submenu necessary then 
-   * the return value is null.
-   * 
-   * @return		the title of the submenu or null if no submenu
-   */
-  public String getSubmenuTitle();
-  
-  /**
-   * Returns the name of the menu item.
-   * 
-   * @return		the name of the menu item.
-   */
-  public String getMenuTitle();
-  
-  /**
-   * If the extension has a custom ActionListener for the menu item, then it
-   * must be returned here. Having a custom <code>ActionListener</code> also 
-   * means that the component handles any frame by itself.
-   * 
-   * @param owner 	the owner of potential dialogs
-   * @return		a custom ActionListener, can be null
-   * @see		#fillFrame(Component)
-   */
-  public ActionListener getActionListener(JFrame owner);
-  
-  /**
-   * Fills the frame with life, like adding components, window listeners,
-   * setting size, location, etc. The frame object can be either derived from 
-   * <code>JFrame</code> or from <code>JInternalFrame</code>. This method is 
-   * only called in case <code>getActionListener()</code> returns null.
-   * 
-   * @param frame	the frame object to embed components, etc.
-   * @see		#getActionListener(JFrame)
-   * @see		javax.swing.JFrame
-   * @see		javax.swing.JInternalFrame
-   */
-  public void fillFrame(Component frame);
+
+    /**
+     * Returns the name of the submenu. If there is no submenu necessary then
+     * the return value is null.
+     *
+     * @return the title of the submenu or null if no submenu
+     */
+    public String getSubmenuTitle();
+
+    /**
+     * Returns the name of the menu item.
+     *
+     * @return the name of the menu item.
+     */
+    public String getMenuTitle();
+
+    /**
+     * If the extension has a custom ActionListener for the menu item, then it
+     * must be returned here. Having a custom <code>ActionListener</code> also
+     * means that the component handles any frame by itself.
+     *
+     * @param owner the owner of potential dialogs
+     * @return a custom ActionListener, can be null
+     * @see        #fillFrame(Component)
+     */
+    public ActionListener getActionListener(JFrame owner);
+
+    /**
+     * Fills the frame with life, like adding components, window listeners,
+     * setting size, location, etc. The frame object can be either derived from
+     * <code>JFrame</code> or from <code>JInternalFrame</code>. This method is
+     * only called in case <code>getActionListener()</code> returns null.
+     *
+     * @param frame the frame object to embed components, etc.
+     * @see        #getActionListener(JFrame)
+     * @see        javax.swing.JFrame
+     * @see        javax.swing.JInternalFrame
+     */
+    public void fillFrame(Component frame);
 }

@@ -21,9 +21,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for MiningField element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="MiningField">
  *   &lt;complexType>
@@ -47,12 +47,10 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "extension"
+        "extension"
 })
 @XmlRootElement(name = "MiningField")
 public class MiningField {
@@ -79,42 +77,41 @@ public class MiningField {
     protected OUTLIERTREATMENTMETHOD outliers;
     @XmlAttribute
     protected FIELDUSAGETYPE usageType;
-    
-    public MiningField() {}
-    
-    public MiningField(String name, FIELDUSAGETYPE usageType) {
-    	this.name = name;
-    	this.usageType = usageType;
+
+    public MiningField() {
     }
-    
+
+    public MiningField(String name, FIELDUSAGETYPE usageType) {
+        this.name = name;
+        this.usageType = usageType;
+    }
+
     public MiningField(String name, FIELDUSAGETYPE usageType, MISSINGVALUETREATMENTMETHOD missingValueTreatment, String missingValueReplacement) {
-    	this.name = name;
-    	this.usageType = usageType;
-    	this.missingValueTreatment = missingValueTreatment;
-    	this.missingValueReplacement = missingValueReplacement;
+        this.name = name;
+        this.usageType = usageType;
+        this.missingValueTreatment = missingValueTreatment;
+        this.missingValueReplacement = missingValueReplacement;
     }
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extension }
-     * 
-     * 
      */
     public List<Extension> getExtension() {
         if (extension == null) {
@@ -125,11 +122,9 @@ public class MiningField {
 
     /**
      * Gets the value of the highValue property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public Double getHighValue() {
         return highValue;
@@ -137,11 +132,9 @@ public class MiningField {
 
     /**
      * Sets the value of the highValue property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setHighValue(Double value) {
         this.highValue = value;
@@ -149,11 +142,9 @@ public class MiningField {
 
     /**
      * Gets the value of the importance property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigDecimal }
-     *     
+     *
+     * @return possible object is
+     * {@link BigDecimal }
      */
     public BigDecimal getImportance() {
         return importance;
@@ -161,11 +152,9 @@ public class MiningField {
 
     /**
      * Sets the value of the importance property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigDecimal }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link BigDecimal }
      */
     public void setImportance(BigDecimal value) {
         this.importance = value;
@@ -173,11 +162,9 @@ public class MiningField {
 
     /**
      * Gets the value of the invalidValueTreatment property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link INVALIDVALUETREATMENTMETHOD }
-     *     
+     *
+     * @return possible object is
+     * {@link INVALIDVALUETREATMENTMETHOD }
      */
     public INVALIDVALUETREATMENTMETHOD getInvalidValueTreatment() {
         if (invalidValueTreatment == null) {
@@ -189,11 +176,9 @@ public class MiningField {
 
     /**
      * Sets the value of the invalidValueTreatment property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link INVALIDVALUETREATMENTMETHOD }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link INVALIDVALUETREATMENTMETHOD }
      */
     public void setInvalidValueTreatment(INVALIDVALUETREATMENTMETHOD value) {
         this.invalidValueTreatment = value;
@@ -201,11 +186,9 @@ public class MiningField {
 
     /**
      * Gets the value of the lowValue property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public Double getLowValue() {
         return lowValue;
@@ -213,11 +196,9 @@ public class MiningField {
 
     /**
      * Sets the value of the lowValue property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setLowValue(Double value) {
         this.lowValue = value;
@@ -225,11 +206,9 @@ public class MiningField {
 
     /**
      * Gets the value of the missingValueReplacement property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getMissingValueReplacement() {
         return missingValueReplacement;
@@ -237,11 +216,9 @@ public class MiningField {
 
     /**
      * Sets the value of the missingValueReplacement property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setMissingValueReplacement(String value) {
         this.missingValueReplacement = value;
@@ -249,11 +226,9 @@ public class MiningField {
 
     /**
      * Gets the value of the missingValueTreatment property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link MISSINGVALUETREATMENTMETHOD }
-     *     
+     *
+     * @return possible object is
+     * {@link MISSINGVALUETREATMENTMETHOD }
      */
     public MISSINGVALUETREATMENTMETHOD getMissingValueTreatment() {
         return missingValueTreatment;
@@ -261,11 +236,9 @@ public class MiningField {
 
     /**
      * Sets the value of the missingValueTreatment property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link MISSINGVALUETREATMENTMETHOD }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link MISSINGVALUETREATMENTMETHOD }
      */
     public void setMissingValueTreatment(MISSINGVALUETREATMENTMETHOD value) {
         this.missingValueTreatment = value;
@@ -273,11 +246,9 @@ public class MiningField {
 
     /**
      * Gets the value of the name property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getName() {
         return name;
@@ -285,11 +256,9 @@ public class MiningField {
 
     /**
      * Sets the value of the name property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setName(String value) {
         this.name = value;
@@ -297,11 +266,9 @@ public class MiningField {
 
     /**
      * Gets the value of the optype property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link OPTYPE }
-     *     
+     *
+     * @return possible object is
+     * {@link OPTYPE }
      */
     public OPTYPE getOptype() {
         return optype;
@@ -309,11 +276,9 @@ public class MiningField {
 
     /**
      * Sets the value of the optype property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link OPTYPE }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link OPTYPE }
      */
     public void setOptype(OPTYPE value) {
         this.optype = value;
@@ -321,11 +286,9 @@ public class MiningField {
 
     /**
      * Gets the value of the outliers property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link OUTLIERTREATMENTMETHOD }
-     *     
+     *
+     * @return possible object is
+     * {@link OUTLIERTREATMENTMETHOD }
      */
     public OUTLIERTREATMENTMETHOD getOutliers() {
         if (outliers == null) {
@@ -337,11 +300,9 @@ public class MiningField {
 
     /**
      * Sets the value of the outliers property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link OUTLIERTREATMENTMETHOD }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link OUTLIERTREATMENTMETHOD }
      */
     public void setOutliers(OUTLIERTREATMENTMETHOD value) {
         this.outliers = value;
@@ -349,11 +310,9 @@ public class MiningField {
 
     /**
      * Gets the value of the usageType property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link FIELDUSAGETYPE }
-     *     
+     *
+     * @return possible object is
+     * {@link FIELDUSAGETYPE }
      */
     public FIELDUSAGETYPE getUsageType() {
         if (usageType == null) {
@@ -365,11 +324,9 @@ public class MiningField {
 
     /**
      * Sets the value of the usageType property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link FIELDUSAGETYPE }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link FIELDUSAGETYPE }
      */
     public void setUsageType(FIELDUSAGETYPE value) {
         this.usageType = value;

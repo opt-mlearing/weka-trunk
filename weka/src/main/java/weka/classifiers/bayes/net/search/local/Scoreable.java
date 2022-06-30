@@ -16,34 +16,34 @@
 /*
  * Scoreable.java
  * Copyright (C) 2001-2012 University of Waikato, Hamilton, New Zealand
- * 
+ *
  */
 package weka.classifiers.bayes.net.search.local;
 
 /**
  * Interface for allowing to score a classifier
- * 
+ *
  * @author Remco Bouckaert (rrb@xm.co.nz)
  * @version $Revision$
  */
 public interface Scoreable {
 
-  /**
-   * score types
-   */
-  int BAYES = 0;
-  int BDeu = 1;
-  int MDL = 2;
-  int ENTROPY = 3;
-  int AIC = 4;
+    /**
+     * score types
+     */
+    int BAYES = 0;
+    int BDeu = 1;
+    int MDL = 2;
+    int ENTROPY = 3;
+    int AIC = 4;
 
-  /**
-   * Returns log-score
-   * 
-   * @param nType the score type
-   * @return the log-score
-   */
-  double logScore(int nType, int nCardinality);
+    /**
+     * Returns log-score
+     *
+     * @param nType the score type
+     * @return the log-score
+     */
+    double logScore(int nType, int nCardinality);
 }    // interface Scoreable
 
 

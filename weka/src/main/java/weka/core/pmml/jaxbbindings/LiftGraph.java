@@ -19,9 +19,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for LiftGraph element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="LiftGraph">
  *   &lt;complexType>
@@ -39,16 +39,14 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "extension",
-    "xCoordinates",
-    "yCoordinates",
-    "boundaryValues",
-    "boundaryValueMeans"
+        "extension",
+        "xCoordinates",
+        "yCoordinates",
+        "boundaryValues",
+        "boundaryValueMeans"
 })
 @XmlRootElement(name = "LiftGraph")
 public class LiftGraph {
@@ -66,25 +64,23 @@ public class LiftGraph {
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extension }
-     * 
-     * 
      */
     public List<Extension> getExtension() {
         if (extension == null) {
@@ -95,11 +91,9 @@ public class LiftGraph {
 
     /**
      * Gets the value of the xCoordinates property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XCoordinates }
-     *     
+     *
+     * @return possible object is
+     * {@link XCoordinates }
      */
     public XCoordinates getXCoordinates() {
         return xCoordinates;
@@ -107,11 +101,9 @@ public class LiftGraph {
 
     /**
      * Sets the value of the xCoordinates property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XCoordinates }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link XCoordinates }
      */
     public void setXCoordinates(XCoordinates value) {
         this.xCoordinates = value;
@@ -119,11 +111,9 @@ public class LiftGraph {
 
     /**
      * Gets the value of the yCoordinates property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link YCoordinates }
-     *     
+     *
+     * @return possible object is
+     * {@link YCoordinates }
      */
     public YCoordinates getYCoordinates() {
         return yCoordinates;
@@ -131,11 +121,9 @@ public class LiftGraph {
 
     /**
      * Sets the value of the yCoordinates property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link YCoordinates }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link YCoordinates }
      */
     public void setYCoordinates(YCoordinates value) {
         this.yCoordinates = value;
@@ -143,11 +131,9 @@ public class LiftGraph {
 
     /**
      * Gets the value of the boundaryValues property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BoundaryValues }
-     *     
+     *
+     * @return possible object is
+     * {@link BoundaryValues }
      */
     public BoundaryValues getBoundaryValues() {
         return boundaryValues;
@@ -155,11 +141,9 @@ public class LiftGraph {
 
     /**
      * Sets the value of the boundaryValues property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BoundaryValues }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link BoundaryValues }
      */
     public void setBoundaryValues(BoundaryValues value) {
         this.boundaryValues = value;
@@ -167,11 +151,9 @@ public class LiftGraph {
 
     /**
      * Gets the value of the boundaryValueMeans property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BoundaryValueMeans }
-     *     
+     *
+     * @return possible object is
+     * {@link BoundaryValueMeans }
      */
     public BoundaryValueMeans getBoundaryValueMeans() {
         return boundaryValueMeans;
@@ -179,11 +161,9 @@ public class LiftGraph {
 
     /**
      * Sets the value of the boundaryValueMeans property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BoundaryValueMeans }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link BoundaryValueMeans }
      */
     public void setBoundaryValueMeans(BoundaryValueMeans value) {
         this.boundaryValueMeans = value;

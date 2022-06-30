@@ -21,9 +21,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for DecisionTree element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="DecisionTree">
  *   &lt;complexType>
@@ -57,18 +57,16 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "extension",
-    "output",
-    "modelStats",
-    "targets",
-    "localTransformations",
-    "resultField",
-    "node"
+        "extension",
+        "output",
+        "modelStats",
+        "targets",
+        "localTransformations",
+        "resultField",
+        "node"
 })
 @XmlRootElement(name = "DecisionTree")
 public class DecisionTree {
@@ -104,25 +102,23 @@ public class DecisionTree {
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extension }
-     * 
-     * 
      */
     public List<Extension> getExtension() {
         if (extension == null) {
@@ -133,11 +129,9 @@ public class DecisionTree {
 
     /**
      * Gets the value of the output property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Output }
-     *     
+     *
+     * @return possible object is
+     * {@link Output }
      */
     public Output getOutput() {
         return output;
@@ -145,11 +139,9 @@ public class DecisionTree {
 
     /**
      * Sets the value of the output property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Output }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Output }
      */
     public void setOutput(Output value) {
         this.output = value;
@@ -157,11 +149,9 @@ public class DecisionTree {
 
     /**
      * Gets the value of the modelStats property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ModelStats }
-     *     
+     *
+     * @return possible object is
+     * {@link ModelStats }
      */
     public ModelStats getModelStats() {
         return modelStats;
@@ -169,11 +159,9 @@ public class DecisionTree {
 
     /**
      * Sets the value of the modelStats property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link ModelStats }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link ModelStats }
      */
     public void setModelStats(ModelStats value) {
         this.modelStats = value;
@@ -181,11 +169,9 @@ public class DecisionTree {
 
     /**
      * Gets the value of the targets property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Targets }
-     *     
+     *
+     * @return possible object is
+     * {@link Targets }
      */
     public Targets getTargets() {
         return targets;
@@ -193,11 +179,9 @@ public class DecisionTree {
 
     /**
      * Sets the value of the targets property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Targets }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Targets }
      */
     public void setTargets(Targets value) {
         this.targets = value;
@@ -205,11 +189,9 @@ public class DecisionTree {
 
     /**
      * Gets the value of the localTransformations property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link LocalTransformations }
-     *     
+     *
+     * @return possible object is
+     * {@link LocalTransformations }
      */
     public LocalTransformations getLocalTransformations() {
         return localTransformations;
@@ -217,11 +199,9 @@ public class DecisionTree {
 
     /**
      * Sets the value of the localTransformations property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link LocalTransformations }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link LocalTransformations }
      */
     public void setLocalTransformations(LocalTransformations value) {
         this.localTransformations = value;
@@ -229,25 +209,23 @@ public class DecisionTree {
 
     /**
      * Gets the value of the resultField property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the resultField property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getResultField().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ResultField }
-     * 
-     * 
      */
     public List<ResultField> getResultField() {
         if (resultField == null) {
@@ -258,11 +236,9 @@ public class DecisionTree {
 
     /**
      * Gets the value of the node property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Node }
-     *     
+     *
+     * @return possible object is
+     * {@link Node }
      */
     public Node getNode() {
         return node;
@@ -270,11 +246,9 @@ public class DecisionTree {
 
     /**
      * Sets the value of the node property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Node }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Node }
      */
     public void setNode(Node value) {
         this.node = value;
@@ -282,11 +256,9 @@ public class DecisionTree {
 
     /**
      * Gets the value of the algorithmName property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getAlgorithmName() {
         return algorithmName;
@@ -294,11 +266,9 @@ public class DecisionTree {
 
     /**
      * Sets the value of the algorithmName property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setAlgorithmName(String value) {
         this.algorithmName = value;
@@ -306,11 +276,9 @@ public class DecisionTree {
 
     /**
      * Gets the value of the functionName property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link MININGFUNCTION }
-     *     
+     *
+     * @return possible object is
+     * {@link MININGFUNCTION }
      */
     public MININGFUNCTION getFunctionName() {
         return functionName;
@@ -318,11 +286,9 @@ public class DecisionTree {
 
     /**
      * Sets the value of the functionName property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link MININGFUNCTION }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link MININGFUNCTION }
      */
     public void setFunctionName(MININGFUNCTION value) {
         this.functionName = value;
@@ -330,11 +296,9 @@ public class DecisionTree {
 
     /**
      * Gets the value of the missingValuePenalty property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigDecimal }
-     *     
+     *
+     * @return possible object is
+     * {@link BigDecimal }
      */
     public BigDecimal getMissingValuePenalty() {
         if (missingValuePenalty == null) {
@@ -346,11 +310,9 @@ public class DecisionTree {
 
     /**
      * Sets the value of the missingValuePenalty property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigDecimal }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link BigDecimal }
      */
     public void setMissingValuePenalty(BigDecimal value) {
         this.missingValuePenalty = value;
@@ -358,11 +320,9 @@ public class DecisionTree {
 
     /**
      * Gets the value of the missingValueStrategy property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link MISSINGVALUESTRATEGY }
-     *     
+     *
+     * @return possible object is
+     * {@link MISSINGVALUESTRATEGY }
      */
     public MISSINGVALUESTRATEGY getMissingValueStrategy() {
         if (missingValueStrategy == null) {
@@ -374,11 +334,9 @@ public class DecisionTree {
 
     /**
      * Sets the value of the missingValueStrategy property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link MISSINGVALUESTRATEGY }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link MISSINGVALUESTRATEGY }
      */
     public void setMissingValueStrategy(MISSINGVALUESTRATEGY value) {
         this.missingValueStrategy = value;
@@ -386,11 +344,9 @@ public class DecisionTree {
 
     /**
      * Gets the value of the modelName property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getModelName() {
         return modelName;
@@ -398,11 +354,9 @@ public class DecisionTree {
 
     /**
      * Sets the value of the modelName property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setModelName(String value) {
         this.modelName = value;
@@ -410,11 +364,9 @@ public class DecisionTree {
 
     /**
      * Gets the value of the noTrueChildStrategy property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link NOTRUECHILDSTRATEGY }
-     *     
+     *
+     * @return possible object is
+     * {@link NOTRUECHILDSTRATEGY }
      */
     public NOTRUECHILDSTRATEGY getNoTrueChildStrategy() {
         if (noTrueChildStrategy == null) {
@@ -426,11 +378,9 @@ public class DecisionTree {
 
     /**
      * Sets the value of the noTrueChildStrategy property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link NOTRUECHILDSTRATEGY }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link NOTRUECHILDSTRATEGY }
      */
     public void setNoTrueChildStrategy(NOTRUECHILDSTRATEGY value) {
         this.noTrueChildStrategy = value;
@@ -438,11 +388,9 @@ public class DecisionTree {
 
     /**
      * Gets the value of the splitCharacteristic property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getSplitCharacteristic() {
         if (splitCharacteristic == null) {
@@ -454,11 +402,9 @@ public class DecisionTree {
 
     /**
      * Sets the value of the splitCharacteristic property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setSplitCharacteristic(String value) {
         this.splitCharacteristic = value;

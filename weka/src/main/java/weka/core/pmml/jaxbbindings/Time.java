@@ -20,9 +20,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for Time element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="Time">
  *   &lt;complexType>
@@ -40,12 +40,10 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "extension"
+        "extension"
 })
 @XmlRootElement(name = "Time")
 public class Time {
@@ -63,25 +61,23 @@ public class Time {
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extension }
-     * 
-     * 
      */
     public List<Extension> getExtension() {
         if (extension == null) {
@@ -92,11 +88,9 @@ public class Time {
 
     /**
      * Gets the value of the max property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public Double getMax() {
         return max;
@@ -104,11 +98,9 @@ public class Time {
 
     /**
      * Sets the value of the max property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setMax(Double value) {
         this.max = value;
@@ -116,11 +108,9 @@ public class Time {
 
     /**
      * Gets the value of the mean property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public Double getMean() {
         return mean;
@@ -128,11 +118,9 @@ public class Time {
 
     /**
      * Sets the value of the mean property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setMean(Double value) {
         this.mean = value;
@@ -140,11 +128,9 @@ public class Time {
 
     /**
      * Gets the value of the min property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public Double getMin() {
         return min;
@@ -152,11 +138,9 @@ public class Time {
 
     /**
      * Sets the value of the min property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setMin(Double value) {
         this.min = value;
@@ -164,11 +148,9 @@ public class Time {
 
     /**
      * Gets the value of the standardDeviation property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public Double getStandardDeviation() {
         return standardDeviation;
@@ -176,11 +158,9 @@ public class Time {
 
     /**
      * Sets the value of the standardDeviation property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setStandardDeviation(Double value) {
         this.standardDeviation = value;

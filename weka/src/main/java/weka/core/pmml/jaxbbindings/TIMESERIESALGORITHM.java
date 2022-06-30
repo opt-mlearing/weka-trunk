@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlEnumValue;
 
 /**
  * <p>Java class for TIMESERIES-ALGORITHM.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
@@ -27,7 +27,6 @@ import javax.xml.bind.annotation.XmlEnumValue;
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
- * 
  */
 @XmlEnum
 public enum TIMESERIESALGORITHM {
@@ -50,7 +49,7 @@ public enum TIMESERIESALGORITHM {
     }
 
     public static TIMESERIESALGORITHM fromValue(String v) {
-        for (TIMESERIESALGORITHM c: TIMESERIESALGORITHM.values()) {
+        for (TIMESERIESALGORITHM c : TIMESERIESALGORITHM.values()) {
             if (c.value.equals(v)) {
                 return c;
             }

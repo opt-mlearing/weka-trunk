@@ -14,7 +14,7 @@
  */
 
 /*
- * Copyright (C) 2002 University of Waikato 
+ * Copyright (C) 2002 University of Waikato
  */
 
 package weka.filters.supervised.instance;
@@ -34,41 +34,47 @@ import junit.framework.TestSuite;
  * @version $Revision$
  */
 public class StratifiedRemoveFoldsTest extends AbstractFilterTest {
-  
-  public StratifiedRemoveFoldsTest(String name) { super(name);  }
 
-  /** Creates a default StratifiedRemoveFolds */
-  public Filter getFilter() {
-    StratifiedRemoveFolds f = new StratifiedRemoveFolds();
-    return f;
-  }
-
-  /** Remove string attributes from default fixture instances */
-  protected void setUp() throws Exception {
-
-    super.setUp();
-    m_Instances.setClassIndex(1);
-  }
-
-  public void testAllFolds() {
-    
-    int totInstances = 0;
-    for (int i = 0; i < 10; i++) {
-      ((StratifiedRemoveFolds)m_Filter).setFold(i + 1);
-      Instances result = useFilter();
-      assertEquals(m_Instances.numAttributes(), result.numAttributes());
-      totInstances += result.numInstances();
+    public StratifiedRemoveFoldsTest(String name) {
+        super(name);
     }
-    assertEquals("Expecting output number of instances to match",
-                 m_Instances.numInstances(),  totInstances);
-  }
 
-  public static Test suite() {
-    return new TestSuite(StratifiedRemoveFoldsTest.class);
-  }
+    /**
+     * Creates a default StratifiedRemoveFolds
+     */
+    public Filter getFilter() {
+        StratifiedRemoveFolds f = new StratifiedRemoveFolds();
+        return f;
+    }
 
-  public static void main(String[] args){
-    junit.textui.TestRunner.run(suite());
-  }
+    /**
+     * Remove string attributes from default fixture instances
+     */
+    protected void setUp() throws Exception {
+
+        super.setUp();
+        m_Instances.setClassIndex(1);
+    }
+
+    public void testAllFolds() {
+
+        int totInstances = 0;
+        for (int i = 0; i < 10; i++) {
+            ((StratifiedRemoveFolds) m_Filter).setFold(i + 1);
+            Instances result = useFilter();
+            assertEquals(m_Instances.numAttributes(), result.numAttributes());
+            totInstances += result.numInstances();
+        }
+        assertEquals("Expecting output number of instances to match",
+                m_Instances.numInstances(), totInstances);
+    }
+
+    public static Test suite() {
+        return new TestSuite(StratifiedRemoveFoldsTest.class);
+    }
+
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 
 }

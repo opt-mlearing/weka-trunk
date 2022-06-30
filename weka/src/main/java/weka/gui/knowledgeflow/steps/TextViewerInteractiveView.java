@@ -55,302 +55,310 @@ import java.util.Map;
  * @version $Revision: $
  */
 public class TextViewerInteractiveView extends BaseInteractiveViewer implements
-  TextViewer.TextNotificationListener {
+        TextViewer.TextNotificationListener {
 
-  private static final long serialVersionUID = -3164518320257969282L;
+    private static final long serialVersionUID = -3164518320257969282L;
 
-  /** Button for clearing the results */
-  protected JButton m_clearButton = new JButton("Clear results");
+    /**
+     * Button for clearing the results
+     */
+    protected JButton m_clearButton = new JButton("Clear results");
 
-  /** Holds the list of results */
-  protected ResultHistoryPanel m_history;
+    /**
+     * Holds the list of results
+     */
+    protected ResultHistoryPanel m_history;
 
-  /** The main text output area */
-  protected JTextArea m_outText;
+    /**
+     * The main text output area
+     */
+    protected JTextArea m_outText;
 
-  /** Scroll panel for the text area */
-  protected JScrollPane m_textScroller;
+    /**
+     * Scroll panel for the text area
+     */
+    protected JScrollPane m_textScroller;
 
-  /**
-   * Initialize the viewer
-   */
-  @Override
-  public void init() {
-    addButton(m_clearButton);
-    m_outText = new JTextArea(20, 80);
-    m_outText.setEditable(false);
-    m_outText.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+    /**
+     * Initialize the viewer
+     */
+    @Override
+    public void init() {
+        addButton(m_clearButton);
+        m_outText = new JTextArea(20, 80);
+        m_outText.setEditable(false);
+        m_outText.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 
-    m_history = new ResultHistoryPanel(m_outText);
-    m_history.setBorder(BorderFactory.createTitledBorder("Result list"));
-    m_history.setHandleRightClicks(false);
-    m_history.setDeleteListener(new ResultHistoryPanel.RDeleteListener() {
-      @Override
-      public void entryDeleted(String name, int index) {
-        ((TextViewer) getStep()).getResults().remove(name);
-      }
+        m_history = new ResultHistoryPanel(m_outText);
+        m_history.setBorder(BorderFactory.createTitledBorder("Result list"));
+        m_history.setHandleRightClicks(false);
+        m_history.setDeleteListener(new ResultHistoryPanel.RDeleteListener() {
+            @Override
+            public void entryDeleted(String name, int index) {
+                ((TextViewer) getStep()).getResults().remove(name);
+            }
 
-      @Override
-      public void entriesDeleted(java.util.List<String> names,
-        java.util.List<Integer> indexes) {
-        for (String name : names) {
-          ((TextViewer) getStep()).getResults().remove(name);
+            @Override
+            public void entriesDeleted(java.util.List<String> names,
+                                       java.util.List<Integer> indexes) {
+                for (String name : names) {
+                    ((TextViewer) getStep()).getResults().remove(name);
+                }
+            }
+        });
+        m_history.getList().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (((e.getModifiers() & InputEvent.BUTTON1_MASK) != InputEvent.BUTTON1_MASK)
+                        || e.isAltDown()) {
+                    int index = m_history.getList().locationToIndex(e.getPoint());
+                    if (index != -1) {
+                        String name = m_history.getNameAtIndex(index);
+                        visualize(name, e.getX(), e.getY());
+                    } else {
+                        visualize(null, e.getX(), e.getY());
+                    }
+                }
+            }
+        });
+
+        m_textScroller = new JScrollPane(m_outText);
+        m_textScroller.setBorder(BorderFactory.createTitledBorder("Text"));
+        JSplitPane p2 =
+                new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, m_history, m_textScroller);
+        add(p2, BorderLayout.CENTER);
+        p2.setDividerLocation(200 + p2.getInsets().left);
+
+        // copy all results over to the history panel.
+        Map<String, String> runResults = ((TextViewer) getStep()).getResults();
+        String lastName = "";
+        if (runResults.size() > 0) {
+            for (Map.Entry<String, String> e : runResults.entrySet()) {
+                m_history
+                        .addResult(e.getKey(), new StringBuffer().append(e.getValue()));
+                lastName = e.getKey();
+            }
+            if (lastName.length() > 0) {
+                m_history.setSingle(lastName);
+            }
         }
-      }
-    });
-    m_history.getList().addMouseListener(new MouseAdapter() {
-      @Override
-      public void mouseClicked(MouseEvent e) {
-        if (((e.getModifiers() & InputEvent.BUTTON1_MASK) != InputEvent.BUTTON1_MASK)
-          || e.isAltDown()) {
-          int index = m_history.getList().locationToIndex(e.getPoint());
-          if (index != -1) {
-            String name = m_history.getNameAtIndex(index);
-            visualize(name, e.getX(), e.getY());
-          } else {
-            visualize(null, e.getX(), e.getY());
-          }
-        }
-      }
-    });
 
-    m_textScroller = new JScrollPane(m_outText);
-    m_textScroller.setBorder(BorderFactory.createTitledBorder("Text"));
-    JSplitPane p2 =
-      new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, m_history, m_textScroller);
-    add(p2, BorderLayout.CENTER);
-    p2.setDividerLocation(200 + p2.getInsets().left);
+        m_clearButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                m_history.clearResults();
+                ((TextViewer) getStep()).getResults().clear();
+                m_outText.setText("");
+            }
+        });
 
-    // copy all results over to the history panel.
-    Map<String, String> runResults = ((TextViewer) getStep()).getResults();
-    String lastName = "";
-    if (runResults.size() > 0) {
-      for (Map.Entry<String, String> e : runResults.entrySet()) {
-        m_history
-          .addResult(e.getKey(), new StringBuffer().append(e.getValue()));
-        lastName = e.getKey();
-      }
-      if (lastName.length() > 0) {
-        m_history.setSingle(lastName);
-      }
+        applySettings(getSettings());
+        ((TextViewer) getStep()).setTextNotificationListener(this);
     }
 
-    m_clearButton.addActionListener(new ActionListener() {
-      @Override
-      public void actionPerformed(ActionEvent e) {
-        m_history.clearResults();
-        ((TextViewer) getStep()).getResults().clear();
-        m_outText.setText("");
-      }
-    });
+    /**
+     * Called when the close button is pressed
+     */
+    @Override
+    public void closePressed() {
+        ((TextViewer) getStep())
+                .removeTextNotificationListener(TextViewerInteractiveView.this);
+        super.closePressed();
+    }
 
-    applySettings(getSettings());
-    ((TextViewer) getStep()).setTextNotificationListener(this);
-  }
+    /**
+     * Applys settings from the supplied settings object
+     *
+     * @param settings the settings object that might (or might not) have been
+     */
+    @Override
+    public void applySettings(Settings settings) {
+        m_outText.setFont(settings.getSetting(TextViewerInteractiveViewDefaults.ID,
+                TextViewerInteractiveViewDefaults.OUTPUT_FONT_KEY,
+                TextViewerInteractiveViewDefaults.OUTPUT_FONT,
+                Environment.getSystemWide()));
+        m_history.setFont(settings.getSetting(TextViewerInteractiveViewDefaults.ID,
+                TextViewerInteractiveViewDefaults.OUTPUT_FONT_KEY,
+                TextViewerInteractiveViewDefaults.OUTPUT_FONT,
+                Environment.getSystemWide()));
+        m_outText.setForeground(settings.getSetting(
+                TextViewerInteractiveViewDefaults.ID,
+                TextViewerInteractiveViewDefaults.OUTPUT_TEXT_COLOR_KEY,
+                TextViewerInteractiveViewDefaults.OUTPUT_TEXT_COLOR,
+                Environment.getSystemWide()));
+        m_outText.setBackground(settings.getSetting(
+                TextViewerInteractiveViewDefaults.ID,
+                TextViewerInteractiveViewDefaults.OUTPUT_BACKGROUND_COLOR_KEY,
+                TextViewerInteractiveViewDefaults.OUTPUT_BACKGROUND_COLOR,
+                Environment.getSystemWide()));
+        m_textScroller.setBackground(settings.getSetting(
+                TextViewerInteractiveViewDefaults.ID,
+                TextViewerInteractiveViewDefaults.OUTPUT_BACKGROUND_COLOR_KEY,
+                TextViewerInteractiveViewDefaults.OUTPUT_BACKGROUND_COLOR,
+                Environment.getSystemWide()));
+        m_outText.setRows(settings.getSetting(TextViewerInteractiveViewDefaults.ID,
+                TextViewerInteractiveViewDefaults.NUM_ROWS_KEY,
+                TextViewerInteractiveViewDefaults.NUM_ROWS, Environment.getSystemWide()));
+        m_outText.setColumns(settings.getSetting(
+                TextViewerInteractiveViewDefaults.ID,
+                TextViewerInteractiveViewDefaults.NUM_COLUMNS_KEY,
+                TextViewerInteractiveViewDefaults.NUM_COLUMNS,
+                Environment.getSystemWide()));
 
-  /**
-   * Called when the close button is pressed
-   */
-  @Override
-  public void closePressed() {
-    ((TextViewer) getStep())
-      .removeTextNotificationListener(TextViewerInteractiveView.this);
-    super.closePressed();
-  }
+        m_history.setBackground(settings.getSetting(
+                TextViewerInteractiveViewDefaults.ID,
+                TextViewerInteractiveViewDefaults.OUTPUT_BACKGROUND_COLOR_KEY,
+                TextViewerInteractiveViewDefaults.OUTPUT_BACKGROUND_COLOR,
+                Environment.getSystemWide()));
+    }
 
-  /**
-   * Applys settings from the supplied settings object
-   *
-   * @param settings the settings object that might (or might not) have been
-   */
-  @Override
-  public void applySettings(Settings settings) {
-    m_outText.setFont(settings.getSetting(TextViewerInteractiveViewDefaults.ID,
-      TextViewerInteractiveViewDefaults.OUTPUT_FONT_KEY,
-      TextViewerInteractiveViewDefaults.OUTPUT_FONT,
-      Environment.getSystemWide()));
-    m_history.setFont(settings.getSetting(TextViewerInteractiveViewDefaults.ID,
-      TextViewerInteractiveViewDefaults.OUTPUT_FONT_KEY,
-      TextViewerInteractiveViewDefaults.OUTPUT_FONT,
-      Environment.getSystemWide()));
-    m_outText.setForeground(settings.getSetting(
-      TextViewerInteractiveViewDefaults.ID,
-      TextViewerInteractiveViewDefaults.OUTPUT_TEXT_COLOR_KEY,
-      TextViewerInteractiveViewDefaults.OUTPUT_TEXT_COLOR,
-      Environment.getSystemWide()));
-    m_outText.setBackground(settings.getSetting(
-      TextViewerInteractiveViewDefaults.ID,
-      TextViewerInteractiveViewDefaults.OUTPUT_BACKGROUND_COLOR_KEY,
-      TextViewerInteractiveViewDefaults.OUTPUT_BACKGROUND_COLOR,
-      Environment.getSystemWide()));
-    m_textScroller.setBackground(settings.getSetting(
-      TextViewerInteractiveViewDefaults.ID,
-      TextViewerInteractiveViewDefaults.OUTPUT_BACKGROUND_COLOR_KEY,
-      TextViewerInteractiveViewDefaults.OUTPUT_BACKGROUND_COLOR,
-      Environment.getSystemWide()));
-    m_outText.setRows(settings.getSetting(TextViewerInteractiveViewDefaults.ID,
-      TextViewerInteractiveViewDefaults.NUM_ROWS_KEY,
-      TextViewerInteractiveViewDefaults.NUM_ROWS, Environment.getSystemWide()));
-    m_outText.setColumns(settings.getSetting(
-      TextViewerInteractiveViewDefaults.ID,
-      TextViewerInteractiveViewDefaults.NUM_COLUMNS_KEY,
-      TextViewerInteractiveViewDefaults.NUM_COLUMNS,
-      Environment.getSystemWide()));
+    /**
+     * Get the viewer name
+     *
+     * @return the viewer name
+     */
+    @Override
+    public String getViewerName() {
+        return "Text Viewer";
+    }
 
-    m_history.setBackground(settings.getSetting(
-      TextViewerInteractiveViewDefaults.ID,
-      TextViewerInteractiveViewDefaults.OUTPUT_BACKGROUND_COLOR_KEY,
-      TextViewerInteractiveViewDefaults.OUTPUT_BACKGROUND_COLOR,
-      Environment.getSystemWide()));
-  }
+    /**
+     * Handles constructing a popup menu with visualization options.
+     *
+     * @param name the name of the result history list entry clicked on by the
+     *             user
+     * @param x    the x coordinate for popping up the menu
+     * @param y    the y coordinate for popping up the menu
+     */
+    protected void visualize(String name, int x, int y) {
+        final JPanel panel = this;
+        final String selectedName = name;
+        JPopupMenu resultListMenu = new JPopupMenu();
 
-  /**
-   * Get the viewer name
-   *
-   * @return the viewer name
-   */
-  @Override
-  public String getViewerName() {
-    return "Text Viewer";
-  }
-
-  /**
-   * Handles constructing a popup menu with visualization options.
-   *
-   * @param name the name of the result history list entry clicked on by the
-   *          user
-   * @param x the x coordinate for popping up the menu
-   * @param y the y coordinate for popping up the menu
-   */
-  protected void visualize(String name, int x, int y) {
-    final JPanel panel = this;
-    final String selectedName = name;
-    JPopupMenu resultListMenu = new JPopupMenu();
-
-    JMenuItem visMainBuffer = new JMenuItem("View in main window");
-    if (selectedName != null) {
-      visMainBuffer.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-          m_history.setSingle(selectedName);
+        JMenuItem visMainBuffer = new JMenuItem("View in main window");
+        if (selectedName != null) {
+            visMainBuffer.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    m_history.setSingle(selectedName);
+                }
+            });
+        } else {
+            visMainBuffer.setEnabled(false);
         }
-      });
-    } else {
-      visMainBuffer.setEnabled(false);
-    }
-    resultListMenu.add(visMainBuffer);
+        resultListMenu.add(visMainBuffer);
 
-    JMenuItem visSepBuffer = new JMenuItem("View in separate window");
-    if (selectedName != null) {
-      visSepBuffer.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-          m_history.openFrame(selectedName);
+        JMenuItem visSepBuffer = new JMenuItem("View in separate window");
+        if (selectedName != null) {
+            visSepBuffer.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    m_history.openFrame(selectedName);
+                }
+            });
+        } else {
+            visSepBuffer.setEnabled(false);
         }
-      });
-    } else {
-      visSepBuffer.setEnabled(false);
-    }
-    resultListMenu.add(visSepBuffer);
+        resultListMenu.add(visSepBuffer);
 
-    JMenuItem saveOutput = new JMenuItem("Save result buffer");
-    if (selectedName != null) {
-      saveOutput.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-          SaveBuffer saveOut = new SaveBuffer(null, panel);
-          StringBuffer sb = m_history.getNamedBuffer(selectedName);
-          if (sb != null) {
-            saveOut.save(sb);
-          }
+        JMenuItem saveOutput = new JMenuItem("Save result buffer");
+        if (selectedName != null) {
+            saveOutput.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    SaveBuffer saveOut = new SaveBuffer(null, panel);
+                    StringBuffer sb = m_history.getNamedBuffer(selectedName);
+                    if (sb != null) {
+                        saveOut.save(sb);
+                    }
+                }
+            });
+        } else {
+            saveOutput.setEnabled(false);
         }
-      });
-    } else {
-      saveOutput.setEnabled(false);
-    }
-    resultListMenu.add(saveOutput);
+        resultListMenu.add(saveOutput);
 
-    JMenuItem deleteOutput = new JMenuItem("Delete result buffer");
-    if (selectedName != null) {
-      deleteOutput.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-          m_history.removeResult(selectedName);
+        JMenuItem deleteOutput = new JMenuItem("Delete result buffer");
+        if (selectedName != null) {
+            deleteOutput.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    m_history.removeResult(selectedName);
+                }
+            });
+        } else {
+            deleteOutput.setEnabled(false);
         }
-      });
-    } else {
-      deleteOutput.setEnabled(false);
+        resultListMenu.add(deleteOutput);
+
+        resultListMenu.show(m_history.getList(), x, y);
     }
-    resultListMenu.add(deleteOutput);
 
-    resultListMenu.show(m_history.getList(), x, y);
-  }
-
-  /**
-   * Get the default settings of this viewer
-   *
-   * @return the default settings
-   */
-  @Override
-  public Defaults getDefaultSettings() {
-    return new TextViewerInteractiveViewDefaults();
-  }
-
-  /**
-   * Accept a new text result and add it to the result list
-   *
-   * @param name the name of the result
-   * @param text the text of the result
-   */
-  @Override
-  public void acceptTextResult(String name, String text) {
-    m_history.addResult(name, new StringBuffer().append(text));
-    m_history.setSingle(name);
-  }
-
-  /**
-   * Defaults for this viewer
-   */
-  protected static final class TextViewerInteractiveViewDefaults extends
-    Defaults {
-
-    public static final String ID = "weka.gui.knowledgeflow.steps.textviewer";
-
-    protected static final Settings.SettingKey OUTPUT_FONT_KEY =
-      new Settings.SettingKey(ID + ".outputFont", "Font for text output",
-        "Font to " + "use in the output area");
-    protected static final Font OUTPUT_FONT = new Font("Monospaced",
-      Font.PLAIN, 12);
-
-    protected static final Settings.SettingKey OUTPUT_TEXT_COLOR_KEY =
-      new Settings.SettingKey(ID + ".outputFontColor", "Output text color",
-        "Color " + "of output text");
-    protected static final Color OUTPUT_TEXT_COLOR = Color.black;
-
-    protected static final Settings.SettingKey OUTPUT_BACKGROUND_COLOR_KEY =
-      new Settings.SettingKey(ID + ".outputBackgroundColor",
-        "Output background color", "Output background color");
-    protected static final Color OUTPUT_BACKGROUND_COLOR = Color.white;
-
-    protected static final Settings.SettingKey NUM_COLUMNS_KEY =
-      new Settings.SettingKey(ID + ".numColumns", "Number of columns of text",
-        "Number of columns of text");
-    protected static final int NUM_COLUMNS = 80;
-
-    protected static final Settings.SettingKey NUM_ROWS_KEY =
-      new Settings.SettingKey(ID + ".numRows", "Number of rows of text",
-        "Number of rows of text");
-    protected static final int NUM_ROWS = 20;
-
-    private static final long serialVersionUID = 8361658568822013306L;
-
-    public TextViewerInteractiveViewDefaults() {
-      super(ID);
-      m_defaults.put(OUTPUT_FONT_KEY, OUTPUT_FONT);
-      m_defaults.put(OUTPUT_TEXT_COLOR_KEY, OUTPUT_TEXT_COLOR);
-      m_defaults.put(OUTPUT_BACKGROUND_COLOR_KEY, OUTPUT_BACKGROUND_COLOR);
-      m_defaults.put(NUM_COLUMNS_KEY, NUM_COLUMNS);
-      m_defaults.put(NUM_ROWS_KEY, NUM_ROWS);
+    /**
+     * Get the default settings of this viewer
+     *
+     * @return the default settings
+     */
+    @Override
+    public Defaults getDefaultSettings() {
+        return new TextViewerInteractiveViewDefaults();
     }
-  }
+
+    /**
+     * Accept a new text result and add it to the result list
+     *
+     * @param name the name of the result
+     * @param text the text of the result
+     */
+    @Override
+    public void acceptTextResult(String name, String text) {
+        m_history.addResult(name, new StringBuffer().append(text));
+        m_history.setSingle(name);
+    }
+
+    /**
+     * Defaults for this viewer
+     */
+    protected static final class TextViewerInteractiveViewDefaults extends
+            Defaults {
+
+        public static final String ID = "weka.gui.knowledgeflow.steps.textviewer";
+
+        protected static final Settings.SettingKey OUTPUT_FONT_KEY =
+                new Settings.SettingKey(ID + ".outputFont", "Font for text output",
+                        "Font to " + "use in the output area");
+        protected static final Font OUTPUT_FONT = new Font("Monospaced",
+                Font.PLAIN, 12);
+
+        protected static final Settings.SettingKey OUTPUT_TEXT_COLOR_KEY =
+                new Settings.SettingKey(ID + ".outputFontColor", "Output text color",
+                        "Color " + "of output text");
+        protected static final Color OUTPUT_TEXT_COLOR = Color.black;
+
+        protected static final Settings.SettingKey OUTPUT_BACKGROUND_COLOR_KEY =
+                new Settings.SettingKey(ID + ".outputBackgroundColor",
+                        "Output background color", "Output background color");
+        protected static final Color OUTPUT_BACKGROUND_COLOR = Color.white;
+
+        protected static final Settings.SettingKey NUM_COLUMNS_KEY =
+                new Settings.SettingKey(ID + ".numColumns", "Number of columns of text",
+                        "Number of columns of text");
+        protected static final int NUM_COLUMNS = 80;
+
+        protected static final Settings.SettingKey NUM_ROWS_KEY =
+                new Settings.SettingKey(ID + ".numRows", "Number of rows of text",
+                        "Number of rows of text");
+        protected static final int NUM_ROWS = 20;
+
+        private static final long serialVersionUID = 8361658568822013306L;
+
+        public TextViewerInteractiveViewDefaults() {
+            super(ID);
+            m_defaults.put(OUTPUT_FONT_KEY, OUTPUT_FONT);
+            m_defaults.put(OUTPUT_TEXT_COLOR_KEY, OUTPUT_TEXT_COLOR);
+            m_defaults.put(OUTPUT_BACKGROUND_COLOR_KEY, OUTPUT_BACKGROUND_COLOR);
+            m_defaults.put(NUM_COLUMNS_KEY, NUM_COLUMNS);
+            m_defaults.put(NUM_ROWS_KEY, NUM_ROWS);
+        }
+    }
 }

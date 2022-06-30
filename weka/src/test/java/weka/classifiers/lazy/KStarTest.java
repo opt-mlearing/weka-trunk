@@ -34,19 +34,23 @@ import junit.framework.TestSuite;
  */
 public class KStarTest extends AbstractClassifierTest {
 
-  public KStarTest(String name) { super(name);  }
+    public KStarTest(String name) {
+        super(name);
+    }
 
-  /** Creates a default KStar */
-  public Classifier getClassifier() {
-    return new KStar();
-  }
+    /**
+     * Creates a default KStar
+     */
+    public Classifier getClassifier() {
+        return new KStar();
+    }
 
-  public static Test suite() {
-    return new TestSuite(KStarTest.class);
-  }
+    public static Test suite() {
+        return new TestSuite(KStarTest.class);
+    }
 
-  public static void main(String[] args){
-    junit.textui.TestRunner.run(suite());
-  }
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 
 }

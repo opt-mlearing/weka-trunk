@@ -31,5 +31,5 @@ import java.util.EventListener;
  */
 public interface ChartListener extends EventListener {
 
-  void acceptDataPoint(ChartEvent e);
+    void acceptDataPoint(ChartEvent e);
 }

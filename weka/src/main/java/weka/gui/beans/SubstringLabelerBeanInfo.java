@@ -27,44 +27,44 @@ import java.beans.SimpleBeanInfo;
 
 /**
  * Bean info class for the substring labeler bean
- * 
+ *
  * @author Mark Hall (mhall{[at]}pentaho{[dot]}com)
  * @version $Revision$
  */
 public class SubstringLabelerBeanInfo extends SimpleBeanInfo {
-  
-  /**
-   * Returns the event set descriptors
-   *
-   * @return an <code>EventSetDescriptor[]</code> value
-   */
-  public EventSetDescriptor [] getEventSetDescriptors() {
-    try {
-      EventSetDescriptor [] esds = 
-      {       
-          new EventSetDescriptor(DataSource.class, 
-              "instance", 
-              InstanceListener.class, 
-          "acceptInstance"),
-          new EventSetDescriptor(DataSource.class, 
-              "dataSet", 
-              DataSourceListener.class, 
-          "acceptDataSet")
-      };
-      return esds;
-    } catch (Exception ex) {
-      ex.printStackTrace();
+
+    /**
+     * Returns the event set descriptors
+     *
+     * @return an <code>EventSetDescriptor[]</code> value
+     */
+    public EventSetDescriptor[] getEventSetDescriptors() {
+        try {
+            EventSetDescriptor[] esds =
+                    {
+                            new EventSetDescriptor(DataSource.class,
+                                    "instance",
+                                    InstanceListener.class,
+                                    "acceptInstance"),
+                            new EventSetDescriptor(DataSource.class,
+                                    "dataSet",
+                                    DataSourceListener.class,
+                                    "acceptDataSet")
+                    };
+            return esds;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return null;
     }
-    return null;
-  }
-  
-  /**
-   * Get the bean descriptor for this bean
-   *
-   * @return a <code>BeanDescriptor</code> value
-   */
-  public BeanDescriptor getBeanDescriptor() {
-    return new BeanDescriptor(SubstringLabeler.class,
-                              SubstringLabelerCustomizer.class);
-  }
+
+    /**
+     * Get the bean descriptor for this bean
+     *
+     * @return a <code>BeanDescriptor</code> value
+     */
+    public BeanDescriptor getBeanDescriptor() {
+        return new BeanDescriptor(SubstringLabeler.class,
+                SubstringLabelerCustomizer.class);
+    }
 }

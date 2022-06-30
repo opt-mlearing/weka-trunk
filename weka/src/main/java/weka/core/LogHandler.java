@@ -24,23 +24,23 @@ import weka.gui.Logger;
 
 /**
  * Interface to something that can output messages to a log
- * 
+ *
  * @author Mark Hall (mhall{[at]}pentaho{[dot]}com)
  * @version $Revision: 47640 $
  */
 public interface LogHandler {
 
-  /**
-   * Set the log to use
-   * 
-   * @param log the log to use
-   */
-  void setLog(Logger log);
+    /**
+     * Set the log to use
+     *
+     * @param log the log to use
+     */
+    void setLog(Logger log);
 
-  /**
-   * Get the log in use
-   * 
-   * @return the log in use
-   */
-  Logger getLog();
+    /**
+     * Get the log in use
+     *
+     * @return the log in use
+     */
+    Logger getLog();
 }

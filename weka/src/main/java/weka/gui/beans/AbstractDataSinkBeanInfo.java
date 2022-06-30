@@ -31,15 +31,15 @@ import java.beans.SimpleBeanInfo;
  * @version $Revision$
  */
 public class AbstractDataSinkBeanInfo extends SimpleBeanInfo {
-  
-  /**
-   * Get the event set descriptors for this bean
-   *
-   * @return an <code>EventSetDescriptor[]</code> value
-   */
-  public EventSetDescriptor [] getEventSetDescriptors() {
-    // hide all gui events
-    EventSetDescriptor [] esds = { };
-    return esds;
-  }
+
+    /**
+     * Get the event set descriptors for this bean
+     *
+     * @return an <code>EventSetDescriptor[]</code> value
+     */
+    public EventSetDescriptor[] getEventSetDescriptors() {
+        // hide all gui events
+        EventSetDescriptor[] esds = {};
+        return esds;
+    }
 }

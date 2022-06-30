@@ -28,15 +28,15 @@ import java.util.EventListener;
  *
  * @author <a href="mailto:mhall@cs.waikato.ac.nz">Mark Hall</a>
  * @version $Revision$
- * @since 1.0
  * @see EventListener
+ * @since 1.0
  */
 public interface IncrementalClassifierListener extends EventListener {
-  
-  /**
-   * Accept the event
-   *
-   * @param e a <code>ClassifierEvent</code> value
-   */
-  void acceptClassifier(IncrementalClassifierEvent e);
+
+    /**
+     * Accept the event
+     *
+     * @param e a <code>ClassifierEvent</code> value
+     */
+    void acceptClassifier(IncrementalClassifierEvent e);
 }

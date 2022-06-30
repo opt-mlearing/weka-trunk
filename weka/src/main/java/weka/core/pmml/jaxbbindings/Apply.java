@@ -21,9 +21,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for Apply element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="Apply">
  *   &lt;complexType>
@@ -41,13 +41,11 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "extension",
-    "expression"
+        "extension",
+        "expression"
 })
 @XmlRootElement(name = "Apply")
 public class Apply {
@@ -55,14 +53,14 @@ public class Apply {
     @XmlElement(name = "Extension", namespace = "http://www.dmg.org/PMML-4_1", required = true)
     protected List<Extension> extension;
     @XmlElements({
-        @XmlElement(name = "Apply", namespace = "http://www.dmg.org/PMML-4_1", required = true, type = Apply.class),
-        @XmlElement(name = "Discretize", namespace = "http://www.dmg.org/PMML-4_1", required = true, type = Discretize.class),
-        @XmlElement(name = "NormContinuous", namespace = "http://www.dmg.org/PMML-4_1", required = true, type = NormContinuous.class),
-        @XmlElement(name = "MapValues", namespace = "http://www.dmg.org/PMML-4_1", required = true, type = MapValues.class),
-        @XmlElement(name = "Constant", namespace = "http://www.dmg.org/PMML-4_1", required = true, type = Constant.class),
-        @XmlElement(name = "Aggregate", namespace = "http://www.dmg.org/PMML-4_1", required = true, type = Aggregate.class),
-        @XmlElement(name = "FieldRef", namespace = "http://www.dmg.org/PMML-4_1", required = true, type = FieldRef.class),
-        @XmlElement(name = "NormDiscrete", namespace = "http://www.dmg.org/PMML-4_1", required = true, type = NormDiscrete.class)
+            @XmlElement(name = "Apply", namespace = "http://www.dmg.org/PMML-4_1", required = true, type = Apply.class),
+            @XmlElement(name = "Discretize", namespace = "http://www.dmg.org/PMML-4_1", required = true, type = Discretize.class),
+            @XmlElement(name = "NormContinuous", namespace = "http://www.dmg.org/PMML-4_1", required = true, type = NormContinuous.class),
+            @XmlElement(name = "MapValues", namespace = "http://www.dmg.org/PMML-4_1", required = true, type = MapValues.class),
+            @XmlElement(name = "Constant", namespace = "http://www.dmg.org/PMML-4_1", required = true, type = Constant.class),
+            @XmlElement(name = "Aggregate", namespace = "http://www.dmg.org/PMML-4_1", required = true, type = Aggregate.class),
+            @XmlElement(name = "FieldRef", namespace = "http://www.dmg.org/PMML-4_1", required = true, type = FieldRef.class),
+            @XmlElement(name = "NormDiscrete", namespace = "http://www.dmg.org/PMML-4_1", required = true, type = NormDiscrete.class)
     })
     protected List<Object> expression;
     @XmlAttribute(required = true)
@@ -74,25 +72,23 @@ public class Apply {
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extension }
-     * 
-     * 
      */
     public List<Extension> getExtension() {
         if (extension == null) {
@@ -103,20 +99,20 @@ public class Apply {
 
     /**
      * Gets the value of the expression property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the expression property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getEXPRESSION().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Apply }
@@ -127,8 +123,6 @@ public class Apply {
      * {@link Aggregate }
      * {@link FieldRef }
      * {@link NormDiscrete }
-     * 
-     * 
      */
     public List<Object> getEXPRESSION() {
         if (expression == null) {
@@ -139,11 +133,9 @@ public class Apply {
 
     /**
      * Gets the value of the function property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getFunction() {
         return function;
@@ -151,11 +143,9 @@ public class Apply {
 
     /**
      * Sets the value of the function property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setFunction(String value) {
         this.function = value;
@@ -163,11 +153,9 @@ public class Apply {
 
     /**
      * Gets the value of the invalidValueTreatment property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link INVALIDVALUETREATMENTMETHOD }
-     *     
+     *
+     * @return possible object is
+     * {@link INVALIDVALUETREATMENTMETHOD }
      */
     public INVALIDVALUETREATMENTMETHOD getInvalidValueTreatment() {
         if (invalidValueTreatment == null) {
@@ -179,11 +167,9 @@ public class Apply {
 
     /**
      * Sets the value of the invalidValueTreatment property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link INVALIDVALUETREATMENTMETHOD }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link INVALIDVALUETREATMENTMETHOD }
      */
     public void setInvalidValueTreatment(INVALIDVALUETREATMENTMETHOD value) {
         this.invalidValueTreatment = value;
@@ -191,11 +177,9 @@ public class Apply {
 
     /**
      * Gets the value of the mapMissingTo property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getMapMissingTo() {
         return mapMissingTo;
@@ -203,11 +187,9 @@ public class Apply {
 
     /**
      * Sets the value of the mapMissingTo property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setMapMissingTo(String value) {
         this.mapMissingTo = value;

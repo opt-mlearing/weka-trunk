@@ -21,9 +21,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for Coefficients element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="Coefficients">
  *   &lt;complexType>
@@ -40,13 +40,11 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "extension",
-    "coefficient"
+        "extension",
+        "coefficient"
 })
 @XmlRootElement(name = "Coefficients")
 public class Coefficients {
@@ -62,25 +60,23 @@ public class Coefficients {
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extension }
-     * 
-     * 
      */
     public List<Extension> getExtension() {
         if (extension == null) {
@@ -91,25 +87,23 @@ public class Coefficients {
 
     /**
      * Gets the value of the coefficient property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the coefficient property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getCoefficient().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Coefficient }
-     * 
-     * 
      */
     public List<Coefficient> getCoefficient() {
         if (coefficient == null) {
@@ -120,15 +114,13 @@ public class Coefficients {
 
     /**
      * Gets the value of the absoluteValue property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public double getAbsoluteValue() {
         if (absoluteValue == null) {
-            return  0.0D;
+            return 0.0D;
         } else {
             return absoluteValue;
         }
@@ -136,11 +128,9 @@ public class Coefficients {
 
     /**
      * Sets the value of the absoluteValue property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setAbsoluteValue(Double value) {
         this.absoluteValue = value;
@@ -148,11 +138,9 @@ public class Coefficients {
 
     /**
      * Gets the value of the numberOfCoefficients property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @return possible object is
+     * {@link BigInteger }
      */
     public BigInteger getNumberOfCoefficients() {
         return numberOfCoefficients;
@@ -160,11 +148,9 @@ public class Coefficients {
 
     /**
      * Sets the value of the numberOfCoefficients property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link BigInteger }
      */
     public void setNumberOfCoefficients(BigInteger value) {
         this.numberOfCoefficients = value;

@@ -32,23 +32,23 @@ import java.beans.SimpleBeanInfo;
  */
 public class AbstractTrainingSetProducerBeanInfo extends SimpleBeanInfo {
 
-  /**
-   * Returns event set descriptors for this type of bean
-   *
-   * @return an <code>EventSetDescriptor[]</code> value
-   */
-  public EventSetDescriptor [] getEventSetDescriptors() {
-    try {
-      EventSetDescriptor [] esds = { 
-	new EventSetDescriptor(TrainingSetProducer.class, 
-			       "trainingSet", 
-			       TrainingSetListener.class, 
-			       "acceptTrainingSet") 
-	  };
-      return esds;
-    } catch (Exception ex) {
-      ex.printStackTrace();
+    /**
+     * Returns event set descriptors for this type of bean
+     *
+     * @return an <code>EventSetDescriptor[]</code> value
+     */
+    public EventSetDescriptor[] getEventSetDescriptors() {
+        try {
+            EventSetDescriptor[] esds = {
+                    new EventSetDescriptor(TrainingSetProducer.class,
+                            "trainingSet",
+                            TrainingSetListener.class,
+                            "acceptTrainingSet")
+            };
+            return esds;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return null;
     }
-    return null;
-  }
 }

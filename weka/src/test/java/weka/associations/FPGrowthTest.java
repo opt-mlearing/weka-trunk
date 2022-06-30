@@ -32,23 +32,25 @@ import junit.framework.TestSuite;
  * @author Mark Hall
  * @version $Revision$
  */
-public class FPGrowthTest 
-  extends AbstractAssociatorTest {
+public class FPGrowthTest
+        extends AbstractAssociatorTest {
 
-  public FPGrowthTest(String name) { 
-    super(name);  
-  }
+    public FPGrowthTest(String name) {
+        super(name);
+    }
 
-  /** Creates a default Apriori */
-  public Associator getAssociator() {
-    return new FPGrowth();
-  }
+    /**
+     * Creates a default Apriori
+     */
+    public Associator getAssociator() {
+        return new FPGrowth();
+    }
 
-  public static Test suite() {
-    return new TestSuite(FPGrowthTest.class);
-  }
+    public static Test suite() {
+        return new TestSuite(FPGrowthTest.class);
+    }
 
-  public static void main(String[] args){
-    junit.textui.TestRunner.run(suite());
-  }
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 }

@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlEnumValue;
 
 /**
  * <p>Java class for GAP.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
@@ -26,7 +26,6 @@ import javax.xml.bind.annotation.XmlEnumValue;
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
- * 
  */
 @XmlEnum
 public enum GAP {
@@ -48,7 +47,7 @@ public enum GAP {
     }
 
     public static GAP fromValue(String v) {
-        for (GAP c: GAP.values()) {
+        for (GAP c : GAP.values()) {
             if (c.value.equals(v)) {
                 return c;
             }

@@ -30,55 +30,57 @@ import java.util.EventObject;
  * @version $Revision$
  */
 public class GraphEvent
-  extends EventObject {
+        extends EventObject {
 
-  /** for serialization */
-  private static final long serialVersionUID = 2099494034652519986L;
+    /**
+     * for serialization
+     */
+    private static final long serialVersionUID = 2099494034652519986L;
 
-  protected String m_graphString;
-  protected String m_graphTitle;
-  protected int m_graphType;
+    protected String m_graphString;
+    protected String m_graphTitle;
+    protected int m_graphType;
 
-  /**
-   * Creates a new <code>GraphEvent</code> instance.
-   *
-   * @param source the source of the event
-   * @param graphString a string describing the graph in "dot" format
-   * @param graphTitle the title for the graph
-   * @param graphType the type for the graph
-   */
-  public GraphEvent(Object source, String graphString,
-		    String graphTitle, int graphType) {
-    super(source);
-    m_graphString = graphString;
-    m_graphTitle = graphTitle;
-    m_graphType = graphType;
-  }
+    /**
+     * Creates a new <code>GraphEvent</code> instance.
+     *
+     * @param source      the source of the event
+     * @param graphString a string describing the graph in "dot" format
+     * @param graphTitle  the title for the graph
+     * @param graphType   the type for the graph
+     */
+    public GraphEvent(Object source, String graphString,
+                      String graphTitle, int graphType) {
+        super(source);
+        m_graphString = graphString;
+        m_graphTitle = graphTitle;
+        m_graphType = graphType;
+    }
 
-  /**
-   * Return the dot string for the graph
-   *
-   * @return a <code>String</code> value
-   */
-  public String getGraphString() {
-    return m_graphString;
-  }
+    /**
+     * Return the dot string for the graph
+     *
+     * @return a <code>String</code> value
+     */
+    public String getGraphString() {
+        return m_graphString;
+    }
 
-  /**
-   * Return the graph title
-   *
-   * @return a <code>String</code> value
-   */
-  public String getGraphTitle() {
-    return m_graphTitle;
-  }
+    /**
+     * Return the graph title
+     *
+     * @return a <code>String</code> value
+     */
+    public String getGraphTitle() {
+        return m_graphTitle;
+    }
 
-  /**
-   * Return the graph type
-   *
-   * @return a <code>int</code> value
-   */
-  public int getGraphType() {
-    return m_graphType;
-  }
+    /**
+     * Return the graph type
+     *
+     * @return a <code>int</code> value
+     */
+    public int getGraphType() {
+        return m_graphType;
+    }
 }

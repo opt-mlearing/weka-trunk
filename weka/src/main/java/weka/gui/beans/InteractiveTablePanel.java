@@ -22,7 +22,7 @@ package weka.gui.beans;
 
 /**
  * Provides a panel using an interactive table model.
- * 
+ *
  * @author Mark Hall (mhall{[at]}penthao{[dot]}com)
  * @version $Revision$
  * @deprecated Use {@code weka.gui.InteractiveTablePanel} instead. Retained for
@@ -31,14 +31,14 @@ package weka.gui.beans;
 @Deprecated
 public class InteractiveTablePanel extends weka.gui.InteractiveTablePanel {
 
-  private static final long serialVersionUID = -5331129312037269302L;
+    private static final long serialVersionUID = -5331129312037269302L;
 
-  /**
-   * Constructor
-   * 
-   * @param colNames the names of the columns
-   */
-  public InteractiveTablePanel(String[] colNames) {
-    super(colNames);
-  }
+    /**
+     * Constructor
+     *
+     * @param colNames the names of the columns
+     */
+    public InteractiveTablePanel(String[] colNames) {
+        super(colNames);
+    }
 }

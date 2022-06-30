@@ -27,7 +27,7 @@ import java.lang.annotation.*;
  * Method annotation that can be used with bean properties that are to be considered as
  * programmatic only (i.e. they should not be exposed by the GenericObjectEditor
  * in GUI config dialogs).
- * 
+ *
  * @author Mark Hall (mhall{[at]}pentaho{[dot]}com)
  * @version $Revision$
  */

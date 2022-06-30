@@ -27,92 +27,104 @@ import java.util.EventObject;
  * An event that is generated when a different Result is activated in the
  * ResultPanel.
  *
- * @see         ResultChangedListener
- * @author      FracPete (fracpete at waikato dot ac dot nz)
- * @version     $Revision$
+ * @author FracPete (fracpete at waikato dot ac dot nz)
+ * @version $Revision$
+ * @see ResultChangedListener
  */
 public class ResultChangedEvent
-  extends EventObject {
+        extends EventObject {
 
-  /** for serialization */
-  private static final long serialVersionUID = 36042516077236111L;
-  
-  /** the query that is associated with the active result table */
-  protected String m_Query;
+    /**
+     * for serialization
+     */
+    private static final long serialVersionUID = 36042516077236111L;
 
-  /** the connect string with which the query was run */
-  protected String m_URL;
+    /**
+     * the query that is associated with the active result table
+     */
+    protected String m_Query;
 
-  /** the user that was used to connect to the DB */
-  protected String m_User;
+    /**
+     * the connect string with which the query was run
+     */
+    protected String m_URL;
 
-  /** the password that was used to connect to the DB */
-  protected String m_Password;
+    /**
+     * the user that was used to connect to the DB
+     */
+    protected String m_User;
 
-  /**
-   * constructs the event
-   * @param source        the source that generated this event
-   * @param url           the current database url
-   * @param user          the current user
-   * @param pw            the current password
-   * @param query         the current query
-   */
-  public ResultChangedEvent(Object source, 
-                            String url,
-                            String user,
-                            String pw,
-                            String query ) {
-    super(source);
+    /**
+     * the password that was used to connect to the DB
+     */
+    protected String m_Password;
 
-    m_URL      = url;
-    m_User     = user;
-    m_Password = pw;
-    m_Query    = query;
-  }
+    /**
+     * constructs the event
+     *
+     * @param source the source that generated this event
+     * @param url    the current database url
+     * @param user   the current user
+     * @param pw     the current password
+     * @param query  the current query
+     */
+    public ResultChangedEvent(Object source,
+                              String url,
+                              String user,
+                              String pw,
+                              String query) {
+        super(source);
 
-  /**
-   * returns the database URL that produced the table model
-   */
-  public String getURL() {
-    return m_URL;
-  }
+        m_URL = url;
+        m_User = user;
+        m_Password = pw;
+        m_Query = query;
+    }
 
-  /**
-   * returns the user that produced the table model
-   */
-  public String getUser() {
-    return m_User;
-  }
+    /**
+     * returns the database URL that produced the table model
+     */
+    public String getURL() {
+        return m_URL;
+    }
 
-  /**
-   * returns the password that produced the table model
-   */
-  public String getPassword() {
-    return m_Password;
-  }
+    /**
+     * returns the user that produced the table model
+     */
+    public String getUser() {
+        return m_User;
+    }
 
-  /**
-   * returns the query that was executed
-   */
-  public String getQuery() {
-    return m_Query;
-  }
+    /**
+     * returns the password that produced the table model
+     */
+    public String getPassword() {
+        return m_Password;
+    }
 
-  /**
-   * returns the event in a string representation
-   * @return        the event in a string representation
-   */
-  public String toString() {
-    String        result;
+    /**
+     * returns the query that was executed
+     */
+    public String getQuery() {
+        return m_Query;
+    }
 
-    result  = super.toString();
-    result  = result.substring(0, result.length() - 1);  // remove "]"
-    result +=   ",url=" + getURL() 
-              + ",user=" + getUser()
-              + ",password=" + getPassword().replaceAll(".", "*")
-              + ",query=" + getQuery()
-              + "]";
+    /**
+     * returns the event in a string representation
+     *
+     * @return the event in a string representation
+     */
+    public String toString() {
+        String result;
 
-    return result;
-  }
+        result = super.toString();
+        result = result.substring(0, result.length() - 1);  // remove "]"
+        result += ",url=" + getURL()
+                + ",user=" + getUser()
+                + ",password=" + getPassword().replaceAll(".", "*")
+                + ",query=" + getQuery()
+                + "]";
+
+        return result;
+    }
 }

@@ -21,7 +21,7 @@
 
 package weka.core;
 
-/** 
+/**
  * Interface to something that can be matched with tree matching
  * algorithms.
  *
@@ -30,14 +30,14 @@ package weka.core;
  */
 public interface Matchable {
 
-  /**
-   * Returns a string that describes a tree representing
-   * the object in prefix order.
-   *
-   * @return the tree described as a string
-   * @exception Exception if the tree can't be computed
-   */
-  String prefix() throws Exception;
+    /**
+     * Returns a string that describes a tree representing
+     * the object in prefix order.
+     *
+     * @return the tree described as a string
+     * @throws Exception if the tree can't be computed
+     */
+    String prefix() throws Exception;
 }
 
 

@@ -32,9 +32,9 @@ import weka.core.Utils;
 /**
  * Abstract class for cluster data generators.
  * <p/>
- * 
+ * <p>
  * Example usage as the main of a datagenerator called RandomGenerator:
- * 
+ *
  * <pre>
  * public static void main(String[] args) {
  *   try {
@@ -46,157 +46,163 @@ import weka.core.Utils;
  * }
  * </pre>
  * <p/>
- * 
+ *
  * @author Gabi Schmidberger (gabi@cs.waikato.ac.nz)
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
 public abstract class ClusterGenerator extends DataGenerator {
 
-  /** for serialization */
-  private static final long serialVersionUID = 6131722618472046365L;
+    /**
+     * for serialization
+     */
+    private static final long serialVersionUID = 6131722618472046365L;
 
-  /** Number of attribute the dataset should have */
-  protected int m_NumAttributes;
+    /**
+     * Number of attribute the dataset should have
+     */
+    protected int m_NumAttributes;
 
-  /** class flag */
-  protected boolean m_ClassFlag = false;
+    /**
+     * class flag
+     */
+    protected boolean m_ClassFlag = false;
 
-  /**
-   * initializes the generator
-   */
-  public ClusterGenerator() {
-    super();
+    /**
+     * initializes the generator
+     */
+    public ClusterGenerator() {
+        super();
 
-    setNumAttributes(defaultNumAttributes());
-  }
-
-  /**
-   * Returns an enumeration describing the available options.
-   *
-   * @return an enumeration of all the available options.
-   */
-  @Override
-  public Enumeration<Option> listOptions() {
-    Vector<Option> result = enumToVector(super.listOptions());
-
-    result.addElement(new Option("\tThe number of attributes (default "
-      + defaultNumAttributes() + ").", "a", 1, "-a <num>"));
-
-    result.addElement(new Option(
-      "\tClass Flag, if set, the cluster is listed in extra attribute.", "c",
-      0, "-c"));
-
-    return result.elements();
-  }
-
-  /**
-   * Sets the options.
-   *
-   * @param options the options
-   * @throws Exception if invalid option
-   */
-  @Override
-  public void setOptions(String[] options) throws Exception {
-    String tmpStr;
-
-    super.setOptions(options);
-
-    tmpStr = Utils.getOption('a', options);
-    if (tmpStr.length() != 0) {
-      setNumAttributes(Integer.parseInt(tmpStr));
-    } else {
-      setNumAttributes(defaultNumAttributes());
+        setNumAttributes(defaultNumAttributes());
     }
 
-    setClassFlag(Utils.getFlag('c', options));
-  }
+    /**
+     * Returns an enumeration describing the available options.
+     *
+     * @return an enumeration of all the available options.
+     */
+    @Override
+    public Enumeration<Option> listOptions() {
+        Vector<Option> result = enumToVector(super.listOptions());
 
-  /**
-   * Gets the current settings of the classifier.
-   *
-   * @return an array of strings suitable for passing to setOptions
-   */
-  @Override
-  public String[] getOptions() {
+        result.addElement(new Option("\tThe number of attributes (default "
+                + defaultNumAttributes() + ").", "a", 1, "-a <num>"));
 
-    Vector<String> result = new Vector<String>();
+        result.addElement(new Option(
+                "\tClass Flag, if set, the cluster is listed in extra attribute.", "c",
+                0, "-c"));
 
-    Collections.addAll(result, super.getOptions());
-
-    result.add("-a");
-    result.add("" + getNumAttributes());
-
-    if (getClassFlag()) {
-      result.add("-c");
+        return result.elements();
     }
 
-    return result.toArray(new String[result.size()]);
-  }
+    /**
+     * Sets the options.
+     *
+     * @param options the options
+     * @throws Exception if invalid option
+     */
+    @Override
+    public void setOptions(String[] options) throws Exception {
+        String tmpStr;
 
-  /**
-   * returns the default number of attributes
-   *
-   * @return the default number of attributes
-   */
-  protected int defaultNumAttributes() {
-    return 10;
-  }
+        super.setOptions(options);
 
-  /**
-   * Sets the number of attributes the dataset should have.
-   *
-   * @param numAttributes the new number of attributes
-   */
-  public void setNumAttributes(int numAttributes) {
-    m_NumAttributes = numAttributes;
-   }
+        tmpStr = Utils.getOption('a', options);
+        if (tmpStr.length() != 0) {
+            setNumAttributes(Integer.parseInt(tmpStr));
+        } else {
+            setNumAttributes(defaultNumAttributes());
+        }
 
-  /**
-   * Gets the number of attributes that should be produced.
-   *
-   * @return the number of attributes that should be produced
-   */
-  public int getNumAttributes() {
-    return m_NumAttributes;
-  }
+        setClassFlag(Utils.getFlag('c', options));
+    }
 
-  /**
-   * Returns the tip text for this property
-   *
-   * @return tip text for this property suitable for displaying in the
-   *         explorer/experimenter gui
-   */
-  public String numAttributesTipText() {
-    return "The number of attributes the generated data will contain.";
-  }
+    /**
+     * Gets the current settings of the classifier.
+     *
+     * @return an array of strings suitable for passing to setOptions
+     */
+    @Override
+    public String[] getOptions() {
 
-  /**
-   * Sets the class flag, if class flag is set, the cluster is listed as class
-   * atrribute in an extra attribute.
-   *
-   * @param classFlag the new class flag
-   */
-  public void setClassFlag(boolean classFlag) {
-    m_ClassFlag = classFlag;
-  }
+        Vector<String> result = new Vector<String>();
 
-  /**
-   * Gets the class flag.
-   *
-   * @return the class flag
-   */
-  public boolean getClassFlag() {
-    return m_ClassFlag;
-  }
+        Collections.addAll(result, super.getOptions());
 
-  /**
-   * Returns the tip text for this property
-   *
-   * @return tip text for this property suitable for displaying in the
-   *         explorer/experimenter gui
-   */
-  public String classFlagTipText() {
-    return "If set to TRUE, lists the cluster as an extra attribute.";
-  }
+        result.add("-a");
+        result.add("" + getNumAttributes());
+
+        if (getClassFlag()) {
+            result.add("-c");
+        }
+
+        return result.toArray(new String[result.size()]);
+    }
+
+    /**
+     * returns the default number of attributes
+     *
+     * @return the default number of attributes
+     */
+    protected int defaultNumAttributes() {
+        return 10;
+    }
+
+    /**
+     * Sets the number of attributes the dataset should have.
+     *
+     * @param numAttributes the new number of attributes
+     */
+    public void setNumAttributes(int numAttributes) {
+        m_NumAttributes = numAttributes;
+    }
+
+    /**
+     * Gets the number of attributes that should be produced.
+     *
+     * @return the number of attributes that should be produced
+     */
+    public int getNumAttributes() {
+        return m_NumAttributes;
+    }
+
+    /**
+     * Returns the tip text for this property
+     *
+     * @return tip text for this property suitable for displaying in the
+     * explorer/experimenter gui
+     */
+    public String numAttributesTipText() {
+        return "The number of attributes the generated data will contain.";
+    }
+
+    /**
+     * Sets the class flag, if class flag is set, the cluster is listed as class
+     * atrribute in an extra attribute.
+     *
+     * @param classFlag the new class flag
+     */
+    public void setClassFlag(boolean classFlag) {
+        m_ClassFlag = classFlag;
+    }
+
+    /**
+     * Gets the class flag.
+     *
+     * @return the class flag
+     */
+    public boolean getClassFlag() {
+        return m_ClassFlag;
+    }
+
+    /**
+     * Returns the tip text for this property
+     *
+     * @return tip text for this property suitable for displaying in the
+     * explorer/experimenter gui
+     */
+    public String classFlagTipText() {
+        return "If set to TRUE, lists the cluster as an extra attribute.";
+    }
 }

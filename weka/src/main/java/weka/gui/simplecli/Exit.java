@@ -33,71 +33,70 @@ import java.awt.event.WindowEvent;
  * @author FracPete (fracpete at waikato dot ac dot nz)
  */
 public class Exit
-  extends AbstractCommand {
+        extends AbstractCommand {
 
-  /**
-   * Returns the name of the command.
-   *
-   * @return		the name
-   */
-  @Override
-  public String getName() {
-    return "exit";
-  }
-
-  /**
-   * Returns the help string (no indentation).
-   *
-   * @return		the help
-   */
-  @Override
-  public String getHelp() {
-    return "Exits the SimpleCLI program.";
-  }
-
-  /**
-   * Returns the one-liner help string for the parameters.
-   *
-   * @return		the help, empty if none available
-   */
-  public String getParameterHelp() {
-    return "";
-  }
-
-  /**
-   * Executes the command with the given parameters.
-   *
-   * @param params 	the parameters for the command
-   * @throws Exception	if command fails
-   */
-  @Override
-  protected void doExecute(String[] params) throws Exception {
-    // Shut down
-    // determine parent
-    Container parent = m_Owner.getParent();
-    Container frame = null;
-    boolean finished = false;
-    while (!finished) {
-      if ((parent instanceof JFrame) || (parent instanceof Frame)
-        || (parent instanceof JInternalFrame)) {
-        frame = parent;
-        finished = true;
-      }
-
-      if (!finished) {
-        parent = parent.getParent();
-        finished = (parent == null);
-      }
+    /**
+     * Returns the name of the command.
+     *
+     * @return the name
+     */
+    @Override
+    public String getName() {
+        return "exit";
     }
-    // fire the frame close event
-    if (frame != null) {
-      if (frame instanceof JInternalFrame) {
-        ((JInternalFrame) frame).doDefaultCloseAction();
-      }
-      else {
-        ((Window) frame).dispatchEvent(new WindowEvent((Window) frame,
-          WindowEvent.WINDOW_CLOSING));
-      }
+
+    /**
+     * Returns the help string (no indentation).
+     *
+     * @return the help
+     */
+    @Override
+    public String getHelp() {
+        return "Exits the SimpleCLI program.";
     }
-  }
+
+    /**
+     * Returns the one-liner help string for the parameters.
+     *
+     * @return the help, empty if none available
+     */
+    public String getParameterHelp() {
+        return "";
+    }
+
+    /**
+     * Executes the command with the given parameters.
+     *
+     * @param params the parameters for the command
+     * @throws Exception if command fails
+     */
+    @Override
+    protected void doExecute(String[] params) throws Exception {
+        // Shut down
+        // determine parent
+        Container parent = m_Owner.getParent();
+        Container frame = null;
+        boolean finished = false;
+        while (!finished) {
+            if ((parent instanceof JFrame) || (parent instanceof Frame)
+                    || (parent instanceof JInternalFrame)) {
+                frame = parent;
+                finished = true;
+            }
+
+            if (!finished) {
+                parent = parent.getParent();
+                finished = (parent == null);
+            }
+        }
+        // fire the frame close event
+        if (frame != null) {
+            if (frame instanceof JInternalFrame) {
+                ((JInternalFrame) frame).doDefaultCloseAction();
+            } else {
+                ((Window) frame).dispatchEvent(new WindowEvent((Window) frame,
+                        WindowEvent.WINDOW_CLOSING));
+            }
+        }
+    }
 }

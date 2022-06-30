@@ -32,23 +32,25 @@ import junit.framework.TestSuite;
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
-public class AprioriTest 
-  extends AbstractAssociatorTest {
+public class AprioriTest
+        extends AbstractAssociatorTest {
 
-  public AprioriTest(String name) { 
-    super(name);  
-  }
+    public AprioriTest(String name) {
+        super(name);
+    }
 
-  /** Creates a default Apriori */
-  public Associator getAssociator() {
-    return new Apriori();
-  }
+    /**
+     * Creates a default Apriori
+     */
+    public Associator getAssociator() {
+        return new Apriori();
+    }
 
-  public static Test suite() {
-    return new TestSuite(AprioriTest.class);
-  }
+    public static Test suite() {
+        return new TestSuite(AprioriTest.class);
+    }
 
-  public static void main(String[] args){
-    junit.textui.TestRunner.run(suite());
-  }
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 }

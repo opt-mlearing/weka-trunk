@@ -30,30 +30,30 @@ import weka.knowledgeflow.steps.AttributeSummarizer;
  * @version $Revision: $
  */
 public class AttributeSummarizerStepEditorDialog extends
-  ModelPerformanceChartStepEditorDialog {
+        ModelPerformanceChartStepEditorDialog {
 
-  private static final long serialVersionUID = -4504946065343184549L;
+    private static final long serialVersionUID = -4504946065343184549L;
 
-  /**
-   * Get the offscreen renderer and options from the step being edited
-   */
-  @Override
-  protected void getCurrentSettings() {
-    m_currentRendererName =
-      ((AttributeSummarizer) getStepToEdit()).getOffscreenRendererName();
-    m_currentRendererOptions =
-      ((AttributeSummarizer) getStepToEdit()).getOffscreenAdditionalOpts();
-  }
+    /**
+     * Get the offscreen renderer and options from the step being edited
+     */
+    @Override
+    protected void getCurrentSettings() {
+        m_currentRendererName =
+                ((AttributeSummarizer) getStepToEdit()).getOffscreenRendererName();
+        m_currentRendererOptions =
+                ((AttributeSummarizer) getStepToEdit()).getOffscreenAdditionalOpts();
+    }
 
-  /**
-   * Called when OK is pressed
-   */
-  @Override
-  public void okPressed() {
-    ((AttributeSummarizer) getStepToEdit())
-      .setOffscreenRendererName(m_offscreenSelector.getSelectedItem()
-        .toString());
-    ((AttributeSummarizer) getStepToEdit())
-      .setOffscreenAdditionalOpts(m_rendererOptions.getText());
-  }
+    /**
+     * Called when OK is pressed
+     */
+    @Override
+    public void okPressed() {
+        ((AttributeSummarizer) getStepToEdit())
+                .setOffscreenRendererName(m_offscreenSelector.getSelectedItem()
+                        .toString());
+        ((AttributeSummarizer) getStepToEdit())
+                .setOffscreenAdditionalOpts(m_rendererOptions.getText());
+    }
 }

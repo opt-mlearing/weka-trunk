@@ -30,20 +30,20 @@ import java.util.List;
 /**
  * Launcher class for the Weka workbench. Displays a splash screen and launches
  * the actual Workbench app (WorkbenchApp).
- * 
+ *
  * @author Mark Hall (mhall{[at]}pentaho{[dot]}com)
  * @version $Revision: $
  */
 public class Workbench {
 
-  public static void main(String[] args) {
-    List<String> message =
-      Arrays.asList("WEKA Workbench", "Version " + Version.VERSION,
-        "(c) " + Copyright.getFromYear() + " - " + Copyright.getToYear(),
-        "The University of Waikato", "Hamilton, New Zealand");
-    weka.gui.SplashWindow.splash(
-      ClassLoader.getSystemResource("weka/gui/weka_icon_new.png"), message);
-    weka.gui.SplashWindow.invokeMain("weka.gui.WorkbenchApp", args);
-    weka.gui.SplashWindow.disposeSplash();
-  }
+    public static void main(String[] args) {
+        List<String> message =
+                Arrays.asList("WEKA Workbench", "Version " + Version.VERSION,
+                        "(c) " + Copyright.getFromYear() + " - " + Copyright.getToYear(),
+                        "The University of Waikato", "Hamilton, New Zealand");
+        weka.gui.SplashWindow.splash(
+                ClassLoader.getSystemResource("weka/gui/weka_icon_new.png"), message);
+        weka.gui.SplashWindow.invokeMain("weka.gui.WorkbenchApp", args);
+        weka.gui.SplashWindow.disposeSplash();
+    }
 }

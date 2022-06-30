@@ -21,9 +21,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for Quantile element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="Quantile">
  *   &lt;complexType>
@@ -39,12 +39,10 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "extension"
+        "extension"
 })
 @XmlRootElement(name = "Quantile")
 public class Quantile {
@@ -58,25 +56,23 @@ public class Quantile {
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extension }
-     * 
-     * 
      */
     public List<Extension> getExtension() {
         if (extension == null) {
@@ -87,11 +83,9 @@ public class Quantile {
 
     /**
      * Gets the value of the quantileLimit property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigDecimal }
-     *     
+     *
+     * @return possible object is
+     * {@link BigDecimal }
      */
     public BigDecimal getQuantileLimit() {
         return quantileLimit;
@@ -99,11 +93,9 @@ public class Quantile {
 
     /**
      * Sets the value of the quantileLimit property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigDecimal }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link BigDecimal }
      */
     public void setQuantileLimit(BigDecimal value) {
         this.quantileLimit = value;
@@ -111,7 +103,6 @@ public class Quantile {
 
     /**
      * Gets the value of the quantileValue property.
-     * 
      */
     public double getQuantileValue() {
         return quantileValue;
@@ -119,7 +110,6 @@ public class Quantile {
 
     /**
      * Sets the value of the quantileValue property.
-     * 
      */
     public void setQuantileValue(double value) {
         this.quantileValue = value;

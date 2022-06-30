@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlEnumValue;
 
 /**
  * <p>Java class for FIELD-USAGE-TYPE.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
@@ -30,7 +30,6 @@ import javax.xml.bind.annotation.XmlEnumValue;
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
- * 
  */
 @XmlEnum
 public enum FIELDUSAGETYPE {
@@ -60,7 +59,7 @@ public enum FIELDUSAGETYPE {
     }
 
     public static FIELDUSAGETYPE fromValue(String v) {
-        for (FIELDUSAGETYPE c: FIELDUSAGETYPE.values()) {
+        for (FIELDUSAGETYPE c : FIELDUSAGETYPE.values()) {
             if (c.value.equals(v)) {
                 return c;
             }

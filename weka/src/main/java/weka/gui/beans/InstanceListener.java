@@ -30,11 +30,11 @@ import java.util.EventListener;
  * @version $Revision$
  */
 public interface InstanceListener extends EventListener {
-  
-  /**
-   * Accept and process an instance event
-   *
-   * @param e an <code>InstanceEvent</code> value
-   */
-  void acceptInstance(InstanceEvent e);
+
+    /**
+     * Accept and process an instance event
+     *
+     * @param e an <code>InstanceEvent</code> value
+     */
+    void acceptInstance(InstanceEvent e);
 }

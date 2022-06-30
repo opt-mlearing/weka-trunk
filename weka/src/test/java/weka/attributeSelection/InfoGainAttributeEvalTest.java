@@ -29,28 +29,32 @@ import junit.framework.TestSuite;
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
-public class InfoGainAttributeEvalTest 
-  extends AbstractEvaluatorTest {
+public class InfoGainAttributeEvalTest
+        extends AbstractEvaluatorTest {
 
-  public InfoGainAttributeEvalTest(String name) { 
-    super(name);  
-  }
+    public InfoGainAttributeEvalTest(String name) {
+        super(name);
+    }
 
-  /** Creates a default Ranker */
-  public ASSearch getSearch() {
-    return new Ranker();
-  }
+    /**
+     * Creates a default Ranker
+     */
+    public ASSearch getSearch() {
+        return new Ranker();
+    }
 
-  /** Creates a default InfoGainAttributeEval */
-  public ASEvaluation getEvaluator() {
-    return new InfoGainAttributeEval();
-  }
+    /**
+     * Creates a default InfoGainAttributeEval
+     */
+    public ASEvaluation getEvaluator() {
+        return new InfoGainAttributeEval();
+    }
 
-  public static Test suite() {
-    return new TestSuite(InfoGainAttributeEvalTest.class);
-  }
+    public static Test suite() {
+        return new TestSuite(InfoGainAttributeEvalTest.class);
+    }
 
-  public static void main(String[] args){
-    junit.textui.TestRunner.run(suite());
-  }
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 }

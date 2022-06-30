@@ -32,25 +32,27 @@ import junit.framework.TestSuite;
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
-public class CobwebTest 
-  extends AbstractClustererTest {
+public class CobwebTest
+        extends AbstractClustererTest {
 
-  public CobwebTest(String name) { 
-    super(name);  
-  }
+    public CobwebTest(String name) {
+        super(name);
+    }
 
-  /** Creates a default Cobweb */
-  public Clusterer getClusterer() {
-    Cobweb cb = new Cobweb();
-    cb.setSeed(-1); // Make sure data is not randomized in buildClassifier() (incremental == batch)
-    return cb;
-  }
+    /**
+     * Creates a default Cobweb
+     */
+    public Clusterer getClusterer() {
+        Cobweb cb = new Cobweb();
+        cb.setSeed(-1); // Make sure data is not randomized in buildClassifier() (incremental == batch)
+        return cb;
+    }
 
-  public static Test suite() {
-    return new TestSuite(CobwebTest.class);
-  }
+    public static Test suite() {
+        return new TestSuite(CobwebTest.class);
+    }
 
-  public static void main(String[] args){
-    junit.textui.TestRunner.run(suite());
-  }
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 }

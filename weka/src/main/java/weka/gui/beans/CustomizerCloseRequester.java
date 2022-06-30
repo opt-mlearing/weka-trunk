@@ -35,10 +35,10 @@ import java.awt.Window;
  */
 public interface CustomizerCloseRequester {
 
-  /**
-   * A reference to the parent is passed in
-   *
-   * @param parent the parent Window
-   */
-  void setParentWindow(Window parent);
+    /**
+     * A reference to the parent is passed in
+     *
+     * @param parent the parent Window
+     */
+    void setParentWindow(Window parent);
 }

@@ -26,15 +26,15 @@ package weka.gui.beans;
  * Interface to be implemented by classes that should be able to write their
  * own output to the Weka logger. This is useful, for example, for filters
  * that provide detailed processing instructions.
- * 
+ *
  * @author Carsten Pohle (cp AT cpohle de)
  * @version $Revision$
  */
 public interface LogWriter {
-  /**
-   * Set a logger
-   *
-   * @param logger a <code>weka.gui.Logger</code> value
-   */
-  void setLog(weka.gui.Logger logger);
+    /**
+     * Set a logger
+     *
+     * @param logger a <code>weka.gui.Logger</code> value
+     */
+    void setLog(weka.gui.Logger logger);
 }

@@ -28,11 +28,11 @@ import java.util.EventListener;
  *
  * @author Mark Hall
  * @version $Revision$
- * @since 1.0
  * @see EventListener
+ * @since 1.0
  */
 public interface VisualizableErrorListener extends EventListener {
-  void acceptDataSet(VisualizableErrorEvent e);
+    void acceptDataSet(VisualizableErrorEvent e);
 }
 
 

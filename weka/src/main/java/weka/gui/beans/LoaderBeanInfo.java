@@ -30,14 +30,14 @@ import java.beans.BeanDescriptor;
  * @version $Revision$
  */
 public class LoaderBeanInfo extends AbstractDataSourceBeanInfo {
-  
-  /**
-   * Get the bean descriptor for this bean
-   *
-   * @return a <code>BeanDescriptor</code> value
-   */
-  public BeanDescriptor getBeanDescriptor() {
-    return new BeanDescriptor(weka.gui.beans.Loader.class,
-			      LoaderCustomizer.class);
-  }
+
+    /**
+     * Get the bean descriptor for this bean
+     *
+     * @return a <code>BeanDescriptor</code> value
+     */
+    public BeanDescriptor getBeanDescriptor() {
+        return new BeanDescriptor(weka.gui.beans.Loader.class,
+                LoaderCustomizer.class);
+    }
 }

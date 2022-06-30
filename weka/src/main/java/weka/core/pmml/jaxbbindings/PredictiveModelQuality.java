@@ -20,9 +20,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for PredictiveModelQuality element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="PredictiveModelQuality">
  *   &lt;complexType>
@@ -66,15 +66,13 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "extension",
-    "confusionMatrix",
-    "liftData",
-    "roc"
+        "extension",
+        "confusionMatrix",
+        "liftData",
+        "roc"
 })
 @XmlRootElement(name = "PredictiveModelQuality")
 public class PredictiveModelQuality {
@@ -128,25 +126,23 @@ public class PredictiveModelQuality {
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extension }
-     * 
-     * 
      */
     public List<Extension> getExtension() {
         if (extension == null) {
@@ -157,11 +153,9 @@ public class PredictiveModelQuality {
 
     /**
      * Gets the value of the confusionMatrix property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ConfusionMatrix }
-     *     
+     *
+     * @return possible object is
+     * {@link ConfusionMatrix }
      */
     public ConfusionMatrix getConfusionMatrix() {
         return confusionMatrix;
@@ -169,11 +163,9 @@ public class PredictiveModelQuality {
 
     /**
      * Sets the value of the confusionMatrix property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link ConfusionMatrix }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link ConfusionMatrix }
      */
     public void setConfusionMatrix(ConfusionMatrix value) {
         this.confusionMatrix = value;
@@ -181,11 +173,9 @@ public class PredictiveModelQuality {
 
     /**
      * Gets the value of the liftData property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link LiftData }
-     *     
+     *
+     * @return possible object is
+     * {@link LiftData }
      */
     public LiftData getLiftData() {
         return liftData;
@@ -193,11 +183,9 @@ public class PredictiveModelQuality {
 
     /**
      * Sets the value of the liftData property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link LiftData }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link LiftData }
      */
     public void setLiftData(LiftData value) {
         this.liftData = value;
@@ -205,11 +193,9 @@ public class PredictiveModelQuality {
 
     /**
      * Gets the value of the roc property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ROC }
-     *     
+     *
+     * @return possible object is
+     * {@link ROC }
      */
     public ROC getROC() {
         return roc;
@@ -217,11 +203,9 @@ public class PredictiveModelQuality {
 
     /**
      * Sets the value of the roc property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link ROC }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link ROC }
      */
     public void setROC(ROC value) {
         this.roc = value;
@@ -229,11 +213,9 @@ public class PredictiveModelQuality {
 
     /**
      * Gets the value of the aic property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public Double getAIC() {
         return aic;
@@ -241,11 +223,9 @@ public class PredictiveModelQuality {
 
     /**
      * Sets the value of the aic property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setAIC(Double value) {
         this.aic = value;
@@ -253,11 +233,9 @@ public class PredictiveModelQuality {
 
     /**
      * Gets the value of the aiCc property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public Double getAICc() {
         return aiCc;
@@ -265,11 +243,9 @@ public class PredictiveModelQuality {
 
     /**
      * Sets the value of the aiCc property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setAICc(Double value) {
         this.aiCc = value;
@@ -277,11 +253,9 @@ public class PredictiveModelQuality {
 
     /**
      * Gets the value of the bic property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public Double getBIC() {
         return bic;
@@ -289,11 +263,9 @@ public class PredictiveModelQuality {
 
     /**
      * Sets the value of the bic property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setBIC(Double value) {
         this.bic = value;
@@ -301,11 +273,9 @@ public class PredictiveModelQuality {
 
     /**
      * Gets the value of the adjRSquared property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public Double getAdjRSquared() {
         return adjRSquared;
@@ -313,11 +283,9 @@ public class PredictiveModelQuality {
 
     /**
      * Sets the value of the adjRSquared property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setAdjRSquared(Double value) {
         this.adjRSquared = value;
@@ -325,11 +293,9 @@ public class PredictiveModelQuality {
 
     /**
      * Gets the value of the dataName property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getDataName() {
         return dataName;
@@ -337,11 +303,9 @@ public class PredictiveModelQuality {
 
     /**
      * Sets the value of the dataName property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setDataName(String value) {
         this.dataName = value;
@@ -349,11 +313,9 @@ public class PredictiveModelQuality {
 
     /**
      * Gets the value of the dataUsage property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getDataUsage() {
         if (dataUsage == null) {
@@ -365,11 +327,9 @@ public class PredictiveModelQuality {
 
     /**
      * Sets the value of the dataUsage property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setDataUsage(String value) {
         this.dataUsage = value;
@@ -377,11 +337,9 @@ public class PredictiveModelQuality {
 
     /**
      * Gets the value of the degreesOfFreedom property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public Double getDegreesOfFreedom() {
         return degreesOfFreedom;
@@ -389,11 +347,9 @@ public class PredictiveModelQuality {
 
     /**
      * Sets the value of the degreesOfFreedom property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setDegreesOfFreedom(Double value) {
         this.degreesOfFreedom = value;
@@ -401,11 +357,9 @@ public class PredictiveModelQuality {
 
     /**
      * Gets the value of the fStatistic property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public Double getFStatistic() {
         return fStatistic;
@@ -413,11 +367,9 @@ public class PredictiveModelQuality {
 
     /**
      * Sets the value of the fStatistic property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setFStatistic(Double value) {
         this.fStatistic = value;
@@ -425,11 +377,9 @@ public class PredictiveModelQuality {
 
     /**
      * Gets the value of the meanAbsoluteError property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public Double getMeanAbsoluteError() {
         return meanAbsoluteError;
@@ -437,11 +387,9 @@ public class PredictiveModelQuality {
 
     /**
      * Sets the value of the meanAbsoluteError property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setMeanAbsoluteError(Double value) {
         this.meanAbsoluteError = value;
@@ -449,11 +397,9 @@ public class PredictiveModelQuality {
 
     /**
      * Gets the value of the meanError property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public Double getMeanError() {
         return meanError;
@@ -461,11 +407,9 @@ public class PredictiveModelQuality {
 
     /**
      * Sets the value of the meanError property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setMeanError(Double value) {
         this.meanError = value;
@@ -473,11 +417,9 @@ public class PredictiveModelQuality {
 
     /**
      * Gets the value of the meanSquaredError property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public Double getMeanSquaredError() {
         return meanSquaredError;
@@ -485,11 +427,9 @@ public class PredictiveModelQuality {
 
     /**
      * Sets the value of the meanSquaredError property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setMeanSquaredError(Double value) {
         this.meanSquaredError = value;
@@ -497,11 +437,9 @@ public class PredictiveModelQuality {
 
     /**
      * Gets the value of the numOfPredictors property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public Double getNumOfPredictors() {
         return numOfPredictors;
@@ -509,11 +447,9 @@ public class PredictiveModelQuality {
 
     /**
      * Sets the value of the numOfPredictors property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setNumOfPredictors(Double value) {
         this.numOfPredictors = value;
@@ -521,11 +457,9 @@ public class PredictiveModelQuality {
 
     /**
      * Gets the value of the numOfRecords property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public Double getNumOfRecords() {
         return numOfRecords;
@@ -533,11 +467,9 @@ public class PredictiveModelQuality {
 
     /**
      * Sets the value of the numOfRecords property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setNumOfRecords(Double value) {
         this.numOfRecords = value;
@@ -545,11 +477,9 @@ public class PredictiveModelQuality {
 
     /**
      * Gets the value of the numOfRecordsWeighted property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public Double getNumOfRecordsWeighted() {
         return numOfRecordsWeighted;
@@ -557,11 +487,9 @@ public class PredictiveModelQuality {
 
     /**
      * Sets the value of the numOfRecordsWeighted property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setNumOfRecordsWeighted(Double value) {
         this.numOfRecordsWeighted = value;
@@ -569,11 +497,9 @@ public class PredictiveModelQuality {
 
     /**
      * Gets the value of the rSquared property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public Double getRSquared() {
         return rSquared;
@@ -581,11 +507,9 @@ public class PredictiveModelQuality {
 
     /**
      * Sets the value of the rSquared property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setRSquared(Double value) {
         this.rSquared = value;
@@ -593,11 +517,9 @@ public class PredictiveModelQuality {
 
     /**
      * Gets the value of the rootMeanSquaredError property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public Double getRootMeanSquaredError() {
         return rootMeanSquaredError;
@@ -605,11 +527,9 @@ public class PredictiveModelQuality {
 
     /**
      * Sets the value of the rootMeanSquaredError property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setRootMeanSquaredError(Double value) {
         this.rootMeanSquaredError = value;
@@ -617,11 +537,9 @@ public class PredictiveModelQuality {
 
     /**
      * Gets the value of the sumSquaredError property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public Double getSumSquaredError() {
         return sumSquaredError;
@@ -629,11 +547,9 @@ public class PredictiveModelQuality {
 
     /**
      * Sets the value of the sumSquaredError property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setSumSquaredError(Double value) {
         this.sumSquaredError = value;
@@ -641,11 +557,9 @@ public class PredictiveModelQuality {
 
     /**
      * Gets the value of the sumSquaredRegression property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public Double getSumSquaredRegression() {
         return sumSquaredRegression;
@@ -653,11 +567,9 @@ public class PredictiveModelQuality {
 
     /**
      * Sets the value of the sumSquaredRegression property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setSumSquaredRegression(Double value) {
         this.sumSquaredRegression = value;
@@ -665,11 +577,9 @@ public class PredictiveModelQuality {
 
     /**
      * Gets the value of the targetField property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getTargetField() {
         return targetField;
@@ -677,11 +587,9 @@ public class PredictiveModelQuality {
 
     /**
      * Sets the value of the targetField property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setTargetField(String value) {
         this.targetField = value;

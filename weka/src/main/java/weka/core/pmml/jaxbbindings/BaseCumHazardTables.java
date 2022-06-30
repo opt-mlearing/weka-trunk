@@ -20,9 +20,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for BaseCumHazardTables element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="BaseCumHazardTables">
  *   &lt;complexType>
@@ -41,14 +41,12 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "extension",
-    "baselineStratum",
-    "baselineCell"
+        "extension",
+        "baselineStratum",
+        "baselineCell"
 })
 @XmlRootElement(name = "BaseCumHazardTables")
 public class BaseCumHazardTables {
@@ -64,25 +62,23 @@ public class BaseCumHazardTables {
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extension }
-     * 
-     * 
      */
     public List<Extension> getExtension() {
         if (extension == null) {
@@ -93,25 +89,23 @@ public class BaseCumHazardTables {
 
     /**
      * Gets the value of the baselineStratum property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the baselineStratum property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getBaselineStratum().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link BaselineStratum }
-     * 
-     * 
      */
     public List<BaselineStratum> getBaselineStratum() {
         if (baselineStratum == null) {
@@ -122,25 +116,23 @@ public class BaseCumHazardTables {
 
     /**
      * Gets the value of the baselineCell property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the baselineCell property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getBaselineCell().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link BaselineCell }
-     * 
-     * 
      */
     public List<BaselineCell> getBaselineCell() {
         if (baselineCell == null) {
@@ -151,11 +143,9 @@ public class BaseCumHazardTables {
 
     /**
      * Gets the value of the maxTime property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public Double getMaxTime() {
         return maxTime;
@@ -163,11 +153,9 @@ public class BaseCumHazardTables {
 
     /**
      * Sets the value of the maxTime property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setMaxTime(Double value) {
         this.maxTime = value;

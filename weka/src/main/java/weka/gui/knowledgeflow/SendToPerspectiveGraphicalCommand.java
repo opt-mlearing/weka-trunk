@@ -35,89 +35,93 @@ import java.util.List;
  */
 public class SendToPerspectiveGraphicalCommand extends AbstractGraphicalCommand {
 
-  /** Command ID */
-  public static final String SEND_TO_PERSPECTIVE_COMMAND_KEY =
-    "sendToPerspective";
+    /**
+     * Command ID
+     */
+    public static final String SEND_TO_PERSPECTIVE_COMMAND_KEY =
+            "sendToPerspective";
 
-  /** The main KF perspective */
-  protected MainKFPerspective m_mainPerspective;
+    /**
+     * The main KF perspective
+     */
+    protected MainKFPerspective m_mainPerspective;
 
-  /**
-   * Set the graphical environment
-   *
-   * @param graphicalEnvironment the graphical environment
-   */
-  @Override
-  public void setGraphicalEnvironment(Object graphicalEnvironment) {
-    super.setGraphicalEnvironment(graphicalEnvironment);
+    /**
+     * Set the graphical environment
+     *
+     * @param graphicalEnvironment the graphical environment
+     */
+    @Override
+    public void setGraphicalEnvironment(Object graphicalEnvironment) {
+        super.setGraphicalEnvironment(graphicalEnvironment);
 
-    if (graphicalEnvironment instanceof MainKFPerspective) {
-      m_mainPerspective = (MainKFPerspective) graphicalEnvironment;
-    }
-  }
-
-  /**
-   * Get the name of the command
-   *
-   * @return the name of the command
-   */
-  @Override
-  public String getCommandName() {
-    return SEND_TO_PERSPECTIVE_COMMAND_KEY;
-  }
-
-  /**
-   * Get the description of this command
-   *
-   * @return the description of this command
-   */
-  @Override
-  public String getCommandDescription() {
-    return "Send the supplied instances to the named perspective";
-  }
-
-  /**
-   * Execute the command
-   *
-   * @param commandArgs arguments to the command
-   * @return null (no return value for this command)
-   * @throws WekaException if a problem occurs
-   */
-  @SuppressWarnings("unchecked")
-  @Override
-  public Object performCommand(Object... commandArgs) throws WekaException {
-    if (commandArgs.length != 2 && !(commandArgs[1] instanceof Instances)) {
-      throw new WekaException(
-        "Was expecting two arguments: 1) perspective name, and 2) "
-          + "argument of type weka.core.Instances");
+        if (graphicalEnvironment instanceof MainKFPerspective) {
+            m_mainPerspective = (MainKFPerspective) graphicalEnvironment;
+        }
     }
 
-    Instances toSend = (Instances) commandArgs[1];
-    String perspectiveName = commandArgs[0].toString();
-    List<Perspective> perspectives =
-      m_mainPerspective.getMainApplication().getPerspectiveManager()
-        .getVisiblePerspectives();
-
-    Perspective target = null;
-    String targetID = null;
-    for (Perspective p : perspectives) {
-      if (p.acceptsInstances()
-        && p.getPerspectiveTitle().equalsIgnoreCase(perspectiveName)) {
-        targetID = p.getPerspectiveID();
-        target = p;
-        break;
-      }
-    }
-    if (target == null) {
-      throw new WekaException("Was unable to find requested perspective");
+    /**
+     * Get the name of the command
+     *
+     * @return the name of the command
+     */
+    @Override
+    public String getCommandName() {
+        return SEND_TO_PERSPECTIVE_COMMAND_KEY;
     }
 
-    target.setInstances(toSend);
-    m_mainPerspective.getMainApplication().getPerspectiveManager()
-      .setActivePerspective(targetID);
-    m_mainPerspective.getMainApplication().getPerspectiveManager()
-      .setEnablePerspectiveTab(targetID, true);
+    /**
+     * Get the description of this command
+     *
+     * @return the description of this command
+     */
+    @Override
+    public String getCommandDescription() {
+        return "Send the supplied instances to the named perspective";
+    }
 
-    return null;
-  }
+    /**
+     * Execute the command
+     *
+     * @param commandArgs arguments to the command
+     * @return null (no return value for this command)
+     * @throws WekaException if a problem occurs
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    public Object performCommand(Object... commandArgs) throws WekaException {
+        if (commandArgs.length != 2 && !(commandArgs[1] instanceof Instances)) {
+            throw new WekaException(
+                    "Was expecting two arguments: 1) perspective name, and 2) "
+                            + "argument of type weka.core.Instances");
+        }
+
+        Instances toSend = (Instances) commandArgs[1];
+        String perspectiveName = commandArgs[0].toString();
+        List<Perspective> perspectives =
+                m_mainPerspective.getMainApplication().getPerspectiveManager()
+                        .getVisiblePerspectives();
+
+        Perspective target = null;
+        String targetID = null;
+        for (Perspective p : perspectives) {
+            if (p.acceptsInstances()
+                    && p.getPerspectiveTitle().equalsIgnoreCase(perspectiveName)) {
+                targetID = p.getPerspectiveID();
+                target = p;
+                break;
+            }
+        }
+        if (target == null) {
+            throw new WekaException("Was unable to find requested perspective");
+        }
+
+        target.setInstances(toSend);
+        m_mainPerspective.getMainApplication().getPerspectiveManager()
+                .setActivePerspective(targetID);
+        m_mainPerspective.getMainApplication().getPerspectiveManager()
+                .setEnablePerspectiveTab(targetID, true);
+
+        return null;
+    }
 }

@@ -24,13 +24,13 @@ package weka.gui.streams;
 
 import java.util.EventListener;
 
-/** 
+/**
  * An interface for objects interested in listening to streams of instances.
  *
  * @author Len Trigg (trigg@cs.waikato.ac.nz)
  * @version $Revision$
  */
 public interface InstanceListener extends EventListener {
-  
-  void instanceProduced(InstanceEvent e);
+
+    void instanceProduced(InstanceEvent e);
 }

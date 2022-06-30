@@ -24,7 +24,7 @@ package weka.classifiers.trees.ht;
 /**
  * Marker interface for a node that can be updated with incoming instances in a
  * HoeffdingTree. Implementations include ActiveHNode, NBNode and NBNodeAdaptive
- * 
+ *
  * @author Mark Hall (mhall{[at]}pentaho{[dot]}com)
  * @version $Revision$
  */

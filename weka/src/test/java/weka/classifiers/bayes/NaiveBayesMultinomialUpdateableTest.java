@@ -33,33 +33,35 @@ import junit.framework.TestSuite;
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
-public class NaiveBayesMultinomialUpdateableTest 
-  extends AbstractClassifierTest {
+public class NaiveBayesMultinomialUpdateableTest
+        extends AbstractClassifierTest {
 
-  public NaiveBayesMultinomialUpdateableTest(String name) { 
-    super(name);  
-  }
+    public NaiveBayesMultinomialUpdateableTest(String name) {
+        super(name);
+    }
 
-  /** Creates a default NaiveBayesMultinomialUpdateable */
-  public Classifier getClassifier() {
-    return new NaiveBayesMultinomialUpdateable();
-  }
+    /**
+     * Creates a default NaiveBayesMultinomialUpdateable
+     */
+    public Classifier getClassifier() {
+        return new NaiveBayesMultinomialUpdateable();
+    }
 
-  /**
-   * returns a custom PostProcessor for the CheckClassifier datasets..
-   * 
-   * @return		a custom PostProcessor
-   * @see AbsPostProcessor
-   */
-  protected PostProcessor getPostProcessor() {
-    return new AbsPostProcessor();
-  }
+    /**
+     * returns a custom PostProcessor for the CheckClassifier datasets..
+     *
+     * @return a custom PostProcessor
+     * @see AbsPostProcessor
+     */
+    protected PostProcessor getPostProcessor() {
+        return new AbsPostProcessor();
+    }
 
-  public static Test suite() {
-    return new TestSuite(NaiveBayesMultinomialUpdateableTest.class);
-  }
+    public static Test suite() {
+        return new TestSuite(NaiveBayesMultinomialUpdateableTest.class);
+    }
 
-  public static void main(String[] args){
-    junit.textui.TestRunner.run(suite());
-  }
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 }

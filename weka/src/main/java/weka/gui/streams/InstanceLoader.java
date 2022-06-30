@@ -39,175 +39,177 @@ import weka.core.Instances;
 
 /**
  * A bean that produces a stream of instances from a file.
- * 
+ *
  * @author Len Trigg (trigg@cs.waikato.ac.nz)
  * @version $Revision$
  */
 public class InstanceLoader extends JPanel implements ActionListener,
-  InstanceProducer {
+        InstanceProducer {
 
-  /** for serialization */
-  private static final long serialVersionUID = -8725567310271862492L;
+    /**
+     * for serialization
+     */
+    private static final long serialVersionUID = -8725567310271862492L;
 
-  private final Vector<InstanceListener> m_Listeners;
-  private Thread m_LoaderThread;
-  private Instance m_OutputInstance;
-  private Instances m_OutputInstances;
-  private boolean m_Debug;
-  private final JButton m_StartBut;
-  private final JTextField m_FileNameTex;
+    private final Vector<InstanceListener> m_Listeners;
+    private Thread m_LoaderThread;
+    private Instance m_OutputInstance;
+    private Instances m_OutputInstances;
+    private boolean m_Debug;
+    private final JButton m_StartBut;
+    private final JTextField m_FileNameTex;
 
-  private class LoadThread extends Thread {
+    private class LoadThread extends Thread {
 
-    private final InstanceProducer m_IP;
+        private final InstanceProducer m_IP;
 
-    public LoadThread(InstanceProducer ip) {
+        public LoadThread(InstanceProducer ip) {
 
-      m_IP = ip;
+            m_IP = ip;
+        }
+
+        @SuppressWarnings("deprecation")
+        @Override
+        public void run() {
+
+            try {
+                m_StartBut.setText("Stop");
+                m_StartBut.setBackground(Color.red);
+                if (m_Debug) {
+                    System.err.println("InstanceLoader::LoadThread::run()");
+                }
+                // Load the instances one at a time and pass them on to the listener
+                Reader input = new BufferedReader(new FileReader(
+                        m_FileNameTex.getText()));
+                m_OutputInstances = new Instances(input, 1);
+                if (m_Debug) {
+                    System.err.println("InstanceLoader::LoadThread::run()"
+                            + " - Instances opened from: " + m_FileNameTex.getText());
+                }
+                InstanceEvent ie = new InstanceEvent(m_IP,
+                        InstanceEvent.FORMAT_AVAILABLE);
+                notifyInstanceProduced(ie);
+                while (m_OutputInstances.readInstance(input)) {
+                    if (m_LoaderThread != this) {
+                        return;
+                    }
+                    if (m_Debug) {
+                        System.err.println("InstanceLoader::LoadThread::run()"
+                                + " - read instance");
+                    }
+                    // put the instance into a queue?
+                    m_OutputInstance = m_OutputInstances.instance(0);
+                    m_OutputInstances.delete(0);
+                    ie = new InstanceEvent(m_IP, InstanceEvent.INSTANCE_AVAILABLE);
+                    notifyInstanceProduced(ie);
+                }
+                ie = new InstanceEvent(m_IP, InstanceEvent.BATCH_FINISHED);
+                notifyInstanceProduced(ie);
+            } catch (Exception ex) {
+                System.err.println(ex.getMessage());
+            } finally {
+                m_LoaderThread = null;
+                m_StartBut.setText("Start");
+                m_StartBut.setBackground(Color.green);
+            }
+        }
     }
 
-    @SuppressWarnings("deprecation")
-    @Override
-    public void run() {
-
-      try {
-        m_StartBut.setText("Stop");
-        m_StartBut.setBackground(Color.red);
-        if (m_Debug) {
-          System.err.println("InstanceLoader::LoadThread::run()");
-        }
-        // Load the instances one at a time and pass them on to the listener
-        Reader input = new BufferedReader(new FileReader(
-          m_FileNameTex.getText()));
-        m_OutputInstances = new Instances(input, 1);
-        if (m_Debug) {
-          System.err.println("InstanceLoader::LoadThread::run()"
-            + " - Instances opened from: " + m_FileNameTex.getText());
-        }
-        InstanceEvent ie = new InstanceEvent(m_IP,
-          InstanceEvent.FORMAT_AVAILABLE);
-        notifyInstanceProduced(ie);
-        while (m_OutputInstances.readInstance(input)) {
-          if (m_LoaderThread != this) {
-            return;
-          }
-          if (m_Debug) {
-            System.err.println("InstanceLoader::LoadThread::run()"
-              + " - read instance");
-          }
-          // put the instance into a queue?
-          m_OutputInstance = m_OutputInstances.instance(0);
-          m_OutputInstances.delete(0);
-          ie = new InstanceEvent(m_IP, InstanceEvent.INSTANCE_AVAILABLE);
-          notifyInstanceProduced(ie);
-        }
-        ie = new InstanceEvent(m_IP, InstanceEvent.BATCH_FINISHED);
-        notifyInstanceProduced(ie);
-      } catch (Exception ex) {
-        System.err.println(ex.getMessage());
-      } finally {
-        m_LoaderThread = null;
-        m_StartBut.setText("Start");
+    public InstanceLoader() {
+        setLayout(new BorderLayout());
+        m_StartBut = new JButton("Start");
         m_StartBut.setBackground(Color.green);
-      }
+        add("West", m_StartBut);
+        m_StartBut.addActionListener(this);
+        m_FileNameTex = new JTextField("/home/trigg/datasets/UCI/iris.arff");
+        add("Center", m_FileNameTex);
+        m_Listeners = new Vector<InstanceListener>();
+        // setSize(60,40);
     }
-  }
 
-  public InstanceLoader() {
-    setLayout(new BorderLayout());
-    m_StartBut = new JButton("Start");
-    m_StartBut.setBackground(Color.green);
-    add("West", m_StartBut);
-    m_StartBut.addActionListener(this);
-    m_FileNameTex = new JTextField("/home/trigg/datasets/UCI/iris.arff");
-    add("Center", m_FileNameTex);
-    m_Listeners = new Vector<InstanceListener>();
-    // setSize(60,40);
-  }
+    public void setDebug(boolean debug) {
 
-  public void setDebug(boolean debug) {
-
-    m_Debug = debug;
-  }
-
-  public boolean getDebug() {
-
-    return m_Debug;
-  }
-
-  public void setArffFile(String newArffFile) {
-
-    m_FileNameTex.setText(newArffFile);
-  }
-
-  public String getArffFile() {
-    return m_FileNameTex.getText();
-  }
-
-  @Override
-  public synchronized void addInstanceListener(InstanceListener ipl) {
-
-    m_Listeners.addElement(ipl);
-  }
-
-  @Override
-  public synchronized void removeInstanceListener(InstanceListener ipl) {
-
-    m_Listeners.removeElement(ipl);
-  }
-
-  @SuppressWarnings("unchecked")
-  protected void notifyInstanceProduced(InstanceEvent e) {
-
-    if (m_Debug) {
-      System.err.println("InstanceLoader::notifyInstanceProduced()");
+        m_Debug = debug;
     }
-    Vector<InstanceListener> l;
-    synchronized (this) {
-      l = (Vector<InstanceListener>) m_Listeners.clone();
+
+    public boolean getDebug() {
+
+        return m_Debug;
     }
-    if (l.size() > 0) {
-      for (int i = 0; i < l.size(); i++) {
-        l.elementAt(i).instanceProduced(e);
-      }
-      if (e.getID() == InstanceEvent.INSTANCE_AVAILABLE) {
-        m_OutputInstance = null;
-      }
+
+    public void setArffFile(String newArffFile) {
+
+        m_FileNameTex.setText(newArffFile);
     }
-  }
 
-  @Override
-  public Instances outputFormat() throws Exception {
-
-    if (m_OutputInstances == null) {
-      throw new Exception("No output format defined.");
+    public String getArffFile() {
+        return m_FileNameTex.getText();
     }
-    return new Instances(m_OutputInstances, 0);
-  }
 
-  @Override
-  public Instance outputPeek() throws Exception {
+    @Override
+    public synchronized void addInstanceListener(InstanceListener ipl) {
 
-    if ((m_OutputInstances == null) || (m_OutputInstance == null)) {
-      return null;
+        m_Listeners.addElement(ipl);
     }
-    return (Instance) m_OutputInstance.copy();
-  }
 
-  @Override
-  public void actionPerformed(ActionEvent e) {
+    @Override
+    public synchronized void removeInstanceListener(InstanceListener ipl) {
 
-    Object source = e.getSource();
-
-    if (source == m_StartBut) {
-      // load the arff file and send the instances out to the listener
-      if (m_LoaderThread == null) {
-        m_LoaderThread = new LoadThread(this);
-        m_LoaderThread.setPriority(Thread.MIN_PRIORITY);
-        m_LoaderThread.start();
-      } else {
-        m_LoaderThread = null;
-      }
+        m_Listeners.removeElement(ipl);
     }
-  }
+
+    @SuppressWarnings("unchecked")
+    protected void notifyInstanceProduced(InstanceEvent e) {
+
+        if (m_Debug) {
+            System.err.println("InstanceLoader::notifyInstanceProduced()");
+        }
+        Vector<InstanceListener> l;
+        synchronized (this) {
+            l = (Vector<InstanceListener>) m_Listeners.clone();
+        }
+        if (l.size() > 0) {
+            for (int i = 0; i < l.size(); i++) {
+                l.elementAt(i).instanceProduced(e);
+            }
+            if (e.getID() == InstanceEvent.INSTANCE_AVAILABLE) {
+                m_OutputInstance = null;
+            }
+        }
+    }
+
+    @Override
+    public Instances outputFormat() throws Exception {
+
+        if (m_OutputInstances == null) {
+            throw new Exception("No output format defined.");
+        }
+        return new Instances(m_OutputInstances, 0);
+    }
+
+    @Override
+    public Instance outputPeek() throws Exception {
+
+        if ((m_OutputInstances == null) || (m_OutputInstance == null)) {
+            return null;
+        }
+        return (Instance) m_OutputInstance.copy();
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+        Object source = e.getSource();
+
+        if (source == m_StartBut) {
+            // load the arff file and send the instances out to the listener
+            if (m_LoaderThread == null) {
+                m_LoaderThread = new LoadThread(this);
+                m_LoaderThread.setPriority(Thread.MIN_PRIORITY);
+                m_LoaderThread.start();
+            } else {
+                m_LoaderThread = null;
+            }
+        }
+    }
 }

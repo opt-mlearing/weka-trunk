@@ -29,28 +29,32 @@ import junit.framework.TestSuite;
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
-public class GreedyStepwiseTest 
-  extends AbstractSearchTest {
+public class GreedyStepwiseTest
+        extends AbstractSearchTest {
 
-  public GreedyStepwiseTest(String name) { 
-    super(name);  
-  }
+    public GreedyStepwiseTest(String name) {
+        super(name);
+    }
 
-  /** Creates a default GreedyStepwise */
-  public ASSearch getSearch() {
-    return new GreedyStepwise();
-  }
+    /**
+     * Creates a default GreedyStepwise
+     */
+    public ASSearch getSearch() {
+        return new GreedyStepwise();
+    }
 
-  /** Creates a default CfsSubsetEval */
-  public ASEvaluation getEvaluator() {
-    return new CfsSubsetEval();
-  }
+    /**
+     * Creates a default CfsSubsetEval
+     */
+    public ASEvaluation getEvaluator() {
+        return new CfsSubsetEval();
+    }
 
-  public static Test suite() {
-    return new TestSuite(GreedyStepwiseTest.class);
-  }
+    public static Test suite() {
+        return new TestSuite(GreedyStepwiseTest.class);
+    }
 
-  public static void main(String[] args){
-    junit.textui.TestRunner.run(suite());
-  }
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 }

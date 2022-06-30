@@ -20,9 +20,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 /**
  * <p>Java class for Trend_ExpoSmooth element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="Trend_ExpoSmooth">
  *   &lt;complexType>
@@ -50,12 +50,10 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "array"
+        "array"
 })
 @XmlRootElement(name = "Trend_ExpoSmooth")
 public class TrendExpoSmooth {
@@ -74,11 +72,9 @@ public class TrendExpoSmooth {
 
     /**
      * Gets the value of the array property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ArrayType }
-     *     
+     *
+     * @return possible object is
+     * {@link ArrayType }
      */
     public ArrayType getArray() {
         return array;
@@ -86,11 +82,9 @@ public class TrendExpoSmooth {
 
     /**
      * Sets the value of the array property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link ArrayType }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link ArrayType }
      */
     public void setArray(ArrayType value) {
         this.array = value;
@@ -98,11 +92,9 @@ public class TrendExpoSmooth {
 
     /**
      * Gets the value of the gamma property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public Double getGamma() {
         return gamma;
@@ -110,11 +102,9 @@ public class TrendExpoSmooth {
 
     /**
      * Sets the value of the gamma property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setGamma(Double value) {
         this.gamma = value;
@@ -122,15 +112,13 @@ public class TrendExpoSmooth {
 
     /**
      * Gets the value of the phi property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public double getPhi() {
         if (phi == null) {
-            return  1.0D;
+            return 1.0D;
         } else {
             return phi;
         }
@@ -138,11 +126,9 @@ public class TrendExpoSmooth {
 
     /**
      * Sets the value of the phi property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setPhi(Double value) {
         this.phi = value;
@@ -150,11 +136,9 @@ public class TrendExpoSmooth {
 
     /**
      * Gets the value of the smoothedValue property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public Double getSmoothedValue() {
         return smoothedValue;
@@ -162,11 +146,9 @@ public class TrendExpoSmooth {
 
     /**
      * Sets the value of the smoothedValue property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setSmoothedValue(Double value) {
         this.smoothedValue = value;
@@ -174,11 +156,9 @@ public class TrendExpoSmooth {
 
     /**
      * Gets the value of the trend property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getTrend() {
         if (trend == null) {
@@ -190,11 +170,9 @@ public class TrendExpoSmooth {
 
     /**
      * Sets the value of the trend property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setTrend(String value) {
         this.trend = value;

@@ -26,49 +26,49 @@ package weka.gui.simplecli;
  * @author FracPete (fracpete at waikato dot ac dot nz)
  */
 public class History
-  extends AbstractCommand {
+        extends AbstractCommand {
 
-  /**
-   * Returns the name of the command.
-   *
-   * @return		the name
-   */
-  @Override
-  public String getName() {
-    return "history";
-  }
-
-  /**
-   * Returns the help string (no indentation).
-   *
-   * @return		the help
-   */
-  @Override
-  public String getHelp() {
-    return "Prints all issued commands.";
-  }
-
-  /**
-   * Returns the one-liner help string for the parameters.
-   *
-   * @return		the help, empty if none available
-   */
-  public String getParameterHelp() {
-    return "";
-  }
-
-  /**
-   * Executes the command with the given parameters.
-   *
-   * @param params 	the parameters for the command
-   * @throws Exception	if command fails
-   */
-  @Override
-  protected void doExecute(String[] params) throws Exception {
-    System.out.println("Command history:");
-    for (int i = 0; i < m_Owner.getCommandHistory().size(); i++) {
-      System.out.println(m_Owner.getCommandHistory().get(i));
+    /**
+     * Returns the name of the command.
+     *
+     * @return the name
+     */
+    @Override
+    public String getName() {
+        return "history";
     }
-    System.out.println();
-  }
+
+    /**
+     * Returns the help string (no indentation).
+     *
+     * @return the help
+     */
+    @Override
+    public String getHelp() {
+        return "Prints all issued commands.";
+    }
+
+    /**
+     * Returns the one-liner help string for the parameters.
+     *
+     * @return the help, empty if none available
+     */
+    public String getParameterHelp() {
+        return "";
+    }
+
+    /**
+     * Executes the command with the given parameters.
+     *
+     * @param params the parameters for the command
+     * @throws Exception if command fails
+     */
+    @Override
+    protected void doExecute(String[] params) throws Exception {
+        System.out.println("Command history:");
+        for (int i = 0; i < m_Owner.getCommandHistory().size(); i++) {
+            System.out.println(m_Owner.getCommandHistory().get(i));
+        }
+        System.out.println();
+    }
 }

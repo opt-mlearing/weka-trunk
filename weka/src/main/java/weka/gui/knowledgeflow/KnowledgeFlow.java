@@ -35,15 +35,15 @@ import java.util.List;
  * @version $Revision: $
  */
 public class KnowledgeFlow {
-  public static void main(String[] args) {
-    List<String> message =
-      Arrays.asList("WEKA Knowledge Flow", "Version " + Version.VERSION,
-        "(c) " + Copyright.getFromYear() + " - " + Copyright.getToYear(),
-        "The University of Waikato", "Hamilton, New Zealand");
-    weka.gui.SplashWindow.splash(
-      ClassLoader.getSystemResource("weka/gui/weka_icon_new.png"), message);
-    weka.gui.SplashWindow.invokeMain("weka.gui.knowledgeflow.KnowledgeFlowApp",
-      args);
-    weka.gui.SplashWindow.disposeSplash();
-  }
+    public static void main(String[] args) {
+        List<String> message =
+                Arrays.asList("WEKA Knowledge Flow", "Version " + Version.VERSION,
+                        "(c) " + Copyright.getFromYear() + " - " + Copyright.getToYear(),
+                        "The University of Waikato", "Hamilton, New Zealand");
+        weka.gui.SplashWindow.splash(
+                ClassLoader.getSystemResource("weka/gui/weka_icon_new.png"), message);
+        weka.gui.SplashWindow.invokeMain("weka.gui.knowledgeflow.KnowledgeFlowApp",
+                args);
+        weka.gui.SplashWindow.disposeSplash();
+    }
 }

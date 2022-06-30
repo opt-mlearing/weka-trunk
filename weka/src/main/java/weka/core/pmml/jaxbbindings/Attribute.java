@@ -20,9 +20,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for Attribute element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="Attribute">
  *   &lt;complexType>
@@ -39,17 +39,15 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "extension",
-    "simplePredicate",
-    "compoundPredicate",
-    "simpleSetPredicate",
-    "_true",
-    "_false"
+        "extension",
+        "simplePredicate",
+        "compoundPredicate",
+        "simpleSetPredicate",
+        "_true",
+        "_false"
 })
 @XmlRootElement(name = "Attribute")
 public class Attribute {
@@ -73,25 +71,23 @@ public class Attribute {
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extension }
-     * 
-     * 
      */
     public List<Extension> getExtension() {
         if (extension == null) {
@@ -102,11 +98,9 @@ public class Attribute {
 
     /**
      * Gets the value of the simplePredicate property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link SimplePredicate }
-     *     
+     *
+     * @return possible object is
+     * {@link SimplePredicate }
      */
     public SimplePredicate getSimplePredicate() {
         return simplePredicate;
@@ -114,11 +108,9 @@ public class Attribute {
 
     /**
      * Sets the value of the simplePredicate property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link SimplePredicate }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link SimplePredicate }
      */
     public void setSimplePredicate(SimplePredicate value) {
         this.simplePredicate = value;
@@ -126,11 +118,9 @@ public class Attribute {
 
     /**
      * Gets the value of the compoundPredicate property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CompoundPredicate }
-     *     
+     *
+     * @return possible object is
+     * {@link CompoundPredicate }
      */
     public CompoundPredicate getCompoundPredicate() {
         return compoundPredicate;
@@ -138,11 +128,9 @@ public class Attribute {
 
     /**
      * Sets the value of the compoundPredicate property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link CompoundPredicate }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link CompoundPredicate }
      */
     public void setCompoundPredicate(CompoundPredicate value) {
         this.compoundPredicate = value;
@@ -150,11 +138,9 @@ public class Attribute {
 
     /**
      * Gets the value of the simpleSetPredicate property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link SimpleSetPredicate }
-     *     
+     *
+     * @return possible object is
+     * {@link SimpleSetPredicate }
      */
     public SimpleSetPredicate getSimpleSetPredicate() {
         return simpleSetPredicate;
@@ -162,11 +148,9 @@ public class Attribute {
 
     /**
      * Sets the value of the simpleSetPredicate property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link SimpleSetPredicate }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link SimpleSetPredicate }
      */
     public void setSimpleSetPredicate(SimpleSetPredicate value) {
         this.simpleSetPredicate = value;
@@ -174,11 +158,9 @@ public class Attribute {
 
     /**
      * Gets the value of the true property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link True }
-     *     
+     *
+     * @return possible object is
+     * {@link True }
      */
     public True getTrue() {
         return _true;
@@ -186,11 +168,9 @@ public class Attribute {
 
     /**
      * Sets the value of the true property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link True }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link True }
      */
     public void setTrue(True value) {
         this._true = value;
@@ -198,11 +178,9 @@ public class Attribute {
 
     /**
      * Gets the value of the false property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link False }
-     *     
+     *
+     * @return possible object is
+     * {@link False }
      */
     public False getFalse() {
         return _false;
@@ -210,11 +188,9 @@ public class Attribute {
 
     /**
      * Sets the value of the false property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link False }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link False }
      */
     public void setFalse(False value) {
         this._false = value;
@@ -222,11 +198,9 @@ public class Attribute {
 
     /**
      * Gets the value of the partialScore property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public Double getPartialScore() {
         return partialScore;
@@ -234,11 +208,9 @@ public class Attribute {
 
     /**
      * Sets the value of the partialScore property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setPartialScore(Double value) {
         this.partialScore = value;
@@ -246,11 +218,9 @@ public class Attribute {
 
     /**
      * Gets the value of the reasonCode property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getReasonCode() {
         return reasonCode;
@@ -258,11 +228,9 @@ public class Attribute {
 
     /**
      * Sets the value of the reasonCode property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setReasonCode(String value) {
         this.reasonCode = value;

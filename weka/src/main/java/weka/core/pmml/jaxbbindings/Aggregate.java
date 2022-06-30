@@ -20,9 +20,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for Aggregate element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="Aggregate">
  *   &lt;complexType>
@@ -51,12 +51,10 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "extension"
+        "extension"
 })
 @XmlRootElement(name = "Aggregate")
 public class Aggregate {
@@ -74,25 +72,23 @@ public class Aggregate {
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extension }
-     * 
-     * 
      */
     public List<Extension> getExtension() {
         if (extension == null) {
@@ -103,11 +99,9 @@ public class Aggregate {
 
     /**
      * Gets the value of the field property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getField() {
         return field;
@@ -115,11 +109,9 @@ public class Aggregate {
 
     /**
      * Sets the value of the field property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setField(String value) {
         this.field = value;
@@ -127,11 +119,9 @@ public class Aggregate {
 
     /**
      * Gets the value of the function property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getFunction() {
         return function;
@@ -139,11 +129,9 @@ public class Aggregate {
 
     /**
      * Sets the value of the function property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setFunction(String value) {
         this.function = value;
@@ -151,11 +139,9 @@ public class Aggregate {
 
     /**
      * Gets the value of the groupField property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getGroupField() {
         return groupField;
@@ -163,11 +149,9 @@ public class Aggregate {
 
     /**
      * Sets the value of the groupField property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setGroupField(String value) {
         this.groupField = value;
@@ -175,11 +159,9 @@ public class Aggregate {
 
     /**
      * Gets the value of the sqlWhere property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getSqlWhere() {
         return sqlWhere;
@@ -187,11 +169,9 @@ public class Aggregate {
 
     /**
      * Sets the value of the sqlWhere property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setSqlWhere(String value) {
         this.sqlWhere = value;

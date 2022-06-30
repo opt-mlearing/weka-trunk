@@ -26,51 +26,50 @@ package weka.gui.simplecli;
  * @author FracPete (fracpete at waikato dot ac dot nz)
  */
 public class Kill
-  extends AbstractCommand {
+        extends AbstractCommand {
 
-  /**
-   * Returns the name of the command.
-   *
-   * @return		the name
-   */
-  @Override
-  public String getName() {
-    return "kill";
-  }
-
-  /**
-   * Returns the help string (no indentation).
-   *
-   * @return		the help
-   */
-  @Override
-  public String getHelp() {
-    return "Kills the running job, if any.";
-  }
-
-  /**
-   * Returns the one-liner help string for the parameters.
-   *
-   * @return		the help, empty if none available
-   */
-  public String getParameterHelp() {
-    return "";
-  }
-
-  /**
-   * Executes the command with the given parameters.
-   *
-   * @param params 	the parameters for the command
-   * @throws Exception	if command fails
-   */
-  @Override
-  protected void doExecute(String[] params) throws Exception {
-    if (!m_Owner.isBusy()) {
-      System.err.println("Nothing is currently running.");
+    /**
+     * Returns the name of the command.
+     *
+     * @return the name
+     */
+    @Override
+    public String getName() {
+        return "kill";
     }
-    else {
-      System.out.println("[Kill...]");
-      m_Owner.stopThread();
+
+    /**
+     * Returns the help string (no indentation).
+     *
+     * @return the help
+     */
+    @Override
+    public String getHelp() {
+        return "Kills the running job, if any.";
     }
-  }
+
+    /**
+     * Returns the one-liner help string for the parameters.
+     *
+     * @return the help, empty if none available
+     */
+    public String getParameterHelp() {
+        return "";
+    }
+
+    /**
+     * Executes the command with the given parameters.
+     *
+     * @param params the parameters for the command
+     * @throws Exception if command fails
+     */
+    @Override
+    protected void doExecute(String[] params) throws Exception {
+        if (!m_Owner.isBusy()) {
+            System.err.println("Nothing is currently running.");
+        } else {
+            System.out.println("[Kill...]");
+            m_Owner.stopThread();
+        }
+    }
 }

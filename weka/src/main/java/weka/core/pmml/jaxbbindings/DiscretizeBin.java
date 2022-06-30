@@ -20,9 +20,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for DiscretizeBin element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="DiscretizeBin">
  *   &lt;complexType>
@@ -38,13 +38,11 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "extension",
-    "interval"
+        "extension",
+        "interval"
 })
 @XmlRootElement(name = "DiscretizeBin")
 public class DiscretizeBin {
@@ -58,25 +56,23 @@ public class DiscretizeBin {
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extension }
-     * 
-     * 
      */
     public List<Extension> getExtension() {
         if (extension == null) {
@@ -87,11 +83,9 @@ public class DiscretizeBin {
 
     /**
      * Gets the value of the interval property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Interval }
-     *     
+     *
+     * @return possible object is
+     * {@link Interval }
      */
     public Interval getInterval() {
         return interval;
@@ -99,11 +93,9 @@ public class DiscretizeBin {
 
     /**
      * Sets the value of the interval property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Interval }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Interval }
      */
     public void setInterval(Interval value) {
         this.interval = value;
@@ -111,11 +103,9 @@ public class DiscretizeBin {
 
     /**
      * Gets the value of the binValue property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getBinValue() {
         return binValue;
@@ -123,11 +113,9 @@ public class DiscretizeBin {
 
     /**
      * Sets the value of the binValue property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setBinValue(String value) {
         this.binValue = value;

@@ -34,18 +34,17 @@ import weka.associations.AssociationRules;
  */
 public interface AssociationRuleVisualizePlugin {
 
-  /**
-   * Get a JMenu or JMenuItem which contain action listeners
-   * that perform the visualization of the association rules.
-   *
-   * @see NoClassDefFoundError
-   * @see IncompatibleClassChangeError
-   *
-   * @param rules       the association rules
-   * @param name        the name of the item (in the Explorer's history list)
-   * @return menuitem   for opening visualization(s), or null
-   *                    to indicate no visualization is applicable for the input
-   */
-  public JMenuItem getVisualizeMenuItem(AssociationRules rules, String name);
-  
+    /**
+     * Get a JMenu or JMenuItem which contain action listeners
+     * that perform the visualization of the association rules.
+     *
+     * @param rules the association rules
+     * @param name  the name of the item (in the Explorer's history list)
+     * @return menuitem   for opening visualization(s), or null
+     * to indicate no visualization is applicable for the input
+     * @see NoClassDefFoundError
+     * @see IncompatibleClassChangeError
+     */
+    public JMenuItem getVisualizeMenuItem(AssociationRules rules, String name);
+
 }

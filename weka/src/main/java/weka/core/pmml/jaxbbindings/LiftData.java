@@ -20,9 +20,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for LiftData element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="LiftData">
  *   &lt;complexType>
@@ -42,15 +42,13 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "extension",
-    "modelLiftGraph",
-    "optimumLiftGraph",
-    "randomLiftGraph"
+        "extension",
+        "modelLiftGraph",
+        "optimumLiftGraph",
+        "randomLiftGraph"
 })
 @XmlRootElement(name = "LiftData")
 public class LiftData {
@@ -72,25 +70,23 @@ public class LiftData {
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extension }
-     * 
-     * 
      */
     public List<Extension> getExtension() {
         if (extension == null) {
@@ -101,11 +97,9 @@ public class LiftData {
 
     /**
      * Gets the value of the modelLiftGraph property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ModelLiftGraph }
-     *     
+     *
+     * @return possible object is
+     * {@link ModelLiftGraph }
      */
     public ModelLiftGraph getModelLiftGraph() {
         return modelLiftGraph;
@@ -113,11 +107,9 @@ public class LiftData {
 
     /**
      * Sets the value of the modelLiftGraph property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link ModelLiftGraph }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link ModelLiftGraph }
      */
     public void setModelLiftGraph(ModelLiftGraph value) {
         this.modelLiftGraph = value;
@@ -125,11 +117,9 @@ public class LiftData {
 
     /**
      * Gets the value of the optimumLiftGraph property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link OptimumLiftGraph }
-     *     
+     *
+     * @return possible object is
+     * {@link OptimumLiftGraph }
      */
     public OptimumLiftGraph getOptimumLiftGraph() {
         return optimumLiftGraph;
@@ -137,11 +127,9 @@ public class LiftData {
 
     /**
      * Sets the value of the optimumLiftGraph property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link OptimumLiftGraph }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link OptimumLiftGraph }
      */
     public void setOptimumLiftGraph(OptimumLiftGraph value) {
         this.optimumLiftGraph = value;
@@ -149,11 +137,9 @@ public class LiftData {
 
     /**
      * Gets the value of the randomLiftGraph property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link RandomLiftGraph }
-     *     
+     *
+     * @return possible object is
+     * {@link RandomLiftGraph }
      */
     public RandomLiftGraph getRandomLiftGraph() {
         return randomLiftGraph;
@@ -161,11 +147,9 @@ public class LiftData {
 
     /**
      * Sets the value of the randomLiftGraph property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link RandomLiftGraph }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link RandomLiftGraph }
      */
     public void setRandomLiftGraph(RandomLiftGraph value) {
         this.randomLiftGraph = value;
@@ -173,11 +157,9 @@ public class LiftData {
 
     /**
      * Gets the value of the rankingQuality property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public Double getRankingQuality() {
         return rankingQuality;
@@ -185,11 +167,9 @@ public class LiftData {
 
     /**
      * Sets the value of the rankingQuality property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setRankingQuality(Double value) {
         this.rankingQuality = value;
@@ -197,11 +177,9 @@ public class LiftData {
 
     /**
      * Gets the value of the targetFieldDisplayValue property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getTargetFieldDisplayValue() {
         return targetFieldDisplayValue;
@@ -209,11 +187,9 @@ public class LiftData {
 
     /**
      * Sets the value of the targetFieldDisplayValue property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setTargetFieldDisplayValue(String value) {
         this.targetFieldDisplayValue = value;
@@ -221,11 +197,9 @@ public class LiftData {
 
     /**
      * Gets the value of the targetFieldValue property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getTargetFieldValue() {
         return targetFieldValue;
@@ -233,11 +207,9 @@ public class LiftData {
 
     /**
      * Sets the value of the targetFieldValue property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setTargetFieldValue(String value) {
         this.targetFieldValue = value;

@@ -32,47 +32,47 @@ import java.beans.SimpleBeanInfo;
  * @author Mark Hall
  * @version $Revision$
  */
-public class ClassValuePickerBeanInfo 
-  extends SimpleBeanInfo {
+public class ClassValuePickerBeanInfo
+        extends SimpleBeanInfo {
 
-  /**
-   * Returns the event set descriptors
-   *
-   * @return an <code>EventSetDescriptor[]</code> value
-   */
-  public EventSetDescriptor [] getEventSetDescriptors() {
-    try {
-      EventSetDescriptor [] esds = 
-      { new EventSetDescriptor(ClassValuePicker.class, 
-			       "dataSet", 
-			       DataSourceListener.class, 
-			       "acceptDataSet") };
-      return esds;
-    } catch (Exception ex) {
-      ex.printStackTrace();
+    /**
+     * Returns the event set descriptors
+     *
+     * @return an <code>EventSetDescriptor[]</code> value
+     */
+    public EventSetDescriptor[] getEventSetDescriptors() {
+        try {
+            EventSetDescriptor[] esds =
+                    {new EventSetDescriptor(ClassValuePicker.class,
+                            "dataSet",
+                            DataSourceListener.class,
+                            "acceptDataSet")};
+            return esds;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return null;
     }
-    return null;
-  }
-  
-  /**
-   * Returns the property descriptors
-   *
-   * @return a <code>PropertyDescriptor[]</code> value
-   */
-  public PropertyDescriptor[] getPropertyDescriptors() {
-    try {
-      PropertyDescriptor p1;
-      p1 = new PropertyDescriptor("classValue", ClassValuePicker.class);
-      PropertyDescriptor [] pds = { p1 };
-      return pds;
-    } catch (Exception ex) {
-      ex.printStackTrace();
-    }
-    return null;
-  }
 
-  public BeanDescriptor getBeanDescriptor() {
-    return new BeanDescriptor(weka.gui.beans.ClassValuePicker.class,
-			      ClassValuePickerCustomizer.class);
-  }
+    /**
+     * Returns the property descriptors
+     *
+     * @return a <code>PropertyDescriptor[]</code> value
+     */
+    public PropertyDescriptor[] getPropertyDescriptors() {
+        try {
+            PropertyDescriptor p1;
+            p1 = new PropertyDescriptor("classValue", ClassValuePicker.class);
+            PropertyDescriptor[] pds = {p1};
+            return pds;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
+
+    public BeanDescriptor getBeanDescriptor() {
+        return new BeanDescriptor(weka.gui.beans.ClassValuePicker.class,
+                ClassValuePickerCustomizer.class);
+    }
 }

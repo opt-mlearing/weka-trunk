@@ -34,10 +34,10 @@ import javax.swing.JPanel;
  */
 public interface CustomPanelSupplier {
 
-  /**
-   * Gets the custom panel for the object.
-   *
-   * @return the custom JPanel
-   */
-  JPanel getCustomPanel();
+    /**
+     * Gets the custom panel for the object.
+     *
+     * @return the custom JPanel
+     */
+    JPanel getCustomPanel();
 }

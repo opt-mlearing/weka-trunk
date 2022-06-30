@@ -28,14 +28,14 @@ package weka.gui.beans;
  * @version $Revision$
  */
 public interface DataFormatListener {
-  
-  /**
-   * Recieve a DataSetEvent that encapsulates a new data format. The
-   * DataSetEvent may contain null for the encapsulated format. This indicates
-   * that there is no data format available (ie. user may have disconnected
-   * an input source of data in the KnowledgeFlow).
-   *
-   * @param e a <code>DataSetEvent</code> value
-   */
-  void newDataFormat(DataSetEvent e);
+
+    /**
+     * Recieve a DataSetEvent that encapsulates a new data format. The
+     * DataSetEvent may contain null for the encapsulated format. This indicates
+     * that there is no data format available (ie. user may have disconnected
+     * an input source of data in the KnowledgeFlow).
+     *
+     * @param e a <code>DataSetEvent</code> value
+     */
+    void newDataFormat(DataSetEvent e);
 }

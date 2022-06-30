@@ -28,20 +28,19 @@ import java.beans.SimpleBeanInfo;
 /**
  * Bean info class for the Note bean. Suppresses all events. Returns the
  * customizer class.
- * 
+ *
  * @author Mark Hall (mhall{[at]}pentaho{[dot]}com)
  * @version $Revision$
- *
  */
 public class NoteBeanInfo extends SimpleBeanInfo {
-  
-  public EventSetDescriptor[] getEventSetDescriptors() {
-    EventSetDescriptor[] esds = {};
-    return esds;
-  }
-  
-  public BeanDescriptor getBeanDescriptor() {
-    return new BeanDescriptor(weka.gui.beans.Note.class, 
-        weka.gui.beans.NoteCustomizer.class);
-  }
+
+    public EventSetDescriptor[] getEventSetDescriptors() {
+        EventSetDescriptor[] esds = {};
+        return esds;
+    }
+
+    public BeanDescriptor getBeanDescriptor() {
+        return new BeanDescriptor(weka.gui.beans.Note.class,
+                weka.gui.beans.NoteCustomizer.class);
+    }
 }

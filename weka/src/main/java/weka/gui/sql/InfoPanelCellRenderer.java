@@ -30,58 +30,59 @@ import javax.swing.ListCellRenderer;
 /**
  * A specialized renderer that takes care of JLabels in a JList.
  *
- * @author  FracPete (fracpete at waikato dot ac dot nz)
+ * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
 
-public class InfoPanelCellRenderer 
-  extends JLabel 
-  implements ListCellRenderer {
+public class InfoPanelCellRenderer
+        extends JLabel
+        implements ListCellRenderer {
 
-  /** for serialization */
-  private static final long serialVersionUID = -533380118807178531L;
-  
-  /**
-   * the constructor
-   */
-  public InfoPanelCellRenderer() {
-    super();
-    setOpaque(true);
-  }
-  
-  /**
-   * Return a component that has been configured to display the specified value.
-   * @param list The JList we're painting.
-   * @param value The value returned by list.getModel().getElementAt(index).
-   * @param index The cells index.
-   * @param isSelected True if the specified cell was selected.
-   * @param cellHasFocus True if the specified cell has the focus.
-   */
-  public Component getListCellRendererComponent(
-      JList list, Object value,
-      int index, boolean isSelected, boolean cellHasFocus) {
+    /**
+     * for serialization
+     */
+    private static final long serialVersionUID = -533380118807178531L;
 
-    if (value instanceof JLabel) {
-      setIcon(((JLabel) value).getIcon());
-      setText(((JLabel) value).getText());
-    }
-    else {
-      setIcon(null);
-      setText(value.toString());
+    /**
+     * the constructor
+     */
+    public InfoPanelCellRenderer() {
+        super();
+        setOpaque(true);
     }
 
-    if (isSelected) {
-      setBackground(list.getSelectionBackground());
-      setForeground(list.getSelectionForeground());
-    }
-    else {
-      setBackground(list.getBackground());
-      setForeground(list.getForeground());
-    }
-    setEnabled(list.isEnabled());
-    setFont(list.getFont());
+    /**
+     * Return a component that has been configured to display the specified value.
+     *
+     * @param list         The JList we're painting.
+     * @param value        The value returned by list.getModel().getElementAt(index).
+     * @param index        The cells index.
+     * @param isSelected   True if the specified cell was selected.
+     * @param cellHasFocus True if the specified cell has the focus.
+     */
+    public Component getListCellRendererComponent(
+            JList list, Object value,
+            int index, boolean isSelected, boolean cellHasFocus) {
 
-    return this;
-  }
+        if (value instanceof JLabel) {
+            setIcon(((JLabel) value).getIcon());
+            setText(((JLabel) value).getText());
+        } else {
+            setIcon(null);
+            setText(value.toString());
+        }
+
+        if (isSelected) {
+            setBackground(list.getSelectionBackground());
+            setForeground(list.getSelectionForeground());
+        } else {
+            setBackground(list.getBackground());
+            setForeground(list.getForeground());
+        }
+        setEnabled(list.isEnabled());
+        setFont(list.getFont());
+
+        return this;
+    }
 }
 

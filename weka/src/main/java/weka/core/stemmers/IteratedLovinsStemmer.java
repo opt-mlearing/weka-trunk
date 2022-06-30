@@ -24,16 +24,16 @@ package weka.core.stemmers;
 import weka.core.RevisionUtils;
 
 /**
- <!-- globalinfo-start -->
+ * <!-- globalinfo-start -->
  * An iterated version of the Lovins stemmer. It stems the word (in case it's longer than 2 characters) until it no further changes.<br/>
  * <br/>
  * For more information about the Lovins stemmer see:<br/>
  * <br/>
  * Julie Beth Lovins (1968). Development of a stemming algorithm. Mechanical Translation and Computational Linguistics. 11:22-31.
  * <p/>
- <!-- globalinfo-end -->
- * 
- <!-- technical-bibtex-start -->
+ * <!-- globalinfo-end -->
+ * <p>
+ * <!-- technical-bibtex-start -->
  * BibTeX:
  * <pre>
  * &#64;article{Lovins1968,
@@ -46,72 +46,74 @@ import weka.core.RevisionUtils;
  * }
  * </pre>
  * <p/>
- <!-- technical-bibtex-end -->
+ * <!-- technical-bibtex-end -->
  *
- * @author  Eibe Frank (eibe at cs dot waikato dot ac dot nz)
+ * @author Eibe Frank (eibe at cs dot waikato dot ac dot nz)
  * @version $Revision$
- * @see     LovinsStemmer
+ * @see LovinsStemmer
  */
-public class IteratedLovinsStemmer 
-  extends LovinsStemmer {
+public class IteratedLovinsStemmer
+        extends LovinsStemmer {
 
-  /** for serialization */
-  static final long serialVersionUID = 960689687163788264L;
-  
-  /**
-   * Returns a string describing the stemmer
-   * @return a description suitable for
-   *         displaying in the explorer/experimenter gui
-   */
-  public String globalInfo() {
-    return 
-        "An iterated version of the Lovins stemmer. It stems the word (in "
-      + "case it's longer than 2 characters) until it no further changes.\n\n"
-      + "For more information about the Lovins stemmer see:\n\n"
-      + getTechnicalInformation().toString();
-  }
+    /**
+     * for serialization
+     */
+    static final long serialVersionUID = 960689687163788264L;
 
-  /**
-   * Iterated stemming of the given word.
-   * Word is converted to lower case.
-   * 
-   * @param str 	the word to stem
-   * @return 		the stemmed word
-   */
-  public String stem(String str) {
+    /**
+     * Returns a string describing the stemmer
+     *
+     * @return a description suitable for
+     * displaying in the explorer/experimenter gui
+     */
+    public String globalInfo() {
+        return
+                "An iterated version of the Lovins stemmer. It stems the word (in "
+                        + "case it's longer than 2 characters) until it no further changes.\n\n"
+                        + "For more information about the Lovins stemmer see:\n\n"
+                        + getTechnicalInformation().toString();
+    }
 
-    if (str.length() <= 2) {
-      return str;
-    }
-    String stemmed = super.stem(str);
-    while (!stemmed.equals(str)) {
-      str = stemmed;
-      stemmed = super.stem(stemmed);
-    }
-    return stemmed;
-  }
-  
-  /**
-   * Returns the revision string.
-   * 
-   * @return		the revision
-   */
-  public String getRevision() {
-    return RevisionUtils.extract("$Revision$");
-  }
+    /**
+     * Iterated stemming of the given word.
+     * Word is converted to lower case.
+     *
+     * @param str the word to stem
+     * @return the stemmed word
+     */
+    public String stem(String str) {
 
-  /**
-   * Runs the stemmer with the given options
-   *
-   * @param args      the options
-   */
-  public static void main(String[] args) {
-    try {
-      Stemming.useStemmer(new IteratedLovinsStemmer(), args);
+        if (str.length() <= 2) {
+            return str;
+        }
+        String stemmed = super.stem(str);
+        while (!stemmed.equals(str)) {
+            str = stemmed;
+            stemmed = super.stem(stemmed);
+        }
+        return stemmed;
     }
-    catch (Exception e) {
-      e.printStackTrace();
+
+    /**
+     * Returns the revision string.
+     *
+     * @return the revision
+     */
+    public String getRevision() {
+        return RevisionUtils.extract("$Revision$");
     }
-  }
+
+    /**
+     * Runs the stemmer with the given options
+     *
+     * @param args the options
+     */
+    public static void main(String[] args) {
+        try {
+            Stemming.useStemmer(new IteratedLovinsStemmer(), args);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
 

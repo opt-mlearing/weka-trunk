@@ -24,23 +24,23 @@ package weka.classifiers.meta;
 import weka.core.*;
 
 /**
- <!-- globalinfo-start -->
+ * <!-- globalinfo-start -->
  * Class for running an arbitrary classifier on data that has been passed through an arbitrary filter. Like the classifier, the structure of the filter is based exclusively on the training data and test instances will be processed by the filter without changing their structure.
  * <p/>
- <!-- globalinfo-end -->
- *
- <!-- options-start -->
+ * <!-- globalinfo-end -->
+ * <p>
+ * <!-- options-start -->
  * Valid options are: <p/>
- * 
+ *
  * <pre> -F &lt;filter specification&gt;
  *  Full class name of filter to use, followed
  *  by filter options.
  *  default: "weka.filters.unsupervised.attribute.RandomProjection -N 10 -D Sparse1"</pre>
- * 
+ *
  * <pre> -D
  *  If set, classifier is run in debug mode and
  *  may output additional info to the console</pre>
- * 
+ *
  * <pre> -W
  *  Full name of base classifier.
  *  (default: weka.classifiers.lazy.IBk)</pre>
@@ -48,7 +48,7 @@ import weka.core.*;
  * <pre> -S num
  * Set the random number seed (default 1). </pre>
  *
- * <pre> 
+ * <pre>
  * Options specific to classifier weka.classifiers.lazy.IBk:
  * </pre>
  *
@@ -80,127 +80,131 @@ import weka.core.*;
  * <pre> -A
  *  The nearest neighbour search algorithm to use (default: weka.core.neighboursearch.LinearNNSearch).
  * </pre>
- *
- <!-- options-end -->
+ * <p>
+ * <!-- options-end -->
  *
  * @author Eibe Frank
  * @version $Revision: 9117 $
  */
 public class RandomizableFilteredClassifier extends FilteredClassifier {
 
-  /** for serialization */
-  static final long serialVersionUID = -4523466618555717333L;
+    /**
+     * for serialization
+     */
+    static final long serialVersionUID = -4523466618555717333L;
 
-  /**
-   * Returns a string describing this classifier
-   * @return a description of the classifier suitable for
-   * displaying in the explorer/experimenter gui
-   */
-  public String globalInfo() {
-    return   "A simple variant of the FilteredClassifier that instantiates the model with a randomizable filter, " +
-            "more specifically, RandomProjection, and IBk as the base classifier. Other than this, and checking " +
-            "that at least one of the two base schemes implements the Randomizable interface, it implements " +
-            "exactly the same functionality as FilteredClassifier, which (now) also implements Randomizable.";
-  }
-
-  /**
-   * String describing default classifier.
-   * 
-   * @return the default classifier classname
-   */
-  protected String defaultClassifierString() {
-    
-    return "weka.classifiers.lazy.IBk";
-  }
-
-  /**
-   * String describing default filter.
-   */
-  protected String defaultFilterString() {
-
-    return "weka.filters.unsupervised.attribute.RandomProjection -N 10 -D Sparse1";
-  }
-
-  /**
-   * Default constructor.
-   */
-  public RandomizableFilteredClassifier() {
-
-    m_Classifier = new weka.classifiers.lazy.IBk();
-    m_Filter = new weka.filters.unsupervised.attribute.RandomProjection();
-  }
-
-  /**
-   * Initializes an iterative classifier. (If the base classifier supports
-   * this.)
-   *
-   * @param data the instances to be used in induction
-   * @exception Exception if the model cannot be initialized
-   */
-  @Override public void initializeClassifier(Instances data) throws Exception {
-
-    if (!(m_Classifier instanceof Randomizable) &&
-            !(m_Filter instanceof Randomizable)) {
-      throw new Exception("Either the classifier or the filter must implement the Randomizable interface.");
+    /**
+     * Returns a string describing this classifier
+     *
+     * @return a description of the classifier suitable for
+     * displaying in the explorer/experimenter gui
+     */
+    public String globalInfo() {
+        return "A simple variant of the FilteredClassifier that instantiates the model with a randomizable filter, " +
+                "more specifically, RandomProjection, and IBk as the base classifier. Other than this, and checking " +
+                "that at least one of the two base schemes implements the Randomizable interface, it implements " +
+                "exactly the same functionality as FilteredClassifier, which (now) also implements Randomizable.";
     }
 
-    super.initializeClassifier(data);
-  }
+    /**
+     * String describing default classifier.
+     *
+     * @return the default classifier classname
+     */
+    protected String defaultClassifierString() {
 
-  /**
-   * Build the classifier on the filtered data.
-   *
-   * @param data the training data
-   * @throws Exception if the classifier could not be built successfully
-   */
-  public void buildClassifier(Instances data) throws Exception {
-
-    if (!(m_Classifier instanceof Randomizable) &&
-        !(m_Filter instanceof Randomizable)) {
-      throw new Exception("Either the classifier or the filter must implement the Randomizable interface.");
+        return "weka.classifiers.lazy.IBk";
     }
 
-    super.buildClassifier(data);
-  }
+    /**
+     * String describing default filter.
+     */
+    protected String defaultFilterString() {
 
-  /**
-   * Output a representation of this classifier
-   * 
-   * @return a representation of this classifier
-   */
-  public String toString() {
-
-    if (m_FilteredInstances == null) {
-      return "RandomizableFilteredClassifier: No model built yet.";
+        return "weka.filters.unsupervised.attribute.RandomProjection -N 10 -D Sparse1";
     }
 
-    String result = "RandomizableFilteredClassifier using "
-      + getClassifierSpec()
-      + " on data filtered through "
-      + getFilterSpec()
-      + "\n\nFiltered Header\n"
-      + m_FilteredInstances.toString()
-      + "\n\nClassifier Model\n"
-      + m_Classifier.toString();
-    return result;
-  }
-  
-  /**
-   * Returns the revision string.
-   * 
-   * @return		the revision
-   */
-  public String getRevision() {
-    return RevisionUtils.extract("$Revision: 9117 $");
-  }
+    /**
+     * Default constructor.
+     */
+    public RandomizableFilteredClassifier() {
 
-  /**
-   * Main method for testing this class.
-   *
-   * @param argv should contain the following arguments:
-   * -t training file [-T test file] [-c class index]
-   */
-  public static void main(String [] argv)  {
-    runClassifier(new RandomizableFilteredClassifier(), argv);
-  }
+        m_Classifier = new weka.classifiers.lazy.IBk();
+        m_Filter = new weka.filters.unsupervised.attribute.RandomProjection();
+    }
+
+    /**
+     * Initializes an iterative classifier. (If the base classifier supports
+     * this.)
+     *
+     * @param data the instances to be used in induction
+     * @throws Exception if the model cannot be initialized
+     */
+    @Override
+    public void initializeClassifier(Instances data) throws Exception {
+
+        if (!(m_Classifier instanceof Randomizable) &&
+                !(m_Filter instanceof Randomizable)) {
+            throw new Exception("Either the classifier or the filter must implement the Randomizable interface.");
+        }
+
+        super.initializeClassifier(data);
+    }
+
+    /**
+     * Build the classifier on the filtered data.
+     *
+     * @param data the training data
+     * @throws Exception if the classifier could not be built successfully
+     */
+    public void buildClassifier(Instances data) throws Exception {
+
+        if (!(m_Classifier instanceof Randomizable) &&
+                !(m_Filter instanceof Randomizable)) {
+            throw new Exception("Either the classifier or the filter must implement the Randomizable interface.");
+        }
+
+        super.buildClassifier(data);
+    }
+
+    /**
+     * Output a representation of this classifier
+     *
+     * @return a representation of this classifier
+     */
+    public String toString() {
+
+        if (m_FilteredInstances == null) {
+            return "RandomizableFilteredClassifier: No model built yet.";
+        }
+
+        String result = "RandomizableFilteredClassifier using "
+                + getClassifierSpec()
+                + " on data filtered through "
+                + getFilterSpec()
+                + "\n\nFiltered Header\n"
+                + m_FilteredInstances.toString()
+                + "\n\nClassifier Model\n"
+                + m_Classifier.toString();
+        return result;
+    }
+
+    /**
+     * Returns the revision string.
+     *
+     * @return the revision
+     */
+    public String getRevision() {
+        return RevisionUtils.extract("$Revision: 9117 $");
+    }
+
+    /**
+     * Main method for testing this class.
+     *
+     * @param argv should contain the following arguments:
+     *             -t training file [-T test file] [-c class index]
+     */
+    public static void main(String[] argv) {
+        runClassifier(new RandomizableFilteredClassifier(), argv);
+    }
 }

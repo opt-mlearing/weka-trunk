@@ -34,19 +34,23 @@ import junit.framework.TestSuite;
  */
 public class JRipTest extends AbstractClassifierTest {
 
-  public JRipTest(String name) { super(name);  }
+    public JRipTest(String name) {
+        super(name);
+    }
 
-  /** Creates a default JRip */
-  public Classifier getClassifier() {
-    return new JRip();
-  }
+    /**
+     * Creates a default JRip
+     */
+    public Classifier getClassifier() {
+        return new JRip();
+    }
 
-  public static Test suite() {
-    return new TestSuite(JRipTest.class);
-  }
+    public static Test suite() {
+        return new TestSuite(JRipTest.class);
+    }
 
-  public static void main(String[] args){
-    junit.textui.TestRunner.run(suite());
-  }
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 
 }

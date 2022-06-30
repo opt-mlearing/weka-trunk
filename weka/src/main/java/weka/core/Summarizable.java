@@ -21,7 +21,7 @@
 
 package weka.core;
 
-/** 
+/**
  * Interface to something that provides a short textual summary (as opposed
  * to toString() which is usually a fairly complete description) of itself.
  *
@@ -30,12 +30,12 @@ package weka.core;
  */
 public interface Summarizable {
 
-  /**
-   * Returns a string that summarizes the object.
-   *
-   * @return the object summarized as a string
-   */
-  String toSummaryString();
+    /**
+     * Returns a string that summarizes the object.
+     *
+     * @return the object summarized as a string
+     */
+    String toSummaryString();
 }
 
 

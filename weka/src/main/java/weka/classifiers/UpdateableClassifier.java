@@ -32,13 +32,13 @@ import weka.core.Instance;
  */
 public interface UpdateableClassifier {
 
-  /**
-   * Updates a classifier using the given instance.
-   *
-   * @param instance the instance to included
-   * @exception Exception if instance could not be incorporated
-   * successfully
-   */
-  void updateClassifier(Instance instance) throws Exception;
+    /**
+     * Updates a classifier using the given instance.
+     *
+     * @param instance the instance to included
+     * @throws Exception if instance could not be incorporated
+     *                   successfully
+     */
+    void updateClassifier(Instance instance) throws Exception;
 
 }

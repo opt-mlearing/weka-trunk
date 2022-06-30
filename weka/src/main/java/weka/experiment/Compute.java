@@ -32,22 +32,23 @@ import java.rmi.RemoteException;
  * @version $Revision$
  */
 public interface Compute extends Remote {
-  
-  /**
-   * Execute a task
-   * @param t Task to be executed
-   * @exception RemoteException if something goes wrong.
-   * @return a unique ID for the task
-   */
-  Object executeTask(Task t) throws RemoteException;
 
-  /**
-   * Check on the status of a <code>Task</code>
-   *
-   * @param taskId the ID for the Task to be checked
-   * @return the status of the Task
-   * @exception Exception if an error occurs
-   */
-  Object checkStatus(Object taskId) throws Exception;
+    /**
+     * Execute a task
+     *
+     * @param t Task to be executed
+     * @return a unique ID for the task
+     * @throws RemoteException if something goes wrong.
+     */
+    Object executeTask(Task t) throws RemoteException;
+
+    /**
+     * Check on the status of a <code>Task</code>
+     *
+     * @param taskId the ID for the Task to be checked
+     * @return the status of the Task
+     * @throws Exception if an error occurs
+     */
+    Object checkStatus(Object taskId) throws Exception;
 }
 

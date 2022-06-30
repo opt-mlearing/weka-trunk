@@ -56,390 +56,408 @@ import java.util.Vector;
 /**
  * The main class for the Weka explorer. Lets the user create, open, save,
  * configure, datasets, and perform ML analysis.
- * 
+ *
  * @author Len Trigg (trigg@cs.waikato.ac.nz)
  * @version $Revision$
  */
 public class Explorer extends JPanel {
 
-  /** for serialization */
-  private static final long serialVersionUID = -7674003708867909578L;
-
-  /**
-   * Interface for classes that listen for filter changes.
-   * 
-   * @author FracPete (fracpete at waikato dot ac dot nz)
-   * @version $Revision$
-   */
-  public static interface CapabilitiesFilterChangeListener extends
-    EventListener {
+    /**
+     * for serialization
+     */
+    private static final long serialVersionUID = -7674003708867909578L;
 
     /**
-     * method gets called in case of a change event
-     * 
-     * @param e the associated change event
+     * Interface for classes that listen for filter changes.
+     *
+     * @author FracPete (fracpete at waikato dot ac dot nz)
+     * @version $Revision$
      */
-    public void capabilitiesFilterChanged(CapabilitiesFilterChangeEvent e);
-  }
+    public static interface CapabilitiesFilterChangeListener extends
+            EventListener {
 
-  /**
-   * This event can be fired in case the capabilities filter got changed
-   * 
-   * @author FracPete (fracpete at waikato dot ac dot nz)
-   * @version $Revision$
-   */
-  public static class CapabilitiesFilterChangeEvent extends ChangeEvent {
-
-    /** for serialization */
-    private static final long serialVersionUID = 1194260517270385559L;
-
-    /** the capabilities filter */
-    protected Capabilities m_Filter;
-
-    /**
-     * Constructs a GOECapabilitiesFilterChangeEvent object.
-     * 
-     * @param source the Object that is the source of the event
-     * @param filter the responsible capabilities filter
-     */
-    public CapabilitiesFilterChangeEvent(Object source, Capabilities filter) {
-      super(source);
-      m_Filter = filter;
+        /**
+         * method gets called in case of a change event
+         *
+         * @param e the associated change event
+         */
+        public void capabilitiesFilterChanged(CapabilitiesFilterChangeEvent e);
     }
 
     /**
-     * returns the associated Capabilities filter
-     * 
-     * @return the filter
+     * This event can be fired in case the capabilities filter got changed
+     *
+     * @author FracPete (fracpete at waikato dot ac dot nz)
+     * @version $Revision$
      */
-    public Capabilities getFilter() {
-      return m_Filter;
-    }
-  }
+    public static class CapabilitiesFilterChangeEvent extends ChangeEvent {
 
-  /**
-   * A common interface for panels to be displayed in the Explorer
-   * 
-   * @author FracPete (fracpete at waikato dot ac dot nz)
-   * @version $Revision$
-   */
-  public static interface ExplorerPanel {
+        /**
+         * for serialization
+         */
+        private static final long serialVersionUID = 1194260517270385559L;
 
-    /**
-     * Sets the Explorer to use as parent frame (used for sending notifications
-     * about changes in the data)
-     * 
-     * @param parent the parent frame
-     */
-    public void setExplorer(Explorer parent);
+        /**
+         * the capabilities filter
+         */
+        protected Capabilities m_Filter;
 
-    /**
-     * returns the parent Explorer frame
-     * 
-     * @return the parent
-     */
-    public Explorer getExplorer();
-
-    /**
-     * Tells the panel to use a new set of instances.
-     * 
-     * @param inst a set of Instances
-     */
-    public void setInstances(Instances inst);
-
-    /**
-     * Returns the title for the tab in the Explorer
-     * 
-     * @return the title of this tab
-     */
-    public String getTabTitle();
-
-    /**
-     * Returns the tooltip for the tab in the Explorer
-     * 
-     * @return the tooltip of this tab
-     */
-    public String getTabTitleToolTip();
-  }
-
-  /**
-   * A common interface for panels in the explorer that can handle logs
-   * 
-   * @author FracPete (fracpete at waikato dot ac dot nz)
-   * @version $Revision$
-   */
-  public static interface LogHandler {
-
-    /**
-     * Sets the Logger to receive informational messages
-     * 
-     * @param newLog the Logger that will now get info messages
-     */
-    public void setLog(Logger newLog);
-  }
-
-  /** The panel for preprocessing instances */
-  protected PreprocessPanel m_PreprocessPanel = new PreprocessPanel();
-
-  /** Contains all the additional panels apart from the pre-processing panel */
-  protected Vector<ExplorerPanel> m_Panels = new Vector<ExplorerPanel>();
-
-  /** The tabbed pane that controls which sub-pane we are working with */
-  protected JTabbedPane m_TabbedPane = new JTabbedPane();
-
-  /** The panel for log and status messages */
-  protected LogPanel m_LogPanel = new LogPanel(new WekaTaskMonitor());
-
-  /** the listeners that listen to filter changes */
-  protected HashSet<CapabilitiesFilterChangeListener> m_CapabilitiesFilterChangeListeners = new HashSet<CapabilitiesFilterChangeListener>();
-
-  /**
-   * Creates the experiment environment gui with no initial experiment
-   */
-  public Explorer() {
-
-    String date = (new SimpleDateFormat("EEEE, d MMMM yyyy"))
-      .format(new Date());
-    m_LogPanel.logMessage("Weka Explorer");
-    m_LogPanel.logMessage("(c) " + Copyright.getFromYear() + "-"
-      + Copyright.getToYear() + " " + Copyright.getOwner() + ", "
-      + Copyright.getAddress());
-    m_LogPanel.logMessage("web: " + Copyright.getURL());
-    m_LogPanel.logMessage("Started on " + date);
-    m_LogPanel.statusMessage("Welcome to the Weka Explorer");
-
-    // intialize pre-processpanel
-    m_PreprocessPanel.setLog(m_LogPanel);
-    m_TabbedPane.addTab(m_PreprocessPanel.getTabTitle(), null,
-      m_PreprocessPanel, m_PreprocessPanel.getTabTitleToolTip());
-
-    // initialize additional panels
-    String[] tabs = ExplorerDefaults.getTabs();
-    Hashtable<String, HashSet<String>> tabOptions = new Hashtable<String, HashSet<String>>();
-    for (String tab : tabs) {
-      try {
-        // determine classname and additional options
-        String[] optionsStr = tab.split(":");
-        String classname = optionsStr[0];
-        if (PluginManager.isInDisabledList(classname)) {
-          continue;
-        }
-        HashSet<String> options = new HashSet<String>();
-        tabOptions.put(classname, options);
-        for (int n = 1; n < optionsStr.length; n++) {
-          options.add(optionsStr[n]);
+        /**
+         * Constructs a GOECapabilitiesFilterChangeEvent object.
+         *
+         * @param source the Object that is the source of the event
+         * @param filter the responsible capabilities filter
+         */
+        public CapabilitiesFilterChangeEvent(Object source, Capabilities filter) {
+            super(source);
+            m_Filter = filter;
         }
 
-        // setup panel
-        ExplorerPanel panel = (ExplorerPanel) WekaPackageClassLoaderManager.forName(classname)
-          .newInstance();
-        panel.setExplorer(this);
-        m_Panels.add(panel);
-        if (panel instanceof LogHandler) {
-          ((LogHandler) panel).setLog(m_LogPanel);
+        /**
+         * returns the associated Capabilities filter
+         *
+         * @return the filter
+         */
+        public Capabilities getFilter() {
+            return m_Filter;
         }
-        m_TabbedPane.addTab(panel.getTabTitle(), null, (JPanel) panel,
-          panel.getTabTitleToolTip());
-      } catch (Exception e) {
-        e.printStackTrace();
-      }
     }
 
-    // setup tabbed pane
-    m_TabbedPane.setSelectedIndex(0);
-    for (int i = 0; i < m_Panels.size(); i++) {
-      HashSet<String> options = tabOptions.get(m_Panels.get(i).getClass()
-        .getName());
-      m_TabbedPane.setEnabledAt(i + 1, options.contains("standalone"));
+    /**
+     * A common interface for panels to be displayed in the Explorer
+     *
+     * @author FracPete (fracpete at waikato dot ac dot nz)
+     * @version $Revision$
+     */
+    public static interface ExplorerPanel {
+
+        /**
+         * Sets the Explorer to use as parent frame (used for sending notifications
+         * about changes in the data)
+         *
+         * @param parent the parent frame
+         */
+        public void setExplorer(Explorer parent);
+
+        /**
+         * returns the parent Explorer frame
+         *
+         * @return the parent
+         */
+        public Explorer getExplorer();
+
+        /**
+         * Tells the panel to use a new set of instances.
+         *
+         * @param inst a set of Instances
+         */
+        public void setInstances(Instances inst);
+
+        /**
+         * Returns the title for the tab in the Explorer
+         *
+         * @return the title of this tab
+         */
+        public String getTabTitle();
+
+        /**
+         * Returns the tooltip for the tab in the Explorer
+         *
+         * @return the tooltip of this tab
+         */
+        public String getTabTitleToolTip();
     }
 
-    // setup notification for dataset changes
-    m_PreprocessPanel.addPropertyChangeListener(new PropertyChangeListener() {
-      @Override
-      public void propertyChange(PropertyChangeEvent e) {
+    /**
+     * A common interface for panels in the explorer that can handle logs
+     *
+     * @author FracPete (fracpete at waikato dot ac dot nz)
+     * @version $Revision$
+     */
+    public static interface LogHandler {
+
+        /**
+         * Sets the Logger to receive informational messages
+         *
+         * @param newLog the Logger that will now get info messages
+         */
+        public void setLog(Logger newLog);
+    }
+
+    /**
+     * The panel for preprocessing instances
+     */
+    protected PreprocessPanel m_PreprocessPanel = new PreprocessPanel();
+
+    /**
+     * Contains all the additional panels apart from the pre-processing panel
+     */
+    protected Vector<ExplorerPanel> m_Panels = new Vector<ExplorerPanel>();
+
+    /**
+     * The tabbed pane that controls which sub-pane we are working with
+     */
+    protected JTabbedPane m_TabbedPane = new JTabbedPane();
+
+    /**
+     * The panel for log and status messages
+     */
+    protected LogPanel m_LogPanel = new LogPanel(new WekaTaskMonitor());
+
+    /**
+     * the listeners that listen to filter changes
+     */
+    protected HashSet<CapabilitiesFilterChangeListener> m_CapabilitiesFilterChangeListeners = new HashSet<CapabilitiesFilterChangeListener>();
+
+    /**
+     * Creates the experiment environment gui with no initial experiment
+     */
+    public Explorer() {
+
+        String date = (new SimpleDateFormat("EEEE, d MMMM yyyy"))
+                .format(new Date());
+        m_LogPanel.logMessage("Weka Explorer");
+        m_LogPanel.logMessage("(c) " + Copyright.getFromYear() + "-"
+                + Copyright.getToYear() + " " + Copyright.getOwner() + ", "
+                + Copyright.getAddress());
+        m_LogPanel.logMessage("web: " + Copyright.getURL());
+        m_LogPanel.logMessage("Started on " + date);
+        m_LogPanel.statusMessage("Welcome to the Weka Explorer");
+
+        // intialize pre-processpanel
+        m_PreprocessPanel.setLog(m_LogPanel);
+        m_TabbedPane.addTab(m_PreprocessPanel.getTabTitle(), null,
+                m_PreprocessPanel, m_PreprocessPanel.getTabTitleToolTip());
+
+        // initialize additional panels
+        String[] tabs = ExplorerDefaults.getTabs();
+        Hashtable<String, HashSet<String>> tabOptions = new Hashtable<String, HashSet<String>>();
+        for (String tab : tabs) {
+            try {
+                // determine classname and additional options
+                String[] optionsStr = tab.split(":");
+                String classname = optionsStr[0];
+                if (PluginManager.isInDisabledList(classname)) {
+                    continue;
+                }
+                HashSet<String> options = new HashSet<String>();
+                tabOptions.put(classname, options);
+                for (int n = 1; n < optionsStr.length; n++) {
+                    options.add(optionsStr[n]);
+                }
+
+                // setup panel
+                ExplorerPanel panel = (ExplorerPanel) WekaPackageClassLoaderManager.forName(classname)
+                        .newInstance();
+                panel.setExplorer(this);
+                m_Panels.add(panel);
+                if (panel instanceof LogHandler) {
+                    ((LogHandler) panel).setLog(m_LogPanel);
+                }
+                m_TabbedPane.addTab(panel.getTabTitle(), null, (JPanel) panel,
+                        panel.getTabTitleToolTip());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        // setup tabbed pane
+        m_TabbedPane.setSelectedIndex(0);
         for (int i = 0; i < m_Panels.size(); i++) {
-          m_Panels.get(i).setInstances(m_PreprocessPanel.getInstances());
-          m_TabbedPane.setEnabledAt(i + 1, true);
+            HashSet<String> options = tabOptions.get(m_Panels.get(i).getClass()
+                    .getName());
+            m_TabbedPane.setEnabledAt(i + 1, options.contains("standalone"));
         }
-      }
-    });
 
-    // add listeners for changes in the capabilities
-    m_PreprocessPanel.setExplorer(this);
-    addCapabilitiesFilterListener(m_PreprocessPanel);
-    for (int i = 0; i < m_Panels.size(); i++) {
-      if (m_Panels.get(i) instanceof CapabilitiesFilterChangeListener) {
-        addCapabilitiesFilterListener((CapabilitiesFilterChangeListener) m_Panels
-          .get(i));
-      }
+        // setup notification for dataset changes
+        m_PreprocessPanel.addPropertyChangeListener(new PropertyChangeListener() {
+            @Override
+            public void propertyChange(PropertyChangeEvent e) {
+                for (int i = 0; i < m_Panels.size(); i++) {
+                    m_Panels.get(i).setInstances(m_PreprocessPanel.getInstances());
+                    m_TabbedPane.setEnabledAt(i + 1, true);
+                }
+            }
+        });
+
+        // add listeners for changes in the capabilities
+        m_PreprocessPanel.setExplorer(this);
+        addCapabilitiesFilterListener(m_PreprocessPanel);
+        for (int i = 0; i < m_Panels.size(); i++) {
+            if (m_Panels.get(i) instanceof CapabilitiesFilterChangeListener) {
+                addCapabilitiesFilterListener((CapabilitiesFilterChangeListener) m_Panels
+                        .get(i));
+            }
+        }
+
+        // add components to layout
+        setLayout(new BorderLayout());
+        add(m_TabbedPane, BorderLayout.CENTER);
+        add(m_LogPanel, BorderLayout.SOUTH);
     }
 
-    // add components to layout
-    setLayout(new BorderLayout());
-    add(m_TabbedPane, BorderLayout.CENTER);
-    add(m_LogPanel, BorderLayout.SOUTH);
-  }
+    /**
+     * Terminates this panel, which means, in the case of this panel, that it terminates the associated LogPanel.
+     */
+    public void terminate() {
 
-  /**
-   * Terminates this panel, which means, in the case of this panel, that it terminates the associated LogPanel.
-   */
-  public void terminate() {
-
-    m_LogPanel.terminate();
-  }
-
-  /**
-   * returns all the panels, apart from the PreprocessPanel
-   * 
-   * @return the currently displayed panels w/o PreprocessPanel
-   */
-  public Vector<ExplorerPanel> getPanels() {
-    return m_Panels;
-  }
-
-  /**
-   * returns the instance of the PreprocessPanel being used in this instance of
-   * the Explorer
-   * 
-   * @return the panel
-   */
-  public PreprocessPanel getPreprocessPanel() {
-    return m_PreprocessPanel;
-  }
-
-  /**
-   * returns the tabbed pane of the Explorer
-   * 
-   * @return the tabbed pane
-   */
-  public JTabbedPane getTabbedPane() {
-    return m_TabbedPane;
-  }
-
-  /**
-   * adds the listener to the list of objects that listen for changes of the
-   * CapabilitiesFilter
-   * 
-   * @param l the listener to add
-   * @see #m_CapabilitiesFilterChangeListeners
-   */
-  public void addCapabilitiesFilterListener(CapabilitiesFilterChangeListener l) {
-    m_CapabilitiesFilterChangeListeners.add(l);
-  }
-
-  /**
-   * Removes the specified listener from the set of listeners if it is present.
-   * 
-   * @param l the listener to remove
-   * @return true if the listener was registered
-   */
-  public boolean removeCapabilitiesFilterListener(
-    CapabilitiesFilterChangeListener l) {
-    return m_CapabilitiesFilterChangeListeners.remove(l);
-  }
-
-  /**
-   * notifies all the listeners of a change
-   * 
-   * @param filter the affected filter
-   */
-  public void notifyCapabilitiesFilterListener(Capabilities filter) {
-    for (CapabilitiesFilterChangeListener l : m_CapabilitiesFilterChangeListeners) {
-      if (l == this) {
-        continue;
-      }
-      l.capabilitiesFilterChanged(new CapabilitiesFilterChangeEvent(this,
-        filter));
+        m_LogPanel.terminate();
     }
-  }
 
-  /**
-   * variable for the Explorer class which would be set to null by the memory
-   * monitoring thread to free up some memory if we running out of memory
-   */
-  private static Explorer m_explorer;
+    /**
+     * returns all the panels, apart from the PreprocessPanel
+     *
+     * @return the currently displayed panels w/o PreprocessPanel
+     */
+    public Vector<ExplorerPanel> getPanels() {
+        return m_Panels;
+    }
 
-  /** for monitoring the Memory consumption */
-  protected static Memory m_Memory = new Memory(true);
+    /**
+     * returns the instance of the PreprocessPanel being used in this instance of
+     * the Explorer
+     *
+     * @return the panel
+     */
+    public PreprocessPanel getPreprocessPanel() {
+        return m_PreprocessPanel;
+    }
 
-  /**
-   * Tests out the explorer environment.
-   * 
-   * @param args ignored.
-   */
-  public static void main(String[] args) {
+    /**
+     * returns the tabbed pane of the Explorer
+     *
+     * @return the tabbed pane
+     */
+    public JTabbedPane getTabbedPane() {
+        return m_TabbedPane;
+    }
 
-    weka.core.logging.Logger.log(weka.core.logging.Logger.Level.INFO,
-      "Logging started");
+    /**
+     * adds the listener to the list of objects that listen for changes of the
+     * CapabilitiesFilter
+     *
+     * @param l the listener to add
+     * @see #m_CapabilitiesFilterChangeListeners
+     */
+    public void addCapabilitiesFilterListener(CapabilitiesFilterChangeListener l) {
+        m_CapabilitiesFilterChangeListeners.add(l);
+    }
 
-    LookAndFeel.setLookAndFeel();
-    // make sure that packages are loaded and the GenericPropertiesCreator
-    // executes to populate the lists correctly
-    weka.gui.GenericObjectEditor.determineClasses();
+    /**
+     * Removes the specified listener from the set of listeners if it is present.
+     *
+     * @param l the listener to remove
+     * @return true if the listener was registered
+     */
+    public boolean removeCapabilitiesFilterListener(
+            CapabilitiesFilterChangeListener l) {
+        return m_CapabilitiesFilterChangeListeners.remove(l);
+    }
 
-    try {
-      // uncomment to disable the memory management:
-      // m_Memory.setEnabled(false);
-
-      m_explorer = new Explorer();
-      final JFrame jf = new JFrame("Weka Explorer");
-      jf.getContentPane().setLayout(new BorderLayout());
-      jf.getContentPane().add(m_explorer, BorderLayout.CENTER);
-      jf.addWindowListener(new WindowAdapter() {
-        @Override
-        public void windowClosing(WindowEvent e) {
-          jf.dispose();
-          System.exit(0);
+    /**
+     * notifies all the listeners of a change
+     *
+     * @param filter the affected filter
+     */
+    public void notifyCapabilitiesFilterListener(Capabilities filter) {
+        for (CapabilitiesFilterChangeListener l : m_CapabilitiesFilterChangeListeners) {
+            if (l == this) {
+                continue;
+            }
+            l.capabilitiesFilterChanged(new CapabilitiesFilterChangeEvent(this,
+                    filter));
         }
-      });
-      jf.pack();
-      jf.setSize(800, 600);
-      jf.setVisible(true);
-      Image icon = Toolkit.getDefaultToolkit().getImage(
-        m_explorer.getClass().getClassLoader()
-          .getResource("weka/gui/weka_icon_new_48.png"));
-      jf.setIconImage(icon);
+    }
 
-      if (args.length == 1) {
-        System.err.println("Loading instances from " + args[0]);
-        AbstractFileLoader loader = ConverterUtils.getLoaderForFile(args[0]);
-        loader.setFile(new File(args[0]));
-        m_explorer.m_PreprocessPanel.setInstancesFromFile(loader);
-      }
+    /**
+     * variable for the Explorer class which would be set to null by the memory
+     * monitoring thread to free up some memory if we running out of memory
+     */
+    private static Explorer m_explorer;
 
-      Thread memMonitor = new Thread() {
-        @Override
-        public void run() {
-          while (true) {
-            // try {
-            // System.out.println("Before sleeping.");
-            // Thread.sleep(10);
+    /**
+     * for monitoring the Memory consumption
+     */
+    protected static Memory m_Memory = new Memory(true);
 
-            if (m_Memory.isOutOfMemory()) {
-              // clean up
-              jf.dispose();
-              m_explorer = null;
-              System.gc();
+    /**
+     * Tests out the explorer environment.
+     *
+     * @param args ignored.
+     */
+    public static void main(String[] args) {
 
-              // display error
-              System.err.println("\ndisplayed message:");
-              m_Memory.showOutOfMemory();
-              System.err.println("\nexiting");
-              System.exit(-1);
+        weka.core.logging.Logger.log(weka.core.logging.Logger.Level.INFO,
+                "Logging started");
+
+        LookAndFeel.setLookAndFeel();
+        // make sure that packages are loaded and the GenericPropertiesCreator
+        // executes to populate the lists correctly
+        weka.gui.GenericObjectEditor.determineClasses();
+
+        try {
+            // uncomment to disable the memory management:
+            // m_Memory.setEnabled(false);
+
+            m_explorer = new Explorer();
+            final JFrame jf = new JFrame("Weka Explorer");
+            jf.getContentPane().setLayout(new BorderLayout());
+            jf.getContentPane().add(m_explorer, BorderLayout.CENTER);
+            jf.addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosing(WindowEvent e) {
+                    jf.dispose();
+                    System.exit(0);
+                }
+            });
+            jf.pack();
+            jf.setSize(800, 600);
+            jf.setVisible(true);
+            Image icon = Toolkit.getDefaultToolkit().getImage(
+                    m_explorer.getClass().getClassLoader()
+                            .getResource("weka/gui/weka_icon_new_48.png"));
+            jf.setIconImage(icon);
+
+            if (args.length == 1) {
+                System.err.println("Loading instances from " + args[0]);
+                AbstractFileLoader loader = ConverterUtils.getLoaderForFile(args[0]);
+                loader.setFile(new File(args[0]));
+                m_explorer.m_PreprocessPanel.setInstancesFromFile(loader);
             }
 
-            // } catch (InterruptedException ex) {
-            // ex.printStackTrace();
-            // }
-          }
-        }
-      };
+            Thread memMonitor = new Thread() {
+                @Override
+                public void run() {
+                    while (true) {
+                        // try {
+                        // System.out.println("Before sleeping.");
+                        // Thread.sleep(10);
 
-      memMonitor.setPriority(Thread.MAX_PRIORITY);
-      memMonitor.start();
-    } catch (Exception ex) {
-      ex.printStackTrace();
-      System.err.println(ex.getMessage());
+                        if (m_Memory.isOutOfMemory()) {
+                            // clean up
+                            jf.dispose();
+                            m_explorer = null;
+                            System.gc();
+
+                            // display error
+                            System.err.println("\ndisplayed message:");
+                            m_Memory.showOutOfMemory();
+                            System.err.println("\nexiting");
+                            System.exit(-1);
+                        }
+
+                        // } catch (InterruptedException ex) {
+                        // ex.printStackTrace();
+                        // }
+                    }
+                }
+            };
+
+            memMonitor.setPriority(Thread.MAX_PRIORITY);
+            memMonitor.start();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            System.err.println(ex.getMessage());
+        }
     }
-  }
 }

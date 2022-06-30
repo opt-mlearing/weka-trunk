@@ -14,7 +14,7 @@
  */
 
 /*
- * Copyright (C) 2007 University of Waikato 
+ * Copyright (C) 2007 University of Waikato
  */
 
 package weka.core.neighboursearch;
@@ -31,18 +31,18 @@ import junit.framework.TestSuite;
  * @author FracPete (frapcete at waikato dot ac dot nz)
  * @version $Revision$
  */
-public class AllTests 
-  extends WekaTestSuite {
+public class AllTests
+        extends WekaTestSuite {
 
-  public static Test suite() {
-    TestSuite suite = new TestSuite();
+    public static Test suite() {
+        TestSuite suite = new TestSuite();
 
-    suite.addTest(suite("weka.core.neighboursearch.NearestNeighbourSearch"));
+        suite.addTest(suite("weka.core.neighboursearch.NearestNeighbourSearch"));
 
-    return suite;
-  }
+        return suite;
+    }
 
-  public static void main(String []args) {
-    junit.textui.TestRunner.run(suite());
-  }
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 }

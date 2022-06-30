@@ -26,33 +26,33 @@ import junit.framework.TestSuite;
 
 /**
  * Tests the pmml NeuralNetwork classifier.
- * 
+ *
  * @author Mark Hall (mhall{[at]}pentaho{[dot]}com)
  * @version $Revision 1.0 $
  */
 public class NeuralNetworkTest extends AbstractPMMLClassifierTest {
 
-  public NeuralNetworkTest(String name) {
-    super(name);
-  }
+    public NeuralNetworkTest(String name) {
+        super(name);
+    }
 
-  @Override
-  protected void setUp() throws Exception {
-    m_modelNames = new ArrayList<String>();
-    m_dataSetNames = new ArrayList<String>();
-    m_modelNames.add("IRIS_MLP.xml");
-    m_modelNames.add("HEART_RBF.xml");
-    m_modelNames.add("ElNino_NN.xml");
-    m_dataSetNames.add("iris.arff");
-    m_dataSetNames.add("heart-c.arff");
-    m_dataSetNames.add("Elnino_small.arff");
-  }
+    @Override
+    protected void setUp() throws Exception {
+        m_modelNames = new ArrayList<String>();
+        m_dataSetNames = new ArrayList<String>();
+        m_modelNames.add("IRIS_MLP.xml");
+        m_modelNames.add("HEART_RBF.xml");
+        m_modelNames.add("ElNino_NN.xml");
+        m_dataSetNames.add("iris.arff");
+        m_dataSetNames.add("heart-c.arff");
+        m_dataSetNames.add("Elnino_small.arff");
+    }
 
-  public static Test suite() {
-    return new TestSuite(weka.classifiers.pmml.consumer.NeuralNetworkTest.class);
-  }
+    public static Test suite() {
+        return new TestSuite(weka.classifiers.pmml.consumer.NeuralNetworkTest.class);
+    }
 
-  public static void main(String[] args) {
-    junit.textui.TestRunner.run(suite());
-  }
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 }

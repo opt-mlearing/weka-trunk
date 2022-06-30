@@ -14,7 +14,7 @@
  */
 
 /*
- * Copyright (C) 2002 University of Waikato 
+ * Copyright (C) 2002 University of Waikato
  */
 
 package weka.classifiers.rules;
@@ -33,20 +33,24 @@ import junit.framework.TestSuite;
  * @version $Revision$
  */
 public class ZeroRTest extends AbstractClassifierTest {
-  
-  public ZeroRTest(String name) { super(name);  }
 
-  /** Creates a default ZeroR */
-  public Classifier getClassifier() {
-    return new ZeroR();
-  }
+    public ZeroRTest(String name) {
+        super(name);
+    }
 
-  public static Test suite() {
-    return new TestSuite(ZeroRTest.class);
-  }
+    /**
+     * Creates a default ZeroR
+     */
+    public Classifier getClassifier() {
+        return new ZeroR();
+    }
 
-  public static void main(String[] args){
-    junit.textui.TestRunner.run(suite());
-  }
+    public static Test suite() {
+        return new TestSuite(ZeroRTest.class);
+    }
+
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 
 }

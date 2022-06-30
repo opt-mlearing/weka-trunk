@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlEnumValue;
 
 /**
  * <p>Java class for SVM-CLASSIFICATION-METHOD.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
@@ -25,7 +25,6 @@ import javax.xml.bind.annotation.XmlEnumValue;
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
- * 
  */
 @XmlEnum
 public enum SVMCLASSIFICATIONMETHOD {
@@ -45,7 +44,7 @@ public enum SVMCLASSIFICATIONMETHOD {
     }
 
     public static SVMCLASSIFICATIONMETHOD fromValue(String v) {
-        for (SVMCLASSIFICATIONMETHOD c: SVMCLASSIFICATIONMETHOD.values()) {
+        for (SVMCLASSIFICATIONMETHOD c : SVMCLASSIFICATIONMETHOD.values()) {
             if (c.value.equals(v)) {
                 return c;
             }

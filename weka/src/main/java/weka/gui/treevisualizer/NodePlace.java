@@ -22,19 +22,19 @@
 package weka.gui.treevisualizer;
 
 /**
- * This is an interface for classes that wish to take a node structure and 
+ * This is an interface for classes that wish to take a node structure and
  * arrange them
  *
  * @author Malcolm F Ware (mfw4@cs.waikato.ac.nz)
  * @version $Revision$
  */
 public interface NodePlace {
- 
-  /**
-   * The function to call to postion the tree that starts at Node r
-   *
-   * @param r The top of the tree.
-   */
-   void place(Node r);
-  
+
+    /**
+     * The function to call to postion the tree that starts at Node r
+     *
+     * @param r The top of the tree.
+     */
+    void place(Node r);
+
 } 

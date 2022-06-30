@@ -29,43 +29,45 @@ import weka.experiment.DatabaseUtils;
 /**
  * A little bit extended DatabaseUtils class.
  *
- * @see       DatabaseUtils
- * @see       #execute(String)
- * @author    FracPete (fracpete at waikato dot ac dot nz)
- * @version   $Revision$
+ * @author FracPete (fracpete at waikato dot ac dot nz)
+ * @version $Revision$
+ * @see DatabaseUtils
+ * @see #execute(String)
  */
 public class DbUtils
-  extends DatabaseUtils {
+        extends DatabaseUtils {
 
-  /** for serialization. */
-  private static final long serialVersionUID = 103748569037426479L;
-  
-  /**
-   * initializes the object.
-   * 
-   * @throws Exception      in case something goes wrong in the init of the
-   *                        DatabaseUtils constructor
-   * @see     DatabaseUtils
-   */
-  public DbUtils() throws Exception {
-    super();
-  }
-  
-  /**
-   * returns the current database connection.
-   * 
-   * @return        the current connection instance
-   */
-  public Connection getConnection() {
-    return m_Connection;
-  }
-  
-  /**
-   * Returns the revision string.
-   * 
-   * @return		the revision
-   */
-  public String getRevision() {
-    return RevisionUtils.extract("$Revision$");
-  }
+    /**
+     * for serialization.
+     */
+    private static final long serialVersionUID = 103748569037426479L;
+
+    /**
+     * initializes the object.
+     *
+     * @throws Exception in case something goes wrong in the init of the
+     *                   DatabaseUtils constructor
+     * @see DatabaseUtils
+     */
+    public DbUtils() throws Exception {
+        super();
+    }
+
+    /**
+     * returns the current database connection.
+     *
+     * @return the current connection instance
+     */
+    public Connection getConnection() {
+        return m_Connection;
+    }
+
+    /**
+     * Returns the revision string.
+     *
+     * @return the revision
+     */
+    public String getRevision() {
+        return RevisionUtils.extract("$Revision$");
+    }
 }

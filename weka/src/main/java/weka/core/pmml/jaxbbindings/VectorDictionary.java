@@ -21,9 +21,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for VectorDictionary element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="VectorDictionary">
  *   &lt;complexType>
@@ -40,14 +40,12 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "extension",
-    "vectorFields",
-    "vectorInstance"
+        "extension",
+        "vectorFields",
+        "vectorInstance"
 })
 @XmlRootElement(name = "VectorDictionary")
 public class VectorDictionary {
@@ -63,25 +61,23 @@ public class VectorDictionary {
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extension }
-     * 
-     * 
      */
     public List<Extension> getExtension() {
         if (extension == null) {
@@ -92,11 +88,9 @@ public class VectorDictionary {
 
     /**
      * Gets the value of the vectorFields property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link VectorFields }
-     *     
+     *
+     * @return possible object is
+     * {@link VectorFields }
      */
     public VectorFields getVectorFields() {
         return vectorFields;
@@ -104,11 +98,9 @@ public class VectorDictionary {
 
     /**
      * Sets the value of the vectorFields property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link VectorFields }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link VectorFields }
      */
     public void setVectorFields(VectorFields value) {
         this.vectorFields = value;
@@ -116,25 +108,23 @@ public class VectorDictionary {
 
     /**
      * Gets the value of the vectorInstance property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the vectorInstance property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getVectorInstance().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link VectorInstance }
-     * 
-     * 
      */
     public List<VectorInstance> getVectorInstance() {
         if (vectorInstance == null) {
@@ -145,11 +135,9 @@ public class VectorDictionary {
 
     /**
      * Gets the value of the numberOfVectors property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @return possible object is
+     * {@link BigInteger }
      */
     public BigInteger getNumberOfVectors() {
         return numberOfVectors;
@@ -157,11 +145,9 @@ public class VectorDictionary {
 
     /**
      * Sets the value of the numberOfVectors property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link BigInteger }
      */
     public void setNumberOfVectors(BigInteger value) {
         this.numberOfVectors = value;

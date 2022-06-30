@@ -21,9 +21,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for Cluster element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="Cluster">
  *   &lt;complexType>
@@ -44,16 +44,14 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "extension",
-    "kohonenMap",
-    "array",
-    "partition",
-    "covariances"
+        "extension",
+        "kohonenMap",
+        "array",
+        "partition",
+        "covariances"
 })
 @XmlRootElement(name = "Cluster")
 public class Cluster {
@@ -77,25 +75,23 @@ public class Cluster {
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extension }
-     * 
-     * 
      */
     public List<Extension> getExtension() {
         if (extension == null) {
@@ -106,11 +102,9 @@ public class Cluster {
 
     /**
      * Gets the value of the kohonenMap property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link KohonenMap }
-     *     
+     *
+     * @return possible object is
+     * {@link KohonenMap }
      */
     public KohonenMap getKohonenMap() {
         return kohonenMap;
@@ -118,11 +112,9 @@ public class Cluster {
 
     /**
      * Sets the value of the kohonenMap property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link KohonenMap }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link KohonenMap }
      */
     public void setKohonenMap(KohonenMap value) {
         this.kohonenMap = value;
@@ -130,11 +122,9 @@ public class Cluster {
 
     /**
      * Gets the value of the array property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ArrayType }
-     *     
+     *
+     * @return possible object is
+     * {@link ArrayType }
      */
     public ArrayType getArray() {
         return array;
@@ -142,11 +132,9 @@ public class Cluster {
 
     /**
      * Sets the value of the array property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link ArrayType }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link ArrayType }
      */
     public void setArray(ArrayType value) {
         this.array = value;
@@ -154,11 +142,9 @@ public class Cluster {
 
     /**
      * Gets the value of the partition property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Partition }
-     *     
+     *
+     * @return possible object is
+     * {@link Partition }
      */
     public Partition getPartition() {
         return partition;
@@ -166,11 +152,9 @@ public class Cluster {
 
     /**
      * Sets the value of the partition property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Partition }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Partition }
      */
     public void setPartition(Partition value) {
         this.partition = value;
@@ -178,11 +162,9 @@ public class Cluster {
 
     /**
      * Gets the value of the covariances property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Covariances }
-     *     
+     *
+     * @return possible object is
+     * {@link Covariances }
      */
     public Covariances getCovariances() {
         return covariances;
@@ -190,11 +172,9 @@ public class Cluster {
 
     /**
      * Sets the value of the covariances property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Covariances }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Covariances }
      */
     public void setCovariances(Covariances value) {
         this.covariances = value;
@@ -202,11 +182,9 @@ public class Cluster {
 
     /**
      * Gets the value of the id property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getId() {
         return id;
@@ -214,11 +192,9 @@ public class Cluster {
 
     /**
      * Sets the value of the id property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setId(String value) {
         this.id = value;
@@ -226,11 +202,9 @@ public class Cluster {
 
     /**
      * Gets the value of the name property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getName() {
         return name;
@@ -238,11 +212,9 @@ public class Cluster {
 
     /**
      * Sets the value of the name property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setName(String value) {
         this.name = value;
@@ -250,11 +222,9 @@ public class Cluster {
 
     /**
      * Gets the value of the size property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @return possible object is
+     * {@link BigInteger }
      */
     public BigInteger getSize() {
         return size;
@@ -262,11 +232,9 @@ public class Cluster {
 
     /**
      * Sets the value of the size property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link BigInteger }
      */
     public void setSize(BigInteger value) {
         this.size = value;

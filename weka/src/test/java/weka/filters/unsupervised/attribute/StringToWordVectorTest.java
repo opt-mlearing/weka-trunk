@@ -14,7 +14,7 @@
  */
 
 /*
- * Copyright (C) 2002 University of Waikato 
+ * Copyright (C) 2002 University of Waikato
  */
 
 package weka.filters.unsupervised.attribute;
@@ -34,39 +34,43 @@ import junit.framework.TestSuite;
  * @version $Revision$
  */
 public class StringToWordVectorTest extends AbstractFilterTest {
-  
-  public StringToWordVectorTest(String name) { super(name);  }
 
-  /** Creates an example StringToWordVector */
-  public Filter getFilter() {
-    StringToWordVector f = new StringToWordVector();
-    return f;
-  }
+    public StringToWordVectorTest(String name) {
+        super(name);
+    }
 
-  public void testTypical() {
-    Instances result = useFilter();
-    // Number of attributes and instances shouldn't change
-    assertEquals(m_Instances.numInstances(),  result.numInstances());
-  }
+    /**
+     * Creates an example StringToWordVector
+     */
+    public Filter getFilter() {
+        StringToWordVector f = new StringToWordVector();
+        return f;
+    }
 
-  public void testWordsToKeep() {
-    ((StringToWordVector)m_Filter).setWordsToKeep(3);
-    Instances result = useFilter();
-    // Number of instances shouldn't change
-    assertEquals(m_Instances.numInstances(),  result.numInstances());
+    public void testTypical() {
+        Instances result = useFilter();
+        // Number of attributes and instances shouldn't change
+        assertEquals(m_Instances.numInstances(), result.numInstances());
+    }
 
-    // Number of attributes will be minus 2 string attributes plus
-    // the word attributes (aiming for 3 -- could be higher in the case of ties)
-    assertEquals(m_Instances.numAttributes() - 2 + 3, result.numAttributes());
-  }
+    public void testWordsToKeep() {
+        ((StringToWordVector) m_Filter).setWordsToKeep(3);
+        Instances result = useFilter();
+        // Number of instances shouldn't change
+        assertEquals(m_Instances.numInstances(), result.numInstances());
+
+        // Number of attributes will be minus 2 string attributes plus
+        // the word attributes (aiming for 3 -- could be higher in the case of ties)
+        assertEquals(m_Instances.numAttributes() - 2 + 3, result.numAttributes());
+    }
 
 
-  public static Test suite() {
-    return new TestSuite(StringToWordVectorTest.class);
-  }
+    public static Test suite() {
+        return new TestSuite(StringToWordVectorTest.class);
+    }
 
-  public static void main(String[] args){
-    junit.textui.TestRunner.run(suite());
-  }
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 
 }

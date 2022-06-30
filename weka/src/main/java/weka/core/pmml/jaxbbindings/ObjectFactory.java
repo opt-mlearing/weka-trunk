@@ -16,18 +16,17 @@ import javax.xml.namespace.QName;
 
 
 /**
- * This object contains factory methods for each 
- * Java content interface and Java element interface 
- * generated in the weka.core.pmml.jaxbbindings package. 
- * <p>An ObjectFactory allows you to programatically 
- * construct new instances of the Java representation 
- * for XML content. The Java representation of XML 
- * content can consist of schema derived interfaces 
- * and classes representing the binding of schema 
- * type definitions, element declarations and model 
- * groups.  Factory methods for each of these are 
+ * This object contains factory methods for each
+ * Java content interface and Java element interface
+ * generated in the weka.core.pmml.jaxbbindings package.
+ * <p>An ObjectFactory allows you to programatically
+ * construct new instances of the Java representation
+ * for XML content. The Java representation of XML
+ * content can consist of schema derived interfaces
+ * and classes representing the binding of schema
+ * type definitions, element declarations and model
+ * groups.  Factory methods for each of these are
  * provided in this class.
- * 
  */
 @XmlRegistry
 public class ObjectFactory {
@@ -44,14 +43,12 @@ public class ObjectFactory {
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: weka.core.pmml.jaxbbindings
-     * 
      */
     public ObjectFactory() {
     }
 
     /**
      * Create an instance of {@link PPCell }
-     * 
      */
     public PPCell createPPCell() {
         return new PPCell();
@@ -59,7 +56,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Time }
-     * 
      */
     public Time createTime() {
         return new Time();
@@ -67,7 +63,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Taxonomy }
-     * 
      */
     public Taxonomy createTaxonomy() {
         return new Taxonomy();
@@ -75,7 +70,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link RuleSetModel }
-     * 
      */
     public RuleSetModel createRuleSetModel() {
         return new RuleSetModel();
@@ -83,7 +77,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Node }
-     * 
      */
     public Node createNode() {
         return new Node();
@@ -91,7 +84,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DecisionTree }
-     * 
      */
     public DecisionTree createDecisionTree() {
         return new DecisionTree();
@@ -99,7 +91,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TrendExpoSmooth }
-     * 
      */
     public TrendExpoSmooth createTrendExpoSmooth() {
         return new TrendExpoSmooth();
@@ -107,7 +98,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GaussianDistribution }
-     * 
      */
     public GaussianDistribution createGaussianDistribution() {
         return new GaussianDistribution();
@@ -115,7 +105,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link NeuralInputs }
-     * 
      */
     public NeuralInputs createNeuralInputs() {
         return new NeuralInputs();
@@ -123,7 +112,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link VectorInstance }
-     * 
      */
     public VectorInstance createVectorInstance() {
         return new VectorInstance();
@@ -131,7 +119,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link BinarySimilarity }
-     * 
      */
     public BinarySimilarity createBinarySimilarity() {
         return new BinarySimilarity();
@@ -139,7 +126,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Baseline }
-     * 
      */
     public Baseline createBaseline() {
         return new Baseline();
@@ -147,7 +133,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Jaccard }
-     * 
      */
     public Jaccard createJaccard() {
         return new Jaccard();
@@ -155,7 +140,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Interval }
-     * 
      */
     public Interval createInterval() {
         return new Interval();
@@ -163,7 +147,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TargetValueCount }
-     * 
      */
     public TargetValueCount createTargetValueCount() {
         return new TargetValueCount();
@@ -171,7 +154,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Partition }
-     * 
      */
     public Partition createPartition() {
         return new Partition();
@@ -179,7 +161,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Aggregate }
-     * 
      */
     public Aggregate createAggregate() {
         return new Aggregate();
@@ -187,7 +168,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link RegressionModel }
-     * 
      */
     public RegressionModel createRegressionModel() {
         return new RegressionModel();
@@ -195,7 +175,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link BoundaryValueMeans }
-     * 
      */
     public BoundaryValueMeans createBoundaryValueMeans() {
         return new BoundaryValueMeans();
@@ -203,7 +182,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ChildParent }
-     * 
      */
     public ChildParent createChildParent() {
         return new ChildParent();
@@ -211,7 +189,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Timestamp }
-     * 
      */
     public Timestamp createTimestamp() {
         return new Timestamp();
@@ -219,7 +196,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link VectorFields }
-     * 
      */
     public VectorFields createVectorFields() {
         return new VectorFields();
@@ -227,7 +203,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TransformationDictionary }
-     * 
      */
     public TransformationDictionary createTransformationDictionary() {
         return new TransformationDictionary();
@@ -235,7 +210,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CompoundPredicate }
-     * 
      */
     public CompoundPredicate createCompoundPredicate() {
         return new CompoundPredicate();
@@ -243,7 +217,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ROCGraph }
-     * 
      */
     public ROCGraph createROCGraph() {
         return new ROCGraph();
@@ -251,7 +224,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ModelExplanation }
-     * 
      */
     public ModelExplanation createModelExplanation() {
         return new ModelExplanation();
@@ -259,7 +231,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PMML }
-     * 
      */
     public PMML createPMML() {
         return new PMML();
@@ -267,7 +238,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link COUNTTABLETYPE }
-     * 
      */
     public COUNTTABLETYPE createCOUNTTABLETYPE() {
         return new COUNTTABLETYPE();
@@ -275,7 +245,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Output }
-     * 
      */
     public Output createOutput() {
         return new Output();
@@ -283,7 +252,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Annotation }
-     * 
      */
     public Annotation createAnnotation() {
         return new Annotation();
@@ -291,7 +259,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link KohonenMap }
-     * 
      */
     public KohonenMap createKohonenMap() {
         return new KohonenMap();
@@ -299,7 +266,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SeasonalityExpoSmooth }
-     * 
      */
     public SeasonalityExpoSmooth createSeasonalityExpoSmooth() {
         return new SeasonalityExpoSmooth();
@@ -307,7 +273,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link NumericPredictor }
-     * 
      */
     public NumericPredictor createNumericPredictor() {
         return new NumericPredictor();
@@ -315,7 +280,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TimeException }
-     * 
      */
     public TimeException createTimeException() {
         return new TimeException();
@@ -323,7 +287,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link LiftData }
-     * 
      */
     public LiftData createLiftData() {
         return new LiftData();
@@ -331,7 +294,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Target }
-     * 
      */
     public Target createTarget() {
         return new Target();
@@ -339,7 +301,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Targets }
-     * 
      */
     public Targets createTargets() {
         return new Targets();
@@ -347,7 +308,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link OutputField }
-     * 
      */
     public OutputField createOutputField() {
         return new OutputField();
@@ -355,7 +315,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link NeuralNetwork }
-     * 
      */
     public NeuralNetwork createNeuralNetwork() {
         return new NeuralNetwork();
@@ -363,7 +322,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link RuleSelectionMethod }
-     * 
      */
     public RuleSelectionMethod createRuleSelectionMethod() {
         return new RuleSelectionMethod();
@@ -371,7 +329,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TextDictionary }
-     * 
      */
     public TextDictionary createTextDictionary() {
         return new TextDictionary();
@@ -379,7 +336,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Matrix }
-     * 
      */
     public Matrix createMatrix() {
         return new Matrix();
@@ -387,7 +343,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CompoundRule }
-     * 
      */
     public CompoundRule createCompoundRule() {
         return new CompoundRule();
@@ -395,7 +350,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link MultivariateStats }
-     * 
      */
     public MultivariateStats createMultivariateStats() {
         return new MultivariateStats();
@@ -403,7 +357,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link NaiveBayesModel }
-     * 
      */
     public NaiveBayesModel createNaiveBayesModel() {
         return new NaiveBayesModel();
@@ -411,7 +364,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Anova }
-     * 
      */
     public Anova createAnova() {
         return new Anova();
@@ -419,7 +371,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Covariances }
-     * 
      */
     public Covariances createCovariances() {
         return new Covariances();
@@ -427,7 +378,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link NearestNeighborModel }
-     * 
      */
     public NearestNeighborModel createNearestNeighborModel() {
         return new NearestNeighborModel();
@@ -435,7 +385,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SupportVectors }
-     * 
      */
     public SupportVectors createSupportVectors() {
         return new SupportVectors();
@@ -443,7 +392,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SetPredicate }
-     * 
      */
     public SetPredicate createSetPredicate() {
         return new SetPredicate();
@@ -451,7 +399,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link VerificationField }
-     * 
      */
     public VerificationField createVerificationField() {
         return new VerificationField();
@@ -459,7 +406,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TextDocument }
-     * 
      */
     public TextDocument createTextDocument() {
         return new TextDocument();
@@ -467,7 +413,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SupportVector }
-     * 
      */
     public SupportVector createSupportVector() {
         return new SupportVector();
@@ -475,7 +420,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SequenceRule }
-     * 
      */
     public SequenceRule createSequenceRule() {
         return new SequenceRule();
@@ -483,7 +427,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link FieldValue }
-     * 
      */
     public FieldValue createFieldValue() {
         return new FieldValue();
@@ -491,7 +434,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link True }
-     * 
      */
     public True createTrue() {
         return new True();
@@ -499,7 +441,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DataDictionary }
-     * 
      */
     public DataDictionary createDataDictionary() {
         return new DataDictionary();
@@ -507,7 +448,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link LiftGraph }
-     * 
      */
     public LiftGraph createLiftGraph() {
         return new LiftGraph();
@@ -515,7 +455,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SimpleRule }
-     * 
      */
     public SimpleRule createSimpleRule() {
         return new SimpleRule();
@@ -523,7 +462,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link AntecedentSequence }
-     * 
      */
     public AntecedentSequence createAntecedentSequence() {
         return new AntecedentSequence();
@@ -531,7 +469,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link LocalTransformations }
-     * 
      */
     public LocalTransformations createLocalTransformations() {
         return new LocalTransformations();
@@ -539,7 +476,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SquaredEuclidean }
-     * 
      */
     public SquaredEuclidean createSquaredEuclidean() {
         return new SquaredEuclidean();
@@ -547,7 +483,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Con1 }
-     * 
      */
     public Con1 createCon() {
         return new Con1();
@@ -555,7 +490,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link NormContinuous }
-     * 
      */
     public NormContinuous createNormContinuous() {
         return new NormContinuous();
@@ -563,7 +497,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Segment }
-     * 
      */
     public Segment createSegment() {
         return new Segment();
@@ -571,7 +504,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link KNNInputs }
-     * 
      */
     public KNNInputs createKNNInputs() {
         return new KNNInputs();
@@ -579,7 +511,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link FieldValueCount }
-     * 
      */
     public FieldValueCount createFieldValueCount() {
         return new FieldValueCount();
@@ -587,7 +518,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link BayesOutput }
-     * 
      */
     public BayesOutput createBayesOutput() {
         return new BayesOutput();
@@ -595,7 +525,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ClusteringModelQuality }
-     * 
      */
     public ClusteringModelQuality createClusteringModelQuality() {
         return new ClusteringModelQuality();
@@ -603,7 +532,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ClusteringModel }
-     * 
      */
     public ClusteringModel createClusteringModel() {
         return new ClusteringModel();
@@ -611,7 +539,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Chebychev }
-     * 
      */
     public Chebychev createChebychev() {
         return new Chebychev();
@@ -619,7 +546,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PairCounts }
-     * 
      */
     public PairCounts createPairCounts() {
         return new PairCounts();
@@ -627,7 +553,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ConfusionMatrix }
-     * 
      */
     public ConfusionMatrix createConfusionMatrix() {
         return new ConfusionMatrix();
@@ -635,7 +560,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Correlations }
-     * 
      */
     public Correlations createCorrelations() {
         return new Correlations();
@@ -643,7 +567,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SetReference }
-     * 
      */
     public SetReference createSetReference() {
         return new SetReference();
@@ -651,7 +574,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link MiningBuildTask }
-     * 
      */
     public MiningBuildTask createMiningBuildTask() {
         return new MiningBuildTask();
@@ -659,7 +581,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TreeModel }
-     * 
      */
     public TreeModel createTreeModel() {
         return new TreeModel();
@@ -667,7 +588,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CorrelationFields }
-     * 
      */
     public CorrelationFields createCorrelationFields() {
         return new CorrelationFields();
@@ -675,7 +595,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Coefficients }
-     * 
      */
     public Coefficients createCoefficients() {
         return new Coefficients();
@@ -683,7 +602,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PoissonDistribution }
-     * 
      */
     public PoissonDistribution createPoissonDistribution() {
         return new PoissonDistribution();
@@ -691,7 +609,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TimeCycle }
-     * 
      */
     public TimeCycle createTimeCycle() {
         return new TimeCycle();
@@ -699,7 +616,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Predictor }
-     * 
      */
     public Predictor createPredictor() {
         return new Predictor();
@@ -707,7 +623,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link BaselineCell }
-     * 
      */
     public BaselineCell createBaselineCell() {
         return new BaselineCell();
@@ -715,7 +630,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TextModelSimiliarity }
-     * 
      */
     public TextModelSimiliarity createTextModelSimiliarity() {
         return new TextModelSimiliarity();
@@ -723,7 +637,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ExponentialSmoothing }
-     * 
      */
     public ExponentialSmoothing createExponentialSmoothing() {
         return new ExponentialSmoothing();
@@ -731,7 +644,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Sequence }
-     * 
      */
     public Sequence createSequence() {
         return new Sequence();
@@ -739,7 +651,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PCovMatrix }
-     * 
      */
     public PCovMatrix createPCovMatrix() {
         return new PCovMatrix();
@@ -747,7 +658,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link RuleSet }
-     * 
      */
     public RuleSet createRuleSet() {
         return new RuleSet();
@@ -755,7 +665,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Application }
-     * 
      */
     public Application createApplication() {
         return new Application();
@@ -763,7 +672,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link AnyDistribution }
-     * 
      */
     public AnyDistribution createAnyDistribution() {
         return new AnyDistribution();
@@ -771,7 +679,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SupportVectorMachine }
-     * 
      */
     public SupportVectorMachine createSupportVectorMachine() {
         return new SupportVectorMachine();
@@ -779,7 +686,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link BayesInput }
-     * 
      */
     public BayesInput createBayesInput() {
         return new BayesInput();
@@ -787,7 +693,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Minkowski }
-     * 
      */
     public Minkowski createMinkowski() {
         return new Minkowski();
@@ -795,7 +700,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link VerificationFields }
-     * 
      */
     public VerificationFields createVerificationFields() {
         return new VerificationFields();
@@ -803,7 +707,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link RadialBasisKernelType }
-     * 
      */
     public RadialBasisKernelType createRadialBasisKernelType() {
         return new RadialBasisKernelType();
@@ -811,7 +714,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link UniformDistribution }
-     * 
      */
     public UniformDistribution createUniformDistribution() {
         return new UniformDistribution();
@@ -819,7 +721,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link InlineTable }
-     * 
      */
     public InlineTable createInlineTable() {
         return new InlineTable();
@@ -827,7 +728,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link LinearNorm }
-     * 
      */
     public LinearNorm createLinearNorm() {
         return new LinearNorm();
@@ -835,7 +735,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ClassLabels }
-     * 
      */
     public ClassLabels createClassLabels() {
         return new ClassLabels();
@@ -843,7 +742,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link LinearKernelType }
-     * 
      */
     public LinearKernelType createLinearKernelType() {
         return new LinearKernelType();
@@ -851,7 +749,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DataField }
-     * 
      */
     public DataField createDataField() {
         return new DataField();
@@ -859,7 +756,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link AssociationRule }
-     * 
      */
     public AssociationRule createAssociationRule() {
         return new AssociationRule();
@@ -867,7 +763,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link KNNInput }
-     * 
      */
     public KNNInput createKNNInput() {
         return new KNNInput();
@@ -875,7 +770,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link FieldRef }
-     * 
      */
     public FieldRef createFieldRef() {
         return new FieldRef();
@@ -883,7 +777,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PolynomialKernelType }
-     * 
      */
     public PolynomialKernelType createPolynomialKernelType() {
         return new PolynomialKernelType();
@@ -891,7 +784,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Counts }
-     * 
      */
     public Counts createCounts() {
         return new Counts();
@@ -899,7 +791,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Cluster }
-     * 
      */
     public Cluster createCluster() {
         return new Cluster();
@@ -907,7 +798,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Characteristic }
-     * 
      */
     public Characteristic createCharacteristic() {
         return new Characteristic();
@@ -915,7 +805,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link MiningSchema }
-     * 
      */
     public MiningSchema createMiningSchema() {
         return new MiningSchema();
@@ -923,7 +812,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TextModel }
-     * 
      */
     public TextModel createTextModel() {
         return new TextModel();
@@ -931,7 +819,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Categories }
-     * 
      */
     public Categories createCategories() {
         return new Categories();
@@ -939,7 +826,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Characteristics }
-     * 
      */
     public Characteristics createCharacteristics() {
         return new Characteristics();
@@ -947,7 +833,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PPMatrix }
-     * 
      */
     public PPMatrix createPPMatrix() {
         return new PPMatrix();
@@ -955,7 +840,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Constraints }
-     * 
      */
     public Constraints createConstraints() {
         return new Constraints();
@@ -963,7 +847,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link MultivariateStat }
-     * 
      */
     public MultivariateStat createMultivariateStat() {
         return new MultivariateStat();
@@ -971,7 +854,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CorrelationMethods }
-     * 
      */
     public CorrelationMethods createCorrelationMethods() {
         return new CorrelationMethods();
@@ -979,7 +861,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link NeuralOutputs }
-     * 
      */
     public NeuralOutputs createNeuralOutputs() {
         return new NeuralOutputs();
@@ -987,7 +868,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Extension }
-     * 
      */
     public Extension createExtension() {
         return new Extension();
@@ -995,7 +875,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link MiningModel }
-     * 
      */
     public MiningModel createMiningModel() {
         return new MiningModel();
@@ -1003,7 +882,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ArrayType }
-     * 
      */
     public ArrayType createArrayType() {
         return new ArrayType();
@@ -1011,7 +889,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DocumentTermMatrix }
-     * 
      */
     public DocumentTermMatrix createDocumentTermMatrix() {
         return new DocumentTermMatrix();
@@ -1019,7 +896,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link MiningField }
-     * 
      */
     public MiningField createMiningField() {
         return new MiningField();
@@ -1027,7 +903,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Header }
-     * 
      */
     public Header createHeader() {
         return new Header();
@@ -1035,7 +910,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Value }
-     * 
      */
     public Value createValue() {
         return new Value();
@@ -1043,7 +917,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SimpleMatching }
-     * 
      */
     public SimpleMatching createSimpleMatching() {
         return new SimpleMatching();
@@ -1051,7 +924,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TextModelNormalization }
-     * 
      */
     public TextModelNormalization createTextModelNormalization() {
         return new TextModelNormalization();
@@ -1059,7 +931,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EventValues }
-     * 
      */
     public EventValues createEventValues() {
         return new EventValues();
@@ -1067,7 +938,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Coefficient }
-     * 
      */
     public Coefficient createCoefficient() {
         return new Coefficient();
@@ -1075,7 +945,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ComparisonMeasure }
-     * 
      */
     public ComparisonMeasure createComparisonMeasure() {
         return new ComparisonMeasure();
@@ -1083,7 +952,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Comparisons }
-     * 
      */
     public Comparisons createComparisons() {
         return new Comparisons();
@@ -1091,7 +959,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ScoreDistribution }
-     * 
      */
     public ScoreDistribution createScoreDistribution() {
         return new ScoreDistribution();
@@ -1099,7 +966,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TestDistributions }
-     * 
      */
     public TestDistributions createTestDistributions() {
         return new TestDistributions();
@@ -1107,7 +973,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link NeuralInput }
-     * 
      */
     public NeuralInput createNeuralInput() {
         return new NeuralInput();
@@ -1115,7 +980,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ModelVerification }
-     * 
      */
     public ModelVerification createModelVerification() {
         return new ModelVerification();
@@ -1123,7 +987,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Attribute }
-     * 
      */
     public Attribute createAttribute() {
         return new Attribute();
@@ -1131,7 +994,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PredictorTerm }
-     * 
      */
     public PredictorTerm createPredictorTerm() {
         return new PredictorTerm();
@@ -1139,7 +1001,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Regression }
-     * 
      */
     public Regression createRegression() {
         return new Regression();
@@ -1147,7 +1008,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PartitionFieldStats }
-     * 
      */
     public PartitionFieldStats createPartitionFieldStats() {
         return new PartitionFieldStats();
@@ -1155,7 +1015,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link YCoordinates }
-     * 
      */
     public YCoordinates createYCoordinates() {
         return new YCoordinates();
@@ -1163,7 +1022,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link NeuralOutput }
-     * 
      */
     public NeuralOutput createNeuralOutput() {
         return new NeuralOutput();
@@ -1171,7 +1029,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link FactorList }
-     * 
      */
     public FactorList createFactorList() {
         return new FactorList();
@@ -1179,7 +1036,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TargetValueCounts }
-     * 
      */
     public TargetValueCounts createTargetValueCounts() {
         return new TargetValueCounts();
@@ -1187,7 +1043,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TrainingInstances }
-     * 
      */
     public TrainingInstances createTrainingInstances() {
         return new TrainingInstances();
@@ -1195,7 +1050,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SigmoidKernelType }
-     * 
      */
     public SigmoidKernelType createSigmoidKernelType() {
         return new SigmoidKernelType();
@@ -1203,7 +1057,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Segmentation }
-     * 
      */
     public Segmentation createSegmentation() {
         return new Segmentation();
@@ -1211,7 +1064,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link NormDiscrete }
-     * 
      */
     public NormDiscrete createNormDiscrete() {
         return new NormDiscrete();
@@ -1219,7 +1071,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link RandomLiftGraph }
-     * 
      */
     public RandomLiftGraph createRandomLiftGraph() {
         return new RandomLiftGraph();
@@ -1227,7 +1078,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ParameterField }
-     * 
      */
     public ParameterField createParameterField() {
         return new ParameterField();
@@ -1235,7 +1085,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SimplePredicate }
-     * 
      */
     public SimplePredicate createSimplePredicate() {
         return new SimplePredicate();
@@ -1243,7 +1092,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PCell }
-     * 
      */
     public PCell createPCell() {
         return new PCell();
@@ -1251,7 +1099,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Scorecard }
-     * 
      */
     public Scorecard createScorecard() {
         return new Scorecard();
@@ -1259,7 +1106,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Decisions }
-     * 
      */
     public Decisions createDecisions() {
         return new Decisions();
@@ -1267,7 +1113,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Parameter }
-     * 
      */
     public Parameter createParameter() {
         return new Parameter();
@@ -1275,7 +1120,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CovariateList }
-     * 
      */
     public CovariateList createCovariateList() {
         return new CovariateList();
@@ -1283,7 +1127,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ConsequentSequence }
-     * 
      */
     public ConsequentSequence createConsequentSequence() {
         return new ConsequentSequence();
@@ -1291,7 +1134,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ModelLiftGraph }
-     * 
      */
     public ModelLiftGraph createModelLiftGraph() {
         return new ModelLiftGraph();
@@ -1299,7 +1141,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link MatCell }
-     * 
      */
     public MatCell createMatCell() {
         return new MatCell();
@@ -1307,7 +1148,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GeneralRegressionModel }
-     * 
      */
     public GeneralRegressionModel createGeneralRegressionModel() {
         return new GeneralRegressionModel();
@@ -1315,7 +1155,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TimeSeries }
-     * 
      */
     public TimeSeries createTimeSeries() {
         return new TimeSeries();
@@ -1323,7 +1162,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ItemRef }
-     * 
      */
     public ItemRef createItemRef() {
         return new ItemRef();
@@ -1331,7 +1169,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SequenceModel }
-     * 
      */
     public SequenceModel createSequenceModel() {
         return new SequenceModel();
@@ -1339,7 +1176,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ClusteringField }
-     * 
      */
     public ClusteringField createClusteringField() {
         return new ClusteringField();
@@ -1347,7 +1183,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Row }
-     * 
      */
     public Row createRow() {
         return new Row();
@@ -1355,7 +1190,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link BaseCumHazardTables }
-     * 
      */
     public BaseCumHazardTables createBaseCumHazardTables() {
         return new BaseCumHazardTables();
@@ -1363,7 +1197,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link BaselineModel }
-     * 
      */
     public BaselineModel createBaselineModel() {
         return new BaselineModel();
@@ -1371,7 +1204,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TableLocator }
-     * 
      */
     public TableLocator createTableLocator() {
         return new TableLocator();
@@ -1379,7 +1211,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SimpleSetPredicate }
-     * 
      */
     public SimpleSetPredicate createSimpleSetPredicate() {
         return new SimpleSetPredicate();
@@ -1387,7 +1218,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Discretize }
-     * 
      */
     public Discretize createDiscretize() {
         return new Discretize();
@@ -1395,7 +1225,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Decision }
-     * 
      */
     public Decision createDecision() {
         return new Decision();
@@ -1403,7 +1232,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Level }
-     * 
      */
     public Level createLevel() {
         return new Level();
@@ -1411,7 +1239,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link FieldColumnPair }
-     * 
      */
     public FieldColumnPair createFieldColumnPair() {
         return new FieldColumnPair();
@@ -1419,7 +1246,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ModelStats }
-     * 
      */
     public ModelStats createModelStats() {
         return new ModelStats();
@@ -1427,7 +1253,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Euclidean }
-     * 
      */
     public Euclidean createEuclidean() {
         return new Euclidean();
@@ -1435,7 +1260,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SequenceReference }
-     * 
      */
     public SequenceReference createSequenceReference() {
         return new SequenceReference();
@@ -1443,7 +1267,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ContStats }
-     * 
      */
     public ContStats createContStats() {
         return new ContStats();
@@ -1451,7 +1274,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Quantile }
-     * 
      */
     public Quantile createQuantile() {
         return new Quantile();
@@ -1459,7 +1281,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Itemset }
-     * 
      */
     public Itemset createItemset() {
         return new Itemset();
@@ -1467,7 +1288,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PCovCell }
-     * 
      */
     public PCovCell createPCovCell() {
         return new PCovCell();
@@ -1475,7 +1295,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Tanimoto }
-     * 
      */
     public Tanimoto createTanimoto() {
         return new Tanimoto();
@@ -1483,7 +1302,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TimeAnchor }
-     * 
      */
     public TimeAnchor createTimeAnchor() {
         return new TimeAnchor();
@@ -1491,7 +1309,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link OptimumLiftGraph }
-     * 
      */
     public OptimumLiftGraph createOptimumLiftGraph() {
         return new OptimumLiftGraph();
@@ -1499,7 +1316,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DerivedField }
-     * 
      */
     public DerivedField createDerivedField() {
         return new DerivedField();
@@ -1507,7 +1323,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link REALSparseArray }
-     * 
      */
     public REALSparseArray createREALSparseArray() {
         return new REALSparseArray();
@@ -1515,7 +1330,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link InstanceField }
-     * 
      */
     public InstanceField createInstanceField() {
         return new InstanceField();
@@ -1523,7 +1337,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link MissingValueWeights }
-     * 
      */
     public MissingValueWeights createMissingValueWeights() {
         return new MissingValueWeights();
@@ -1531,7 +1344,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link BaselineStratum }
-     * 
      */
     public BaselineStratum createBaselineStratum() {
         return new BaselineStratum();
@@ -1539,7 +1351,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ROC }
-     * 
      */
     public ROC createROC() {
         return new ROC();
@@ -1547,7 +1358,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Delimiter }
-     * 
      */
     public Delimiter createDelimiter() {
         return new Delimiter();
@@ -1555,7 +1365,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DiscrStats }
-     * 
      */
     public DiscrStats createDiscrStats() {
         return new DiscrStats();
@@ -1563,7 +1372,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link False }
-     * 
      */
     public False createFalse() {
         return new False();
@@ -1571,7 +1379,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CorrelationValues }
-     * 
      */
     public CorrelationValues createCorrelationValues() {
         return new CorrelationValues();
@@ -1579,7 +1386,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ParameterList }
-     * 
      */
     public ParameterList createParameterList() {
         return new ParameterList();
@@ -1587,7 +1393,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Category }
-     * 
      */
     public Category createCategory() {
         return new Category();
@@ -1595,7 +1400,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Item }
-     * 
      */
     public Item createItem() {
         return new Item();
@@ -1603,7 +1407,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link AssociationModel }
-     * 
      */
     public AssociationModel createAssociationModel() {
         return new AssociationModel();
@@ -1611,7 +1414,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link BayesInputs }
-     * 
      */
     public BayesInputs createBayesInputs() {
         return new BayesInputs();
@@ -1619,7 +1421,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link NeuralLayer }
-     * 
      */
     public NeuralLayer createNeuralLayer() {
         return new NeuralLayer();
@@ -1627,7 +1428,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link INTSparseArray }
-     * 
      */
     public INTSparseArray createINTSparseArray() {
         return new INTSparseArray();
@@ -1635,7 +1435,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ResultField }
-     * 
      */
     public ResultField createResultField() {
         return new ResultField();
@@ -1643,7 +1442,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link XCoordinates }
-     * 
      */
     public XCoordinates createXCoordinates() {
         return new XCoordinates();
@@ -1651,7 +1449,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Neuron }
-     * 
      */
     public Neuron createNeuron() {
         return new Neuron();
@@ -1659,7 +1456,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link InstanceFields }
-     * 
      */
     public InstanceFields createInstanceFields() {
         return new InstanceFields();
@@ -1667,7 +1463,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PredictiveModelQuality }
-     * 
      */
     public PredictiveModelQuality createPredictiveModelQuality() {
         return new PredictiveModelQuality();
@@ -1675,7 +1470,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TextCorpus }
-     * 
      */
     public TextCorpus createTextCorpus() {
         return new TextCorpus();
@@ -1683,7 +1477,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TimeSeriesModel }
-     * 
      */
     public TimeSeriesModel createTimeSeriesModel() {
         return new TimeSeriesModel();
@@ -1691,7 +1484,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SupportVectorMachineModel }
-     * 
      */
     public SupportVectorMachineModel createSupportVectorMachineModel() {
         return new SupportVectorMachineModel();
@@ -1699,7 +1491,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Constant }
-     * 
      */
     public Constant createConstant() {
         return new Constant();
@@ -1707,7 +1498,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link UnivariateStats }
-     * 
      */
     public UnivariateStats createUnivariateStats() {
         return new UnivariateStats();
@@ -1715,7 +1505,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DiscretizeBin }
-     * 
      */
     public DiscretizeBin createDiscretizeBin() {
         return new DiscretizeBin();
@@ -1723,7 +1512,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link NumericInfo }
-     * 
      */
     public NumericInfo createNumericInfo() {
         return new NumericInfo();
@@ -1731,7 +1519,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link MapValues }
-     * 
      */
     public MapValues createMapValues() {
         return new MapValues();
@@ -1739,7 +1526,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link RegressionTable }
-     * 
      */
     public RegressionTable createRegressionTable() {
         return new RegressionTable();
@@ -1747,7 +1533,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TimeValue }
-     * 
      */
     public TimeValue createTimeValue() {
         return new TimeValue();
@@ -1755,7 +1540,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link AnovaRow }
-     * 
      */
     public AnovaRow createAnovaRow() {
         return new AnovaRow();
@@ -1763,7 +1547,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DefineFunction }
-     * 
      */
     public DefineFunction createDefineFunction() {
         return new DefineFunction();
@@ -1771,7 +1554,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Apply }
-     * 
      */
     public Apply createApply() {
         return new Apply();
@@ -1779,7 +1561,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CityBlock }
-     * 
      */
     public CityBlock createCityBlock() {
         return new CityBlock();
@@ -1787,7 +1568,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TargetValue }
-     * 
      */
     public TargetValue createTargetValue() {
         return new TargetValue();
@@ -1795,7 +1575,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link VectorDictionary }
-     * 
      */
     public VectorDictionary createVectorDictionary() {
         return new VectorDictionary();
@@ -1803,7 +1582,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Alternate }
-     * 
      */
     public Alternate createAlternate() {
         return new Alternate();
@@ -1811,7 +1589,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link BoundaryValues }
-     * 
      */
     public BoundaryValues createBoundaryValues() {
         return new BoundaryValues();
@@ -1819,7 +1596,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CategoricalPredictor }
-     * 
      */
     public CategoricalPredictor createCategoricalPredictor() {
         return new CategoricalPredictor();
@@ -1827,7 +1603,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ParamMatrix }
-     * 
      */
     public ParamMatrix createParamMatrix() {
         return new ParamMatrix();
@@ -1835,7 +1610,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Object }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "http://www.dmg.org/PMML-4_1", name = "SpectralAnalysis")
     public JAXBElement<Object> createSpectralAnalysis(Object value) {
@@ -1844,25 +1618,22 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link List }{@code <}{@link Double }{@code >}{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "http://www.dmg.org/PMML-4_1", name = "REAL-Entries")
     public JAXBElement<List<Double>> createREALEntries(List<Double> value) {
-        return new JAXBElement<List<Double>>(_REALEntries_QNAME, ((Class) List.class), null, ((List<Double> ) value));
+        return new JAXBElement<List<Double>>(_REALEntries_QNAME, ((Class) List.class), null, ((List<Double>) value));
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link List }{@code <}{@link Integer }{@code >}{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "http://www.dmg.org/PMML-4_1", name = "INT-Entries")
     public JAXBElement<List<Integer>> createINTEntries(List<Integer> value) {
-        return new JAXBElement<List<Integer>>(_INTEntries_QNAME, ((Class) List.class), null, ((List<Integer> ) value));
+        return new JAXBElement<List<Integer>>(_INTEntries_QNAME, ((Class) List.class), null, ((List<Integer>) value));
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link COUNTTABLETYPE }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "http://www.dmg.org/PMML-4_1", name = "CountTable")
     public JAXBElement<COUNTTABLETYPE> createCountTable(COUNTTABLETYPE value) {
@@ -1871,7 +1642,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Object }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "http://www.dmg.org/PMML-4_1", name = "ARIMA")
     public JAXBElement<Object> createARIMA(Object value) {
@@ -1880,16 +1650,14 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link List }{@code <}{@link Integer }{@code >}{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "http://www.dmg.org/PMML-4_1", name = "Indices")
     public JAXBElement<List<Integer>> createIndices(List<Integer> value) {
-        return new JAXBElement<List<Integer>>(_Indices_QNAME, ((Class) List.class), null, ((List<Integer> ) value));
+        return new JAXBElement<List<Integer>>(_Indices_QNAME, ((Class) List.class), null, ((List<Integer>) value));
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Object }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "http://www.dmg.org/PMML-4_1", name = "SeasonalTrendDecomposition")
     public JAXBElement<Object> createSeasonalTrendDecomposition(Object value) {
@@ -1898,7 +1666,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link COUNTTABLETYPE }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "http://www.dmg.org/PMML-4_1", name = "NormalizedCountTable")
     public JAXBElement<COUNTTABLETYPE> createNormalizedCountTable(COUNTTABLETYPE value) {
@@ -1907,7 +1674,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link ArrayType }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "http://www.dmg.org/PMML-4_1", name = "Array")
     public JAXBElement<ArrayType> createArray(ArrayType value) {

@@ -34,19 +34,23 @@ import junit.framework.TestSuite;
  */
 public class SMOregTest extends AbstractClassifierTest {
 
-  public SMOregTest(String name) { super(name);  }
+    public SMOregTest(String name) {
+        super(name);
+    }
 
-  /** Creates a default SMOreg */
-  public Classifier getClassifier() {
-    return new SMOreg();
-  }
+    /**
+     * Creates a default SMOreg
+     */
+    public Classifier getClassifier() {
+        return new SMOreg();
+    }
 
-  public static Test suite() {
-    return new TestSuite(SMOregTest.class);
-  }
+    public static Test suite() {
+        return new TestSuite(SMOregTest.class);
+    }
 
-  public static void main(String[] args){
-    junit.textui.TestRunner.run(suite());
-  }
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 
 }

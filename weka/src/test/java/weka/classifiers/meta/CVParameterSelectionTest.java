@@ -34,19 +34,23 @@ import junit.framework.TestSuite;
  */
 public class CVParameterSelectionTest extends AbstractClassifierTest {
 
-  public CVParameterSelectionTest(String name) { super(name);  }
+    public CVParameterSelectionTest(String name) {
+        super(name);
+    }
 
-  /** Creates a default CVParameterSelection */
-  public Classifier getClassifier() {
-    return new CVParameterSelection();
-  }
+    /**
+     * Creates a default CVParameterSelection
+     */
+    public Classifier getClassifier() {
+        return new CVParameterSelection();
+    }
 
-  public static Test suite() {
-    return new TestSuite(CVParameterSelectionTest.class);
-  }
+    public static Test suite() {
+        return new TestSuite(CVParameterSelectionTest.class);
+    }
 
-  public static void main(String[] args){
-    junit.textui.TestRunner.run(suite());
-  }
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 
 }

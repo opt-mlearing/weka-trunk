@@ -44,154 +44,169 @@ import weka.gui.ComponentHelper;
 /**
  * A simple panel for displaying information, e.g. progress information etc.
  *
- * @author      FracPete (fracpete at waikato dot ac dot nz)
- * @version     $Revision$
+ * @author FracPete (fracpete at waikato dot ac dot nz)
+ * @version $Revision$
  */
 
 public class InfoPanel
-  extends JPanel {
+        extends JPanel {
 
-  /** for serialization */
-  private static final long serialVersionUID = -7701133696481997973L;
-  
-  /** the parent of this panel */
-  protected JFrame m_Parent;
-  
-  /** the list the contains the messages */
-  protected JList m_Info;
+    /**
+     * for serialization
+     */
+    private static final long serialVersionUID = -7701133696481997973L;
 
-  /** the model for the list */
-  protected DefaultListModel m_Model;
+    /**
+     * the parent of this panel
+     */
+    protected JFrame m_Parent;
 
-  /** the button to clear the area */
-  protected JButton m_ButtonClear;
+    /**
+     * the list the contains the messages
+     */
+    protected JList m_Info;
 
-  /** the button to copy the selected message */
-  protected JButton m_ButtonCopy;
-  
-  /**
-   * creates the panel
-   * @param parent      the parent of this panel
-   */
-  public InfoPanel(JFrame parent) {
-    super();
-    m_Parent = parent;
-    createPanel();
-  }
+    /**
+     * the model for the list
+     */
+    protected DefaultListModel m_Model;
 
-  /**
-   * inserts the components into the panel
-   */
-  protected void createPanel() {
-    JPanel          panel;
-    JPanel          panel2;
-    
-    setLayout(new BorderLayout());
-    setPreferredSize(new Dimension(0, 80));
+    /**
+     * the button to clear the area
+     */
+    protected JButton m_ButtonClear;
 
-    // text
-    m_Model = new DefaultListModel();
-    m_Info  = new JList(m_Model);
-    m_Info.setCellRenderer(new InfoPanelCellRenderer());
-    m_Info.addListSelectionListener(new ListSelectionListener() {
-      public void valueChanged(ListSelectionEvent e) {
-        setButtons(e);
-      }
-    });
-    add(new JScrollPane(m_Info), BorderLayout.CENTER);
+    /**
+     * the button to copy the selected message
+     */
+    protected JButton m_ButtonCopy;
 
-    // clear button
-    panel = new JPanel(new BorderLayout());
-    add(panel, BorderLayout.EAST);
-    m_ButtonClear = new JButton("Clear");
-    m_ButtonClear.addActionListener(new ActionListener() {
-	public void actionPerformed(ActionEvent e) {
-	  clear();
-	}
-      });
-    panel.add(m_ButtonClear, BorderLayout.NORTH);
-
-    // clear button
-    panel2 = new JPanel(new BorderLayout());
-    panel.add(panel2, BorderLayout.CENTER);
-    m_ButtonCopy = new JButton("Copy");
-    m_ButtonCopy.addActionListener(new ActionListener() {
-	public void actionPerformed(ActionEvent e) {
-	  copyToClipboard();
-	}
-      });
-    panel2.add(m_ButtonCopy, BorderLayout.NORTH);
-  }
-  
-  /**
-   * sets the state of the buttons according to the selection state of the
-   * JList
-   */
-  protected void setButtons(ListSelectionEvent e) {
-    if ( (e == null) || (e.getSource() == m_Info) ) {
-      m_ButtonClear.setEnabled(m_Model.getSize() > 0);
-      m_ButtonCopy.setEnabled(m_Info.getSelectedIndices().length == 1);
-    }
-  }
-
-  /**
-   * sets the focus in a designated control
-   */
-  public void setFocus() {
-    m_Info.requestFocus();
-  }
-
-  /**
-   * clears the content of the panel
-   */
-  public void clear() {
-    m_Model.clear();
-    setButtons(null);
-  }
-
-  /**
-   * copies the currently selected error message to the clipboard
-   * 
-   * @return		true if the content was copied
-   */
-  public boolean copyToClipboard() {
-    StringSelection      selection;
-    Clipboard            clipboard;
-    
-    if (m_Info.getSelectedIndices().length != 1)
-      return false;
-    
-    selection = new StringSelection(((JLabel) m_Info.getSelectedValue()).getText());
-    clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-    clipboard.setContents(selection, selection);
-    return true;
-  }
-  
-  /**
-   * adds the given message to the end of the list (with the associated icon
-   * at the beginning)
-   * @param msg       the message to append to the list
-   * @param icon      the filename of the icon
-   */
-  public void append(String msg, String icon) {
-    append(new JLabel(msg, ComponentHelper.getImageIcon(icon), JLabel.LEFT));
-  }
-
-  /**
-   * adds the given message to the end of the list
-   * @param msg       the message to append to the list
-   */
-  public void append(Object msg) {
-    if (msg instanceof String) {
-      append(msg.toString(), "empty_small.gif");
-      return;
+    /**
+     * creates the panel
+     *
+     * @param parent the parent of this panel
+     */
+    public InfoPanel(JFrame parent) {
+        super();
+        m_Parent = parent;
+        createPanel();
     }
 
-    m_Model.addElement(msg);
-    m_Info.setSelectedIndex(m_Model.getSize() - 1);
-    m_Info.ensureIndexIsVisible(m_Info.getSelectedIndex());
-    
-    setButtons(null);
-  }
+    /**
+     * inserts the components into the panel
+     */
+    protected void createPanel() {
+        JPanel panel;
+        JPanel panel2;
+
+        setLayout(new BorderLayout());
+        setPreferredSize(new Dimension(0, 80));
+
+        // text
+        m_Model = new DefaultListModel();
+        m_Info = new JList(m_Model);
+        m_Info.setCellRenderer(new InfoPanelCellRenderer());
+        m_Info.addListSelectionListener(new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent e) {
+                setButtons(e);
+            }
+        });
+        add(new JScrollPane(m_Info), BorderLayout.CENTER);
+
+        // clear button
+        panel = new JPanel(new BorderLayout());
+        add(panel, BorderLayout.EAST);
+        m_ButtonClear = new JButton("Clear");
+        m_ButtonClear.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                clear();
+            }
+        });
+        panel.add(m_ButtonClear, BorderLayout.NORTH);
+
+        // clear button
+        panel2 = new JPanel(new BorderLayout());
+        panel.add(panel2, BorderLayout.CENTER);
+        m_ButtonCopy = new JButton("Copy");
+        m_ButtonCopy.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                copyToClipboard();
+            }
+        });
+        panel2.add(m_ButtonCopy, BorderLayout.NORTH);
+    }
+
+    /**
+     * sets the state of the buttons according to the selection state of the
+     * JList
+     */
+    protected void setButtons(ListSelectionEvent e) {
+        if ((e == null) || (e.getSource() == m_Info)) {
+            m_ButtonClear.setEnabled(m_Model.getSize() > 0);
+            m_ButtonCopy.setEnabled(m_Info.getSelectedIndices().length == 1);
+        }
+    }
+
+    /**
+     * sets the focus in a designated control
+     */
+    public void setFocus() {
+        m_Info.requestFocus();
+    }
+
+    /**
+     * clears the content of the panel
+     */
+    public void clear() {
+        m_Model.clear();
+        setButtons(null);
+    }
+
+    /**
+     * copies the currently selected error message to the clipboard
+     *
+     * @return true if the content was copied
+     */
+    public boolean copyToClipboard() {
+        StringSelection selection;
+        Clipboard clipboard;
+
+        if (m_Info.getSelectedIndices().length != 1)
+            return false;
+
+        selection = new StringSelection(((JLabel) m_Info.getSelectedValue()).getText());
+        clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+        clipboard.setContents(selection, selection);
+        return true;
+    }
+
+    /**
+     * adds the given message to the end of the list (with the associated icon
+     * at the beginning)
+     *
+     * @param msg  the message to append to the list
+     * @param icon the filename of the icon
+     */
+    public void append(String msg, String icon) {
+        append(new JLabel(msg, ComponentHelper.getImageIcon(icon), JLabel.LEFT));
+    }
+
+    /**
+     * adds the given message to the end of the list
+     *
+     * @param msg the message to append to the list
+     */
+    public void append(Object msg) {
+        if (msg instanceof String) {
+            append(msg.toString(), "empty_small.gif");
+            return;
+        }
+
+        m_Model.addElement(msg);
+        m_Info.setSelectedIndex(m_Model.getSize() - 1);
+        m_Info.ensureIndexIsVisible(m_Info.getSelectedIndex());
+
+        setButtons(null);
+    }
 }
 

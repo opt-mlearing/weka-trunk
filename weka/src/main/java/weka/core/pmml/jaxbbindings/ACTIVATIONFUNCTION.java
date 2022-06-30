@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlEnumValue;
 
 /**
  * <p>Java class for ACTIVATION-FUNCTION.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
@@ -36,7 +36,6 @@ import javax.xml.bind.annotation.XmlEnumValue;
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
- * 
  */
 @XmlEnum
 public enum ACTIVATIONFUNCTION {
@@ -78,7 +77,7 @@ public enum ACTIVATIONFUNCTION {
     }
 
     public static ACTIVATIONFUNCTION fromValue(String v) {
-        for (ACTIVATIONFUNCTION c: ACTIVATIONFUNCTION.values()) {
+        for (ACTIVATIONFUNCTION c : ACTIVATIONFUNCTION.values()) {
             if (c.value.equals(v)) {
                 return c;
             }

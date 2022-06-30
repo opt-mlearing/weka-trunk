@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlEnumValue;
 
 /**
  * <p>Java class for INVALID-VALUE-TREATMENT-METHOD.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
@@ -26,7 +26,6 @@ import javax.xml.bind.annotation.XmlEnumValue;
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
- * 
  */
 @XmlEnum
 public enum INVALIDVALUETREATMENTMETHOD {
@@ -48,7 +47,7 @@ public enum INVALIDVALUETREATMENTMETHOD {
     }
 
     public static INVALIDVALUETREATMENTMETHOD fromValue(String v) {
-        for (INVALIDVALUETREATMENTMETHOD c: INVALIDVALUETREATMENTMETHOD.values()) {
+        for (INVALIDVALUETREATMENTMETHOD c : INVALIDVALUETREATMENTMETHOD.values()) {
             if (c.value.equals(v)) {
                 return c;
             }

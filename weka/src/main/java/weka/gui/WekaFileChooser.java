@@ -39,128 +39,132 @@ import java.io.File;
  * @author FracPete (fracpete at waikato dot ac dot nz)
  */
 public class WekaFileChooser
-  extends JFileChooser {
+        extends JFileChooser {
 
-  public static class PropertiesHandler
-    extends AbstractPropertiesHandler {
+    public static class PropertiesHandler
+            extends AbstractPropertiesHandler {
 
-    protected String getFilename() {
-      return WekaPackageManager.PROPERTIES_DIR + File.separator + "bookmarks.props";
+        protected String getFilename() {
+            return WekaPackageManager.PROPERTIES_DIR + File.separator + "bookmarks.props";
+        }
     }
-  }
 
-  public static class Factory
-    extends DefaultFactory {
+    public static class Factory
+            extends DefaultFactory {
 
-    public AbstractPropertiesHandler newPropertiesHandler() {
-      return new PropertiesHandler();
+        public AbstractPropertiesHandler newPropertiesHandler() {
+            return new PropertiesHandler();
+        }
     }
-  }
 
-  public static class FileChooserBookmarksPanel
-    extends AbstractBookmarksPanel {
+    public static class FileChooserBookmarksPanel
+            extends AbstractBookmarksPanel {
 
-    protected AbstractFactory newFactory() {
-      return new Factory();
+        protected AbstractFactory newFactory() {
+            return new Factory();
+        }
     }
-  }
 
-  /** the accessory panel. */
-  protected JPanel m_AccessoryPanel;
+    /**
+     * the accessory panel.
+     */
+    protected JPanel m_AccessoryPanel;
 
-  /** the bookmarks. */
-  protected FileChooserBookmarksPanel m_BookmarksPanel;
+    /**
+     * the bookmarks.
+     */
+    protected FileChooserBookmarksPanel m_BookmarksPanel;
 
-  /**
-   * Constructs a <code>WekaFileChooser</code> pointing to the user's
-   * default directory. This default depends on the operating system.
-   * It is typically the "My Documents" folder on Windows, and the
-   * user's home directory on Unix.
-   */
-  public WekaFileChooser() {
-    super();
-    initialize();
-  }
+    /**
+     * Constructs a <code>WekaFileChooser</code> pointing to the user's
+     * default directory. This default depends on the operating system.
+     * It is typically the "My Documents" folder on Windows, and the
+     * user's home directory on Unix.
+     */
+    public WekaFileChooser() {
+        super();
+        initialize();
+    }
 
-  /**
-   * Constructs a <code>WekaFileChooser</code> using the given path.
-   * Passing in a <code>null</code>
-   * string causes the file chooser to point to the user's default directory.
-   * This default depends on the operating system. It is
-   * typically the "My Documents" folder on Windows, and the user's
-   * home directory on Unix.
-   *
-   * @param currentDirectoryPath  a <code>String</code> giving the path
-   *                          to a file or directory
-   */
-  public WekaFileChooser(String currentDirectoryPath) {
-    super(currentDirectoryPath);
-    initialize();
-  }
+    /**
+     * Constructs a <code>WekaFileChooser</code> using the given path.
+     * Passing in a <code>null</code>
+     * string causes the file chooser to point to the user's default directory.
+     * This default depends on the operating system. It is
+     * typically the "My Documents" folder on Windows, and the user's
+     * home directory on Unix.
+     *
+     * @param currentDirectoryPath a <code>String</code> giving the path
+     *                             to a file or directory
+     */
+    public WekaFileChooser(String currentDirectoryPath) {
+        super(currentDirectoryPath);
+        initialize();
+    }
 
-  /**
-   * Constructs a <code>WekaFileChooser</code> using the given <code>File</code>
-   * as the path. Passing in a <code>null</code> file
-   * causes the file chooser to point to the user's default directory.
-   * This default depends on the operating system. It is
-   * typically the "My Documents" folder on Windows, and the user's
-   * home directory on Unix.
-   *
-   * @param currentDirectory  a <code>File</code> object specifying
-   *                          the path to a file or directory
-   */
-  public WekaFileChooser(File currentDirectory) {
-    super(currentDirectory);
-    initialize();
-  }
+    /**
+     * Constructs a <code>WekaFileChooser</code> using the given <code>File</code>
+     * as the path. Passing in a <code>null</code> file
+     * causes the file chooser to point to the user's default directory.
+     * This default depends on the operating system. It is
+     * typically the "My Documents" folder on Windows, and the user's
+     * home directory on Unix.
+     *
+     * @param currentDirectory a <code>File</code> object specifying
+     *                         the path to a file or directory
+     */
+    public WekaFileChooser(File currentDirectory) {
+        super(currentDirectory);
+        initialize();
+    }
 
-  /**
-   * Constructs a <code>WekaFileChooser</code> using the given
-   * <code>FileSystemView</code>.
-   *
-   * @param fsv a {@code FileSystemView}
-   */
-  public WekaFileChooser(FileSystemView fsv) {
-    super(fsv);
-    initialize();
-  }
+    /**
+     * Constructs a <code>WekaFileChooser</code> using the given
+     * <code>FileSystemView</code>.
+     *
+     * @param fsv a {@code FileSystemView}
+     */
+    public WekaFileChooser(FileSystemView fsv) {
+        super(fsv);
+        initialize();
+    }
 
 
-  /**
-   * Constructs a <code>WekaFileChooser</code> using the given current directory
-   * and <code>FileSystemView</code>.
-   *
-   * @param currentDirectory a {@code File} object specifying the path to a
-   *                         file or directory
-   * @param fsv a {@code FileSystemView}
-   */
-  public WekaFileChooser(File currentDirectory, FileSystemView fsv) {
-    super(currentDirectory, fsv);
-    initialize();
-  }
+    /**
+     * Constructs a <code>WekaFileChooser</code> using the given current directory
+     * and <code>FileSystemView</code>.
+     *
+     * @param currentDirectory a {@code File} object specifying the path to a
+     *                         file or directory
+     * @param fsv              a {@code FileSystemView}
+     */
+    public WekaFileChooser(File currentDirectory, FileSystemView fsv) {
+        super(currentDirectory, fsv);
+        initialize();
+    }
 
-  /**
-   * Constructs a <code>WekaFileChooser</code> using the given current directory
-   * path and <code>FileSystemView</code>.
-   *
-   * @param currentDirectoryPath a {@code String} specifying the path to a file
-   *                             or directory
-   * @param fsv a {@code FileSystemView}
-   */
-  public WekaFileChooser(String currentDirectoryPath, FileSystemView fsv) {
-    super(currentDirectoryPath, fsv);
-    initialize();
-  }
+    /**
+     * Constructs a <code>WekaFileChooser</code> using the given current directory
+     * path and <code>FileSystemView</code>.
+     *
+     * @param currentDirectoryPath a {@code String} specifying the path to a file
+     *                             or directory
+     * @param fsv                  a {@code FileSystemView}
+     */
+    public WekaFileChooser(String currentDirectoryPath, FileSystemView fsv) {
+        super(currentDirectoryPath, fsv);
+        initialize();
+    }
 
-  /**
-   * Initializes the accessory panel.
-   */
-  protected void initialize() {
-    setPreferredSize(new Dimension(750, 500));
-    m_AccessoryPanel = new JPanel(new BorderLayout());
-    m_BookmarksPanel = new FileChooserBookmarksPanel();
-    m_BookmarksPanel.setOwner(this);
-    m_AccessoryPanel.add(m_BookmarksPanel);
-    setAccessory(m_AccessoryPanel);
-  }
+    /**
+     * Initializes the accessory panel.
+     */
+    protected void initialize() {
+        setPreferredSize(new Dimension(750, 500));
+        m_AccessoryPanel = new JPanel(new BorderLayout());
+        m_BookmarksPanel = new FileChooserBookmarksPanel();
+        m_BookmarksPanel.setOwner(this);
+        m_AccessoryPanel.add(m_BookmarksPanel);
+        setAccessory(m_AccessoryPanel);
+    }
 }

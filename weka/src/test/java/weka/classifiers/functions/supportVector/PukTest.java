@@ -32,23 +32,25 @@ import junit.framework.TestSuite;
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
-public class PukTest 
-  extends AbstractKernelTest {
+public class PukTest
+        extends AbstractKernelTest {
 
-  public PukTest(String name) { 
-    super(name);  
-  }
+    public PukTest(String name) {
+        super(name);
+    }
 
-  /** Creates a default Puk */
-  public Kernel getKernel() {
-    return new Puk();
-  }
+    /**
+     * Creates a default Puk
+     */
+    public Kernel getKernel() {
+        return new Puk();
+    }
 
-  public static Test suite() {
-    return new TestSuite(PukTest.class);
-  }
+    public static Test suite() {
+        return new TestSuite(PukTest.class);
+    }
 
-  public static void main(String[] args){
-    junit.textui.TestRunner.run(suite());
-  }
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 }

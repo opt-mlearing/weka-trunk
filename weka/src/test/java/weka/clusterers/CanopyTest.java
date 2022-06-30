@@ -32,23 +32,25 @@ import junit.framework.TestSuite;
  * @author Mark Hall
  * @version $Revision$
  */
-public class CanopyTest 
-  extends AbstractClustererTest {
+public class CanopyTest
+        extends AbstractClustererTest {
 
-  public CanopyTest(String name) { 
-    super(name);  
-  }
+    public CanopyTest(String name) {
+        super(name);
+    }
 
-  /** Creates a default SimpleKMeans */
-  public Clusterer getClusterer() {
-    return new SimpleKMeans();
-  }
+    /**
+     * Creates a default SimpleKMeans
+     */
+    public Clusterer getClusterer() {
+        return new SimpleKMeans();
+    }
 
-  public static Test suite() {
-    return new TestSuite(CanopyTest.class);
-  }
+    public static Test suite() {
+        return new TestSuite(CanopyTest.class);
+    }
 
-  public static void main(String[] args){
-    junit.textui.TestRunner.run(suite());
-  }
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 }

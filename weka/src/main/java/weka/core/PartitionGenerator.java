@@ -29,18 +29,18 @@ package weka.core;
  */
 public interface PartitionGenerator extends CapabilitiesHandler {
 
-  /**
-   * Builds the classifier to generate a partition.
-   */
-  public void generatePartition(Instances data) throws Exception;
-  
-  /**
-   * Computes an array that has a value for each element in the partition.
-   */
-  public double[] getMembershipValues(Instance inst) throws Exception;
-  
-  /**
-   * Returns the number of elements in the partition.
-   */
-  public int numElements() throws Exception;
+    /**
+     * Builds the classifier to generate a partition.
+     */
+    public void generatePartition(Instances data) throws Exception;
+
+    /**
+     * Computes an array that has a value for each element in the partition.
+     */
+    public double[] getMembershipValues(Instance inst) throws Exception;
+
+    /**
+     * Returns the number of elements in the partition.
+     */
+    public int numElements() throws Exception;
 }

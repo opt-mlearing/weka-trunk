@@ -29,18 +29,18 @@ package weka.core.converters;
  */
 public interface URLSourcedLoader {
 
-  /**
-   * Set the url to load from
-   *
-   * @param url the url to load from
-   * @exception Exception if the url can't be set.
-   */
-  void setURL(String url) throws Exception;
+    /**
+     * Set the url to load from
+     *
+     * @param url the url to load from
+     * @throws Exception if the url can't be set.
+     */
+    void setURL(String url) throws Exception;
 
-  /**
-   * Return the current url
-   *
-   * @return the current url
-   */
-  String retrieveURL();
+    /**
+     * Return the current url
+     *
+     * @return the current url
+     */
+    String retrieveURL();
 }

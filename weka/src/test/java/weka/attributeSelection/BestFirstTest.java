@@ -29,28 +29,32 @@ import junit.framework.TestSuite;
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
-public class BestFirstTest 
-  extends AbstractSearchTest {
+public class BestFirstTest
+        extends AbstractSearchTest {
 
-  public BestFirstTest(String name) { 
-    super(name);  
-  }
+    public BestFirstTest(String name) {
+        super(name);
+    }
 
-  /** Creates a default BestFirst */
-  public ASSearch getSearch() {
-    return new BestFirst();
-  }
+    /**
+     * Creates a default BestFirst
+     */
+    public ASSearch getSearch() {
+        return new BestFirst();
+    }
 
-  /** Creates a default CfsSubsetEval */
-  public ASEvaluation getEvaluator() {
-    return new CfsSubsetEval();
-  }
+    /**
+     * Creates a default CfsSubsetEval
+     */
+    public ASEvaluation getEvaluator() {
+        return new CfsSubsetEval();
+    }
 
-  public static Test suite() {
-    return new TestSuite(BestFirstTest.class);
-  }
+    public static Test suite() {
+        return new TestSuite(BestFirstTest.class);
+    }
 
-  public static void main(String[] args){
-    junit.textui.TestRunner.run(suite());
-  }
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 }

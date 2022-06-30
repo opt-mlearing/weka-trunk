@@ -17,9 +17,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for ParameterField element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="ParameterField">
  *   &lt;complexType>
@@ -33,8 +33,6 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "")
@@ -50,11 +48,9 @@ public class ParameterField {
 
     /**
      * Gets the value of the dataType property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link DATATYPE }
-     *     
+     *
+     * @return possible object is
+     * {@link DATATYPE }
      */
     public DATATYPE getDataType() {
         return dataType;
@@ -62,11 +58,9 @@ public class ParameterField {
 
     /**
      * Sets the value of the dataType property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link DATATYPE }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link DATATYPE }
      */
     public void setDataType(DATATYPE value) {
         this.dataType = value;
@@ -74,11 +68,9 @@ public class ParameterField {
 
     /**
      * Gets the value of the name property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getName() {
         return name;
@@ -86,11 +78,9 @@ public class ParameterField {
 
     /**
      * Sets the value of the name property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setName(String value) {
         this.name = value;
@@ -98,11 +88,9 @@ public class ParameterField {
 
     /**
      * Gets the value of the optype property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link OPTYPE }
-     *     
+     *
+     * @return possible object is
+     * {@link OPTYPE }
      */
     public OPTYPE getOptype() {
         return optype;
@@ -110,11 +98,9 @@ public class ParameterField {
 
     /**
      * Sets the value of the optype property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link OPTYPE }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link OPTYPE }
      */
     public void setOptype(OPTYPE value) {
         this.optype = value;

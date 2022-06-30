@@ -26,62 +26,63 @@ package weka.gui;
  * @author FracPete (fracpete at waikato dot ac dot nz)
  */
 public class ExtensionFileFilterWithClass
-  extends ExtensionFileFilter {
+        extends ExtensionFileFilter {
 
-  /** the underlying class. */
-  protected Class m_FilterClass;
+    /**
+     * the underlying class.
+     */
+    protected Class m_FilterClass;
 
-  /**
-   * Creates the ExtensionFileFilterWithClass
-   *
-   * @param extension   the extension of accepted files.
-   * @param description a text description of accepted files.
-   * @param filterClass the underlying class
-   */
-  public ExtensionFileFilterWithClass(String extension, String description, Class filterClass) {
-    super(extension, description);
-    if (filterClass == null)
-      throw new IllegalArgumentException("Filter class cannot be null!");
-    m_FilterClass = filterClass;
-  }
-
-  /**
-   * Creates an ExtensionFileFilterWithClass that accepts files that have any of the
-   * extensions contained in the supplied array.
-   *
-   * @param extensions  an array of acceptable file extensions (as Strings).
-   * @param description a text description of accepted files.
-   * @param filterClass the underlying class
-   */
-  public ExtensionFileFilterWithClass(String[] extensions, String description, Class filterClass) {
-    super(extensions, description);
-    if (filterClass == null)
-      throw new IllegalArgumentException("Filter class cannot be null!");
-    m_FilterClass = filterClass;
-  }
-
-  /**
-   * Returns the underlying class.
-   *
-   * @return		the class
-   */
-  public Class getFilterClass() {
-    return m_FilterClass;
-  }
-
-  /**
-   * Creates a new instance of the underlying class.
-   *
-   * @return		the object
-   */
-  public Object newInstance() {
-    try {
-      return m_FilterClass.newInstance();
+    /**
+     * Creates the ExtensionFileFilterWithClass
+     *
+     * @param extension   the extension of accepted files.
+     * @param description a text description of accepted files.
+     * @param filterClass the underlying class
+     */
+    public ExtensionFileFilterWithClass(String extension, String description, Class filterClass) {
+        super(extension, description);
+        if (filterClass == null)
+            throw new IllegalArgumentException("Filter class cannot be null!");
+        m_FilterClass = filterClass;
     }
-    catch (Exception e) {
-      System.err.println("Failed to instantiate filter class: " + m_FilterClass.getName());
-      e.printStackTrace();
-      return null;
+
+    /**
+     * Creates an ExtensionFileFilterWithClass that accepts files that have any of the
+     * extensions contained in the supplied array.
+     *
+     * @param extensions  an array of acceptable file extensions (as Strings).
+     * @param description a text description of accepted files.
+     * @param filterClass the underlying class
+     */
+    public ExtensionFileFilterWithClass(String[] extensions, String description, Class filterClass) {
+        super(extensions, description);
+        if (filterClass == null)
+            throw new IllegalArgumentException("Filter class cannot be null!");
+        m_FilterClass = filterClass;
     }
-  }
+
+    /**
+     * Returns the underlying class.
+     *
+     * @return the class
+     */
+    public Class getFilterClass() {
+        return m_FilterClass;
+    }
+
+    /**
+     * Creates a new instance of the underlying class.
+     *
+     * @return the object
+     */
+    public Object newInstance() {
+        try {
+            return m_FilterClass.newInstance();
+        } catch (Exception e) {
+            System.err.println("Failed to instantiate filter class: " + m_FilterClass.getName());
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

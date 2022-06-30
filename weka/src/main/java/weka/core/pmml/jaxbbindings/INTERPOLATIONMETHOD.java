@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlEnumValue;
 
 /**
  * <p>Java class for INTERPOLATION-METHOD.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
@@ -27,7 +27,6 @@ import javax.xml.bind.annotation.XmlEnumValue;
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
- * 
  */
 @XmlEnum
 public enum INTERPOLATIONMETHOD {
@@ -51,7 +50,7 @@ public enum INTERPOLATIONMETHOD {
     }
 
     public static INTERPOLATIONMETHOD fromValue(String v) {
-        for (INTERPOLATIONMETHOD c: INTERPOLATIONMETHOD.values()) {
+        for (INTERPOLATIONMETHOD c : INTERPOLATIONMETHOD.values()) {
             if (c.value.equals(v)) {
                 return c;
             }

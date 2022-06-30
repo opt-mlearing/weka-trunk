@@ -26,32 +26,34 @@ import weka.gui.scripting.ScriptingPanel;
 
 /**
  * Event that gets send in case a scripting panel updates the title.
- * 
- * @author  fracpete (fracpete at waikato dot ac dot nz)
+ *
+ * @author fracpete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
 public class TitleUpdatedEvent
-  extends EventObject {
+        extends EventObject {
 
-  /** for serialization. */
-  private static final long serialVersionUID = 4971569742479666535L;
+    /**
+     * for serialization.
+     */
+    private static final long serialVersionUID = 4971569742479666535L;
 
-  /**
-   * Initializes the event.
-   * 
-   * @param source	the scripting panel that triggered the event
-   */
-  public TitleUpdatedEvent(ScriptingPanel source) {
-    super(source);
-  }
-  
-  /**
-   * Returns the scripting panel that triggered the event. Use the
-   * <code>getTitle()</code> method for accessing the new title.
-   * 
-   * @return		the panel
-   */
-  public ScriptingPanel getPanel() {
-    return (ScriptingPanel) getSource();
-  }
+    /**
+     * Initializes the event.
+     *
+     * @param source the scripting panel that triggered the event
+     */
+    public TitleUpdatedEvent(ScriptingPanel source) {
+        super(source);
+    }
+
+    /**
+     * Returns the scripting panel that triggered the event. Use the
+     * <code>getTitle()</code> method for accessing the new title.
+     *
+     * @return the panel
+     */
+    public ScriptingPanel getPanel() {
+        return (ScriptingPanel) getSource();
+    }
 }

@@ -29,28 +29,32 @@ import junit.framework.TestSuite;
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
-public class RankerTest 
-  extends AbstractSearchTest {
+public class RankerTest
+        extends AbstractSearchTest {
 
-  public RankerTest(String name) { 
-    super(name);  
-  }
+    public RankerTest(String name) {
+        super(name);
+    }
 
-  /** Creates a default Ranker */
-  public ASSearch getSearch() {
-    return new Ranker();
-  }
+    /**
+     * Creates a default Ranker
+     */
+    public ASSearch getSearch() {
+        return new Ranker();
+    }
 
-  /** Creates a default InfoGainAttributeEval */
-  public ASEvaluation getEvaluator() {
-    return new InfoGainAttributeEval();
-  }
+    /**
+     * Creates a default InfoGainAttributeEval
+     */
+    public ASEvaluation getEvaluator() {
+        return new InfoGainAttributeEval();
+    }
 
-  public static Test suite() {
-    return new TestSuite(RankerTest.class);
-  }
+    public static Test suite() {
+        return new TestSuite(RankerTest.class);
+    }
 
-  public static void main(String[] args){
-    junit.textui.TestRunner.run(suite());
-  }
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 }

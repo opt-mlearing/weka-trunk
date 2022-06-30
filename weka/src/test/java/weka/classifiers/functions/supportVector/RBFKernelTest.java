@@ -32,23 +32,25 @@ import junit.framework.TestSuite;
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
-public class RBFKernelTest 
-  extends AbstractKernelTest {
+public class RBFKernelTest
+        extends AbstractKernelTest {
 
-  public RBFKernelTest(String name) { 
-    super(name);  
-  }
+    public RBFKernelTest(String name) {
+        super(name);
+    }
 
-  /** Creates a default RBFKernel */
-  public Kernel getKernel() {
-    return new RBFKernel();
-  }
+    /**
+     * Creates a default RBFKernel
+     */
+    public Kernel getKernel() {
+        return new RBFKernel();
+    }
 
-  public static Test suite() {
-    return new TestSuite(RBFKernelTest.class);
-  }
+    public static Test suite() {
+        return new TestSuite(RBFKernelTest.class);
+    }
 
-  public static void main(String[] args){
-    junit.textui.TestRunner.run(suite());
-  }
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 }

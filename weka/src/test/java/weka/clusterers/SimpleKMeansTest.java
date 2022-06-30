@@ -32,23 +32,25 @@ import junit.framework.TestSuite;
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
-public class SimpleKMeansTest 
-  extends AbstractClustererTest {
+public class SimpleKMeansTest
+        extends AbstractClustererTest {
 
-  public SimpleKMeansTest(String name) { 
-    super(name);  
-  }
+    public SimpleKMeansTest(String name) {
+        super(name);
+    }
 
-  /** Creates a default SimpleKMeans */
-  public Clusterer getClusterer() {
-    return new SimpleKMeans();
-  }
+    /**
+     * Creates a default SimpleKMeans
+     */
+    public Clusterer getClusterer() {
+        return new SimpleKMeans();
+    }
 
-  public static Test suite() {
-    return new TestSuite(SimpleKMeansTest.class);
-  }
+    public static Test suite() {
+        return new TestSuite(SimpleKMeansTest.class);
+    }
 
-  public static void main(String[] args){
-    junit.textui.TestRunner.run(suite());
-  }
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 }

@@ -26,8 +26,8 @@ import java.io.Serializable;
 
 /**
  * An indicator interface for serializable Jython objects.
- * 
- * @author  fracpete (fracpete at waikato dot ac dot nz)
+ *
+ * @author fracpete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
 public interface JythonSerializableObject extends Serializable, JythonObject {

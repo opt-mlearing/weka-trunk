@@ -35,132 +35,134 @@ import weka.gui.Logger;
  *
  * @author <a href="mailto:mhall@cs.waikato.ac.nz">Mark Hall</a>
  * @version $Revision$
- * @since 1.0
  * @see JPanel
  * @see Visible
  * @see Serializable
+ * @since 1.0
  */
 public abstract class AbstractEvaluator
-  extends JPanel
-  implements Visible, BeanCommon, Serializable {
+        extends JPanel
+        implements Visible, BeanCommon, Serializable {
 
-  /** for serialization */
-  private static final long serialVersionUID = 3983303541814121632L;
-  
-  /**
-   * Default visual for evaluators
-   */
-  protected BeanVisual m_visual = 
-    new BeanVisual("AbstractEvaluator", 
-		   BeanVisual.ICON_PATH+"DefaultEvaluator.gif",
-		   BeanVisual.ICON_PATH+"DefaultEvaluator_animated.gif");
+    /**
+     * for serialization
+     */
+    private static final long serialVersionUID = 3983303541814121632L;
 
-  protected Object m_listenee = null;
+    /**
+     * Default visual for evaluators
+     */
+    protected BeanVisual m_visual =
+            new BeanVisual("AbstractEvaluator",
+                    BeanVisual.ICON_PATH + "DefaultEvaluator.gif",
+                    BeanVisual.ICON_PATH + "DefaultEvaluator_animated.gif");
 
-  protected transient Logger m_logger = null;
+    protected Object m_listenee = null;
 
-  /**
-   * Constructor
-   */
-  public AbstractEvaluator() {
-    setLayout(new BorderLayout());
-    add(m_visual, BorderLayout.CENTER);
-  }
+    protected transient Logger m_logger = null;
 
-  /**
-   * Set the visual
-   *
-   * @param newVisual a <code>BeanVisual</code> value
-   */
-  public void setVisual(BeanVisual newVisual) {
-    m_visual = newVisual;
-  }
-
-  /**
-   * Get the visual
-   *
-   * @return a <code>BeanVisual</code> value
-   */
-  public BeanVisual getVisual() {
-    return m_visual;
-  }
-  
-  /**
-   * Use the default images for an evaluator
-   */
-  public void useDefaultVisual() {
-    m_visual.loadIcons(BeanVisual.ICON_PATH+"DefaultEvaluator.gif",
-		       BeanVisual.ICON_PATH+"DefaultEvaluator_animated.gif");
-  }
-
-  /**
-   * Returns true if, at this time, 
-   * the object will accept a connection according to the supplied
-   * event name
-   *
-   * @param eventName the event name
-   * @return true if the object will accept a connection
-   */
-  public boolean connectionAllowed(String eventName) {
-    return (m_listenee == null);
-  }
-
-  /**
-   * Returns true if, at this time, 
-   * the object will accept a connection according to the supplied
-   * EventSetDescriptor
-   *
-   * @param esd the EventSetDescriptor
-   * @return true if the object will accept a connection
-   */
-  public boolean connectionAllowed(EventSetDescriptor esd) {
-    return connectionAllowed(esd.getName());
-  }
-
-  /**
-   * Notify this object that it has been registered as a listener with
-   * a source with respect to the supplied event name
-   *
-   * @param eventName the event name
-   * @param source the source with which this object has been registered as
-   * a listener
-   */
-  public synchronized void connectionNotification(String eventName,
-						  Object source) {
-    if (connectionAllowed(eventName)) {
-      m_listenee = source;
+    /**
+     * Constructor
+     */
+    public AbstractEvaluator() {
+        setLayout(new BorderLayout());
+        add(m_visual, BorderLayout.CENTER);
     }
-  }
 
-  /**
-   * Notify this object that it has been deregistered as a listener with
-   * a source with respect to the supplied event named
-   *
-   * @param eventName the event name
-   * @param source the source with which this object has been registered as
-   * a listener
-   */
-  public synchronized void disconnectionNotification(String eventName,
-						     Object source) {
-    if (m_listenee == source) {
-      m_listenee = null;
+    /**
+     * Set the visual
+     *
+     * @param newVisual a <code>BeanVisual</code> value
+     */
+    public void setVisual(BeanVisual newVisual) {
+        m_visual = newVisual;
     }
-  }
-  
-  /**
-   * Set a logger
-   *
-   * @param logger a <code>weka.gui.Logger</code> value
-   */
-  public void setLog(weka.gui.Logger logger) {
-    m_logger = logger;
-  }
 
-  /**
-   * Stop any processing that the bean might be doing.
-   * Subclass must implement
-   */
-  public abstract void stop();
+    /**
+     * Get the visual
+     *
+     * @return a <code>BeanVisual</code> value
+     */
+    public BeanVisual getVisual() {
+        return m_visual;
+    }
+
+    /**
+     * Use the default images for an evaluator
+     */
+    public void useDefaultVisual() {
+        m_visual.loadIcons(BeanVisual.ICON_PATH + "DefaultEvaluator.gif",
+                BeanVisual.ICON_PATH + "DefaultEvaluator_animated.gif");
+    }
+
+    /**
+     * Returns true if, at this time,
+     * the object will accept a connection according to the supplied
+     * event name
+     *
+     * @param eventName the event name
+     * @return true if the object will accept a connection
+     */
+    public boolean connectionAllowed(String eventName) {
+        return (m_listenee == null);
+    }
+
+    /**
+     * Returns true if, at this time,
+     * the object will accept a connection according to the supplied
+     * EventSetDescriptor
+     *
+     * @param esd the EventSetDescriptor
+     * @return true if the object will accept a connection
+     */
+    public boolean connectionAllowed(EventSetDescriptor esd) {
+        return connectionAllowed(esd.getName());
+    }
+
+    /**
+     * Notify this object that it has been registered as a listener with
+     * a source with respect to the supplied event name
+     *
+     * @param eventName the event name
+     * @param source    the source with which this object has been registered as
+     *                  a listener
+     */
+    public synchronized void connectionNotification(String eventName,
+                                                    Object source) {
+        if (connectionAllowed(eventName)) {
+            m_listenee = source;
+        }
+    }
+
+    /**
+     * Notify this object that it has been deregistered as a listener with
+     * a source with respect to the supplied event named
+     *
+     * @param eventName the event name
+     * @param source    the source with which this object has been registered as
+     *                  a listener
+     */
+    public synchronized void disconnectionNotification(String eventName,
+                                                       Object source) {
+        if (m_listenee == source) {
+            m_listenee = null;
+        }
+    }
+
+    /**
+     * Set a logger
+     *
+     * @param logger a <code>weka.gui.Logger</code> value
+     */
+    public void setLog(weka.gui.Logger logger) {
+        m_logger = logger;
+    }
+
+    /**
+     * Stop any processing that the bean might be doing.
+     * Subclass must implement
+     */
+    public abstract void stop();
 
 }
 

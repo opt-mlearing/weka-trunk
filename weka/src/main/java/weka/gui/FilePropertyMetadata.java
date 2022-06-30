@@ -33,7 +33,7 @@ import java.lang.annotation.Target;
  * indicate whether an JFileChooser.OPEN_DIALOG or JFileChooser.SAVE_DIALOG
  * should be used with the property and, furthermore, whether the dialog should
  * allow only files or directories to be selected.
- * 
+ *
  * @author Mark Hall (mhall{[at]}pentaho{[dot]}com)
  * @version $Revision: $
  */
@@ -42,19 +42,19 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 public @interface FilePropertyMetadata {
 
-  /**
-   * Specify the type of JFileChooser dialog that should be used - i.e. either
-   * JFileChooser.OPEN_DIALOG or JFileChooser.SAVE_DIALOG
-   *
-   * @return the type of JFileChooser dialog to use
-   */
-  int fileChooserDialogType();
+    /**
+     * Specify the type of JFileChooser dialog that should be used - i.e. either
+     * JFileChooser.OPEN_DIALOG or JFileChooser.SAVE_DIALOG
+     *
+     * @return the type of JFileChooser dialog to use
+     */
+    int fileChooserDialogType();
 
-  /**
-   * Returns true if the file chooser dialog should only allow directories to be
-   * selected, otherwise it will allow only files to be selected
-   *
-   * @return true if only directories rather than files should be selected
-   */
-  boolean directoriesOnly();
+    /**
+     * Returns true if the file chooser dialog should only allow directories to be
+     * selected, otherwise it will allow only files to be selected
+     *
+     * @return true if only directories rather than files should be selected
+     */
+    boolean directoriesOnly();
 }

@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlEnumValue;
 
 /**
  * <p>Java class for BASELINE-TEST-STATISTIC.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
@@ -28,7 +28,6 @@ import javax.xml.bind.annotation.XmlEnumValue;
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
- * 
  */
 @XmlEnum
 public enum BASELINETESTSTATISTIC {
@@ -53,7 +52,7 @@ public enum BASELINETESTSTATISTIC {
     }
 
     public static BASELINETESTSTATISTIC fromValue(String v) {
-        for (BASELINETESTSTATISTIC c: BASELINETESTSTATISTIC.values()) {
+        for (BASELINETESTSTATISTIC c : BASELINETESTSTATISTIC.values()) {
             if (c.value.equals(v)) {
                 return c;
             }

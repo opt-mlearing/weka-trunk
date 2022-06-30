@@ -20,9 +20,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for ROC element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="ROC">
  *   &lt;complexType>
@@ -41,13 +41,11 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "extension",
-    "rocGraph"
+        "extension",
+        "rocGraph"
 })
 @XmlRootElement(name = "ROC")
 public class ROC {
@@ -67,25 +65,23 @@ public class ROC {
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extension }
-     * 
-     * 
      */
     public List<Extension> getExtension() {
         if (extension == null) {
@@ -96,11 +92,9 @@ public class ROC {
 
     /**
      * Gets the value of the rocGraph property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ROCGraph }
-     *     
+     *
+     * @return possible object is
+     * {@link ROCGraph }
      */
     public ROCGraph getROCGraph() {
         return rocGraph;
@@ -108,11 +102,9 @@ public class ROC {
 
     /**
      * Sets the value of the rocGraph property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link ROCGraph }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link ROCGraph }
      */
     public void setROCGraph(ROCGraph value) {
         this.rocGraph = value;
@@ -120,11 +112,9 @@ public class ROC {
 
     /**
      * Gets the value of the negativeTargetFieldDisplayValue property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getNegativeTargetFieldDisplayValue() {
         return negativeTargetFieldDisplayValue;
@@ -132,11 +122,9 @@ public class ROC {
 
     /**
      * Sets the value of the negativeTargetFieldDisplayValue property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setNegativeTargetFieldDisplayValue(String value) {
         this.negativeTargetFieldDisplayValue = value;
@@ -144,11 +132,9 @@ public class ROC {
 
     /**
      * Gets the value of the negativeTargetFieldValue property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getNegativeTargetFieldValue() {
         return negativeTargetFieldValue;
@@ -156,11 +142,9 @@ public class ROC {
 
     /**
      * Sets the value of the negativeTargetFieldValue property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setNegativeTargetFieldValue(String value) {
         this.negativeTargetFieldValue = value;
@@ -168,11 +152,9 @@ public class ROC {
 
     /**
      * Gets the value of the positiveTargetFieldDisplayValue property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getPositiveTargetFieldDisplayValue() {
         return positiveTargetFieldDisplayValue;
@@ -180,11 +162,9 @@ public class ROC {
 
     /**
      * Sets the value of the positiveTargetFieldDisplayValue property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setPositiveTargetFieldDisplayValue(String value) {
         this.positiveTargetFieldDisplayValue = value;
@@ -192,11 +172,9 @@ public class ROC {
 
     /**
      * Gets the value of the positiveTargetFieldValue property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getPositiveTargetFieldValue() {
         return positiveTargetFieldValue;
@@ -204,11 +182,9 @@ public class ROC {
 
     /**
      * Sets the value of the positiveTargetFieldValue property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setPositiveTargetFieldValue(String value) {
         this.positiveTargetFieldValue = value;

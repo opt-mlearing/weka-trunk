@@ -31,10 +31,10 @@ import java.util.EventListener;
  */
 public interface TrainingSetListener extends EventListener {
 
-  /**
-   * Accept and process a training set
-   *
-   * @param e a <code>TrainingSetEvent</code> value
-   */
-  void acceptTrainingSet(TrainingSetEvent e);
+    /**
+     * Accept and process a training set
+     *
+     * @param e a <code>TrainingSetEvent</code> value
+     */
+    void acceptTrainingSet(TrainingSetEvent e);
 }

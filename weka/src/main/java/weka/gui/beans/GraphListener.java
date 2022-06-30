@@ -31,11 +31,11 @@ import java.util.EventListener;
  */
 public interface GraphListener extends EventListener {
 
-  /**
-   * Describe <code>acceptGraph</code> method here.
-   *
-   * @param e a <code>GraphEvent</code> value
-   */
-  void acceptGraph(GraphEvent e);
+    /**
+     * Describe <code>acceptGraph</code> method here.
+     *
+     * @param e a <code>GraphEvent</code> value
+     */
+    void acceptGraph(GraphEvent e);
 }
 

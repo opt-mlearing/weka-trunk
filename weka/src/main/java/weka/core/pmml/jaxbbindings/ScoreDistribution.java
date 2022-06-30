@@ -21,9 +21,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for ScoreDistribution element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="ScoreDistribution">
  *   &lt;complexType>
@@ -41,12 +41,10 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "extension"
+        "extension"
 })
 @XmlRootElement(name = "ScoreDistribution")
 public class ScoreDistribution {
@@ -64,25 +62,23 @@ public class ScoreDistribution {
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extension }
-     * 
-     * 
      */
     public List<Extension> getExtension() {
         if (extension == null) {
@@ -93,11 +89,9 @@ public class ScoreDistribution {
 
     /**
      * Gets the value of the confidence property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigDecimal }
-     *     
+     *
+     * @return possible object is
+     * {@link BigDecimal }
      */
     public BigDecimal getConfidence() {
         return confidence;
@@ -105,11 +99,9 @@ public class ScoreDistribution {
 
     /**
      * Sets the value of the confidence property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigDecimal }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link BigDecimal }
      */
     public void setConfidence(BigDecimal value) {
         this.confidence = value;
@@ -117,11 +109,9 @@ public class ScoreDistribution {
 
     /**
      * Gets the value of the probability property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigDecimal }
-     *     
+     *
+     * @return possible object is
+     * {@link BigDecimal }
      */
     public BigDecimal getProbability() {
         return probability;
@@ -129,11 +119,9 @@ public class ScoreDistribution {
 
     /**
      * Sets the value of the probability property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigDecimal }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link BigDecimal }
      */
     public void setProbability(BigDecimal value) {
         this.probability = value;
@@ -141,7 +129,6 @@ public class ScoreDistribution {
 
     /**
      * Gets the value of the recordCount property.
-     * 
      */
     public double getRecordCount() {
         return recordCount;
@@ -149,7 +136,6 @@ public class ScoreDistribution {
 
     /**
      * Sets the value of the recordCount property.
-     * 
      */
     public void setRecordCount(double value) {
         this.recordCount = value;
@@ -157,11 +143,9 @@ public class ScoreDistribution {
 
     /**
      * Gets the value of the value property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getValue() {
         return value;
@@ -169,11 +153,9 @@ public class ScoreDistribution {
 
     /**
      * Sets the value of the value property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setValue(String value) {
         this.value = value;

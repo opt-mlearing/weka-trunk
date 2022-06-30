@@ -26,46 +26,46 @@ package weka.gui.simplecli;
  * @author FracPete (fracpete at waikato dot ac dot nz)
  */
 public class Echo
-  extends AbstractCommand {
+        extends AbstractCommand {
 
-  /**
-   * Returns the name of the command.
-   *
-   * @return		the name
-   */
-  @Override
-  public String getName() {
-    return "echo";
-  }
+    /**
+     * Returns the name of the command.
+     *
+     * @return the name
+     */
+    @Override
+    public String getName() {
+        return "echo";
+    }
 
-  /**
-   * Returns the help string (no indentation).
-   *
-   * @return		the help
-   */
-  @Override
-  public String getHelp() {
-    return "Outputs a message.";
-  }
+    /**
+     * Returns the help string (no indentation).
+     *
+     * @return the help
+     */
+    @Override
+    public String getHelp() {
+        return "Outputs a message.";
+    }
 
-  /**
-   * Returns the one-liner help string for the parameters.
-   *
-   * @return		the help, empty if none available
-   */
-  public String getParameterHelp() {
-    return "msg";
-  }
+    /**
+     * Returns the one-liner help string for the parameters.
+     *
+     * @return the help, empty if none available
+     */
+    public String getParameterHelp() {
+        return "msg";
+    }
 
-  /**
-   * Executes the command with the given parameters.
-   *
-   * @param params 	the parameters for the command
-   * @throws Exception	if command fails
-   */
-  @Override
-  protected void doExecute(String[] params) throws Exception {
-    if (params.length > 0)
-      System.out.println(params[0]);
-  }
+    /**
+     * Executes the command with the given parameters.
+     *
+     * @param params the parameters for the command
+     * @throws Exception if command fails
+     */
+    @Override
+    protected void doExecute(String[] params) throws Exception {
+        if (params.length > 0)
+            System.out.println(params[0]);
+    }
 }

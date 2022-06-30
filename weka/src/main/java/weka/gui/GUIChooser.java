@@ -37,59 +37,63 @@ import java.util.List;
  */
 public class GUIChooser {
 
-  /**
-   * Interface for plugin components that can be accessed from either the
-   * Visualization or Tools menu.
-   *
-   * @author Mark Hall (mhall{[at]}pentaho{[dot]}com)
-   */
-  public static interface GUIChooserMenuPlugin {
-
-    /** Enum listing possible menus that plugins can appear in */
-    public static enum Menu {
-      TOOLS, VISUALIZATION
-    };
-
     /**
-     * Get the name to display in title bar of the enclosing JFrame for the
-     * plugin
+     * Interface for plugin components that can be accessed from either the
+     * Visualization or Tools menu.
      *
-     * @return the name to display in the title bar
+     * @author Mark Hall (mhall{[at]}pentaho{[dot]}com)
      */
-    String getApplicationName();
+    public static interface GUIChooserMenuPlugin {
 
-    /**
-     * Get the menu that the plugin is to be listed in
-     *
-     * @return the menu that the plugin is to be listed in
-     */
-    Menu getMenuToDisplayIn();
+        /**
+         * Enum listing possible menus that plugins can appear in
+         */
+        public static enum Menu {
+            TOOLS, VISUALIZATION
+        }
 
-    /**
-     * Get the text entry to appear in the menu
-     *
-     * @return the text entry to appear in the menu
-     */
-    String getMenuEntryText();
+        ;
 
-    /**
-     * Return the menu bar for this plugin
-     *
-     * @return the menu bar for this plugin or null if it does not use a menu
-     *         bar
-     */
-    JMenuBar getMenuBar();
-  }
+        /**
+         * Get the name to display in title bar of the enclosing JFrame for the
+         * plugin
+         *
+         * @return the name to display in the title bar
+         */
+        String getApplicationName();
 
-  public static void main(String[] args) {
-    List<String> message =
-      Arrays.asList("Waikato Environment for Knowledge Analysis",
-        "Version " + Version.VERSION,
-        "(c) " + Copyright.getFromYear() + " - " + Copyright.getToYear(),
-        "The University of Waikato", "Hamilton, New Zealand");
-    weka.gui.SplashWindow.splash(
-      ClassLoader.getSystemResource("weka/gui/weka_icon_new.png"), message);
-    weka.gui.SplashWindow.invokeMain("weka.gui.GUIChooserApp", args);
-    weka.gui.SplashWindow.disposeSplash();
-  }
+        /**
+         * Get the menu that the plugin is to be listed in
+         *
+         * @return the menu that the plugin is to be listed in
+         */
+        Menu getMenuToDisplayIn();
+
+        /**
+         * Get the text entry to appear in the menu
+         *
+         * @return the text entry to appear in the menu
+         */
+        String getMenuEntryText();
+
+        /**
+         * Return the menu bar for this plugin
+         *
+         * @return the menu bar for this plugin or null if it does not use a menu
+         * bar
+         */
+        JMenuBar getMenuBar();
+    }
+
+    public static void main(String[] args) {
+        List<String> message =
+                Arrays.asList("Waikato Environment for Knowledge Analysis",
+                        "Version " + Version.VERSION,
+                        "(c) " + Copyright.getFromYear() + " - " + Copyright.getToYear(),
+                        "The University of Waikato", "Hamilton, New Zealand");
+        weka.gui.SplashWindow.splash(
+                ClassLoader.getSystemResource("weka/gui/weka_icon_new.png"), message);
+        weka.gui.SplashWindow.invokeMain("weka.gui.GUIChooserApp", args);
+        weka.gui.SplashWindow.disposeSplash();
+    }
 }

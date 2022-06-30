@@ -21,9 +21,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for CompoundPredicate element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="CompoundPredicate">
  *   &lt;complexType>
@@ -50,13 +50,11 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "extension",
-    "simplePredicateOrCompoundPredicateOrSimpleSetPredicate"
+        "extension",
+        "simplePredicateOrCompoundPredicateOrSimpleSetPredicate"
 })
 @XmlRootElement(name = "CompoundPredicate")
 public class CompoundPredicate {
@@ -64,11 +62,11 @@ public class CompoundPredicate {
     @XmlElement(name = "Extension", namespace = "http://www.dmg.org/PMML-4_1", required = true)
     protected List<Extension> extension;
     @XmlElements({
-        @XmlElement(name = "SimpleSetPredicate", namespace = "http://www.dmg.org/PMML-4_1", required = true, type = SimpleSetPredicate.class),
-        @XmlElement(name = "SimplePredicate", namespace = "http://www.dmg.org/PMML-4_1", required = true, type = SimplePredicate.class),
-        @XmlElement(name = "False", namespace = "http://www.dmg.org/PMML-4_1", required = true, type = False.class),
-        @XmlElement(name = "True", namespace = "http://www.dmg.org/PMML-4_1", required = true, type = True.class),
-        @XmlElement(name = "CompoundPredicate", namespace = "http://www.dmg.org/PMML-4_1", required = true, type = CompoundPredicate.class)
+            @XmlElement(name = "SimpleSetPredicate", namespace = "http://www.dmg.org/PMML-4_1", required = true, type = SimpleSetPredicate.class),
+            @XmlElement(name = "SimplePredicate", namespace = "http://www.dmg.org/PMML-4_1", required = true, type = SimplePredicate.class),
+            @XmlElement(name = "False", namespace = "http://www.dmg.org/PMML-4_1", required = true, type = False.class),
+            @XmlElement(name = "True", namespace = "http://www.dmg.org/PMML-4_1", required = true, type = True.class),
+            @XmlElement(name = "CompoundPredicate", namespace = "http://www.dmg.org/PMML-4_1", required = true, type = CompoundPredicate.class)
     })
     protected List<Object> simplePredicateOrCompoundPredicateOrSimpleSetPredicate;
     @XmlAttribute(required = true)
@@ -76,25 +74,23 @@ public class CompoundPredicate {
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extension }
-     * 
-     * 
      */
     public List<Extension> getExtension() {
         if (extension == null) {
@@ -105,20 +101,20 @@ public class CompoundPredicate {
 
     /**
      * Gets the value of the simplePredicateOrCompoundPredicateOrSimpleSetPredicate property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the simplePredicateOrCompoundPredicateOrSimpleSetPredicate property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getSimplePredicateOrCompoundPredicateOrSimpleSetPredicate().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link SimpleSetPredicate }
@@ -126,8 +122,6 @@ public class CompoundPredicate {
      * {@link False }
      * {@link True }
      * {@link CompoundPredicate }
-     * 
-     * 
      */
     public List<Object> getSimplePredicateOrCompoundPredicateOrSimpleSetPredicate() {
         if (simplePredicateOrCompoundPredicateOrSimpleSetPredicate == null) {
@@ -138,11 +132,9 @@ public class CompoundPredicate {
 
     /**
      * Gets the value of the booleanOperator property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getBooleanOperator() {
         return booleanOperator;
@@ -150,11 +142,9 @@ public class CompoundPredicate {
 
     /**
      * Sets the value of the booleanOperator property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setBooleanOperator(String value) {
         this.booleanOperator = value;

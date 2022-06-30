@@ -21,9 +21,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for AnovaRow element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="AnovaRow">
  *   &lt;complexType>
@@ -51,12 +51,10 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "extension"
+        "extension"
 })
 @XmlRootElement(name = "AnovaRow")
 public class AnovaRow {
@@ -78,25 +76,23 @@ public class AnovaRow {
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extension }
-     * 
-     * 
      */
     public List<Extension> getExtension() {
         if (extension == null) {
@@ -107,7 +103,6 @@ public class AnovaRow {
 
     /**
      * Gets the value of the degreesOfFreedom property.
-     * 
      */
     public double getDegreesOfFreedom() {
         return degreesOfFreedom;
@@ -115,7 +110,6 @@ public class AnovaRow {
 
     /**
      * Sets the value of the degreesOfFreedom property.
-     * 
      */
     public void setDegreesOfFreedom(double value) {
         this.degreesOfFreedom = value;
@@ -123,11 +117,9 @@ public class AnovaRow {
 
     /**
      * Gets the value of the fValue property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public Double getFValue() {
         return fValue;
@@ -135,11 +127,9 @@ public class AnovaRow {
 
     /**
      * Sets the value of the fValue property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setFValue(Double value) {
         this.fValue = value;
@@ -147,11 +137,9 @@ public class AnovaRow {
 
     /**
      * Gets the value of the meanOfSquares property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public Double getMeanOfSquares() {
         return meanOfSquares;
@@ -159,11 +147,9 @@ public class AnovaRow {
 
     /**
      * Sets the value of the meanOfSquares property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setMeanOfSquares(Double value) {
         this.meanOfSquares = value;
@@ -171,11 +157,9 @@ public class AnovaRow {
 
     /**
      * Gets the value of the pValue property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigDecimal }
-     *     
+     *
+     * @return possible object is
+     * {@link BigDecimal }
      */
     public BigDecimal getPValue() {
         return pValue;
@@ -183,11 +167,9 @@ public class AnovaRow {
 
     /**
      * Sets the value of the pValue property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigDecimal }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link BigDecimal }
      */
     public void setPValue(BigDecimal value) {
         this.pValue = value;
@@ -195,7 +177,6 @@ public class AnovaRow {
 
     /**
      * Gets the value of the sumOfSquares property.
-     * 
      */
     public double getSumOfSquares() {
         return sumOfSquares;
@@ -203,7 +184,6 @@ public class AnovaRow {
 
     /**
      * Sets the value of the sumOfSquares property.
-     * 
      */
     public void setSumOfSquares(double value) {
         this.sumOfSquares = value;
@@ -211,11 +191,9 @@ public class AnovaRow {
 
     /**
      * Gets the value of the type property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getType() {
         return type;
@@ -223,11 +201,9 @@ public class AnovaRow {
 
     /**
      * Sets the value of the type property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setType(String value) {
         this.type = value;

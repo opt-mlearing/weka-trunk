@@ -29,5 +29,5 @@ import java.io.Serializable;
  */
 interface AttributeInfo extends Serializable {
 
-  /** Methods depend on the information that is stored. */
+    /** Methods depend on the information that is stored. */
 }

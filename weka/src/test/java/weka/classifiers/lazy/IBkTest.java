@@ -34,19 +34,23 @@ import junit.framework.TestSuite;
  */
 public class IBkTest extends AbstractClassifierTest {
 
-  public IBkTest(String name) { super(name);  }
+    public IBkTest(String name) {
+        super(name);
+    }
 
-  /** Creates a default IBk */
-  public Classifier getClassifier() {
-    return new IBk();
-  }
+    /**
+     * Creates a default IBk
+     */
+    public Classifier getClassifier() {
+        return new IBk();
+    }
 
-  public static Test suite() {
-    return new TestSuite(IBkTest.class);
-  }
+    public static Test suite() {
+        return new TestSuite(IBkTest.class);
+    }
 
-  public static void main(String[] args){
-    junit.textui.TestRunner.run(suite());
-  }
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 
 }

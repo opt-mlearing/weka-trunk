@@ -28,30 +28,30 @@ import weka.core.Instance;
 
 /**
  * Class implementing an inactive node (i.e. one that does not allow growth)
- * 
+ *
  * @author Richard Kirkby (rkirkby@cs.waikato.ac.nz)
  * @author Mark Hall (mhall{[at]}pentaho{[dot]}com)
  * @version $Revision$
  */
 public class InactiveHNode extends LeafNode implements LearningNode,
-    Serializable {
+        Serializable {
 
-  /**
-   * For serialization
-   */
-  private static final long serialVersionUID = -8747567733141700911L;
+    /**
+     * For serialization
+     */
+    private static final long serialVersionUID = -8747567733141700911L;
 
-  /**
-   * Constructor
-   * 
-   * @param classDistrib the class distribution at this node
-   */
-  public InactiveHNode(Map<String, WeightMass> classDistrib) {
-    m_classDistribution = classDistrib;
-  }
+    /**
+     * Constructor
+     *
+     * @param classDistrib the class distribution at this node
+     */
+    public InactiveHNode(Map<String, WeightMass> classDistrib) {
+        m_classDistribution = classDistrib;
+    }
 
-  @Override
-  public void updateNode(Instance inst) {
-    super.updateDistribution(inst);
-  }
+    @Override
+    public void updateNode(Instance inst) {
+        super.updateDistribution(inst);
+    }
 }

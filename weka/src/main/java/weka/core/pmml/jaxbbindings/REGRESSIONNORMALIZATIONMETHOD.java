@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlEnumValue;
 
 /**
  * <p>Java class for REGRESSIONNORMALIZATIONMETHOD.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
@@ -32,7 +32,6 @@ import javax.xml.bind.annotation.XmlEnumValue;
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
- * 
  */
 @XmlEnum
 public enum REGRESSIONNORMALIZATIONMETHOD {
@@ -66,7 +65,7 @@ public enum REGRESSIONNORMALIZATIONMETHOD {
     }
 
     public static REGRESSIONNORMALIZATIONMETHOD fromValue(String v) {
-        for (REGRESSIONNORMALIZATIONMETHOD c: REGRESSIONNORMALIZATIONMETHOD.values()) {
+        for (REGRESSIONNORMALIZATIONMETHOD c : REGRESSIONNORMALIZATIONMETHOD.values()) {
             if (c.value.equals(v)) {
                 return c;
             }

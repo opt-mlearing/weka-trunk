@@ -32,59 +32,59 @@ import java.beans.SimpleBeanInfo;
  * @author <a href="mailto:mhall@cs.waikato.ac.nz">Mark Hall</a>
  * @version $Revision$
  */
-public class ClassAssignerBeanInfo 
-  extends SimpleBeanInfo {
+public class ClassAssignerBeanInfo
+        extends SimpleBeanInfo {
 
-  /**
-   * Returns the event set descriptors
-   *
-   * @return an <code>EventSetDescriptor[]</code> value
-   */
-  public EventSetDescriptor [] getEventSetDescriptors() {
-    try {
-      EventSetDescriptor [] esds = 
-      { new EventSetDescriptor(DataSource.class, 
-			       "dataSet", 
-			       DataSourceListener.class, 
-			       "acceptDataSet"),
-	new EventSetDescriptor(DataSource.class, 
-			       "instance", 
-			       InstanceListener.class, 
-			       "acceptInstance"),
-	new EventSetDescriptor(TrainingSetProducer.class, 
-			       "trainingSet", 
-			       TrainingSetListener.class, 
-			       "acceptTrainingSet"),
-	new EventSetDescriptor(TestSetProducer.class, 
-			       "testSet", 
-			       TestSetListener.class, 
-			       "acceptTestSet")  };
-      return esds;
-    } catch (Exception ex) {
-      ex.printStackTrace();
+    /**
+     * Returns the event set descriptors
+     *
+     * @return an <code>EventSetDescriptor[]</code> value
+     */
+    public EventSetDescriptor[] getEventSetDescriptors() {
+        try {
+            EventSetDescriptor[] esds =
+                    {new EventSetDescriptor(DataSource.class,
+                            "dataSet",
+                            DataSourceListener.class,
+                            "acceptDataSet"),
+                            new EventSetDescriptor(DataSource.class,
+                                    "instance",
+                                    InstanceListener.class,
+                                    "acceptInstance"),
+                            new EventSetDescriptor(TrainingSetProducer.class,
+                                    "trainingSet",
+                                    TrainingSetListener.class,
+                                    "acceptTrainingSet"),
+                            new EventSetDescriptor(TestSetProducer.class,
+                                    "testSet",
+                                    TestSetListener.class,
+                                    "acceptTestSet")};
+            return esds;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return null;
     }
-    return null;
-  }
-  
-  /**
-   * Returns the property descriptors
-   *
-   * @return a <code>PropertyDescriptor[]</code> value
-   */
-  public PropertyDescriptor[] getPropertyDescriptors() {
-    try {
-      PropertyDescriptor p1;
-      p1 = new PropertyDescriptor("classColumn", ClassAssigner.class);
-      PropertyDescriptor [] pds = { p1 };
-      return pds;
-    } catch (Exception ex) {
-      ex.printStackTrace();
-    }
-    return null;
-  }
 
-  public BeanDescriptor getBeanDescriptor() {
-    return new BeanDescriptor(weka.gui.beans.ClassAssigner.class,
-			      ClassAssignerCustomizer.class);
-  }
+    /**
+     * Returns the property descriptors
+     *
+     * @return a <code>PropertyDescriptor[]</code> value
+     */
+    public PropertyDescriptor[] getPropertyDescriptors() {
+        try {
+            PropertyDescriptor p1;
+            p1 = new PropertyDescriptor("classColumn", ClassAssigner.class);
+            PropertyDescriptor[] pds = {p1};
+            return pds;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
+
+    public BeanDescriptor getBeanDescriptor() {
+        return new BeanDescriptor(weka.gui.beans.ClassAssigner.class,
+                ClassAssignerCustomizer.class);
+    }
 }

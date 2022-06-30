@@ -26,48 +26,48 @@ package weka.gui.simplecli;
  * @author FracPete (fracpete at waikato dot ac dot nz)
  */
 public class Unset
-  extends AbstractCommand {
+        extends AbstractCommand {
 
-  /**
-   * Returns the name of the command.
-   *
-   * @return		the name
-   */
-  @Override
-  public String getName() {
-    return "unset";
-  }
+    /**
+     * Returns the name of the command.
+     *
+     * @return the name
+     */
+    @Override
+    public String getName() {
+        return "unset";
+    }
 
-  /**
-   * Returns the help string (no indentation).
-   *
-   * @return		the help
-   */
-  @Override
-  public String getHelp() {
-    return "Removes a variable.";
-  }
+    /**
+     * Returns the help string (no indentation).
+     *
+     * @return the help
+     */
+    @Override
+    public String getHelp() {
+        return "Removes a variable.";
+    }
 
-  /**
-   * Returns the one-liner help string for the parameters.
-   *
-   * @return		the help, empty if none available
-   */
-  public String getParameterHelp() {
-    return "name";
-  }
+    /**
+     * Returns the one-liner help string for the parameters.
+     *
+     * @return the help, empty if none available
+     */
+    public String getParameterHelp() {
+        return "name";
+    }
 
-  /**
-   * Executes the command with the given parameters.
-   *
-   * @param params 	the parameters for the command
-   * @throws Exception	if command fails
-   */
-  @Override
-  protected void doExecute(String[] params) throws Exception {
-    if (params.length != 1)
-      throw new Exception("Expected exactly one argument: name");
+    /**
+     * Executes the command with the given parameters.
+     *
+     * @param params the parameters for the command
+     * @throws Exception if command fails
+     */
+    @Override
+    protected void doExecute(String[] params) throws Exception {
+        if (params.length != 1)
+            throw new Exception("Expected exactly one argument: name");
 
-    m_Owner.getVariables().remove(params[0]);
-  }
+        m_Owner.getVariables().remove(params[0]);
+    }
 }

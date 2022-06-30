@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlEnumValue;
 
 /**
  * <p>Java class for MISSING-VALUE-STRATEGY.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
@@ -29,7 +29,6 @@ import javax.xml.bind.annotation.XmlEnumValue;
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
- * 
  */
 @XmlEnum
 public enum MISSINGVALUESTRATEGY {
@@ -57,7 +56,7 @@ public enum MISSINGVALUESTRATEGY {
     }
 
     public static MISSINGVALUESTRATEGY fromValue(String v) {
-        for (MISSINGVALUESTRATEGY c: MISSINGVALUESTRATEGY.values()) {
+        for (MISSINGVALUESTRATEGY c : MISSINGVALUESTRATEGY.values()) {
             if (c.value.equals(v)) {
                 return c;
             }

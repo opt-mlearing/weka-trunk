@@ -31,19 +31,19 @@ import java.beans.SimpleBeanInfo;
  * @version $Revision$
  */
 public class ClustererPerformanceEvaluatorBeanInfo extends SimpleBeanInfo {
-  
-  public EventSetDescriptor [] getEventSetDescriptors() {
-    try {
-      EventSetDescriptor [] esds = { 
-	new EventSetDescriptor(ClustererPerformanceEvaluator.class, 
-			       "text", 
-			       TextListener.class, 
-			       "acceptText")};
-	
-      return esds;
-    } catch (Exception ex) {
-      ex.printStackTrace();
+
+    public EventSetDescriptor[] getEventSetDescriptors() {
+        try {
+            EventSetDescriptor[] esds = {
+                    new EventSetDescriptor(ClustererPerformanceEvaluator.class,
+                            "text",
+                            TextListener.class,
+                            "acceptText")};
+
+            return esds;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return null;
     }
-    return null;
-  }
 }

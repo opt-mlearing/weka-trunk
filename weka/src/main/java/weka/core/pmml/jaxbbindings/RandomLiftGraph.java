@@ -19,9 +19,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for RandomLiftGraph element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="RandomLiftGraph">
  *   &lt;complexType>
@@ -36,13 +36,11 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "extension",
-    "liftGraph"
+        "extension",
+        "liftGraph"
 })
 @XmlRootElement(name = "RandomLiftGraph")
 public class RandomLiftGraph {
@@ -54,25 +52,23 @@ public class RandomLiftGraph {
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extension }
-     * 
-     * 
      */
     public List<Extension> getExtension() {
         if (extension == null) {
@@ -83,11 +79,9 @@ public class RandomLiftGraph {
 
     /**
      * Gets the value of the liftGraph property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link LiftGraph }
-     *     
+     *
+     * @return possible object is
+     * {@link LiftGraph }
      */
     public LiftGraph getLiftGraph() {
         return liftGraph;
@@ -95,11 +89,9 @@ public class RandomLiftGraph {
 
     /**
      * Sets the value of the liftGraph property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link LiftGraph }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link LiftGraph }
      */
     public void setLiftGraph(LiftGraph value) {
         this.liftGraph = value;

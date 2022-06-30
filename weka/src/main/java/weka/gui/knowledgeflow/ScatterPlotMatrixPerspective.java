@@ -38,87 +38,91 @@ import java.awt.BorderLayout;
  * @version $Revision: $
  */
 @PerspectiveInfo(ID = "weka.gui.knowledgeflow.scatterplotmatrixperspective",
-  title = "Scatter plot matrix", toolTipText = "Scatter plots",
-  iconPath = "weka/gui/knowledgeflow/icons/application_view_tile.png")
+        title = "Scatter plot matrix", toolTipText = "Scatter plots",
+        iconPath = "weka/gui/knowledgeflow/icons/application_view_tile.png")
 public class ScatterPlotMatrixPerspective extends AbstractPerspective {
 
-  private static final long serialVersionUID = 5661598509822826837L;
+    private static final long serialVersionUID = 5661598509822826837L;
 
-  /** The actual matrix panel */
-  protected MatrixPanel m_matrixPanel;
+    /**
+     * The actual matrix panel
+     */
+    protected MatrixPanel m_matrixPanel;
 
-  /** The dataset being visualized */
-  protected Instances m_visualizeDataSet;
+    /**
+     * The dataset being visualized
+     */
+    protected Instances m_visualizeDataSet;
 
-  /**
-   * Constructor
-   */
-  public ScatterPlotMatrixPerspective() {
-    setLayout(new BorderLayout());
-    m_matrixPanel = new MatrixPanel();
-    add(m_matrixPanel, BorderLayout.CENTER);
-  }
-
-  /**
-   * Get default settings
-   *
-   * @return the default settings of this perspective
-   */
-  @Override
-  public Defaults getDefaultSettings() {
-    // re-use explorer.VisualizePanel.ScatterDefaults, but set the ID
-    // to be our perspective ID
-    Defaults d = new VisualizePanel.ScatterDefaults();
-    d.setID(getPerspectiveID());
-    d.add(new VisualizeUtils.VisualizeDefaults());
-    return d;
-  }
-
-  /**
-   * Returns true - we accept instances.
-   *
-   * @return true
-   */
-  @Override
-  public boolean acceptsInstances() {
-    return true;
-  }
-
-  /**
-   * Called when this perspective becomes the "active" (i.e. visible) one
-   *
-   * @param active true if this perspective is the active one
-   */
-  @Override
-  public void setActive(boolean active) {
-    super.setActive(active);
-    if (m_isActive && m_visualizeDataSet != null) {
-      m_matrixPanel.applySettings(getMainApplication().getApplicationSettings(),
-        getPerspectiveID());
-      m_matrixPanel.updatePanel();
+    /**
+     * Constructor
+     */
+    public ScatterPlotMatrixPerspective() {
+        setLayout(new BorderLayout());
+        m_matrixPanel = new MatrixPanel();
+        add(m_matrixPanel, BorderLayout.CENTER);
     }
-  }
 
-  /**
-   * Set the instances to use
-   *
-   * @param instances the instances instances to use
-   */
-  @Override
-  public void setInstances(Instances instances) {
-    m_visualizeDataSet = instances;
-    m_matrixPanel.setInstances(m_visualizeDataSet);
-  }
+    /**
+     * Get default settings
+     *
+     * @return the default settings of this perspective
+     */
+    @Override
+    public Defaults getDefaultSettings() {
+        // re-use explorer.VisualizePanel.ScatterDefaults, but set the ID
+        // to be our perspective ID
+        Defaults d = new VisualizePanel.ScatterDefaults();
+        d.setID(getPerspectiveID());
+        d.add(new VisualizeUtils.VisualizeDefaults());
+        return d;
+    }
 
-  /**
-   * Can we be active (i.e. selected) at this point in time? True if we
-   * have a dataset to visualize
-   *
-   * @return true if we have a dataset to visualize
-   */
-  @Override
-  public boolean okToBeActive() {
-    return m_visualizeDataSet != null;
-  }
+    /**
+     * Returns true - we accept instances.
+     *
+     * @return true
+     */
+    @Override
+    public boolean acceptsInstances() {
+        return true;
+    }
+
+    /**
+     * Called when this perspective becomes the "active" (i.e. visible) one
+     *
+     * @param active true if this perspective is the active one
+     */
+    @Override
+    public void setActive(boolean active) {
+        super.setActive(active);
+        if (m_isActive && m_visualizeDataSet != null) {
+            m_matrixPanel.applySettings(getMainApplication().getApplicationSettings(),
+                    getPerspectiveID());
+            m_matrixPanel.updatePanel();
+        }
+    }
+
+    /**
+     * Set the instances to use
+     *
+     * @param instances the instances instances to use
+     */
+    @Override
+    public void setInstances(Instances instances) {
+        m_visualizeDataSet = instances;
+        m_matrixPanel.setInstances(m_visualizeDataSet);
+    }
+
+    /**
+     * Can we be active (i.e. selected) at this point in time? True if we
+     * have a dataset to visualize
+     *
+     * @return true if we have a dataset to visualize
+     */
+    @Override
+    public boolean okToBeActive() {
+        return m_visualizeDataSet != null;
+    }
 
 }

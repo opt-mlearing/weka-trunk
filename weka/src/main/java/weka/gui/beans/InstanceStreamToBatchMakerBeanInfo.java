@@ -31,24 +31,24 @@ import java.beans.SimpleBeanInfo;
  * @version $Revision$
  */
 public class InstanceStreamToBatchMakerBeanInfo
-  extends SimpleBeanInfo {
+        extends SimpleBeanInfo {
 
-  /**
-   * Returns the event set descriptors
-   *
-   * @return an <code>EventSetDescriptor[]</code> value
-   */
-  public EventSetDescriptor [] getEventSetDescriptors() {
-    try {
-      EventSetDescriptor [] esds = 
-      { new EventSetDescriptor(DataSource.class, 
-			       "dataSet", 
-			       DataSourceListener.class, 
-			       "acceptDataSet")};
-      return esds;
-    } catch (Exception ex) {
-      ex.printStackTrace();
+    /**
+     * Returns the event set descriptors
+     *
+     * @return an <code>EventSetDescriptor[]</code> value
+     */
+    public EventSetDescriptor[] getEventSetDescriptors() {
+        try {
+            EventSetDescriptor[] esds =
+                    {new EventSetDescriptor(DataSource.class,
+                            "dataSet",
+                            DataSourceListener.class,
+                            "acceptDataSet")};
+            return esds;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return null;
     }
-    return null;
-  }
 }

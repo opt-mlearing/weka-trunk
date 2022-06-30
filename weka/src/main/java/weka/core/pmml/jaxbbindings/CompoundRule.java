@@ -20,9 +20,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for CompoundRule element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="CompoundRule">
  *   &lt;complexType>
@@ -38,18 +38,16 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "extension",
-    "simplePredicate",
-    "compoundPredicate",
-    "simpleSetPredicate",
-    "_true",
-    "_false",
-    "rule"
+        "extension",
+        "simplePredicate",
+        "compoundPredicate",
+        "simpleSetPredicate",
+        "_true",
+        "_false",
+        "rule"
 })
 @XmlRootElement(name = "CompoundRule")
 public class CompoundRule {
@@ -67,32 +65,30 @@ public class CompoundRule {
     @XmlElement(name = "False", namespace = "http://www.dmg.org/PMML-4_1")
     protected False _false;
     @XmlElements({
-        @XmlElement(name = "CompoundRule", namespace = "http://www.dmg.org/PMML-4_1", required = true, type = CompoundRule.class),
-        @XmlElement(name = "SimpleRule", namespace = "http://www.dmg.org/PMML-4_1", required = true, type = SimpleRule.class)
+            @XmlElement(name = "CompoundRule", namespace = "http://www.dmg.org/PMML-4_1", required = true, type = CompoundRule.class),
+            @XmlElement(name = "SimpleRule", namespace = "http://www.dmg.org/PMML-4_1", required = true, type = SimpleRule.class)
     })
     protected List<Object> rule;
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extension }
-     * 
-     * 
      */
     public List<Extension> getExtension() {
         if (extension == null) {
@@ -103,11 +99,9 @@ public class CompoundRule {
 
     /**
      * Gets the value of the simplePredicate property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link SimplePredicate }
-     *     
+     *
+     * @return possible object is
+     * {@link SimplePredicate }
      */
     public SimplePredicate getSimplePredicate() {
         return simplePredicate;
@@ -115,11 +109,9 @@ public class CompoundRule {
 
     /**
      * Sets the value of the simplePredicate property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link SimplePredicate }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link SimplePredicate }
      */
     public void setSimplePredicate(SimplePredicate value) {
         this.simplePredicate = value;
@@ -127,11 +119,9 @@ public class CompoundRule {
 
     /**
      * Gets the value of the compoundPredicate property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CompoundPredicate }
-     *     
+     *
+     * @return possible object is
+     * {@link CompoundPredicate }
      */
     public CompoundPredicate getCompoundPredicate() {
         return compoundPredicate;
@@ -139,11 +129,9 @@ public class CompoundRule {
 
     /**
      * Sets the value of the compoundPredicate property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link CompoundPredicate }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link CompoundPredicate }
      */
     public void setCompoundPredicate(CompoundPredicate value) {
         this.compoundPredicate = value;
@@ -151,11 +139,9 @@ public class CompoundRule {
 
     /**
      * Gets the value of the simpleSetPredicate property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link SimpleSetPredicate }
-     *     
+     *
+     * @return possible object is
+     * {@link SimpleSetPredicate }
      */
     public SimpleSetPredicate getSimpleSetPredicate() {
         return simpleSetPredicate;
@@ -163,11 +149,9 @@ public class CompoundRule {
 
     /**
      * Sets the value of the simpleSetPredicate property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link SimpleSetPredicate }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link SimpleSetPredicate }
      */
     public void setSimpleSetPredicate(SimpleSetPredicate value) {
         this.simpleSetPredicate = value;
@@ -175,11 +159,9 @@ public class CompoundRule {
 
     /**
      * Gets the value of the true property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link True }
-     *     
+     *
+     * @return possible object is
+     * {@link True }
      */
     public True getTrue() {
         return _true;
@@ -187,11 +169,9 @@ public class CompoundRule {
 
     /**
      * Sets the value of the true property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link True }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link True }
      */
     public void setTrue(True value) {
         this._true = value;
@@ -199,11 +179,9 @@ public class CompoundRule {
 
     /**
      * Gets the value of the false property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link False }
-     *     
+     *
+     * @return possible object is
+     * {@link False }
      */
     public False getFalse() {
         return _false;
@@ -211,11 +189,9 @@ public class CompoundRule {
 
     /**
      * Sets the value of the false property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link False }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link False }
      */
     public void setFalse(False value) {
         this._false = value;
@@ -223,26 +199,24 @@ public class CompoundRule {
 
     /**
      * Gets the value of the rule property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the rule property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getRule().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link CompoundRule }
      * {@link SimpleRule }
-     * 
-     * 
      */
     public List<Object> getRule() {
         if (rule == null) {

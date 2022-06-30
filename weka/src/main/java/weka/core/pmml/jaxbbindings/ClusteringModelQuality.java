@@ -17,9 +17,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for ClusteringModelQuality element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="ClusteringModelQuality">
  *   &lt;complexType>
@@ -33,8 +33,6 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "")
@@ -50,11 +48,9 @@ public class ClusteringModelQuality {
 
     /**
      * Gets the value of the ssb property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public Double getSSB() {
         return ssb;
@@ -62,11 +58,9 @@ public class ClusteringModelQuality {
 
     /**
      * Sets the value of the ssb property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setSSB(Double value) {
         this.ssb = value;
@@ -74,11 +68,9 @@ public class ClusteringModelQuality {
 
     /**
      * Gets the value of the sse property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public Double getSSE() {
         return sse;
@@ -86,11 +78,9 @@ public class ClusteringModelQuality {
 
     /**
      * Sets the value of the sse property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setSSE(Double value) {
         this.sse = value;
@@ -98,11 +88,9 @@ public class ClusteringModelQuality {
 
     /**
      * Gets the value of the dataName property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getDataName() {
         return dataName;
@@ -110,11 +98,9 @@ public class ClusteringModelQuality {
 
     /**
      * Sets the value of the dataName property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setDataName(String value) {
         this.dataName = value;

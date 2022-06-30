@@ -27,9 +27,9 @@ import java.beans.EventSetDescriptor;
  * Interface specifying routines that all weka beans should implement
  * in order to allow the bean environment to exercise some control over the
  * bean and also to allow the bean to exercise some control over connections.
- *
+ * <p>
  * Beans may want to  impose constraints in terms of
- * the number of connections they will allow via a particular 
+ * the number of connections they will allow via a particular
  * listener interface. Some beans may only want to be registered
  * as a listener for a particular event type with only one source, or
  * perhaps a limited number of sources.
@@ -40,78 +40,78 @@ import java.beans.EventSetDescriptor;
  */
 public interface BeanCommon {
 
-  /**
-   * Set a custom (descriptive) name for this bean
-   * 
-   * @param name the name to use
-   */
-  void setCustomName(String name);
-  
-  /**
-   * Get the custom (descriptive) name for this bean (if one has been set)
-   * 
-   * @return the custom name (or the default name)
-   */
-  String getCustomName();
+    /**
+     * Set a custom (descriptive) name for this bean
+     *
+     * @param name the name to use
+     */
+    void setCustomName(String name);
 
-  /**
-   * Stop any processing that the bean might be doing.
-   */
-  void stop();
-  
-  /**
-   * Returns true if. at this time, the bean is busy with some
-   * (i.e. perhaps a worker thread is performing some calculation).
-   * 
-   * @return true if the bean is busy.
-   */
-  boolean isBusy();
+    /**
+     * Get the custom (descriptive) name for this bean (if one has been set)
+     *
+     * @return the custom name (or the default name)
+     */
+    String getCustomName();
 
-  /**
-   * Set a logger
-   *
-   * @param logger a <code>weka.gui.Logger</code> value
-   */
-  void setLog(weka.gui.Logger logger);
+    /**
+     * Stop any processing that the bean might be doing.
+     */
+    void stop();
+
+    /**
+     * Returns true if. at this time, the bean is busy with some
+     * (i.e. perhaps a worker thread is performing some calculation).
+     *
+     * @return true if the bean is busy.
+     */
+    boolean isBusy();
+
+    /**
+     * Set a logger
+     *
+     * @param logger a <code>weka.gui.Logger</code> value
+     */
+    void setLog(weka.gui.Logger logger);
 
 
-  /**
-   * Returns true if, at this time, 
-   * the object will accept a connection via the named event
-   *
-   * @param esd the EventSetDescriptor for the event in question
-   * @return true if the object will accept a connection
-   */
-  boolean connectionAllowed(EventSetDescriptor esd);
+    /**
+     * Returns true if, at this time,
+     * the object will accept a connection via the named event
+     *
+     * @param esd the EventSetDescriptor for the event in question
+     * @return true if the object will accept a connection
+     */
+    boolean connectionAllowed(EventSetDescriptor esd);
 
-  /**
-   * Returns true if, at this time, 
-   * the object will accept a connection via the named event
-   *
-   * @param eventName the name of the event
-   * @return true if the object will accept a connection
-   */
-  boolean connectionAllowed(String eventName);
+    /**
+     * Returns true if, at this time,
+     * the object will accept a connection via the named event
+     *
+     * @param eventName the name of the event
+     * @return true if the object will accept a connection
+     */
+    boolean connectionAllowed(String eventName);
 
-  /**
-   * Notify this object that it has been registered as a listener with
-   * a source for recieving events described by the named event
-   * This object is responsible for recording this fact.
-   *
-   * @param eventName the event
-   * @param source the source with which this object has been registered as
-   * a listener
-   */
-  void connectionNotification(String eventName, Object source);
+    /**
+     * Notify this object that it has been registered as a listener with
+     * a source for recieving events described by the named event
+     * This object is responsible for recording this fact.
+     *
+     * @param eventName the event
+     * @param source    the source with which this object has been registered as
+     *                  a listener
+     */
+    void connectionNotification(String eventName, Object source);
 
-  /**
-   * Notify this object that it has been deregistered as a listener with
-   * a source for named event. This object is responsible
-   * for recording this fact.
-   *
-   * @param eventName the event
-   * @param source the source with which this object has been registered as
-   * a listener
-   */
-  void disconnectionNotification(String eventName, Object source);
+    /**
+     * Notify this object that it has been deregistered as a listener with
+     * a source for named event. This object is responsible
+     * for recording this fact.
+     *
+     * @param eventName the event
+     * @param source    the source with which this object has been registered as
+     *                  a listener
+     */
+    void disconnectionNotification(String eventName, Object source);
 }

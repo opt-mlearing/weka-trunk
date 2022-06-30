@@ -26,7 +26,7 @@ package weka.gui.explorer;
  * Classifier panel and execute it. E.g. A plugin could be
  * made to train and evaluate the configured classifier on
  * remote machine(s).<p>
- * 
+ * <p>
  * For full access to the protected member variables in the
  * ClassifierPanel, an implementation will need to be packaged
  * in weka.gui.explorer. The ClassifierPanel looks for implementations
@@ -34,31 +34,31 @@ package weka.gui.explorer;
  * of a single plugin) or a button that pops up a menu (in the
  * case of multiple plugins) in order to invoke the launch() method
  * on the plugin.
- * 
+ *
  * @author Mark Hall (mhall{[at]}pentaho{[dot]}com)
  * @version $Revision$
  */
 public interface ClassifierPanelLaunchHandlerPlugin {
-  
-  /**
-   * Allows the classifier panel to pass in a reference to
-   * itself
-   * 
-   * @param p the ClassifierPanel
-   */
-  void setClassifierPanel(ClassifierPanel p);
-  
-  /**
-   * Get the name of the launch command (to appear as
-   * the button text or in the popup menu)
-   * 
-   * @return the name of the launch command
-   */
-  String getLaunchCommand();
-  
-  /**
-   * Gets called when the user clicks the button or selects this
-   * plugin's entry from the popup menu.
-   */
-  void launch();
+
+    /**
+     * Allows the classifier panel to pass in a reference to
+     * itself
+     *
+     * @param p the ClassifierPanel
+     */
+    void setClassifierPanel(ClassifierPanel p);
+
+    /**
+     * Get the name of the launch command (to appear as
+     * the button text or in the popup menu)
+     *
+     * @return the name of the launch command
+     */
+    String getLaunchCommand();
+
+    /**
+     * Gets called when the user clicks the button or selects this
+     * plugin's entry from the popup menu.
+     */
+    void launch();
 }

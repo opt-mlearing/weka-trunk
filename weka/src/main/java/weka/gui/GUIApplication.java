@@ -19,114 +19,114 @@
    *
    */
 
-package weka.gui;
+  package weka.gui;
 
-import weka.core.Defaults;
-import weka.core.Settings;
+  import weka.core.Defaults;
+  import weka.core.Settings;
 
-import javax.swing.*;
-
-/**
- * Interface to a GUIApplication that can have multiple "perspectives" and
- * provide application-level and perspective-level settings. Implementations
- * would typically extend {@code AbstractGUIApplication}.
- * 
- * @author Mark Hall (mhall{[at]}pentaho{[dot]}com)
- * @version $Revision: $
- */
-public interface GUIApplication {
+  import javax.swing.*;
 
   /**
-   * Get the name of this application
+   * Interface to a GUIApplication that can have multiple "perspectives" and
+   * provide application-level and perspective-level settings. Implementations
+   * would typically extend {@code AbstractGUIApplication}.
    *
-   * @return the name of this application
+   * @author Mark Hall (mhall{[at]}pentaho{[dot]}com)
+   * @version $Revision: $
    */
-  String getApplicationName();
+  public interface GUIApplication {
 
-  /**
-   * Get the ID of this application - any string unique to this application can
-   * be used
-   *
-   * @return the ID of this application
-   */
-  String getApplicationID();
+      /**
+       * Get the name of this application
+       *
+       * @return the name of this application
+       */
+      String getApplicationName();
 
-  /**
-   * Get the {@code PerspectiveManager} in use by this application
-   *
-   * @return the {@code Perspective Manager}
-   */
-  PerspectiveManager getPerspectiveManager();
+      /**
+       * Get the ID of this application - any string unique to this application can
+       * be used
+       *
+       * @return the ID of this application
+       */
+      String getApplicationID();
 
-  /**
-   * Get the main {@code Perspective} of this application - i.e. this is the
-   * panel, tab, screen etc. that is visible first at start-up.
-   *
-   * @return the main perspective
-   */
-  Perspective getMainPerspective();
+      /**
+       * Get the {@code PerspectiveManager} in use by this application
+       *
+       * @return the {@code Perspective Manager}
+       */
+      PerspectiveManager getPerspectiveManager();
 
-  /**
-   * Returns true if the perspectives toolbar is visible at the current time
-   *
-   * @return true if the perspectives toolbar is visible
-   */
-  boolean isPerspectivesToolBarVisible();
+      /**
+       * Get the main {@code Perspective} of this application - i.e. this is the
+       * panel, tab, screen etc. that is visible first at start-up.
+       *
+       * @return the main perspective
+       */
+      Perspective getMainPerspective();
 
-  /**
-   * Hide the perspectives toolbar
-   */
-  void hidePerspectivesToolBar();
+      /**
+       * Returns true if the perspectives toolbar is visible at the current time
+       *
+       * @return true if the perspectives toolbar is visible
+       */
+      boolean isPerspectivesToolBarVisible();
 
-  /**
-   * Show the perspectives toolbar
-   */
-  void showPerspectivesToolBar();
+      /**
+       * Hide the perspectives toolbar
+       */
+      void hidePerspectivesToolBar();
 
-  /**
-   * Popup a dialog displaying the supplied Exception
-   *
-   * @param cause the exception to show
-   */
-  void showErrorDialog(Exception cause);
+      /**
+       * Show the perspectives toolbar
+       */
+      void showPerspectivesToolBar();
 
-  /**
-   * Popup an information dialog
-   *
-   * @param information the "information" (typically some text) to display
-   * @param title the title for the dialog
-   * @param isWarning true if this is a warning rather than just information
-   */
-  void showInfoDialog(Object information, String title, boolean isWarning);
+      /**
+       * Popup a dialog displaying the supplied Exception
+       *
+       * @param cause the exception to show
+       */
+      void showErrorDialog(Exception cause);
 
-  /**
-   * Get the default values of settings for this application
-   *
-   * @return the default values of the settings for this applications
-   */
-  Defaults getApplicationDefaults();
+      /**
+       * Popup an information dialog
+       *
+       * @param information the "information" (typically some text) to display
+       * @param title       the title for the dialog
+       * @param isWarning   true if this is a warning rather than just information
+       */
+      void showInfoDialog(Object information, String title, boolean isWarning);
 
-  /**
-   * Get the current settings for this application
-   *
-   * @return the current settings for this application
-   */
-  Settings getApplicationSettings();
+      /**
+       * Get the default values of settings for this application
+       *
+       * @return the default values of the settings for this applications
+       */
+      Defaults getApplicationDefaults();
 
-  /**
-   * Called when settings are changed by the user
-   */
-  void settingsChanged();
+      /**
+       * Get the current settings for this application
+       *
+       * @return the current settings for this application
+       */
+      Settings getApplicationSettings();
 
-  /**
-   * Force a re-validation and repaint() of the application
-   */
-  void revalidate();
+      /**
+       * Called when settings are changed by the user
+       */
+      void settingsChanged();
 
-  /**
-   * Show the menu bar for the application
-   *
-   * @param topLevelAncestor the JFrame that contains the application
-   */
-  void showMenuBar(JFrame topLevelAncestor);
-}
+      /**
+       * Force a re-validation and repaint() of the application
+       */
+      void revalidate();
+
+      /**
+       * Show the menu bar for the application
+       *
+       * @param topLevelAncestor the JFrame that contains the application
+       */
+      void showMenuBar(JFrame topLevelAncestor);
+  }

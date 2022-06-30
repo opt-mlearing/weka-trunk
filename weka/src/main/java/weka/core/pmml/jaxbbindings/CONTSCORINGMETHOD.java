@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlEnumValue;
 
 /**
  * <p>Java class for CONT-SCORING-METHOD.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
@@ -26,7 +26,6 @@ import javax.xml.bind.annotation.XmlEnumValue;
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
- * 
  */
 @XmlEnum
 public enum CONTSCORINGMETHOD {
@@ -48,7 +47,7 @@ public enum CONTSCORINGMETHOD {
     }
 
     public static CONTSCORINGMETHOD fromValue(String v) {
-        for (CONTSCORINGMETHOD c: CONTSCORINGMETHOD.values()) {
+        for (CONTSCORINGMETHOD c : CONTSCORINGMETHOD.values()) {
             if (c.value.equals(v)) {
                 return c;
             }

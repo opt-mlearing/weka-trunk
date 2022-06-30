@@ -35,41 +35,43 @@ import weka.gui.visualize.PlotData2D;
  * @see EventObject
  */
 public class ThresholdDataEvent
-  extends EventObject {
+        extends EventObject {
 
-  /** for serialization */
-  private static final long serialVersionUID = -8309334224492439644L;
+    /**
+     * for serialization
+     */
+    private static final long serialVersionUID = -8309334224492439644L;
 
-  private PlotData2D m_dataSet;
-  
-  private Attribute m_classAttribute;
+    private PlotData2D m_dataSet;
 
-  public ThresholdDataEvent(Object source, PlotData2D dataSet) {
-    this(source, dataSet, null);
-  }
-  
-  public ThresholdDataEvent(Object source, PlotData2D dataSet, Attribute classAtt) {
-    super(source);
-    m_dataSet = dataSet;
-    m_classAttribute = classAtt;
-  }
-  
-  /**
-   * Return the instances of the data set
-   *
-   * @return an <code>Instances</code> value
-   */
-  public PlotData2D getDataSet() {
-    return m_dataSet;
-  }
-  
-  /**
-   * Return the class attribute for which the threshold data was generated
-   * for.
-   * 
-   * @return the class attribute for the threshold data or null if not set.
-   */
-  public Attribute getClassAttribute() {
-    return m_classAttribute;
-  }
+    private Attribute m_classAttribute;
+
+    public ThresholdDataEvent(Object source, PlotData2D dataSet) {
+        this(source, dataSet, null);
+    }
+
+    public ThresholdDataEvent(Object source, PlotData2D dataSet, Attribute classAtt) {
+        super(source);
+        m_dataSet = dataSet;
+        m_classAttribute = classAtt;
+    }
+
+    /**
+     * Return the instances of the data set
+     *
+     * @return an <code>Instances</code> value
+     */
+    public PlotData2D getDataSet() {
+        return m_dataSet;
+    }
+
+    /**
+     * Return the class attribute for which the threshold data was generated
+     * for.
+     *
+     * @return the class attribute for the threshold data or null if not set.
+     */
+    public Attribute getClassAttribute() {
+        return m_classAttribute;
+    }
 }

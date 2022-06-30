@@ -21,9 +21,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for AssociationRule element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="AssociationRule">
  *   &lt;complexType>
@@ -45,12 +45,10 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "extension"
+        "extension"
 })
 @XmlRootElement(name = "AssociationRule")
 public class AssociationRule {
@@ -76,25 +74,23 @@ public class AssociationRule {
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extension }
-     * 
-     * 
      */
     public List<Extension> getExtension() {
         if (extension == null) {
@@ -105,11 +101,9 @@ public class AssociationRule {
 
     /**
      * Gets the value of the affinity property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigDecimal }
-     *     
+     *
+     * @return possible object is
+     * {@link BigDecimal }
      */
     public BigDecimal getAffinity() {
         return affinity;
@@ -117,11 +111,9 @@ public class AssociationRule {
 
     /**
      * Sets the value of the affinity property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigDecimal }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link BigDecimal }
      */
     public void setAffinity(BigDecimal value) {
         this.affinity = value;
@@ -129,11 +121,9 @@ public class AssociationRule {
 
     /**
      * Gets the value of the antecedent property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getAntecedent() {
         return antecedent;
@@ -141,11 +131,9 @@ public class AssociationRule {
 
     /**
      * Sets the value of the antecedent property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setAntecedent(String value) {
         this.antecedent = value;
@@ -153,11 +141,9 @@ public class AssociationRule {
 
     /**
      * Gets the value of the confidence property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigDecimal }
-     *     
+     *
+     * @return possible object is
+     * {@link BigDecimal }
      */
     public BigDecimal getConfidence() {
         return confidence;
@@ -165,11 +151,9 @@ public class AssociationRule {
 
     /**
      * Sets the value of the confidence property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigDecimal }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link BigDecimal }
      */
     public void setConfidence(BigDecimal value) {
         this.confidence = value;
@@ -177,11 +161,9 @@ public class AssociationRule {
 
     /**
      * Gets the value of the consequent property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getConsequent() {
         return consequent;
@@ -189,11 +171,9 @@ public class AssociationRule {
 
     /**
      * Sets the value of the consequent property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setConsequent(String value) {
         this.consequent = value;
@@ -201,11 +181,9 @@ public class AssociationRule {
 
     /**
      * Gets the value of the id property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getId() {
         return id;
@@ -213,11 +191,9 @@ public class AssociationRule {
 
     /**
      * Sets the value of the id property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setId(String value) {
         this.id = value;
@@ -225,11 +201,9 @@ public class AssociationRule {
 
     /**
      * Gets the value of the leverage property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Float }
-     *     
+     *
+     * @return possible object is
+     * {@link Float }
      */
     public Float getLeverage() {
         return leverage;
@@ -237,11 +211,9 @@ public class AssociationRule {
 
     /**
      * Sets the value of the leverage property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Float }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Float }
      */
     public void setLeverage(Float value) {
         this.leverage = value;
@@ -249,11 +221,9 @@ public class AssociationRule {
 
     /**
      * Gets the value of the lift property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Float }
-     *     
+     *
+     * @return possible object is
+     * {@link Float }
      */
     public Float getLift() {
         return lift;
@@ -261,11 +231,9 @@ public class AssociationRule {
 
     /**
      * Sets the value of the lift property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Float }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Float }
      */
     public void setLift(Float value) {
         this.lift = value;
@@ -273,11 +241,9 @@ public class AssociationRule {
 
     /**
      * Gets the value of the support property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigDecimal }
-     *     
+     *
+     * @return possible object is
+     * {@link BigDecimal }
      */
     public BigDecimal getSupport() {
         return support;
@@ -285,11 +251,9 @@ public class AssociationRule {
 
     /**
      * Sets the value of the support property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigDecimal }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link BigDecimal }
      */
     public void setSupport(BigDecimal value) {
         this.support = value;

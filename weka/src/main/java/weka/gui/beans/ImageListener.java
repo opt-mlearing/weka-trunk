@@ -25,16 +25,16 @@ import java.util.EventListener;
 
 /**
  * Interface to something that can process an ImageEvent
- * 
+ *
  * @author Mark Hall (mhall{[at]}pentaho{[dot]}com)
  * @version $Revision$
  */
 public interface ImageListener extends EventListener {
-  
-  /**
-   * Accept and process an ImageEvent
-   * 
-   * @param image the image to process
-   */
-  void acceptImage(ImageEvent image);
+
+    /**
+     * Accept and process an ImageEvent
+     *
+     * @param image the image to process
+     */
+    void acceptImage(ImageEvent image);
 }

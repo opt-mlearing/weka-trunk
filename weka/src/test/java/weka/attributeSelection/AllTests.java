@@ -14,7 +14,7 @@
  */
 
 /*
- * Copyright (C) 2006 University of Waikato 
+ * Copyright (C) 2006 University of Waikato
  */
 
 package weka.attributeSelection;
@@ -31,20 +31,20 @@ import junit.framework.TestSuite;
  * @author FracPete (frapcete at waikato dot ac dot nz)
  * @version $Revision$
  */
-public class AllTests 
-  extends WekaTestSuite {
+public class AllTests
+        extends WekaTestSuite {
 
-  public static Test suite() {
-    TestSuite 	result;
-    
-    result = new TestSuite();
-    result.addTest(suite("weka.attributeSelection.ASSearch"));
-    result.addTest(suite("weka.attributeSelection.ASEvaluation"));
-    
-    return result;
-  }
+    public static Test suite() {
+        TestSuite result;
 
-  public static void main(String []args) {
-    junit.textui.TestRunner.run(suite());
-  }
+        result = new TestSuite();
+        result.addTest(suite("weka.attributeSelection.ASSearch"));
+        result.addTest(suite("weka.attributeSelection.ASEvaluation"));
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 }

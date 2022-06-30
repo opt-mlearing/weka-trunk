@@ -35,30 +35,32 @@ import weka.filters.Filter;
  */
 public class NumericToDateTest extends AbstractFilterTest {
 
-  public NumericToDateTest(String name) {
-    super(name);
-  }
+    public NumericToDateTest(String name) {
+        super(name);
+    }
 
-  /** Creates a default NumericToNominal */
-  public Filter getFilter() {
-    return new NumericToNominal();
-  }
+    /**
+     * Creates a default NumericToNominal
+     */
+    public Filter getFilter() {
+        return new NumericToNominal();
+    }
 
-  public void testTypical() {
-    Instances result = useFilter();
-    // Number of attributes and instances shouldn't change
-    assertEquals(m_Instances.numAttributes(), result.numAttributes());
-    assertEquals(m_Instances.numInstances(), result.numInstances());
-    // no numeric attributes should remain
-    if (result.checkForAttributeType(Attribute.NUMERIC))
-      fail("Numeric attribute(s) left over!");
-  }
+    public void testTypical() {
+        Instances result = useFilter();
+        // Number of attributes and instances shouldn't change
+        assertEquals(m_Instances.numAttributes(), result.numAttributes());
+        assertEquals(m_Instances.numInstances(), result.numInstances());
+        // no numeric attributes should remain
+        if (result.checkForAttributeType(Attribute.NUMERIC))
+            fail("Numeric attribute(s) left over!");
+    }
 
-  public static Test suite() {
-    return new TestSuite(NumericToDateTest.class);
-  }
+    public static Test suite() {
+        return new TestSuite(NumericToDateTest.class);
+    }
 
-  public static void main(String[] args){
-    junit.textui.TestRunner.run(suite());
-  }
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 }

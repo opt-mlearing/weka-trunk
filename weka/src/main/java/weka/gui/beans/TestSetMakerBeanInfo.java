@@ -29,5 +29,6 @@ package weka.gui.beans;
  * @author <a href="mailto:mhall@cs.waikato.ac.nz">Mark Hall</a>
  * @version $Revision$
  */
-public class TestSetMakerBeanInfo 
-  extends AbstractTestSetProducerBeanInfo { }
+public class TestSetMakerBeanInfo
+        extends AbstractTestSetProducerBeanInfo {
+}

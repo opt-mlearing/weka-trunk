@@ -23,8 +23,8 @@ package weka.core.scripting;
 
 /**
  * An indicator interface for Jython objects.
- * 
- * @author  fracpete (fracpete at waikato dot ac dot nz)
+ *
+ * @author fracpete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
 public interface JythonObject {

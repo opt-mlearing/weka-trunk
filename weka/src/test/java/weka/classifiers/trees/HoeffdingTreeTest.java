@@ -34,18 +34,22 @@ import junit.framework.TestSuite;
  */
 public class HoeffdingTreeTest extends AbstractClassifierTest {
 
-  public HoeffdingTreeTest(String name) { super(name);  }
+    public HoeffdingTreeTest(String name) {
+        super(name);
+    }
 
-  /** Creates a default HoeffdingTree */
-  public Classifier getClassifier() {
-    return new HoeffdingTree();
-  }
+    /**
+     * Creates a default HoeffdingTree
+     */
+    public Classifier getClassifier() {
+        return new HoeffdingTree();
+    }
 
-  public static Test suite() {
-    return new TestSuite(HoeffdingTreeTest.class);
-  }
+    public static Test suite() {
+        return new TestSuite(HoeffdingTreeTest.class);
+    }
 
-  public static void main(String[] args){
-    junit.textui.TestRunner.run(suite());
-  }
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 }

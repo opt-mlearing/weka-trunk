@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlEnumValue;
 
 /**
  * <p>Java class for NN-NORMALIZATION-METHOD.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
@@ -26,7 +26,6 @@ import javax.xml.bind.annotation.XmlEnumValue;
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
- * 
  */
 @XmlEnum
 public enum NNNORMALIZATIONMETHOD {
@@ -48,7 +47,7 @@ public enum NNNORMALIZATIONMETHOD {
     }
 
     public static NNNORMALIZATIONMETHOD fromValue(String v) {
-        for (NNNORMALIZATIONMETHOD c: NNNORMALIZATIONMETHOD.values()) {
+        for (NNNORMALIZATIONMETHOD c : NNNORMALIZATIONMETHOD.values()) {
             if (c.value.equals(v)) {
                 return c;
             }

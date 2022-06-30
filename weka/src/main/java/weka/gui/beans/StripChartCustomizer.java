@@ -37,51 +37,53 @@ import weka.gui.PropertySheetPanel;
  * @version $Revision$
  */
 public class StripChartCustomizer
-  extends JPanel
-  implements Customizer {
+        extends JPanel
+        implements Customizer {
 
-  /** for serialization */
-  private static final long serialVersionUID = 7441741530975984608L;
+    /**
+     * for serialization
+     */
+    private static final long serialVersionUID = 7441741530975984608L;
 
-  private PropertyChangeSupport m_pcSupport = 
-    new PropertyChangeSupport(this);
+    private PropertyChangeSupport m_pcSupport =
+            new PropertyChangeSupport(this);
 
-  private PropertySheetPanel m_cvEditor = 
-    new PropertySheetPanel();
+    private PropertySheetPanel m_cvEditor =
+            new PropertySheetPanel();
 
-  public StripChartCustomizer() {
-    setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 5, 5, 5));
+    public StripChartCustomizer() {
+        setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 5, 5, 5));
 
-    setLayout(new BorderLayout());
-    add(m_cvEditor, BorderLayout.CENTER);
-    add(new javax.swing.JLabel("StripChartCustomizer"), 
-	BorderLayout.NORTH);
-  }
-  
-  /**
-   * Set the StripChart object to be customized
-   *
-   * @param object a StripChart
-   */
-  public void setObject(Object object) {
-    m_cvEditor.setTarget((StripChart)object);
-  }
+        setLayout(new BorderLayout());
+        add(m_cvEditor, BorderLayout.CENTER);
+        add(new javax.swing.JLabel("StripChartCustomizer"),
+                BorderLayout.NORTH);
+    }
 
-  /**
-   * Add a property change listener
-   *
-   * @param pcl a <code>PropertyChangeListener</code> value
-   */
-  public void addPropertyChangeListener(PropertyChangeListener pcl) {
-    m_pcSupport.addPropertyChangeListener(pcl);
-  }
-  
-  /**
-   * Remove a property change listener
-   *
-   * @param pcl a <code>PropertyChangeListener</code> value
-   */
-  public void removePropertyChangeListener(PropertyChangeListener pcl) {
-    m_pcSupport.removePropertyChangeListener(pcl);
-  }
+    /**
+     * Set the StripChart object to be customized
+     *
+     * @param object a StripChart
+     */
+    public void setObject(Object object) {
+        m_cvEditor.setTarget((StripChart) object);
+    }
+
+    /**
+     * Add a property change listener
+     *
+     * @param pcl a <code>PropertyChangeListener</code> value
+     */
+    public void addPropertyChangeListener(PropertyChangeListener pcl) {
+        m_pcSupport.addPropertyChangeListener(pcl);
+    }
+
+    /**
+     * Remove a property change listener
+     *
+     * @param pcl a <code>PropertyChangeListener</code> value
+     */
+    public void removePropertyChangeListener(PropertyChangeListener pcl) {
+        m_pcSupport.removePropertyChangeListener(pcl);
+    }
 }

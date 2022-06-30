@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlEnumValue;
 
 /**
  * <p>Java class for OPTYPE.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
@@ -26,7 +26,6 @@ import javax.xml.bind.annotation.XmlEnumValue;
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
- * 
  */
 @XmlEnum
 public enum OPTYPE {
@@ -48,7 +47,7 @@ public enum OPTYPE {
     }
 
     public static OPTYPE fromValue(String v) {
-        for (OPTYPE c: OPTYPE.values()) {
+        for (OPTYPE c : OPTYPE.values()) {
             if (c.value.equals(v)) {
                 return c;
             }

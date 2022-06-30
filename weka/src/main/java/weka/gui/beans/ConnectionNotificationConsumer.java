@@ -23,39 +23,36 @@ package weka.gui.beans;
 /**
  * Interface for Beans that can receive (dis-)connection events generated when
  * (dis-)connecting data processing nodes in the Weka KnowledgeFlow.
- * 
+ * <p>
  * This is useful, for example, for "intelligent" filters that are able to share
  * configuration information with preceding nodes in the processing chain.
- * 
+ *
  * @author Carsten Pohle (cp AT cpohle de)
  * @version $Revision$
  */
 public interface ConnectionNotificationConsumer {
-  /**
-   * Notify this object that it has been registered as a listener with a source
-   * with respect to the supplied event name.
-   * 
-   * This method should be implemented <emph>synchronized</emph>.
-   * 
-   * @param eventName
-   * @param source
-   *          the source with which this object has been registered as a
-   *          listener
-   */
-  public void connectionNotification(String eventName, Object source);
+    /**
+     * Notify this object that it has been registered as a listener with a source
+     * with respect to the supplied event name.
+     * <p>
+     * This method should be implemented <emph>synchronized</emph>.
+     *
+     * @param eventName
+     * @param source    the source with which this object has been registered as a
+     *                  listener
+     */
+    public void connectionNotification(String eventName, Object source);
 
-  /**
-   * Notify this object that it has been deregistered as a listener with a
-   * source with respect to the supplied event name
-   * 
-   * This method should be implemented <emph>synchronized</emph>.
-   * 
-   * @param eventName
-   *          the event
-   * @param source
-   *          the source with which this object has been registered as a
-   *          listener
-   */
-  public void disconnectionNotification(String eventName, Object source);
+    /**
+     * Notify this object that it has been deregistered as a listener with a
+     * source with respect to the supplied event name
+     * <p>
+     * This method should be implemented <emph>synchronized</emph>.
+     *
+     * @param eventName the event
+     * @param source    the source with which this object has been registered as a
+     *                  listener
+     */
+    public void disconnectionNotification(String eventName, Object source);
 
 }

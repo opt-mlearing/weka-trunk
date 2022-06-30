@@ -20,9 +20,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for Target element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="Target">
  *   &lt;complexType>
@@ -52,13 +52,11 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "extension",
-    "targetValue"
+        "extension",
+        "targetValue"
 })
 @XmlRootElement(name = "Target")
 public class Target {
@@ -84,25 +82,23 @@ public class Target {
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extension }
-     * 
-     * 
      */
     public List<Extension> getExtension() {
         if (extension == null) {
@@ -113,25 +109,23 @@ public class Target {
 
     /**
      * Gets the value of the targetValue property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the targetValue property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getTargetValue().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link TargetValue }
-     * 
-     * 
      */
     public List<TargetValue> getTargetValue() {
         if (targetValue == null) {
@@ -142,11 +136,9 @@ public class Target {
 
     /**
      * Gets the value of the castInteger property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCastInteger() {
         return castInteger;
@@ -154,11 +146,9 @@ public class Target {
 
     /**
      * Sets the value of the castInteger property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCastInteger(String value) {
         this.castInteger = value;
@@ -166,11 +156,9 @@ public class Target {
 
     /**
      * Gets the value of the field property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getField() {
         return field;
@@ -178,11 +166,9 @@ public class Target {
 
     /**
      * Sets the value of the field property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setField(String value) {
         this.field = value;
@@ -190,11 +176,9 @@ public class Target {
 
     /**
      * Gets the value of the max property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public Double getMax() {
         return max;
@@ -202,11 +186,9 @@ public class Target {
 
     /**
      * Sets the value of the max property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setMax(Double value) {
         this.max = value;
@@ -214,11 +196,9 @@ public class Target {
 
     /**
      * Gets the value of the min property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public Double getMin() {
         return min;
@@ -226,11 +206,9 @@ public class Target {
 
     /**
      * Sets the value of the min property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setMin(Double value) {
         this.min = value;
@@ -238,11 +216,9 @@ public class Target {
 
     /**
      * Gets the value of the optype property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link OPTYPE }
-     *     
+     *
+     * @return possible object is
+     * {@link OPTYPE }
      */
     public OPTYPE getOptype() {
         return optype;
@@ -250,11 +226,9 @@ public class Target {
 
     /**
      * Sets the value of the optype property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link OPTYPE }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link OPTYPE }
      */
     public void setOptype(OPTYPE value) {
         this.optype = value;
@@ -262,15 +236,13 @@ public class Target {
 
     /**
      * Gets the value of the rescaleConstant property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public double getRescaleConstant() {
         if (rescaleConstant == null) {
-            return  0.0D;
+            return 0.0D;
         } else {
             return rescaleConstant;
         }
@@ -278,11 +250,9 @@ public class Target {
 
     /**
      * Sets the value of the rescaleConstant property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setRescaleConstant(Double value) {
         this.rescaleConstant = value;
@@ -290,15 +260,13 @@ public class Target {
 
     /**
      * Gets the value of the rescaleFactor property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public double getRescaleFactor() {
         if (rescaleFactor == null) {
-            return  1.0D;
+            return 1.0D;
         } else {
             return rescaleFactor;
         }
@@ -306,11 +274,9 @@ public class Target {
 
     /**
      * Sets the value of the rescaleFactor property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setRescaleFactor(Double value) {
         this.rescaleFactor = value;

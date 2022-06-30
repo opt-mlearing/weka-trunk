@@ -20,9 +20,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for BaselineCell element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="BaselineCell">
  *   &lt;complexType>
@@ -38,12 +38,10 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "extension"
+        "extension"
 })
 @XmlRootElement(name = "BaselineCell")
 public class BaselineCell {
@@ -57,25 +55,23 @@ public class BaselineCell {
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extension }
-     * 
-     * 
      */
     public List<Extension> getExtension() {
         if (extension == null) {
@@ -86,7 +82,6 @@ public class BaselineCell {
 
     /**
      * Gets the value of the cumHazard property.
-     * 
      */
     public double getCumHazard() {
         return cumHazard;
@@ -94,7 +89,6 @@ public class BaselineCell {
 
     /**
      * Sets the value of the cumHazard property.
-     * 
      */
     public void setCumHazard(double value) {
         this.cumHazard = value;
@@ -102,7 +96,6 @@ public class BaselineCell {
 
     /**
      * Gets the value of the time property.
-     * 
      */
     public double getTime() {
         return time;
@@ -110,7 +103,6 @@ public class BaselineCell {
 
     /**
      * Sets the value of the time property.
-     * 
      */
     public void setTime(double value) {
         this.time = value;

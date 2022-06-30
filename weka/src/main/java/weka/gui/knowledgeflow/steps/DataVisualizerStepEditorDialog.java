@@ -30,31 +30,31 @@ import weka.knowledgeflow.steps.DataVisualizer;
  * @version $Revision: $
  */
 public class DataVisualizerStepEditorDialog extends
-  ModelPerformanceChartStepEditorDialog {
+        ModelPerformanceChartStepEditorDialog {
 
-  private static final long serialVersionUID = -6032558757326543902L;
+    private static final long serialVersionUID = -6032558757326543902L;
 
-  /**
-   * Get the name of the offscreen renderer and options from the step
-   * being edited
-   */
-  @Override
-  protected void getCurrentSettings() {
-    m_currentRendererName =
-      ((DataVisualizer) getStepToEdit()).getOffscreenRendererName();
-    m_currentRendererOptions =
-      ((DataVisualizer) getStepToEdit()).getOffscreenAdditionalOpts();
-  }
+    /**
+     * Get the name of the offscreen renderer and options from the step
+     * being edited
+     */
+    @Override
+    protected void getCurrentSettings() {
+        m_currentRendererName =
+                ((DataVisualizer) getStepToEdit()).getOffscreenRendererName();
+        m_currentRendererOptions =
+                ((DataVisualizer) getStepToEdit()).getOffscreenAdditionalOpts();
+    }
 
-  /**
-   * Called when the OK button is pressed
-   */
-  @Override
-  public void okPressed() {
-    ((DataVisualizer) getStepToEdit())
-      .setOffscreenRendererName(m_offscreenSelector.getSelectedItem()
-        .toString());
-    ((DataVisualizer) getStepToEdit())
-      .setOffscreenAdditionalOpts(m_rendererOptions.getText());
-  }
+    /**
+     * Called when the OK button is pressed
+     */
+    @Override
+    public void okPressed() {
+        ((DataVisualizer) getStepToEdit())
+                .setOffscreenRendererName(m_offscreenSelector.getSelectedItem()
+                        .toString());
+        ((DataVisualizer) getStepToEdit())
+                .setOffscreenAdditionalOpts(m_rendererOptions.getText());
+    }
 }

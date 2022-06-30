@@ -31,11 +31,11 @@ import java.util.EventListener;
  * @see EventListener
  */
 public interface BatchClustererListener extends EventListener {
-  
-  /**
-   * Accept a BatchClustererEvent
-   *
-   * @param e a <code>BatchClustererEvent</code> value
-   */
-  void acceptClusterer(BatchClustererEvent e);
+
+    /**
+     * Accept a BatchClustererEvent
+     *
+     * @param e a <code>BatchClustererEvent</code> value
+     */
+    void acceptClusterer(BatchClustererEvent e);
 }

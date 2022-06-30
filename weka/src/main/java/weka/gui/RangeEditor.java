@@ -21,9 +21,10 @@
 package weka.gui;
 
 import weka.core.Range;
+
 import java.beans.PropertyEditorSupport;
 
-/** 
+/**
  * A PropertyEditor that can be used to edit Range objects (really, just appropriately formatted strings).
  *
  * @author Eibe Frank (eibe@waikato.ac.nz)
@@ -31,36 +32,36 @@ import java.beans.PropertyEditorSupport;
  */
 public class RangeEditor extends PropertyEditorSupport {
 
-  /**
-   * Returns a description of the property value as java source.
-   *
-   * @return a value of type 'String'
-   */
-  public String getJavaInitializationString() {
-    return "new Range(" + getAsText() + ")";
-  }
-
-  /**
-   * Gets the current value as text.
-   *
-   * @return a value of type 'String'
-   */
-  public String getAsText() {
-    return ((Range) getValue()).getRanges();
-  }
-
-  /**
-   * Sets the current property value as text.
-   *
-   * @param text the text of the selected tag.
-   * @throws IllegalArgumentException if an error occurs
-   */
-  public void setAsText(String text) {
-    try {
-      setValue(new Range(text));
-    } catch (Exception ex) {
-      throw new IllegalArgumentException(text);
+    /**
+     * Returns a description of the property value as java source.
+     *
+     * @return a value of type 'String'
+     */
+    public String getJavaInitializationString() {
+        return "new Range(" + getAsText() + ")";
     }
-  }
+
+    /**
+     * Gets the current value as text.
+     *
+     * @return a value of type 'String'
+     */
+    public String getAsText() {
+        return ((Range) getValue()).getRanges();
+    }
+
+    /**
+     * Sets the current property value as text.
+     *
+     * @param text the text of the selected tag.
+     * @throws IllegalArgumentException if an error occurs
+     */
+    public void setAsText(String text) {
+        try {
+            setValue(new Range(text));
+        } catch (Exception ex) {
+            throw new IllegalArgumentException(text);
+        }
+    }
 }
 

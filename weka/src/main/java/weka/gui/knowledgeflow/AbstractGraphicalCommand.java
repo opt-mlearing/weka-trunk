@@ -31,36 +31,40 @@ import weka.core.WekaException;
  */
 public abstract class AbstractGraphicalCommand {
 
-  /** A reference to the graphical environment */
-  protected Object m_graphicalEnv;
+    /**
+     * A reference to the graphical environment
+     */
+    protected Object m_graphicalEnv;
 
-  /** Set a reference to the graphical environment */
-  public void setGraphicalEnvironment(Object env) {
-    m_graphicalEnv = env;
-  }
+    /**
+     * Set a reference to the graphical environment
+     */
+    public void setGraphicalEnvironment(Object env) {
+        m_graphicalEnv = env;
+    }
 
-  /**
-   * Get the name of this command
-   *
-   * @return the name of this command
-   */
-  public abstract String getCommandName();
+    /**
+     * Get the name of this command
+     *
+     * @return the name of this command
+     */
+    public abstract String getCommandName();
 
-  /**
-   * Get a description of this command
-   *
-   * @return a description of this command
-   */
-  public abstract String getCommandDescription();
+    /**
+     * Get a description of this command
+     *
+     * @return a description of this command
+     */
+    public abstract String getCommandDescription();
 
-  /**
-   * Perform the command
-   *
-   * @param commandArgs arguments to the command
-   * @param <T> the return type
-   * @return the result, or null if the command does not return a result
-   * @throws WekaException if a problem occurs
-   */
-  public abstract <T> T performCommand(Object... commandArgs)
-    throws WekaException;
+    /**
+     * Perform the command
+     *
+     * @param commandArgs arguments to the command
+     * @param <T>         the return type
+     * @return the result, or null if the command does not return a result
+     * @throws WekaException if a problem occurs
+     */
+    public abstract <T> T performCommand(Object... commandArgs)
+            throws WekaException;
 }

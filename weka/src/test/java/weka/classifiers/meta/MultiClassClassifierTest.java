@@ -34,19 +34,23 @@ import junit.framework.TestSuite;
  */
 public class MultiClassClassifierTest extends AbstractClassifierTest {
 
-  public MultiClassClassifierTest(String name) { super(name);  }
+    public MultiClassClassifierTest(String name) {
+        super(name);
+    }
 
-  /** Creates a default MultiClassClassifier */
-  public Classifier getClassifier() {
-    return new MultiClassClassifier();
-  }
+    /**
+     * Creates a default MultiClassClassifier
+     */
+    public Classifier getClassifier() {
+        return new MultiClassClassifier();
+    }
 
-  public static Test suite() {
-    return new TestSuite(MultiClassClassifierTest.class);
-  }
+    public static Test suite() {
+        return new TestSuite(MultiClassClassifierTest.class);
+    }
 
-  public static void main(String[] args){
-    junit.textui.TestRunner.run(suite());
-  }
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 
 }

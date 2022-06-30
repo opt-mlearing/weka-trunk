@@ -27,44 +27,49 @@ import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 
-/** 
+/**
  * Support for any PropertyEditor that uses tags.
  *
  * @author Len Trigg (trigg@cs.waikato.ac.nz)
  * @version $Revision$
  */
 class PropertyValueSelector
-  extends JComboBox {
+        extends JComboBox {
 
-  /** for serialization */
-  private static final long serialVersionUID = 128041237745933212L;
+    /**
+     * for serialization
+     */
+    private static final long serialVersionUID = 128041237745933212L;
 
-  /** The property editor */
-  PropertyEditor m_Editor;
-  
-  /**
-   * Sets up the editing component with the supplied editor.
-   *
-   * @param pe the PropertyEditor
-   */
-  public PropertyValueSelector(PropertyEditor pe) {
-      
-    m_Editor = pe;
-    Object value = m_Editor.getAsText();
-    String tags[] = m_Editor.getTags();
-    ComboBoxModel model = new DefaultComboBoxModel(tags) {
-      private static final long serialVersionUID = 7942587653040180213L;
-      
-      public Object getSelectedItem() {
-	return m_Editor.getAsText();
-      }
-      public void setSelectedItem(Object o) {
-	m_Editor.setAsText((String)o);
-      }
-    };
-    setModel(model);
-    setSelectedItem(value);
-  }
+    /**
+     * The property editor
+     */
+    PropertyEditor m_Editor;
+
+    /**
+     * Sets up the editing component with the supplied editor.
+     *
+     * @param pe the PropertyEditor
+     */
+    public PropertyValueSelector(PropertyEditor pe) {
+
+        m_Editor = pe;
+        Object value = m_Editor.getAsText();
+        String tags[] = m_Editor.getTags();
+        ComboBoxModel model = new DefaultComboBoxModel(tags) {
+            private static final long serialVersionUID = 7942587653040180213L;
+
+            public Object getSelectedItem() {
+                return m_Editor.getAsText();
+            }
+
+            public void setSelectedItem(Object o) {
+                m_Editor.setAsText((String) o);
+            }
+        };
+        setModel(model);
+        setSelectedItem(value);
+    }
 }
 
 

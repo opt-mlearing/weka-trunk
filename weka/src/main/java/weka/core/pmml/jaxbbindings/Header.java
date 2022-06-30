@@ -20,9 +20,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for Header element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="Header">
  *   &lt;complexType>
@@ -41,15 +41,13 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "extension",
-    "application",
-    "annotation",
-    "timestamp"
+        "extension",
+        "application",
+        "annotation",
+        "timestamp"
 })
 @XmlRootElement(name = "Header")
 public class Header {
@@ -69,25 +67,23 @@ public class Header {
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extension }
-     * 
-     * 
      */
     public List<Extension> getExtension() {
         if (extension == null) {
@@ -98,11 +94,9 @@ public class Header {
 
     /**
      * Gets the value of the application property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Application }
-     *     
+     *
+     * @return possible object is
+     * {@link Application }
      */
     public Application getApplication() {
         return application;
@@ -110,11 +104,9 @@ public class Header {
 
     /**
      * Sets the value of the application property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Application }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Application }
      */
     public void setApplication(Application value) {
         this.application = value;
@@ -122,25 +114,23 @@ public class Header {
 
     /**
      * Gets the value of the annotation property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the annotation property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getAnnotation().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Annotation }
-     * 
-     * 
      */
     public List<Annotation> getAnnotation() {
         if (annotation == null) {
@@ -151,11 +141,9 @@ public class Header {
 
     /**
      * Gets the value of the timestamp property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Timestamp }
-     *     
+     *
+     * @return possible object is
+     * {@link Timestamp }
      */
     public Timestamp getTimestamp() {
         return timestamp;
@@ -163,11 +151,9 @@ public class Header {
 
     /**
      * Sets the value of the timestamp property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Timestamp }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Timestamp }
      */
     public void setTimestamp(Timestamp value) {
         this.timestamp = value;
@@ -175,11 +161,9 @@ public class Header {
 
     /**
      * Gets the value of the copyright property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCopyright() {
         return copyright;
@@ -187,11 +171,9 @@ public class Header {
 
     /**
      * Sets the value of the copyright property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCopyright(String value) {
         this.copyright = value;
@@ -199,11 +181,9 @@ public class Header {
 
     /**
      * Gets the value of the description property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getDescription() {
         return description;
@@ -211,11 +191,9 @@ public class Header {
 
     /**
      * Sets the value of the description property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setDescription(String value) {
         this.description = value;

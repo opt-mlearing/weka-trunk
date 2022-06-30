@@ -30,11 +30,11 @@ package weka.classifiers.evaluation;
  */
 public interface ThresholdProducingMetric {
 
-  /**
-   * Returns the threshold values, one for each class value,  associated with the value
-   * of the measure that is returned.
-   * 
-   * @return thresholds
-   */
-  public double[] getThresholds();
+    /**
+     * Returns the threshold values, one for each class value,  associated with the value
+     * of the measure that is returned.
+     *
+     * @return thresholds
+     */
+    public double[] getThresholds();
 }

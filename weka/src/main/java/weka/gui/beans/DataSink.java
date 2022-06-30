@@ -30,5 +30,5 @@ package weka.gui.beans;
  */
 
 public interface DataSink {
-  // empty at present
+    // empty at present
 }

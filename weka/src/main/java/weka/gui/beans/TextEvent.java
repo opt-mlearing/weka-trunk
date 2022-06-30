@@ -30,49 +30,51 @@ import java.util.EventObject;
  * @version $Revision$
  */
 public class TextEvent
-  extends EventObject {
+        extends EventObject {
 
-  /** for serialization */
-  private static final long serialVersionUID = 4196810607402973744L;
-  
-  /**
-   * The text
-   */
-  protected String m_text;
+    /**
+     * for serialization
+     */
+    private static final long serialVersionUID = 4196810607402973744L;
 
-  /**
-   * The title for the text. Could be used in a list component
-   */
-  protected String m_textTitle;
+    /**
+     * The text
+     */
+    protected String m_text;
 
-  /**
-   * Creates a new <code>TextEvent</code> instance.
-   *
-   * @param source an <code>Object</code> value
-   * @param text a <code>String</code> value
-   */
-  public TextEvent(Object source, String text, String textTitle) {
-    super(source);
-    
-    m_text = text;
-    m_textTitle = textTitle;
-  }
+    /**
+     * The title for the text. Could be used in a list component
+     */
+    protected String m_textTitle;
 
-  /**
-   * Describe <code>getText</code> method here.
-   *
-   * @return a <code>String</code> value
-   */
-  public String getText() {
-    return m_text;
-  }
+    /**
+     * Creates a new <code>TextEvent</code> instance.
+     *
+     * @param source an <code>Object</code> value
+     * @param text   a <code>String</code> value
+     */
+    public TextEvent(Object source, String text, String textTitle) {
+        super(source);
 
-  /**
-   * Describe <code>getTextTitle</code> method here.
-   *
-   * @return a <code>String</code> value
-   */
-  public String getTextTitle() {
-    return m_textTitle;
-  }
+        m_text = text;
+        m_textTitle = textTitle;
+    }
+
+    /**
+     * Describe <code>getText</code> method here.
+     *
+     * @return a <code>String</code> value
+     */
+    public String getText() {
+        return m_text;
+    }
+
+    /**
+     * Describe <code>getTextTitle</code> method here.
+     *
+     * @return a <code>String</code> value
+     */
+    public String getTextTitle() {
+        return m_textTitle;
+    }
 }

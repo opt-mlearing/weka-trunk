@@ -40,300 +40,318 @@ import java.util.List;
  */
 public abstract class AbstractPerspective extends JPanel implements Perspective {
 
-  /** For serialization */
-  private static final long serialVersionUID = 1919714661641262879L;
+    /**
+     * For serialization
+     */
+    private static final long serialVersionUID = 1919714661641262879L;
 
-  /** True if this perspective is currently the active/visible one */
-  protected boolean m_isActive;
+    /**
+     * True if this perspective is currently the active/visible one
+     */
+    protected boolean m_isActive;
 
-  /** True if this perspective has been loaded */
-  protected boolean m_isLoaded;
+    /**
+     * True if this perspective has been loaded
+     */
+    protected boolean m_isLoaded;
 
-  /** The main application that is displaying this perspective */
-  protected GUIApplication m_mainApplication;
+    /**
+     * The main application that is displaying this perspective
+     */
+    protected GUIApplication m_mainApplication;
 
-  /** The title of the perspective */
-  protected String m_perspectiveTitle = "";
+    /**
+     * The title of the perspective
+     */
+    protected String m_perspectiveTitle = "";
 
-  /** The ID of the perspective */
-  protected String m_perspectiveID = "";
+    /**
+     * The ID of the perspective
+     */
+    protected String m_perspectiveID = "";
 
-  /** Tip text for this perspective */
-  protected String m_perspectiveTipText = "";
+    /**
+     * Tip text for this perspective
+     */
+    protected String m_perspectiveTipText = "";
 
-  /** Icon for this perspective */
-  protected Icon m_perspectiveIcon;
+    /**
+     * Icon for this perspective
+     */
+    protected Icon m_perspectiveIcon;
 
-  /** Logger for this perspective */
-  protected Logger m_log;
+    /**
+     * Logger for this perspective
+     */
+    protected Logger m_log;
 
-  /**
-   * Constructor
-   */
-  public AbstractPerspective() {
-  }
-
-  /**
-   * Constructor
-   *
-   * @param ID the ID of the perspective
-   * @param title the title of the the perspective
-   */
-  public AbstractPerspective(String ID, String title) {
-    m_perspectiveTitle = title;
-    m_perspectiveID = ID;
-  }
-
-  /**
-   * Subclasses should override this to free any additional resources (e.g., JFrames and threads) when
-   * the perspective is no longer needed.
-   *
-   * This default method removes all menus that a perspective might have because references
-   * to various components may be included in the event handlers of these menus.
-   */
-  public void terminate() {
-
-     for (JMenu m : getMenus()) {
-       m.removeAll();
-     }
-  }
-
-  /**
-   * No-opp implementation. Subclasses should override if they can only complete
-   * initialization by accessing the main application and/or the
-   * PerspectiveManager. References to these two things are guaranteed to be
-   * available when this method is called during the startup process
-   */
-  @Override
-  public void instantiationComplete() {
-    // no-opp method. Subclasses should override
-  }
-
-  /**
-   * Returns true if the perspective is usable at this time. This is a no-opp
-   * implementation that always returns true. Subclasses should override if
-   * there are specific conditions that need to be met (e.g. can't operate if
-   * there are no instances set).
-   * 
-   * @return true if this perspective is usable at this time
-   */
-  @Override
-  public boolean okToBeActive() {
-    return true;
-  }
-
-  /**
-   * Set active status of this perspective. True indicates that this perspective
-   * is the visible active perspective in the application
-   *
-   * @param active true if this perspective is the active one
-   */
-  @Override
-  public void setActive(boolean active) {
-    m_isActive = active;
-  }
-
-  /**
-   * Set whether this perspective is "loaded" - i.e. whether or not the user has
-   * opted to have it available in the perspective toolbar. The perspective can
-   * make the decision as to allocating or freeing resources on the basis of
-   * this. Note that the main application and perspective manager instances are
-   * not available to the perspective until the instantiationComplete() method
-   * has been called.
-   *
-   * @param loaded true if the perspective is available in the perspective
-   *          toolbar of the KnowledgeFlow
-   */
-  @Override
-  public void setLoaded(boolean loaded) {
-    m_isLoaded = loaded;
-  }
-
-  /**
-   * Set the main application. Gives other perspectives access to information
-   * provided by the main application
-   *
-   * @param main the main application
-   */
-  @Override
-  public void setMainApplication(GUIApplication main) {
-    m_mainApplication = main;
-  }
-
-  /**
-   * Get the main application that this perspective belongs to
-   *
-   * @return the main application that this perspective belongs to
-   */
-  @Override
-  public GUIApplication getMainApplication() {
-    return m_mainApplication;
-  }
-
-  /**
-   * Get the ID of this perspective
-   *
-   * @return the ID of this perspective
-   */
-  @Override
-  public String getPerspectiveID() {
-    if (m_perspectiveID != null && m_perspectiveID.length() > 0) {
-      return m_perspectiveID;
+    /**
+     * Constructor
+     */
+    public AbstractPerspective() {
     }
 
-    PerspectiveInfo perspectiveA =
-      this.getClass().getAnnotation(PerspectiveInfo.class);
-    if (perspectiveA != null) {
-      m_perspectiveID = perspectiveA.ID();
+    /**
+     * Constructor
+     *
+     * @param ID    the ID of the perspective
+     * @param title the title of the the perspective
+     */
+    public AbstractPerspective(String ID, String title) {
+        m_perspectiveTitle = title;
+        m_perspectiveID = ID;
     }
 
-    return m_perspectiveID;
-  }
+    /**
+     * Subclasses should override this to free any additional resources (e.g., JFrames and threads) when
+     * the perspective is no longer needed.
+     * <p>
+     * This default method removes all menus that a perspective might have because references
+     * to various components may be included in the event handlers of these menus.
+     */
+    public void terminate() {
 
-  /**
-   * Get the title of this perspective
-   *
-   * @return the title of this perspective
-   */
-  @Override
-  public String getPerspectiveTitle() {
-    if (m_perspectiveTitle != null && m_perspectiveTitle.length() > 0) {
-      return m_perspectiveTitle;
+        for (JMenu m : getMenus()) {
+            m.removeAll();
+        }
     }
 
-    PerspectiveInfo perspectiveA =
-      this.getClass().getAnnotation(PerspectiveInfo.class);
-    if (perspectiveA != null) {
-      m_perspectiveTitle = perspectiveA.title();
+    /**
+     * No-opp implementation. Subclasses should override if they can only complete
+     * initialization by accessing the main application and/or the
+     * PerspectiveManager. References to these two things are guaranteed to be
+     * available when this method is called during the startup process
+     */
+    @Override
+    public void instantiationComplete() {
+        // no-opp method. Subclasses should override
     }
 
-    return m_perspectiveTitle;
-  }
-
-  /**
-   * Get the tool tip text for this perspective
-   *
-   * @return the tool tip text for this perspective
-   */
-  @Override
-  public String getPerspectiveTipText() {
-    if (m_perspectiveTipText != null && m_perspectiveTipText.length() > 0) {
-      return m_perspectiveTipText;
+    /**
+     * Returns true if the perspective is usable at this time. This is a no-opp
+     * implementation that always returns true. Subclasses should override if
+     * there are specific conditions that need to be met (e.g. can't operate if
+     * there are no instances set).
+     *
+     * @return true if this perspective is usable at this time
+     */
+    @Override
+    public boolean okToBeActive() {
+        return true;
     }
 
-    PerspectiveInfo perspectiveA =
-      this.getClass().getAnnotation(PerspectiveInfo.class);
-    if (perspectiveA != null) {
-      m_perspectiveTipText = perspectiveA.toolTipText();
+    /**
+     * Set active status of this perspective. True indicates that this perspective
+     * is the visible active perspective in the application
+     *
+     * @param active true if this perspective is the active one
+     */
+    @Override
+    public void setActive(boolean active) {
+        m_isActive = active;
     }
 
-    return m_perspectiveTipText;
-  }
-
-  /**
-   * Get the icon for this perspective
-   *
-   * @return the icon for this perspective
-   */
-  @Override
-  public Icon getPerspectiveIcon() {
-    if (m_perspectiveIcon != null) {
-      return m_perspectiveIcon;
+    /**
+     * Set whether this perspective is "loaded" - i.e. whether or not the user has
+     * opted to have it available in the perspective toolbar. The perspective can
+     * make the decision as to allocating or freeing resources on the basis of
+     * this. Note that the main application and perspective manager instances are
+     * not available to the perspective until the instantiationComplete() method
+     * has been called.
+     *
+     * @param loaded true if the perspective is available in the perspective
+     *               toolbar of the KnowledgeFlow
+     */
+    @Override
+    public void setLoaded(boolean loaded) {
+        m_isLoaded = loaded;
     }
 
-    PerspectiveInfo perspectiveA =
-      this.getClass().getAnnotation(PerspectiveInfo.class);
-    if (perspectiveA != null && perspectiveA.iconPath() != null
-      && perspectiveA.iconPath().length() > 0) {
-      m_perspectiveIcon =
-        StepVisual.loadIcon(this.getClass().getClassLoader(),
-          perspectiveA.iconPath());
+    /**
+     * Set the main application. Gives other perspectives access to information
+     * provided by the main application
+     *
+     * @param main the main application
+     */
+    @Override
+    public void setMainApplication(GUIApplication main) {
+        m_mainApplication = main;
     }
 
-    return m_perspectiveIcon;
-  }
+    /**
+     * Get the main application that this perspective belongs to
+     *
+     * @return the main application that this perspective belongs to
+     */
+    @Override
+    public GUIApplication getMainApplication() {
+        return m_mainApplication;
+    }
 
-  /**
-   * Get an ordered list of menus to appear in the main menu bar. Return null
-   * for no menus
-   *
-   * @return a list of menus to appear in the main menu bar or null for no menus
-   */
-  @Override
-  public List<JMenu> getMenus() {
-    return new ArrayList<JMenu>();
-  }
+    /**
+     * Get the ID of this perspective
+     *
+     * @return the ID of this perspective
+     */
+    @Override
+    public String getPerspectiveID() {
+        if (m_perspectiveID != null && m_perspectiveID.length() > 0) {
+            return m_perspectiveID;
+        }
 
-  /**
-   * Set instances (if this perspective can use them)
-   *
-   * @param instances the instances
-   */
-  @Override
-  public void setInstances(Instances instances) {
-    // subclasses to override as necessary
-  }
+        PerspectiveInfo perspectiveA =
+                this.getClass().getAnnotation(PerspectiveInfo.class);
+        if (perspectiveA != null) {
+            m_perspectiveID = perspectiveA.ID();
+        }
 
-  /**
-   * Returns true if this perspective can do something meaningful with a set of
-   * instances
-   *
-   * @return true if this perspective accepts instances
-   */
-  @Override
-  public boolean acceptsInstances() {
-    // subclasses to override as necessary
-    return false;
-  }
+        return m_perspectiveID;
+    }
 
-  /**
-   * Whether this perspective requires a graphical log to write to
-   *
-   * @return true if a log is needed by this perspective
-   */
-  @Override
-  public boolean requiresLog() {
-    // subclasses to override as necessary
-    return false;
-  }
+    /**
+     * Get the title of this perspective
+     *
+     * @return the title of this perspective
+     */
+    @Override
+    public String getPerspectiveTitle() {
+        if (m_perspectiveTitle != null && m_perspectiveTitle.length() > 0) {
+            return m_perspectiveTitle;
+        }
 
-  /**
-   * Get the default settings for this perspective (or null if there are none)
-   *
-   * @return the default settings for this perspective, or null if the
-   *         perspective does not have any settings
-   */
-  @Override
-  public Defaults getDefaultSettings() {
-    // subclasses to override if they have default settings
-    return null;
-  }
+        PerspectiveInfo perspectiveA =
+                this.getClass().getAnnotation(PerspectiveInfo.class);
+        if (perspectiveA != null) {
+            m_perspectiveTitle = perspectiveA.title();
+        }
 
-  /**
-   * Called when the user alters settings. The settings altered by the user are
-   * not necessarily ones related to this perspective
-   */
-  @Override
-  public void settingsChanged() {
-    // no-op. subclasses to override if necessary
-  }
+        return m_perspectiveTitle;
+    }
 
-  /**
-   * Set a log to use (if required by the perspective)
-   *
-   * @param log the graphical log to use
-   */
-  @Override
-  public void setLog(Logger log) {
-    m_log = log;
-  }
+    /**
+     * Get the tool tip text for this perspective
+     *
+     * @return the tool tip text for this perspective
+     */
+    @Override
+    public String getPerspectiveTipText() {
+        if (m_perspectiveTipText != null && m_perspectiveTipText.length() > 0) {
+            return m_perspectiveTipText;
+        }
 
-  /**
-   * Returns the perspective's title
-   *
-   * @return the title of the perspective
-   */
-  public String toString() {
-    return getPerspectiveTitle();
-  }
+        PerspectiveInfo perspectiveA =
+                this.getClass().getAnnotation(PerspectiveInfo.class);
+        if (perspectiveA != null) {
+            m_perspectiveTipText = perspectiveA.toolTipText();
+        }
+
+        return m_perspectiveTipText;
+    }
+
+    /**
+     * Get the icon for this perspective
+     *
+     * @return the icon for this perspective
+     */
+    @Override
+    public Icon getPerspectiveIcon() {
+        if (m_perspectiveIcon != null) {
+            return m_perspectiveIcon;
+        }
+
+        PerspectiveInfo perspectiveA =
+                this.getClass().getAnnotation(PerspectiveInfo.class);
+        if (perspectiveA != null && perspectiveA.iconPath() != null
+                && perspectiveA.iconPath().length() > 0) {
+            m_perspectiveIcon =
+                    StepVisual.loadIcon(this.getClass().getClassLoader(),
+                            perspectiveA.iconPath());
+        }
+
+        return m_perspectiveIcon;
+    }
+
+    /**
+     * Get an ordered list of menus to appear in the main menu bar. Return null
+     * for no menus
+     *
+     * @return a list of menus to appear in the main menu bar or null for no menus
+     */
+    @Override
+    public List<JMenu> getMenus() {
+        return new ArrayList<JMenu>();
+    }
+
+    /**
+     * Set instances (if this perspective can use them)
+     *
+     * @param instances the instances
+     */
+    @Override
+    public void setInstances(Instances instances) {
+        // subclasses to override as necessary
+    }
+
+    /**
+     * Returns true if this perspective can do something meaningful with a set of
+     * instances
+     *
+     * @return true if this perspective accepts instances
+     */
+    @Override
+    public boolean acceptsInstances() {
+        // subclasses to override as necessary
+        return false;
+    }
+
+    /**
+     * Whether this perspective requires a graphical log to write to
+     *
+     * @return true if a log is needed by this perspective
+     */
+    @Override
+    public boolean requiresLog() {
+        // subclasses to override as necessary
+        return false;
+    }
+
+    /**
+     * Get the default settings for this perspective (or null if there are none)
+     *
+     * @return the default settings for this perspective, or null if the
+     * perspective does not have any settings
+     */
+    @Override
+    public Defaults getDefaultSettings() {
+        // subclasses to override if they have default settings
+        return null;
+    }
+
+    /**
+     * Called when the user alters settings. The settings altered by the user are
+     * not necessarily ones related to this perspective
+     */
+    @Override
+    public void settingsChanged() {
+        // no-op. subclasses to override if necessary
+    }
+
+    /**
+     * Set a log to use (if required by the perspective)
+     *
+     * @param log the graphical log to use
+     */
+    @Override
+    public void setLog(Logger log) {
+        m_log = log;
+    }
+
+    /**
+     * Returns the perspective's title
+     *
+     * @return the title of the perspective
+     */
+    public String toString() {
+        return getPerspectiveTitle();
+    }
 }

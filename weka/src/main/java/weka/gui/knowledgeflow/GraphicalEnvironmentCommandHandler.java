@@ -31,16 +31,16 @@ import weka.core.WekaException;
  */
 public interface GraphicalEnvironmentCommandHandler {
 
-  /**
-   * Attempt to perform a graphical command (if supported) in the current
-   * graphical environment
-   *
-   * @param commandName the name of the command to execute
-   * @param commandArgs the optional arguments
-   * @return the result of performing the command, or null if the command does
-   *         not return a result
-   * @throws WekaException if a problem occurs
-   */
-  <T> T performCommand(String commandName, Object... commandArgs)
-    throws WekaException;
+    /**
+     * Attempt to perform a graphical command (if supported) in the current
+     * graphical environment
+     *
+     * @param commandName the name of the command to execute
+     * @param commandArgs the optional arguments
+     * @return the result of performing the command, or null if the command does
+     * not return a result
+     * @throws WekaException if a problem occurs
+     */
+    <T> T performCommand(String commandName, Object... commandArgs)
+            throws WekaException;
 }

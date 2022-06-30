@@ -42,129 +42,133 @@ import weka.core.Instances;
 /**
  * A GUI dialog for selecting classification/regression evaluation metrics to be
  * output.
- * 
+ *
  * @author Mark Hall (mhall{[at]}pentaho{[dot]}com)
  * @version $Revision$
  */
 public class EvaluationMetricSelectionDialog extends JDialog {
 
-  /** For serialization */
-  private static final long serialVersionUID = 4451184027143094270L;
+    /**
+     * For serialization
+     */
+    private static final long serialVersionUID = 4451184027143094270L;
 
-  /** The list of selected evaluation metrics */
-  protected List<String> m_selectedEvalMetrics;
+    /**
+     * The list of selected evaluation metrics
+     */
+    protected List<String> m_selectedEvalMetrics;
 
-  /**
-   * Constructor
-   * 
-   * @param parent parent Dialog
-   * @param evalMetrics initial list of selected evaluation metrics
-   */
-  public EvaluationMetricSelectionDialog(Dialog parent, List<String> evalMetrics) {
-    super(parent, "Manage evaluation metrics", ModalityType.DOCUMENT_MODAL);
-    m_selectedEvalMetrics = evalMetrics;
-    init();
-  }
-
-  /**
-   * Constructor
-   * 
-   * @param parent parent Window
-   * @param evalMetrics initial list of selected evaluation metrics
-   */
-  public EvaluationMetricSelectionDialog(Window parent, List<String> evalMetrics) {
-    super(parent, "Manage evaluation metrics", ModalityType.DOCUMENT_MODAL);
-    m_selectedEvalMetrics = evalMetrics;
-    init();
-  }
-
-  /**
-   * Constructor
-   * 
-   * @param parent parent Frame
-   * @param evalMetrics initial list of selected evaluation metrics
-   */
-  public EvaluationMetricSelectionDialog(Frame parent, List<String> evalMetrics) {
-    super(parent, "Manage evaluation metrics", ModalityType.DOCUMENT_MODAL);
-    m_selectedEvalMetrics = evalMetrics;
-    init();
-  }
-
-  /**
-   * Get the list of selected evaluation metrics
-   * 
-   * @return the list of selected evaluation metrics
-   */
-  public List<String> getSelectedEvalMetrics() {
-    return m_selectedEvalMetrics;
-  }
-
-  private void init() {
-    final weka.gui.AttributeSelectionPanel evalConfigurer = new weka.gui.AttributeSelectionPanel(
-        true, true, true, true);
-
-    ArrayList<Attribute> atts = new ArrayList<Attribute>();
-    List<String> allEvalMetrics = Evaluation.getAllEvaluationMetricNames();
-    for (String s : allEvalMetrics) {
-      atts.add(new Attribute(s));
+    /**
+     * Constructor
+     *
+     * @param parent      parent Dialog
+     * @param evalMetrics initial list of selected evaluation metrics
+     */
+    public EvaluationMetricSelectionDialog(Dialog parent, List<String> evalMetrics) {
+        super(parent, "Manage evaluation metrics", ModalityType.DOCUMENT_MODAL);
+        m_selectedEvalMetrics = evalMetrics;
+        init();
     }
 
-    final Instances metricInstances = new Instances("Metrics", atts, 1);
-    boolean[] selectedMetrics = new boolean[metricInstances.numAttributes()];
-    if (m_selectedEvalMetrics == null) {
-      // one-off initialization
-      m_selectedEvalMetrics = new ArrayList<String>();
-      for (int i = 0; i < metricInstances.numAttributes(); i++) {
-        m_selectedEvalMetrics.add(metricInstances.attribute(i).name());
-      }
+    /**
+     * Constructor
+     *
+     * @param parent      parent Window
+     * @param evalMetrics initial list of selected evaluation metrics
+     */
+    public EvaluationMetricSelectionDialog(Window parent, List<String> evalMetrics) {
+        super(parent, "Manage evaluation metrics", ModalityType.DOCUMENT_MODAL);
+        m_selectedEvalMetrics = evalMetrics;
+        init();
     }
 
-    for (int i = 0; i < selectedMetrics.length; i++) {
-      if (m_selectedEvalMetrics.contains(metricInstances.attribute(i).name())) {
-        selectedMetrics[i] = true;
-      }
+    /**
+     * Constructor
+     *
+     * @param parent      parent Frame
+     * @param evalMetrics initial list of selected evaluation metrics
+     */
+    public EvaluationMetricSelectionDialog(Frame parent, List<String> evalMetrics) {
+        super(parent, "Manage evaluation metrics", ModalityType.DOCUMENT_MODAL);
+        m_selectedEvalMetrics = evalMetrics;
+        init();
     }
 
-    try {
-      evalConfigurer.setInstances(metricInstances);
-      evalConfigurer.setSelectedAttributes(selectedMetrics);
-    } catch (Exception ex) {
-      ex.printStackTrace();
-      return;
+    /**
+     * Get the list of selected evaluation metrics
+     *
+     * @return the list of selected evaluation metrics
+     */
+    public List<String> getSelectedEvalMetrics() {
+        return m_selectedEvalMetrics;
     }
 
-    setLayout(new BorderLayout());
-    JPanel holder = new JPanel();
-    holder.setLayout(new BorderLayout());
-    holder.add(evalConfigurer, BorderLayout.CENTER);
-    JButton okBut = new JButton("OK");
-    JButton cancelBut = new JButton("Cancel");
-    JPanel butHolder = new JPanel();
-    butHolder.setLayout(new GridLayout(1, 2));
-    butHolder.add(okBut);
-    butHolder.add(cancelBut);
-    holder.add(butHolder, BorderLayout.SOUTH);
-    okBut.addActionListener(new ActionListener() {
-      @Override
-      public void actionPerformed(ActionEvent e) {
-        int[] selected = evalConfigurer.getSelectedAttributes();
-        m_selectedEvalMetrics.clear();
-        for (int i = 0; i < selected.length; i++) {
-          m_selectedEvalMetrics.add(metricInstances.attribute(selected[i])
-              .name());
+    private void init() {
+        final weka.gui.AttributeSelectionPanel evalConfigurer = new weka.gui.AttributeSelectionPanel(
+                true, true, true, true);
+
+        ArrayList<Attribute> atts = new ArrayList<Attribute>();
+        List<String> allEvalMetrics = Evaluation.getAllEvaluationMetricNames();
+        for (String s : allEvalMetrics) {
+            atts.add(new Attribute(s));
         }
-        dispose();
-      }
-    });
 
-    cancelBut.addActionListener(new ActionListener() {
-      @Override
-      public void actionPerformed(ActionEvent e) {
-        dispose();
-      }
-    });
+        final Instances metricInstances = new Instances("Metrics", atts, 1);
+        boolean[] selectedMetrics = new boolean[metricInstances.numAttributes()];
+        if (m_selectedEvalMetrics == null) {
+            // one-off initialization
+            m_selectedEvalMetrics = new ArrayList<String>();
+            for (int i = 0; i < metricInstances.numAttributes(); i++) {
+                m_selectedEvalMetrics.add(metricInstances.attribute(i).name());
+            }
+        }
 
-    getContentPane().add(holder, BorderLayout.CENTER);
-    pack();
-  }
+        for (int i = 0; i < selectedMetrics.length; i++) {
+            if (m_selectedEvalMetrics.contains(metricInstances.attribute(i).name())) {
+                selectedMetrics[i] = true;
+            }
+        }
+
+        try {
+            evalConfigurer.setInstances(metricInstances);
+            evalConfigurer.setSelectedAttributes(selectedMetrics);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return;
+        }
+
+        setLayout(new BorderLayout());
+        JPanel holder = new JPanel();
+        holder.setLayout(new BorderLayout());
+        holder.add(evalConfigurer, BorderLayout.CENTER);
+        JButton okBut = new JButton("OK");
+        JButton cancelBut = new JButton("Cancel");
+        JPanel butHolder = new JPanel();
+        butHolder.setLayout(new GridLayout(1, 2));
+        butHolder.add(okBut);
+        butHolder.add(cancelBut);
+        holder.add(butHolder, BorderLayout.SOUTH);
+        okBut.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int[] selected = evalConfigurer.getSelectedAttributes();
+                m_selectedEvalMetrics.clear();
+                for (int i = 0; i < selected.length; i++) {
+                    m_selectedEvalMetrics.add(metricInstances.attribute(selected[i])
+                            .name());
+                }
+                dispose();
+            }
+        });
+
+        cancelBut.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
+
+        getContentPane().add(holder, BorderLayout.CENTER);
+        pack();
+    }
 }

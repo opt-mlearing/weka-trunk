@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlEnumValue;
 
 /**
  * <p>Java class for DELIMITER.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
@@ -25,7 +25,6 @@ import javax.xml.bind.annotation.XmlEnumValue;
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
- * 
  */
 @XmlEnum
 public enum DELIMITER2 {
@@ -45,7 +44,7 @@ public enum DELIMITER2 {
     }
 
     public static DELIMITER2 fromValue(String v) {
-        for (DELIMITER2 c: DELIMITER2.values()) {
+        for (DELIMITER2 c : DELIMITER2.values()) {
             if (c.value.equals(v)) {
                 return c;
             }

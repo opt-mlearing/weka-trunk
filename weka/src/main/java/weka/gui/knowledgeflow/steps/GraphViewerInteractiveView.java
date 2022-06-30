@@ -56,194 +56,209 @@ import java.util.List;
  */
 public class GraphViewerInteractiveView extends BaseInteractiveViewer {
 
-  private static final long serialVersionUID = 2109423349272114409L;
+    private static final long serialVersionUID = 2109423349272114409L;
 
-  /** Holds a list of results */
-  protected ResultHistoryPanel m_history;
+    /**
+     * Holds a list of results
+     */
+    protected ResultHistoryPanel m_history;
 
-  /** Button for clearing the results */
-  protected JButton m_clearButton = new JButton("Clear results");
+    /**
+     * Button for clearing the results
+     */
+    protected JButton m_clearButton = new JButton("Clear results");
 
-  /** Split pane for separating the results list from the visualization */
-  protected JSplitPane m_splitPane;
+    /**
+     * Split pane for separating the results list from the visualization
+     */
+    protected JSplitPane m_splitPane;
 
-  /** Visualization component for trees */
-  protected TreeVisualizer m_treeVisualizer;
+    /**
+     * Visualization component for trees
+     */
+    protected TreeVisualizer m_treeVisualizer;
 
-  /** Visualization component for graphs */
-  protected GraphVisualizer m_graphVisualizer;
+    /**
+     * Visualization component for graphs
+     */
+    protected GraphVisualizer m_graphVisualizer;
 
-  /** Holder panel for layout purposes */
-  JPanel m_holderPanel = new JPanel(new BorderLayout());
+    /**
+     * Holder panel for layout purposes
+     */
+    JPanel m_holderPanel = new JPanel(new BorderLayout());
 
-  /**
-   * Get the name of this viewr
-   *
-   * @return the name of this viewer
-   */
-  @Override
-  public String getViewerName() {
-    return "Graph Viewer";
-  }
-
-  /**
-   * Initializes the viewer
-   *
-   * @throws WekaException if a problem occurs
-   */
-  @Override
-  public void init() throws WekaException {
-    addButton(m_clearButton);
-
-    m_history = new ResultHistoryPanel(null);
-    m_history.setBorder( BorderFactory.createTitledBorder( "Result list" ) );
-    m_history.setHandleRightClicks( false );
-    m_history.setDeleteListener(new ResultHistoryPanel.RDeleteListener() {
-      @Override public void entryDeleted(String name, int index) {
-        ((GraphViewer)getStep()).getDatasets().remove(index);
-      }
-
-      @Override public void entriesDeleted(java.util.List<String> names,
-        java.util.List<Integer> indexes) {
-        List<Data> ds = ((GraphViewer) getStep()).getDatasets();
-        List<Data> toRemove = new ArrayList<Data>();
-        for (int i : indexes) {
-          toRemove.add(ds.get(i));
-        }
-
-        ds.removeAll(toRemove);
-      }
-    });
-
-    m_history.getList().addMouseListener( new ResultHistoryPanel.RMouseAdapter() {
-        private static final long serialVersionUID = -5174882230278923704L;
-
-        @Override public void mouseClicked( MouseEvent e ) {
-          int index = m_history.getList().locationToIndex( e.getPoint() );
-          if ( index != -1 ) {
-            String name = m_history.getNameAtIndex( index );
-            // doPopup(name);
-            Object data = m_history.getNamedObject( name );
-            if ( data instanceof Data ) {
-              String grphString = ( (Data) data ).getPrimaryPayload();
-              Integer grphType = ( (Data) data ).getPayloadElement( StepManager.CON_AUX_DATA_GRAPH_TYPE );
-              if ( m_treeVisualizer != null || m_graphVisualizer != null ) {
-                m_holderPanel.remove( m_treeVisualizer != null ? m_treeVisualizer : m_graphVisualizer );
-              }
-              if ( grphType == Drawable.TREE ) {
-                m_treeVisualizer = new TreeVisualizer( null, grphString, new PlaceNode2() );
-                m_holderPanel.add( m_treeVisualizer, BorderLayout.CENTER );
-                m_splitPane.revalidate();
-              } else if ( grphType == Drawable.BayesNet ) {
-                m_graphVisualizer = new GraphVisualizer();
-                try {
-                  m_graphVisualizer.readBIF( grphString );
-                } catch ( BIFFormatException ex ) {
-                  ex.printStackTrace();
-                }
-                m_graphVisualizer.layoutGraph();
-                m_holderPanel.add( m_graphVisualizer, BorderLayout.CENTER );
-                m_splitPane.revalidate();
-              }
-            }
-          }
-        }
-      } );
-
-    m_history.getList().getSelectionModel()
-      .addListSelectionListener(new ListSelectionListener() {
-        @Override
-        public void valueChanged(ListSelectionEvent e) {
-          if (!e.getValueIsAdjusting()) {
-            ListSelectionModel lm = (ListSelectionModel) e.getSource();
-            for (int i = e.getFirstIndex(); i <= e.getLastIndex(); i++) {
-              if (lm.isSelectedIndex(i)) {
-                // m_AttSummaryPanel.setAttribute(i);
-                if (i != -1) {
-                  String name = m_history.getNameAtIndex(i);
-                  Object data = m_history.getNamedObject(name);
-                  if (data != null && data instanceof Data) {
-                    String grphString = ((Data) data).getPrimaryPayload();
-                    Integer grphType =
-                      ((Data) data)
-                        .getPayloadElement(StepManager.CON_AUX_DATA_GRAPH_TYPE);
-                    if (m_treeVisualizer != null || m_graphVisualizer != null) {
-                      m_holderPanel
-                        .remove(m_treeVisualizer != null ? m_treeVisualizer
-                          : m_graphVisualizer);
-                    }
-                    if (grphType == Drawable.TREE) {
-                      m_treeVisualizer =
-                        new TreeVisualizer(null, grphString, new PlaceNode2());
-                      m_holderPanel.add(m_treeVisualizer, BorderLayout.CENTER);
-                      m_splitPane.revalidate();
-                    } else if (grphType == Drawable.BayesNet) {
-                      m_graphVisualizer = new GraphVisualizer();
-                      try {
-                        m_graphVisualizer.readBIF(grphString);
-                      } catch (BIFFormatException ex) {
-                        ex.printStackTrace();
-                      }
-                      m_graphVisualizer.layoutGraph();
-                      m_holderPanel.add(m_graphVisualizer, BorderLayout.CENTER);
-                      m_splitPane.revalidate();
-                    }
-                  }
-                }
-                break;
-              }
-            }
-          }
-        }
-      });
-
-    m_splitPane =
-      new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, m_history, m_holderPanel);
-    // m_splitPane.setLeftComponent(m_history);
-    add(m_splitPane, BorderLayout.CENTER);
-    m_holderPanel.setPreferredSize(new Dimension(800, 600));
-    m_splitPane.setDividerLocation(200 + m_splitPane.getInsets().left);
-
-    boolean first = true;
-    for (Data d : ((GraphViewer) getStep()).getDatasets()) {
-      String title = d.getPayloadElement(StepManager.CON_AUX_DATA_GRAPH_TITLE);
-      m_history.addResult(title, new StringBuffer());
-      m_history.addObject(title, d);
-      if (first) {
-        String grphString = d.getPrimaryPayload();
-        Integer grphType =
-          d.getPayloadElement(StepManager.CON_AUX_DATA_GRAPH_TYPE);
-        if (grphType == Drawable.TREE) {
-          m_treeVisualizer =
-            new TreeVisualizer(null, grphString, new PlaceNode2());
-          // m_splitPane.setRightComponent(m_treeVisualizer);
-          m_holderPanel.add(m_treeVisualizer, BorderLayout.CENTER);
-        } else if (grphType == Drawable.BayesNet) {
-          m_graphVisualizer = new GraphVisualizer();
-          try {
-            m_graphVisualizer.readBIF(grphString);
-          } catch (BIFFormatException ex) {
-            ex.printStackTrace();
-          }
-          m_graphVisualizer.layoutGraph();
-          m_holderPanel.add(m_graphVisualizer, BorderLayout.CENTER);
-        }
-        m_splitPane.revalidate();
-        first = false;
-      }
+    /**
+     * Get the name of this viewr
+     *
+     * @return the name of this viewer
+     */
+    @Override
+    public String getViewerName() {
+        return "Graph Viewer";
     }
 
-    m_clearButton.addActionListener(new ActionListener() {
-      @Override
-      public void actionPerformed(ActionEvent e) {
-        m_history.clearResults();
-        ((GraphViewer) getStep()).getDatasets().clear();
-        if (m_treeVisualizer != null || m_graphVisualizer != null) {
-          m_splitPane.remove(m_holderPanel);
-          // invalidate();
-          revalidate();
+    /**
+     * Initializes the viewer
+     *
+     * @throws WekaException if a problem occurs
+     */
+    @Override
+    public void init() throws WekaException {
+        addButton(m_clearButton);
+
+        m_history = new ResultHistoryPanel(null);
+        m_history.setBorder(BorderFactory.createTitledBorder("Result list"));
+        m_history.setHandleRightClicks(false);
+        m_history.setDeleteListener(new ResultHistoryPanel.RDeleteListener() {
+            @Override
+            public void entryDeleted(String name, int index) {
+                ((GraphViewer) getStep()).getDatasets().remove(index);
+            }
+
+            @Override
+            public void entriesDeleted(java.util.List<String> names,
+                                       java.util.List<Integer> indexes) {
+                List<Data> ds = ((GraphViewer) getStep()).getDatasets();
+                List<Data> toRemove = new ArrayList<Data>();
+                for (int i : indexes) {
+                    toRemove.add(ds.get(i));
+                }
+
+                ds.removeAll(toRemove);
+            }
+        });
+
+        m_history.getList().addMouseListener(new ResultHistoryPanel.RMouseAdapter() {
+            private static final long serialVersionUID = -5174882230278923704L;
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int index = m_history.getList().locationToIndex(e.getPoint());
+                if (index != -1) {
+                    String name = m_history.getNameAtIndex(index);
+                    // doPopup(name);
+                    Object data = m_history.getNamedObject(name);
+                    if (data instanceof Data) {
+                        String grphString = ((Data) data).getPrimaryPayload();
+                        Integer grphType = ((Data) data).getPayloadElement(StepManager.CON_AUX_DATA_GRAPH_TYPE);
+                        if (m_treeVisualizer != null || m_graphVisualizer != null) {
+                            m_holderPanel.remove(m_treeVisualizer != null ? m_treeVisualizer : m_graphVisualizer);
+                        }
+                        if (grphType == Drawable.TREE) {
+                            m_treeVisualizer = new TreeVisualizer(null, grphString, new PlaceNode2());
+                            m_holderPanel.add(m_treeVisualizer, BorderLayout.CENTER);
+                            m_splitPane.revalidate();
+                        } else if (grphType == Drawable.BayesNet) {
+                            m_graphVisualizer = new GraphVisualizer();
+                            try {
+                                m_graphVisualizer.readBIF(grphString);
+                            } catch (BIFFormatException ex) {
+                                ex.printStackTrace();
+                            }
+                            m_graphVisualizer.layoutGraph();
+                            m_holderPanel.add(m_graphVisualizer, BorderLayout.CENTER);
+                            m_splitPane.revalidate();
+                        }
+                    }
+                }
+            }
+        });
+
+        m_history.getList().getSelectionModel()
+                .addListSelectionListener(new ListSelectionListener() {
+                    @Override
+                    public void valueChanged(ListSelectionEvent e) {
+                        if (!e.getValueIsAdjusting()) {
+                            ListSelectionModel lm = (ListSelectionModel) e.getSource();
+                            for (int i = e.getFirstIndex(); i <= e.getLastIndex(); i++) {
+                                if (lm.isSelectedIndex(i)) {
+                                    // m_AttSummaryPanel.setAttribute(i);
+                                    if (i != -1) {
+                                        String name = m_history.getNameAtIndex(i);
+                                        Object data = m_history.getNamedObject(name);
+                                        if (data != null && data instanceof Data) {
+                                            String grphString = ((Data) data).getPrimaryPayload();
+                                            Integer grphType =
+                                                    ((Data) data)
+                                                            .getPayloadElement(StepManager.CON_AUX_DATA_GRAPH_TYPE);
+                                            if (m_treeVisualizer != null || m_graphVisualizer != null) {
+                                                m_holderPanel
+                                                        .remove(m_treeVisualizer != null ? m_treeVisualizer
+                                                                : m_graphVisualizer);
+                                            }
+                                            if (grphType == Drawable.TREE) {
+                                                m_treeVisualizer =
+                                                        new TreeVisualizer(null, grphString, new PlaceNode2());
+                                                m_holderPanel.add(m_treeVisualizer, BorderLayout.CENTER);
+                                                m_splitPane.revalidate();
+                                            } else if (grphType == Drawable.BayesNet) {
+                                                m_graphVisualizer = new GraphVisualizer();
+                                                try {
+                                                    m_graphVisualizer.readBIF(grphString);
+                                                } catch (BIFFormatException ex) {
+                                                    ex.printStackTrace();
+                                                }
+                                                m_graphVisualizer.layoutGraph();
+                                                m_holderPanel.add(m_graphVisualizer, BorderLayout.CENTER);
+                                                m_splitPane.revalidate();
+                                            }
+                                        }
+                                    }
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                });
+
+        m_splitPane =
+                new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, m_history, m_holderPanel);
+        // m_splitPane.setLeftComponent(m_history);
+        add(m_splitPane, BorderLayout.CENTER);
+        m_holderPanel.setPreferredSize(new Dimension(800, 600));
+        m_splitPane.setDividerLocation(200 + m_splitPane.getInsets().left);
+
+        boolean first = true;
+        for (Data d : ((GraphViewer) getStep()).getDatasets()) {
+            String title = d.getPayloadElement(StepManager.CON_AUX_DATA_GRAPH_TITLE);
+            m_history.addResult(title, new StringBuffer());
+            m_history.addObject(title, d);
+            if (first) {
+                String grphString = d.getPrimaryPayload();
+                Integer grphType =
+                        d.getPayloadElement(StepManager.CON_AUX_DATA_GRAPH_TYPE);
+                if (grphType == Drawable.TREE) {
+                    m_treeVisualizer =
+                            new TreeVisualizer(null, grphString, new PlaceNode2());
+                    // m_splitPane.setRightComponent(m_treeVisualizer);
+                    m_holderPanel.add(m_treeVisualizer, BorderLayout.CENTER);
+                } else if (grphType == Drawable.BayesNet) {
+                    m_graphVisualizer = new GraphVisualizer();
+                    try {
+                        m_graphVisualizer.readBIF(grphString);
+                    } catch (BIFFormatException ex) {
+                        ex.printStackTrace();
+                    }
+                    m_graphVisualizer.layoutGraph();
+                    m_holderPanel.add(m_graphVisualizer, BorderLayout.CENTER);
+                }
+                m_splitPane.revalidate();
+                first = false;
+            }
         }
-      }
-    });
-  }
+
+        m_clearButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                m_history.clearResults();
+                ((GraphViewer) getStep()).getDatasets().clear();
+                if (m_treeVisualizer != null || m_graphVisualizer != null) {
+                    m_splitPane.remove(m_holderPanel);
+                    // invalidate();
+                    revalidate();
+                }
+            }
+        });
+    }
 }

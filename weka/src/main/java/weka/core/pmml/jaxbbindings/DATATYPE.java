@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlEnumValue;
 
 /**
  * <p>Java class for DATATYPE.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
@@ -40,7 +40,6 @@ import javax.xml.bind.annotation.XmlEnumValue;
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
- * 
  */
 @XmlEnum
 public enum DATATYPE {
@@ -90,7 +89,7 @@ public enum DATATYPE {
     }
 
     public static DATATYPE fromValue(String v) {
-        for (DATATYPE c: DATATYPE.values()) {
+        for (DATATYPE c : DATATYPE.values()) {
             if (c.value.equals(v)) {
                 return c;
             }

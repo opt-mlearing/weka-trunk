@@ -22,16 +22,16 @@ package weka.gui.scripting.event;
 
 /**
  * Interface for frames/dialogs that listen to changes of the title.
- * 
- * @author  fracpete (fracpete at waikato dot ac dot nz)
+ *
+ * @author fracpete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
 public interface TitleUpdatedListener {
-  
-  /**
-   * Gets called when the title of the frame/dialog needs updating.
-   * 
-   * @param event	the event that got sent
-   */
-  public void titleUpdated(TitleUpdatedEvent event);
+
+    /**
+     * Gets called when the title of the frame/dialog needs updating.
+     *
+     * @param event the event that got sent
+     */
+    public void titleUpdated(TitleUpdatedEvent event);
 }

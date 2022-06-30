@@ -26,29 +26,29 @@ import java.beans.SimpleBeanInfo;
 
 /**
  * Bean info class for the appender bean
- * 
+ *
  * @author Mark Hall (mhall{[at]}pentaho{[dot]}com)
  * @version $Revision$
  */
 public class AppenderBeanInfo extends SimpleBeanInfo {
 
-  /**
-   * Returns the event set descriptors
-   * 
-   * @return an <code>EventSetDescriptor[]</code> value
-   */
-  @Override
-  public EventSetDescriptor[] getEventSetDescriptors() {
-    try {
-      EventSetDescriptor[] esds = {
-        new EventSetDescriptor(DataSource.class, "dataSet",
-          DataSourceListener.class, "acceptDataSet"),
-        new EventSetDescriptor(DataSource.class, "instance",
-          InstanceListener.class, "acceptInstance"), };
-      return esds;
-    } catch (Exception ex) {
-      ex.printStackTrace();
+    /**
+     * Returns the event set descriptors
+     *
+     * @return an <code>EventSetDescriptor[]</code> value
+     */
+    @Override
+    public EventSetDescriptor[] getEventSetDescriptors() {
+        try {
+            EventSetDescriptor[] esds = {
+                    new EventSetDescriptor(DataSource.class, "dataSet",
+                            DataSourceListener.class, "acceptDataSet"),
+                    new EventSetDescriptor(DataSource.class, "instance",
+                            InstanceListener.class, "acceptInstance"),};
+            return esds;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return null;
     }
-    return null;
-  }
 }

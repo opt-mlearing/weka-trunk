@@ -23,10 +23,10 @@ package weka.core;
 
 /**
  * Interface to something that is thread safe
- * 
+ *
  * @author Mark Hall (mhall{[at]}pentaho{[dot]}com)
  * @version $Revision$
  */
 public interface ThreadSafe {
-  // marker interface only
+    // marker interface only
 }

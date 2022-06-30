@@ -19,9 +19,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for TextDictionary element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="TextDictionary">
  *   &lt;complexType>
@@ -37,14 +37,12 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "extension",
-    "taxonomy",
-    "array"
+        "extension",
+        "taxonomy",
+        "array"
 })
 @XmlRootElement(name = "TextDictionary")
 public class TextDictionary {
@@ -58,25 +56,23 @@ public class TextDictionary {
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extension }
-     * 
-     * 
      */
     public List<Extension> getExtension() {
         if (extension == null) {
@@ -87,11 +83,9 @@ public class TextDictionary {
 
     /**
      * Gets the value of the taxonomy property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Taxonomy }
-     *     
+     *
+     * @return possible object is
+     * {@link Taxonomy }
      */
     public Taxonomy getTaxonomy() {
         return taxonomy;
@@ -99,11 +93,9 @@ public class TextDictionary {
 
     /**
      * Sets the value of the taxonomy property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Taxonomy }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Taxonomy }
      */
     public void setTaxonomy(Taxonomy value) {
         this.taxonomy = value;
@@ -111,11 +103,9 @@ public class TextDictionary {
 
     /**
      * Gets the value of the array property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ArrayType }
-     *     
+     *
+     * @return possible object is
+     * {@link ArrayType }
      */
     public ArrayType getArray() {
         return array;
@@ -123,11 +113,9 @@ public class TextDictionary {
 
     /**
      * Sets the value of the array property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link ArrayType }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link ArrayType }
      */
     public void setArray(ArrayType value) {
         this.array = value;

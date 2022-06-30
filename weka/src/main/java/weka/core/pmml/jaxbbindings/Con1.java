@@ -20,11 +20,11 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * <p>
  * Java class for Con element declaration.
- * 
+ *
  * <p>
  * The following schema fragment specifies the expected content contained within
  * this class.
- * 
+ *
  * <pre>
  * &lt;element name="Con">
  *   &lt;complexType>
@@ -40,86 +40,78 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = { "extension" })
+@XmlType(name = "", propOrder = {"extension"})
 // Note - this auto-generated class has been renamed from Con.java to Con1.java
 // because Con is a reserved name under Windows!
 @XmlRootElement(name = "Con")
 public class Con1 {
 
-  @XmlElement(name = "Extension", namespace = "http://www.dmg.org/PMML-4_1", required = true)
-  protected List<Extension> extension;
-  @XmlAttribute(required = true)
-  protected String from;
-  @XmlAttribute(required = true)
-  protected double weight;
+    @XmlElement(name = "Extension", namespace = "http://www.dmg.org/PMML-4_1", required = true)
+    protected List<Extension> extension;
+    @XmlAttribute(required = true)
+    protected String from;
+    @XmlAttribute(required = true)
+    protected double weight;
 
-  /**
-   * Gets the value of the extension property.
-   * 
-   * <p>
-   * This accessor method returns a reference to the live list, not a snapshot.
-   * Therefore any modification you make to the returned list will be present
-   * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-   * for the extension property.
-   * 
-   * <p>
-   * For example, to add a new item, do as follows:
-   * 
-   * <pre>
-   * getExtension().add(newItem);
-   * </pre>
-   * 
-   * 
-   * <p>
-   * Objects of the following type(s) are allowed in the list {@link Extension }
-   * 
-   * 
-   */
-  public List<Extension> getExtension() {
-    if (extension == null) {
-      extension = new ArrayList<Extension>();
+    /**
+     * Gets the value of the extension property.
+     *
+     * <p>
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the extension property.
+     *
+     * <p>
+     * For example, to add a new item, do as follows:
+     *
+     * <pre>
+     * getExtension().add(newItem);
+     * </pre>
+     *
+     *
+     * <p>
+     * Objects of the following type(s) are allowed in the list {@link Extension }
+     */
+    public List<Extension> getExtension() {
+        if (extension == null) {
+            extension = new ArrayList<Extension>();
+        }
+        return this.extension;
     }
-    return this.extension;
-  }
 
-  /**
-   * Gets the value of the from property.
-   * 
-   * @return possible object is {@link String }
-   * 
-   */
-  public String getFrom() {
-    return from;
-  }
+    /**
+     * Gets the value of the from property.
+     *
+     * @return possible object is {@link String }
+     */
+    public String getFrom() {
+        return from;
+    }
 
-  /**
-   * Sets the value of the from property.
-   * 
-   * @param value allowed object is {@link String }
-   * 
-   */
-  public void setFrom(String value) {
-    this.from = value;
-  }
+    /**
+     * Sets the value of the from property.
+     *
+     * @param value allowed object is {@link String }
+     */
+    public void setFrom(String value) {
+        this.from = value;
+    }
 
-  /**
-   * Gets the value of the weight property.
-   * 
-   */
-  public double getWeight() {
-    return weight;
-  }
+    /**
+     * Gets the value of the weight property.
+     */
+    public double getWeight() {
+        return weight;
+    }
 
-  /**
-   * Sets the value of the weight property.
-   * 
-   */
-  public void setWeight(double value) {
-    this.weight = value;
-  }
+    /**
+     * Sets the value of the weight property.
+     */
+    public void setWeight(double value) {
+        this.weight = value;
+    }
 
 }

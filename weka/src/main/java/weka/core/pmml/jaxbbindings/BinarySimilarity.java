@@ -20,9 +20,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for binarySimilarity element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="binarySimilarity">
  *   &lt;complexType>
@@ -44,12 +44,10 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "extension"
+        "extension"
 })
 @XmlRootElement(name = "binarySimilarity")
 public class BinarySimilarity {
@@ -75,25 +73,23 @@ public class BinarySimilarity {
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extension }
-     * 
-     * 
      */
     public List<Extension> getExtension() {
         if (extension == null) {
@@ -104,7 +100,6 @@ public class BinarySimilarity {
 
     /**
      * Gets the value of the c00Parameter property.
-     * 
      */
     public double getC00Parameter() {
         return c00Parameter;
@@ -112,7 +107,6 @@ public class BinarySimilarity {
 
     /**
      * Sets the value of the c00Parameter property.
-     * 
      */
     public void setC00Parameter(double value) {
         this.c00Parameter = value;
@@ -120,7 +114,6 @@ public class BinarySimilarity {
 
     /**
      * Gets the value of the c01Parameter property.
-     * 
      */
     public double getC01Parameter() {
         return c01Parameter;
@@ -128,7 +121,6 @@ public class BinarySimilarity {
 
     /**
      * Sets the value of the c01Parameter property.
-     * 
      */
     public void setC01Parameter(double value) {
         this.c01Parameter = value;
@@ -136,7 +128,6 @@ public class BinarySimilarity {
 
     /**
      * Gets the value of the c10Parameter property.
-     * 
      */
     public double getC10Parameter() {
         return c10Parameter;
@@ -144,7 +135,6 @@ public class BinarySimilarity {
 
     /**
      * Sets the value of the c10Parameter property.
-     * 
      */
     public void setC10Parameter(double value) {
         this.c10Parameter = value;
@@ -152,7 +142,6 @@ public class BinarySimilarity {
 
     /**
      * Gets the value of the c11Parameter property.
-     * 
      */
     public double getC11Parameter() {
         return c11Parameter;
@@ -160,7 +149,6 @@ public class BinarySimilarity {
 
     /**
      * Sets the value of the c11Parameter property.
-     * 
      */
     public void setC11Parameter(double value) {
         this.c11Parameter = value;
@@ -168,7 +156,6 @@ public class BinarySimilarity {
 
     /**
      * Gets the value of the d00Parameter property.
-     * 
      */
     public double getD00Parameter() {
         return d00Parameter;
@@ -176,7 +163,6 @@ public class BinarySimilarity {
 
     /**
      * Sets the value of the d00Parameter property.
-     * 
      */
     public void setD00Parameter(double value) {
         this.d00Parameter = value;
@@ -184,7 +170,6 @@ public class BinarySimilarity {
 
     /**
      * Gets the value of the d01Parameter property.
-     * 
      */
     public double getD01Parameter() {
         return d01Parameter;
@@ -192,7 +177,6 @@ public class BinarySimilarity {
 
     /**
      * Sets the value of the d01Parameter property.
-     * 
      */
     public void setD01Parameter(double value) {
         this.d01Parameter = value;
@@ -200,7 +184,6 @@ public class BinarySimilarity {
 
     /**
      * Gets the value of the d10Parameter property.
-     * 
      */
     public double getD10Parameter() {
         return d10Parameter;
@@ -208,7 +191,6 @@ public class BinarySimilarity {
 
     /**
      * Sets the value of the d10Parameter property.
-     * 
      */
     public void setD10Parameter(double value) {
         this.d10Parameter = value;
@@ -216,7 +198,6 @@ public class BinarySimilarity {
 
     /**
      * Gets the value of the d11Parameter property.
-     * 
      */
     public double getD11Parameter() {
         return d11Parameter;
@@ -224,7 +205,6 @@ public class BinarySimilarity {
 
     /**
      * Sets the value of the d11Parameter property.
-     * 
      */
     public void setD11Parameter(double value) {
         this.d11Parameter = value;

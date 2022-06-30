@@ -21,7 +21,7 @@
 
 package weka.gui;
 
-/** 
+/**
  * Interface for objects that display log and display information on
  * running tasks.
  *
@@ -29,14 +29,14 @@ package weka.gui;
  * @version $Revision$
  */
 public interface TaskLogger {
-  
-  /**
-   * Tells the task logger that a new task has been started
-   */
-  void taskStarted();
 
-  /**
-   * Tells the task logger that a task has completed
-   */
-  void taskFinished();
+    /**
+     * Tells the task logger that a new task has been started
+     */
+    void taskStarted();
+
+    /**
+     * Tells the task logger that a task has completed
+     */
+    void taskFinished();
 }

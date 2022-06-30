@@ -31,10 +31,10 @@ package weka.core;
  */
 public interface Copyable {
 
-  /**
-   * This method produces a shallow copy of an object.
-   * It does the same as the clone() method in Object, which also produces
-   * a shallow copy.
-   */
-  Object copy();
+    /**
+     * This method produces a shallow copy of an object.
+     * It does the same as the clone() method in Object, which also produces
+     * a shallow copy.
+     */
+    Object copy();
 }

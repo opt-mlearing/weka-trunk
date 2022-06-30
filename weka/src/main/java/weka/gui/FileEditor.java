@@ -32,7 +32,7 @@ import java.beans.PropertyEditorSupport;
 import java.io.File;
 
 
-/** 
+/**
  * A PropertyEditor for File objects that lets the user select a file.
  *
  * @author Len Trigg (trigg@cs.waikato.ac.nz)
@@ -40,102 +40,104 @@ import java.io.File;
  */
 public class FileEditor extends PropertyEditorSupport {
 
-  /** The file chooser used for selecting files. */
-  protected WekaFileChooser m_FileChooser;
-  
-  /**
-   * Returns a representation of the current property value as java source.
-   *
-   * @return a value of type 'String'
-   */
-  public String getJavaInitializationString() {
+    /**
+     * The file chooser used for selecting files.
+     */
+    protected WekaFileChooser m_FileChooser;
 
-    File f = (File) getValue();
-    if (f == null) {
-      return "null";
+    /**
+     * Returns a representation of the current property value as java source.
+     *
+     * @return a value of type 'String'
+     */
+    public String getJavaInitializationString() {
+
+        File f = (File) getValue();
+        if (f == null) {
+            return "null";
+        }
+        return "new File(\"" + f.getName() + "\")";
     }
-    return "new File(\"" + f.getName() + "\")";
-  }
 
-  /**
-   * Returns true because we do support a custom editor.
-   *
-   * @return true
-   */
-  public boolean supportsCustomEditor() {
-    return true;
-  }
-  
-  /**
-   * Gets the custom editor component.
-   *
-   * @return a value of type 'java.awt.Component'
-   */
-  public java.awt.Component getCustomEditor() {
-
-    if (m_FileChooser == null) {
-      File currentFile = (File) getValue();
-      if (currentFile != null) {
-	m_FileChooser 
-	  = new WekaFileChooser();
-	m_FileChooser.setSelectedFile(currentFile);
-      } else {
-	m_FileChooser 
-	  = new WekaFileChooser(new File(System.getProperty("user.dir")));
-      }
-      m_FileChooser.setApproveButtonText("Select");
-      m_FileChooser.setApproveButtonMnemonic('S');
-      m_FileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-      m_FileChooser.addActionListener(new ActionListener() {
-	public void actionPerformed(ActionEvent e) {
-	  String cmdString = e.getActionCommand();
-	  if (cmdString.equals(JFileChooser.APPROVE_SELECTION)) {
-	    File newVal = m_FileChooser.getSelectedFile();
-	    setValue(newVal);
-	  }
-	  closeDialog();
-	}
-      });
+    /**
+     * Returns true because we do support a custom editor.
+     *
+     * @return true
+     */
+    public boolean supportsCustomEditor() {
+        return true;
     }
-    return m_FileChooser;
-  }
 
-  /**
-   * Returns true since this editor is paintable.
-   *
-   * @return true.
-   */
-  public boolean isPaintable() {
-    return true;
-  }
+    /**
+     * Gets the custom editor component.
+     *
+     * @return a value of type 'java.awt.Component'
+     */
+    public java.awt.Component getCustomEditor() {
 
-  /**
-   * Paints a representation of the current Object.
-   *
-   * @param gfx the graphics context to use
-   * @param box the area we are allowed to paint into
-   */
-  public void paintValue(java.awt.Graphics gfx, java.awt.Rectangle box) {
-
-    FontMetrics fm = gfx.getFontMetrics();
-    int vpad = (box.height - fm.getHeight()) / 2 ;
-    File f = (File) getValue();
-    String val = "No file";
-    if (f != null) {
-      val = f.getName();
+        if (m_FileChooser == null) {
+            File currentFile = (File) getValue();
+            if (currentFile != null) {
+                m_FileChooser
+                        = new WekaFileChooser();
+                m_FileChooser.setSelectedFile(currentFile);
+            } else {
+                m_FileChooser
+                        = new WekaFileChooser(new File(System.getProperty("user.dir")));
+            }
+            m_FileChooser.setApproveButtonText("Select");
+            m_FileChooser.setApproveButtonMnemonic('S');
+            m_FileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+            m_FileChooser.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    String cmdString = e.getActionCommand();
+                    if (cmdString.equals(JFileChooser.APPROVE_SELECTION)) {
+                        File newVal = m_FileChooser.getSelectedFile();
+                        setValue(newVal);
+                    }
+                    closeDialog();
+                }
+            });
+        }
+        return m_FileChooser;
     }
-    gfx.drawString(val, 2, fm.getHeight() + vpad);
-  }  
-  
-  /**
-   * Closes the dialog.
-   */
-  protected void closeDialog() {
-    if (m_FileChooser instanceof Container) {
-      Dialog dlg = PropertyDialog.getParentDialog((Container) m_FileChooser);
-      if (dlg != null)
-	dlg.setVisible(false);
+
+    /**
+     * Returns true since this editor is paintable.
+     *
+     * @return true.
+     */
+    public boolean isPaintable() {
+        return true;
     }
-  }
+
+    /**
+     * Paints a representation of the current Object.
+     *
+     * @param gfx the graphics context to use
+     * @param box the area we are allowed to paint into
+     */
+    public void paintValue(java.awt.Graphics gfx, java.awt.Rectangle box) {
+
+        FontMetrics fm = gfx.getFontMetrics();
+        int vpad = (box.height - fm.getHeight()) / 2;
+        File f = (File) getValue();
+        String val = "No file";
+        if (f != null) {
+            val = f.getName();
+        }
+        gfx.drawString(val, 2, fm.getHeight() + vpad);
+    }
+
+    /**
+     * Closes the dialog.
+     */
+    protected void closeDialog() {
+        if (m_FileChooser instanceof Container) {
+            Dialog dlg = PropertyDialog.getParentDialog((Container) m_FileChooser);
+            if (dlg != null)
+                dlg.setVisible(false);
+        }
+    }
 }
 

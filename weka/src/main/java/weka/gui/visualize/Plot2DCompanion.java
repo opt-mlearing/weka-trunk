@@ -34,9 +34,10 @@ import java.awt.Graphics;
  */
 public interface Plot2DCompanion {
 
-  /**
-   * Something to be drawn before the plot itself
-   * @param gx the graphics context to render to
-   */
-  void prePlot(Graphics gx);
+    /**
+     * Something to be drawn before the plot itself
+     *
+     * @param gx the graphics context to render to
+     */
+    void prePlot(Graphics gx);
 }

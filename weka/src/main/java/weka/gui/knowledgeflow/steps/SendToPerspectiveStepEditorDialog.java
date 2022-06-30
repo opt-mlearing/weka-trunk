@@ -41,52 +41,54 @@ import java.util.List;
  */
 public class SendToPerspectiveStepEditorDialog extends GOEStepEditorDialog {
 
-  private static final long serialVersionUID = -8282588308511754826L;
+    private static final long serialVersionUID = -8282588308511754826L;
 
-  /** Combo box for selecting the perspective to send to */
-  protected JComboBox<String> m_perspectivesCombo = new JComboBox<>();
+    /**
+     * Combo box for selecting the perspective to send to
+     */
+    protected JComboBox<String> m_perspectivesCombo = new JComboBox<>();
 
-  /**
-   * Sets the step to edit and configures the dialog
-   *
-   * @param step the step to edit
-   */
-  @Override
-  public void setStepToEdit(Step step) {
-    copyOriginal(step);
+    /**
+     * Sets the step to edit and configures the dialog
+     *
+     * @param step the step to edit
+     */
+    @Override
+    public void setStepToEdit(Step step) {
+        copyOriginal(step);
 
-    try {
-      List<String> visiblePerspectives =
-        getGraphicalEnvironmentCommandHandler().performCommand(
-          GetPerspectiveNamesGraphicalCommand.GET_PERSPECTIVE_NAMES_KEY);
-      for (String s : visiblePerspectives) {
-        m_perspectivesCombo.addItem(s);
-      }
+        try {
+            List<String> visiblePerspectives =
+                    getGraphicalEnvironmentCommandHandler().performCommand(
+                            GetPerspectiveNamesGraphicalCommand.GET_PERSPECTIVE_NAMES_KEY);
+            for (String s : visiblePerspectives) {
+                m_perspectivesCombo.addItem(s);
+            }
 
-    } catch (WekaException ex) {
-      showErrorDialog(ex);
+        } catch (WekaException ex) {
+            showErrorDialog(ex);
+        }
+
+        String current = ((SendToPerspective) getStepToEdit()).getPerspectiveName();
+        m_perspectivesCombo.setSelectedItem(current);
+
+        JPanel p = new JPanel(new BorderLayout());
+        p.setBorder(BorderFactory
+                .createTitledBorder("Choose perspective to send to"));
+        p.add(m_perspectivesCombo, BorderLayout.NORTH);
+
+        createAboutPanel(step);
+        add(p, BorderLayout.CENTER);
     }
 
-    String current = ((SendToPerspective) getStepToEdit()).getPerspectiveName();
-    m_perspectivesCombo.setSelectedItem(current);
-
-    JPanel p = new JPanel(new BorderLayout());
-    p.setBorder(BorderFactory
-      .createTitledBorder("Choose perspective to send to"));
-    p.add(m_perspectivesCombo, BorderLayout.NORTH);
-
-    createAboutPanel(step);
-    add(p, BorderLayout.CENTER);
-  }
-
-  /**
-   * Handle the OK button
-   */
-  @Override
-  public void okPressed() {
-    String selectedPerspective =
-      m_perspectivesCombo.getSelectedItem().toString();
-    ((SendToPerspective) getStepToEdit())
-      .setPerspectiveName(selectedPerspective);
-  }
+    /**
+     * Handle the OK button
+     */
+    @Override
+    public void okPressed() {
+        String selectedPerspective =
+                m_perspectivesCombo.getSelectedItem().toString();
+        ((SendToPerspective) getStepToEdit())
+                .setPerspectiveName(selectedPerspective);
+    }
 }

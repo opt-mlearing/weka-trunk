@@ -27,13 +27,13 @@ import java.util.EventListener;
 /**
  * A listener for changes in a history.
  *
- * @author      FracPete (fracpete at waikato dot ac dot nz)
- * @version     $Revision$
+ * @author FracPete (fracpete at waikato dot ac dot nz)
+ * @version $Revision$
  */
 
 public interface HistoryChangedListener extends EventListener {
-  /**
-   * This method gets called when a history is modified.
-   */
-  public void historyChanged(HistoryChangedEvent evt);
+    /**
+     * This method gets called when a history is modified.
+     */
+    public void historyChanged(HistoryChangedEvent evt);
 }

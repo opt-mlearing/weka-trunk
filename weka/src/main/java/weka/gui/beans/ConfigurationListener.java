@@ -28,20 +28,20 @@ package weka.gui.beans;
  * Configurations will be pulled (rather than pushed) by
  * ConfigurationListeners. It is a listener's responsibility (if
  * they are interested in utilizing configurations) to implement
- * BeanCommon and store/delete reference(s) to ConfigurationProducers 
+ * BeanCommon and store/delete reference(s) to ConfigurationProducers
  * when connectionNotification() and disconnectionNotification() are
  * called on them.
- * 
+ *
  * @author Mark Hall (mhall{[at]}pentaho{[dot]}org)
  * @version $Revision $
  */
 public interface ConfigurationListener {
-  
-  /**
-   * Implementers do not have to do anything in this
-   * method (see the above documentation).
-   * 
-   * @param e a ConfigurationEvent
-   */
-  void acceptConfiguration(ConfigurationEvent e);
+
+    /**
+     * Implementers do not have to do anything in this
+     * method (see the above documentation).
+     *
+     * @param e a ConfigurationEvent
+     */
+    void acceptConfiguration(ConfigurationEvent e);
 }

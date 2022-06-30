@@ -19,9 +19,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for ModelExplanation element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="ModelExplanation">
  *   &lt;complexType>
@@ -40,15 +40,13 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "extension",
-    "predictiveModelQuality",
-    "clusteringModelQuality",
-    "correlations"
+        "extension",
+        "predictiveModelQuality",
+        "clusteringModelQuality",
+        "correlations"
 })
 @XmlRootElement(name = "ModelExplanation")
 public class ModelExplanation {
@@ -64,25 +62,23 @@ public class ModelExplanation {
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extension }
-     * 
-     * 
      */
     public List<Extension> getExtension() {
         if (extension == null) {
@@ -93,25 +89,23 @@ public class ModelExplanation {
 
     /**
      * Gets the value of the predictiveModelQuality property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the predictiveModelQuality property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getPredictiveModelQuality().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link PredictiveModelQuality }
-     * 
-     * 
      */
     public List<PredictiveModelQuality> getPredictiveModelQuality() {
         if (predictiveModelQuality == null) {
@@ -122,25 +116,23 @@ public class ModelExplanation {
 
     /**
      * Gets the value of the clusteringModelQuality property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the clusteringModelQuality property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getClusteringModelQuality().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ClusteringModelQuality }
-     * 
-     * 
      */
     public List<ClusteringModelQuality> getClusteringModelQuality() {
         if (clusteringModelQuality == null) {
@@ -151,11 +143,9 @@ public class ModelExplanation {
 
     /**
      * Gets the value of the correlations property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Correlations }
-     *     
+     *
+     * @return possible object is
+     * {@link Correlations }
      */
     public Correlations getCorrelations() {
         return correlations;
@@ -163,11 +153,9 @@ public class ModelExplanation {
 
     /**
      * Sets the value of the correlations property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Correlations }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Correlations }
      */
     public void setCorrelations(Correlations value) {
         this.correlations = value;

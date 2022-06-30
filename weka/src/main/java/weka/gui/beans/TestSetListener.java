@@ -31,10 +31,10 @@ import java.util.EventListener;
  */
 public interface TestSetListener extends EventListener {
 
-  /**
-   * Accept and process a test set event
-   *
-   * @param e a <code>TestSetEvent</code> value
-   */
-  void acceptTestSet(TestSetEvent e);
+    /**
+     * Accept and process a test set event
+     *
+     * @param e a <code>TestSetEvent</code> value
+     */
+    void acceptTestSet(TestSetEvent e);
 }

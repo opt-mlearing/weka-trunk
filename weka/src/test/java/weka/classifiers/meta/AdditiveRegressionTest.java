@@ -34,19 +34,23 @@ import junit.framework.TestSuite;
  */
 public class AdditiveRegressionTest extends AbstractClassifierTest {
 
-  public AdditiveRegressionTest(String name) { super(name);  }
+    public AdditiveRegressionTest(String name) {
+        super(name);
+    }
 
-  /** Creates a default AdditiveRegression */
-  public Classifier getClassifier() {
-    return new AdditiveRegression();
-  }
+    /**
+     * Creates a default AdditiveRegression
+     */
+    public Classifier getClassifier() {
+        return new AdditiveRegression();
+    }
 
-  public static Test suite() {
-    return new TestSuite(AdditiveRegressionTest.class);
-  }
+    public static Test suite() {
+        return new TestSuite(AdditiveRegressionTest.class);
+    }
 
-  public static void main(String[] args){
-    junit.textui.TestRunner.run(suite());
-  }
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 
 }

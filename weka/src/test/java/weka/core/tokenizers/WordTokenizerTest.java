@@ -30,39 +30,40 @@ import junit.framework.TestSuite;
  * @version $Revision$
  */
 public class WordTokenizerTest
-  extends AbstractTokenizerTest {
+        extends AbstractTokenizerTest {
 
-  public WordTokenizerTest(String name) {
-    super(name);
-  }
-
-  /** Creates a default WordTokenizer */
-  public Tokenizer getTokenizer() {
-    return new WordTokenizer();
-  }
-
-  /**
-   * tests the number of generated tokens
-   */
-  public void testNumberOfGeneratedTokens() {
-    String 	s;
-    String[]	result;
-    
-    s = "HOWEVER, the egg only got larger and larger, and more and more human";
-    try {
-      result = Tokenizer.tokenize(m_Tokenizer, new String[]{s});
-      assertEquals("number of tokens differ", 13, result.length);
+    public WordTokenizerTest(String name) {
+        super(name);
     }
-    catch (Exception e) {
-      fail("Error tokenizing string '" + s + "'!");
-    }
-  }
-  
-  public static Test suite() {
-    return new TestSuite(WordTokenizerTest.class);
-  }
 
-  public static void main(String[] args){
-    junit.textui.TestRunner.run(suite());
-  }
+    /**
+     * Creates a default WordTokenizer
+     */
+    public Tokenizer getTokenizer() {
+        return new WordTokenizer();
+    }
+
+    /**
+     * tests the number of generated tokens
+     */
+    public void testNumberOfGeneratedTokens() {
+        String s;
+        String[] result;
+
+        s = "HOWEVER, the egg only got larger and larger, and more and more human";
+        try {
+            result = Tokenizer.tokenize(m_Tokenizer, new String[]{s});
+            assertEquals("number of tokens differ", 13, result.length);
+        } catch (Exception e) {
+            fail("Error tokenizing string '" + s + "'!");
+        }
+    }
+
+    public static Test suite() {
+        return new TestSuite(WordTokenizerTest.class);
+    }
+
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 }

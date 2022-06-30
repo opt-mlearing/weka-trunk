@@ -26,60 +26,66 @@ import java.util.EventObject;
 
 /**
  * Event that encapsulates an Image
- * 
+ *
  * @author Mark Hall (mhall{[at]}pentaho{[dot]}com)
  * @version $Revision$
  */
 public class ImageEvent extends EventObject {
 
-  /** For serialization */
-  private static final long serialVersionUID = -8126533743311557969L;
+    /**
+     * For serialization
+     */
+    private static final long serialVersionUID = -8126533743311557969L;
 
-  /** The image */
-  protected BufferedImage m_image;
+    /**
+     * The image
+     */
+    protected BufferedImage m_image;
 
-  /** The name of the image */
-  protected String m_imageName = "";
+    /**
+     * The name of the image
+     */
+    protected String m_imageName = "";
 
-  /**
-   * Construct a new ImageEvent
-   * 
-   * @param source the source of this event
-   * @param image the image to encapsulate
-   */
-  public ImageEvent(Object source, BufferedImage image) {
-    this(source, image, "");
-  }
+    /**
+     * Construct a new ImageEvent
+     *
+     * @param source the source of this event
+     * @param image  the image to encapsulate
+     */
+    public ImageEvent(Object source, BufferedImage image) {
+        this(source, image, "");
+    }
 
-  /**
-   * Construct an ImageEvent
-   * 
-   * @param source the source of this event
-   * @param image the image to encapsulate
-   * @param imageName the name of the image
-   */
-  public ImageEvent(Object source, BufferedImage image, String imageName) {
-    super(source);
+    /**
+     * Construct an ImageEvent
+     *
+     * @param source    the source of this event
+     * @param image     the image to encapsulate
+     * @param imageName the name of the image
+     */
+    public ImageEvent(Object source, BufferedImage image, String imageName) {
+        super(source);
 
-    m_image = image;
-    m_imageName = imageName;
-  }
+        m_image = image;
+        m_imageName = imageName;
+    }
 
-  /**
-   * Get the encapsulated image
-   * 
-   * @return the encapsulated image
-   */
-  public BufferedImage getImage() {
-    return m_image;
-  }
+    /**
+     * Get the encapsulated image
+     *
+     * @return the encapsulated image
+     */
+    public BufferedImage getImage() {
+        return m_image;
+    }
 
-  /**
-   * Get the name of the image
-   * 
-   * @return
-   */
-  public String getImageName() {
-    return m_imageName;
-  }
+    /**
+     * Get the name of the image
+     *
+     * @return
+     */
+    public String getImageName() {
+        return m_imageName;
+    }
 }

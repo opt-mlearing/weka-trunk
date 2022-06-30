@@ -30,22 +30,22 @@ package weka.gui.beans;
  */
 public interface Visible {
 
-  /**
-   * Use the default visual representation
-   */
-  void useDefaultVisual();
+    /**
+     * Use the default visual representation
+     */
+    void useDefaultVisual();
 
-  /**
-   * Set a new visual representation
-   *
-   * @param newVisual a <code>BeanVisual</code> value
-   */
-  void setVisual(BeanVisual newVisual);
+    /**
+     * Set a new visual representation
+     *
+     * @param newVisual a <code>BeanVisual</code> value
+     */
+    void setVisual(BeanVisual newVisual);
 
-  /**
-   * Get the visual representation
-   *
-   * @return a <code>BeanVisual</code> value
-   */
-  BeanVisual getVisual();
+    /**
+     * Get the visual representation
+     *
+     * @return a <code>BeanVisual</code> value
+     */
+    BeanVisual getVisual();
 }

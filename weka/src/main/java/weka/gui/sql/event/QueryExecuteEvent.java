@@ -29,121 +29,135 @@ import weka.gui.sql.DbUtils;
 /**
  * An event that is generated when a query is executed.
  *
- * @see         QueryExecuteListener
- * @author      FracPete (fracpete at waikato dot ac dot nz)
- * @version     $Revision$
+ * @author FracPete (fracpete at waikato dot ac dot nz)
+ * @version $Revision$
+ * @see QueryExecuteListener
  */
 public class QueryExecuteEvent
-  extends EventObject {
+        extends EventObject {
 
-  /** for serialization */
-  private static final long serialVersionUID = -5556385019954730740L;
-  
-  /** the Db utils instance for the current DB connection  */
-  protected DbUtils m_DbUtils;
-  
-  /** the query that was executed */
-  protected String m_Query;
+    /**
+     * for serialization
+     */
+    private static final long serialVersionUID = -5556385019954730740L;
 
-  /** the produced ResultSet, if any */
-  protected ResultSet m_ResultSet;
+    /**
+     * the Db utils instance for the current DB connection
+     */
+    protected DbUtils m_DbUtils;
 
-  /** a possible exception, if the query failed */
-  protected Exception m_Exception;
+    /**
+     * the query that was executed
+     */
+    protected String m_Query;
 
-  /** the maximum number of rows to retrieve */
-  protected int m_MaxRows;
-  
-  /**
-   * constructs the event
-   * @param source        the source that generated this event
-   * @param utils         the DbUtils instance that connected to the DB
-   * @param query         the query that is the basis for the resultset
-   * @param rows          the maximum number of rows to retrieve (0 for all)
-   * @param rs            the ResultSet that was produced (depending on the
-   *                      type of SQL query it can also be NULL)
-   * @param ex            in case an exception occurred
-   */
-  public QueryExecuteEvent( Object source, 
-                            DbUtils utils,
-                            String query, 
-                            int rows,
-                            ResultSet rs, 
-                            Exception ex ) {
-    super(source);
+    /**
+     * the produced ResultSet, if any
+     */
+    protected ResultSet m_ResultSet;
 
-    m_DbUtils   = utils;
-    m_Query     = query;
-    m_MaxRows   = rows;
-    m_ResultSet = rs;
-    m_Exception = ex;
-  }
+    /**
+     * a possible exception, if the query failed
+     */
+    protected Exception m_Exception;
 
-  /**
-   * returns the DbUtils instance that was executed the query
-   */
-  public DbUtils getDbUtils() {
-    return m_DbUtils;
-  }
+    /**
+     * the maximum number of rows to retrieve
+     */
+    protected int m_MaxRows;
 
-  /**
-   * returns the query that was executed
-   */
-  public String getQuery() {
-    return m_Query;
-  }
+    /**
+     * constructs the event
+     *
+     * @param source the source that generated this event
+     * @param utils  the DbUtils instance that connected to the DB
+     * @param query  the query that is the basis for the resultset
+     * @param rows   the maximum number of rows to retrieve (0 for all)
+     * @param rs     the ResultSet that was produced (depending on the
+     *               type of SQL query it can also be NULL)
+     * @param ex     in case an exception occurred
+     */
+    public QueryExecuteEvent(Object source,
+                             DbUtils utils,
+                             String query,
+                             int rows,
+                             ResultSet rs,
+                             Exception ex) {
+        super(source);
 
-  /**
-   * returns the maximum number of rows to retrieve. 0 means all.
-   */
-  public int getMaxRows() {
-    return m_MaxRows;
-  }
+        m_DbUtils = utils;
+        m_Query = query;
+        m_MaxRows = rows;
+        m_ResultSet = rs;
+        m_Exception = ex;
+    }
 
-  /**
-   * is TRUE in case the exception is not NULL, i.e. the query failed
-   */
-  public boolean failed() {
-    return (m_Exception != null);
-  }
+    /**
+     * returns the DbUtils instance that was executed the query
+     */
+    public DbUtils getDbUtils() {
+        return m_DbUtils;
+    }
 
-  /**
-   * whether a ResultSet was produced, e.g. DDL commands like delete, drop
-   * or update do not produce one.
-   */
-  public boolean hasResult() {
-    return (m_ResultSet != null);
-  }
+    /**
+     * returns the query that was executed
+     */
+    public String getQuery() {
+        return m_Query;
+    }
 
-  /**
-   * returns the resultset that was produced, can be null in case the query
-   * failed
-   */
-  public ResultSet getResultSet() {
-    return m_ResultSet;
-  }
+    /**
+     * returns the maximum number of rows to retrieve. 0 means all.
+     */
+    public int getMaxRows() {
+        return m_MaxRows;
+    }
 
-  /**
-   * returns the exception, if one happened, otherwise NULL
-   */
-  public Exception getException() {
-    return m_Exception;
-  }
+    /**
+     * is TRUE in case the exception is not NULL, i.e. the query failed
+     */
+    public boolean failed() {
+        return (m_Exception != null);
+    }
 
-  /**
-   * returns the event in a string representation
-   * @return        the event in a string representation
-   */
-  public String toString() {
-    String        result;
+    /**
+     * whether a ResultSet was produced, e.g. DDL commands like delete, drop
+     * or update do not produce one.
+     */
+    public boolean hasResult() {
+        return (m_ResultSet != null);
+    }
 
-    result  = super.toString();
-    result  = result.substring(0, result.length() - 1);  // remove "]"
-    result +=   ",query=" + getQuery() 
-              + ",maxrows=" + getMaxRows()
-              + ",failed=" + failed()
-              + ",exception=" + getException() + "]";
+    /**
+     * returns the resultset that was produced, can be null in case the query
+     * failed
+     */
+    public ResultSet getResultSet() {
+        return m_ResultSet;
+    }
 
-    return result;
-  }
+    /**
+     * returns the exception, if one happened, otherwise NULL
+     */
+    public Exception getException() {
+        return m_Exception;
+    }
+
+    /**
+     * returns the event in a string representation
+     *
+     * @return the event in a string representation
+     */
+    public String toString() {
+        String result;
+
+        result = super.toString();
+        result = result.substring(0, result.length() - 1);  // remove "]"
+        result += ",query=" + getQuery()
+                + ",maxrows=" + getMaxRows()
+                + ",failed=" + failed()
+                + ",exception=" + getException() + "]";
+
+        return result;
+    }
 }

@@ -24,7 +24,7 @@ package weka.gui.beans;
 /**
  * Interface to something that can wrap around a class of Weka
  * algorithms (classifiers, filters etc). Typically implemented
- * by a bean for handling classes of Weka algorithms. 
+ * by a bean for handling classes of Weka algorithms.
  *
  * @author <a href="mailto:mhall@cs.waikato.ac.nz">Mark Hall</a>
  * @version $Revision$
@@ -32,19 +32,19 @@ package weka.gui.beans;
  */
 public interface WekaWrapper {
 
-  /**
-   * Set the algorithm.
-   *
-   * @param algorithm an <code>Object</code> value
-   * @exception IllegalArgumentException if the supplied object is
-   * not of the class of algorithms handled by this wrapper.
-   */
-  void setWrappedAlgorithm(Object algorithm);
+    /**
+     * Set the algorithm.
+     *
+     * @param algorithm an <code>Object</code> value
+     * @throws IllegalArgumentException if the supplied object is
+     *                                  not of the class of algorithms handled by this wrapper.
+     */
+    void setWrappedAlgorithm(Object algorithm);
 
-  /**
-   * Get the algorithm
-   *
-   * @return an <code>Object</code> value
-   */
-  Object getWrappedAlgorithm();
+    /**
+     * Get the algorithm
+     *
+     * @return an <code>Object</code> value
+     */
+    Object getWrappedAlgorithm();
 }

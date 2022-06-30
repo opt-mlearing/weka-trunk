@@ -27,44 +27,44 @@ import java.beans.SimpleBeanInfo;
 
 /**
  * BeanInfo class for the Sorter step
- * 
+ *
  * @author Mark Hall (mhall{[at]}pentaho{[dot]}com)
  * @version $Revision$
  */
 public class SorterBeanInfo extends SimpleBeanInfo {
-  
-  /**
-   * Returns the event set descriptors
-   *
-   * @return an <code>EventSetDescriptor[]</code> value
-   */
-  public EventSetDescriptor [] getEventSetDescriptors() {
-    try {
-      EventSetDescriptor [] esds = 
-      {       
-          new EventSetDescriptor(DataSource.class, 
-              "instance", 
-              InstanceListener.class, 
-          "acceptInstance"),
-          new EventSetDescriptor(DataSource.class, 
-              "dataSet", 
-              DataSourceListener.class, 
-          "acceptDataSet")
-      };
-      return esds;
-    } catch (Exception ex) {
-      ex.printStackTrace();
+
+    /**
+     * Returns the event set descriptors
+     *
+     * @return an <code>EventSetDescriptor[]</code> value
+     */
+    public EventSetDescriptor[] getEventSetDescriptors() {
+        try {
+            EventSetDescriptor[] esds =
+                    {
+                            new EventSetDescriptor(DataSource.class,
+                                    "instance",
+                                    InstanceListener.class,
+                                    "acceptInstance"),
+                            new EventSetDescriptor(DataSource.class,
+                                    "dataSet",
+                                    DataSourceListener.class,
+                                    "acceptDataSet")
+                    };
+            return esds;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return null;
     }
-    return null;
-  }
-  
-  /**
-   * Get the bean descriptor for this bean
-   *
-   * @return a <code>BeanDescriptor</code> value
-   */
-  public BeanDescriptor getBeanDescriptor() {
-    return new BeanDescriptor(Sorter.class,
-                              SorterCustomizer.class);
-  }
+
+    /**
+     * Get the bean descriptor for this bean
+     *
+     * @return a <code>BeanDescriptor</code> value
+     */
+    public BeanDescriptor getBeanDescriptor() {
+        return new BeanDescriptor(Sorter.class,
+                SorterCustomizer.class);
+    }
 }

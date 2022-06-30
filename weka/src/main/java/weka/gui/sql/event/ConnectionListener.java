@@ -27,14 +27,14 @@ import java.util.EventListener;
 /**
  * A listener for connect/disconnect events.
  *
- * @author      FracPete (fracpete at waikato dot ac dot nz)
- * @version     $Revision$
+ * @author FracPete (fracpete at waikato dot ac dot nz)
+ * @version $Revision$
  */
 
 public interface ConnectionListener extends EventListener {
-  /**
-   * This method gets called when the connection is either established
-   * or disconnected.
-   */
-  public void connectionChange(ConnectionEvent evt);
+    /**
+     * This method gets called when the connection is either established
+     * or disconnected.
+     */
+    public void connectionChange(ConnectionEvent evt);
 }

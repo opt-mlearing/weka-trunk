@@ -28,20 +28,20 @@ package weka.knowledgeflow;
  * might delay notification (e.g. if a task gets executed on a remote machine
  * then we will want to delay notification until receiving the result back over
  * the wire.
- * 
+ *
  * @author Mark Hall (mhall{[at]}pentaho{[dot]}com)
  * @version $Revision: $
  */
 public interface CallbackNotifierDelegate {
 
-  /**
-   * Notify the supplied callback
-   *
-   * @param callback the callback to notify
-   * @param taskExecuted the StepTask that was executed
-   * @param result the ExecutionResult that was produced
-   * @throws Exception if a problem occurs
-   */
+    /**
+     * Notify the supplied callback
+     *
+     * @param callback     the callback to notify
+     * @param taskExecuted the StepTask that was executed
+     * @param result       the ExecutionResult that was produced
+     * @throws Exception if a problem occurs
+     */
     void notifyCallback(StepTaskCallback callback, StepTask taskExecuted,
-      ExecutionResult result) throws Exception;
+                        ExecutionResult result) throws Exception;
 }

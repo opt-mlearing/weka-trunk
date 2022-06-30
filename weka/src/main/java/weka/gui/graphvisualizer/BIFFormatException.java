@@ -30,13 +30,15 @@ package weka.gui.graphvisualizer;
  * @version $Revision$ - 24 Apr 2003 - Initial version (Ashraf M. Kibriya)
  */
 public class BIFFormatException
-  extends Exception {
+        extends Exception {
 
-  /** for serialization */
-  private static final long serialVersionUID = -4102518086411708140L;
-  
-  public BIFFormatException(String s) {
-    super(s);
-  }
-  
+    /**
+     * for serialization
+     */
+    private static final long serialVersionUID = -4102518086411708140L;
+
+    public BIFFormatException(String s) {
+        super(s);
+    }
+
 }

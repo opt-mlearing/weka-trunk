@@ -20,9 +20,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for BaselineStratum element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="BaselineStratum">
  *   &lt;complexType>
@@ -40,13 +40,11 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "extension",
-    "baselineCell"
+        "extension",
+        "baselineCell"
 })
 @XmlRootElement(name = "BaselineStratum")
 public class BaselineStratum {
@@ -64,25 +62,23 @@ public class BaselineStratum {
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extension }
-     * 
-     * 
      */
     public List<Extension> getExtension() {
         if (extension == null) {
@@ -93,25 +89,23 @@ public class BaselineStratum {
 
     /**
      * Gets the value of the baselineCell property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the baselineCell property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getBaselineCell().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link BaselineCell }
-     * 
-     * 
      */
     public List<BaselineCell> getBaselineCell() {
         if (baselineCell == null) {
@@ -122,11 +116,9 @@ public class BaselineStratum {
 
     /**
      * Gets the value of the label property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getLabel() {
         return label;
@@ -134,11 +126,9 @@ public class BaselineStratum {
 
     /**
      * Sets the value of the label property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setLabel(String value) {
         this.label = value;
@@ -146,7 +136,6 @@ public class BaselineStratum {
 
     /**
      * Gets the value of the maxTime property.
-     * 
      */
     public double getMaxTime() {
         return maxTime;
@@ -154,7 +143,6 @@ public class BaselineStratum {
 
     /**
      * Sets the value of the maxTime property.
-     * 
      */
     public void setMaxTime(double value) {
         this.maxTime = value;
@@ -162,11 +150,9 @@ public class BaselineStratum {
 
     /**
      * Gets the value of the value property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getValue() {
         return value;
@@ -174,11 +160,9 @@ public class BaselineStratum {
 
     /**
      * Sets the value of the value property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setValue(String value) {
         this.value = value;

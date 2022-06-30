@@ -29,37 +29,35 @@ import java.beans.Customizer;
  * has modified the object that it is customizing. Typically, an implementation
  * would notify the listener about the modification state when it's window
  * is closed.
- * 
+ *
  * @author Mark Hall (mhall{[at]}penthao{[dot]}com)
  * @version $Revision$
- *
  */
 public interface BeanCustomizer extends Customizer {
-  
-  /**
-   * Interface for something that is interested in the modified status
-   * of a source object (typically a BeanCustomizer that is editing an
-   * object)
-   * 
-   * @author mhall
-   *
-   */
-  public interface ModifyListener {
-    
+
     /**
-     * Tell the listener about the modified status of the source object.
-     * 
-     * @param source the source object
-     * @param modified true if the source object has been modified
+     * Interface for something that is interested in the modified status
+     * of a source object (typically a BeanCustomizer that is editing an
+     * object)
+     *
+     * @author mhall
      */
-    void setModifiedStatus(Object source, boolean modified);
-  }
-  
-  /**
-   * Set a listener to be notified about the modified status of this
-   * object
-   * 
-   * @param l the ModifiedListener
-   */
-  void setModifiedListener(ModifyListener l);  
+    public interface ModifyListener {
+
+        /**
+         * Tell the listener about the modified status of the source object.
+         *
+         * @param source   the source object
+         * @param modified true if the source object has been modified
+         */
+        void setModifiedStatus(Object source, boolean modified);
+    }
+
+    /**
+     * Set a listener to be notified about the modified status of this
+     * object
+     *
+     * @param l the ModifiedListener
+     */
+    void setModifiedListener(ModifyListener l);
 }

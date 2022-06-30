@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlEnumValue;
 
 /**
  * <p>Java class for CAT-SCORING-METHOD.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
@@ -25,7 +25,6 @@ import javax.xml.bind.annotation.XmlEnumValue;
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
- * 
  */
 @XmlEnum
 public enum CATSCORINGMETHOD {
@@ -45,7 +44,7 @@ public enum CATSCORINGMETHOD {
     }
 
     public static CATSCORINGMETHOD fromValue(String v) {
-        for (CATSCORINGMETHOD c: CATSCORINGMETHOD.values()) {
+        for (CATSCORINGMETHOD c : CATSCORINGMETHOD.values()) {
             if (c.value.equals(v)) {
                 return c;
             }

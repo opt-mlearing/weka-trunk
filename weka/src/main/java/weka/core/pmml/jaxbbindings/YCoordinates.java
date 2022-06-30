@@ -19,9 +19,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for YCoordinates element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="YCoordinates">
  *   &lt;complexType>
@@ -36,13 +36,11 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "extension",
-    "array"
+        "extension",
+        "array"
 })
 @XmlRootElement(name = "YCoordinates")
 public class YCoordinates {
@@ -54,25 +52,23 @@ public class YCoordinates {
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extension }
-     * 
-     * 
      */
     public List<Extension> getExtension() {
         if (extension == null) {
@@ -83,11 +79,9 @@ public class YCoordinates {
 
     /**
      * Gets the value of the array property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ArrayType }
-     *     
+     *
+     * @return possible object is
+     * {@link ArrayType }
      */
     public ArrayType getArray() {
         return array;
@@ -95,11 +89,9 @@ public class YCoordinates {
 
     /**
      * Sets the value of the array property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link ArrayType }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link ArrayType }
      */
     public void setArray(ArrayType value) {
         this.array = value;

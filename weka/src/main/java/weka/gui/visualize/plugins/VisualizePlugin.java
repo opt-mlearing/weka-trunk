@@ -32,44 +32,43 @@ import weka.core.Attribute;
 /**
  * Interface implemented by classes loaded dynamically to visualize classifier
  * results in the explorer.
- * 
+ *
  * @author Jeffery Grajkowski (grajkows@cs.ualberta.ca)
  * @version $Revision$
  */
 public interface VisualizePlugin {
 
-  /**
-   * Get a JMenu or JMenuItem which contain action listeners that perform the
-   * visualization, using some but not necessarily all of the data. Exceptions
-   * thrown because of changes in Weka since compilation need to be caught by
-   * the implementer.
-   * 
-   * @see NoClassDefFoundError
-   * @see IncompatibleClassChangeError
-   * 
-   * @param preds predictions
-   * @param classAtt class attribute
-   * @return menuitem for opening visualization(s), or null to indicate no
-   *         visualization is applicable for the input
-   */
-  public JMenuItem getVisualizeMenuItem(ArrayList<Prediction> preds,
-    Attribute classAtt);
+    /**
+     * Get a JMenu or JMenuItem which contain action listeners that perform the
+     * visualization, using some but not necessarily all of the data. Exceptions
+     * thrown because of changes in Weka since compilation need to be caught by
+     * the implementer.
+     *
+     * @param preds    predictions
+     * @param classAtt class attribute
+     * @return menuitem for opening visualization(s), or null to indicate no
+     * visualization is applicable for the input
+     * @see NoClassDefFoundError
+     * @see IncompatibleClassChangeError
+     */
+    public JMenuItem getVisualizeMenuItem(ArrayList<Prediction> preds,
+                                          Attribute classAtt);
 
-  /**
-   * Get the minimum version of Weka, inclusive, the class is designed to work
-   * with. eg: <code>3.5.0</code>
-   */
-  public String getMinVersion();
+    /**
+     * Get the minimum version of Weka, inclusive, the class is designed to work
+     * with. eg: <code>3.5.0</code>
+     */
+    public String getMinVersion();
 
-  /**
-   * Get the maximum version of Weka, exclusive, the class is designed to work
-   * with. eg: <code>3.6.0</code>
-   */
-  public String getMaxVersion();
+    /**
+     * Get the maximum version of Weka, exclusive, the class is designed to work
+     * with. eg: <code>3.6.0</code>
+     */
+    public String getMaxVersion();
 
-  /**
-   * Get the specific version of Weka the class is designed for. eg:
-   * <code>3.5.1</code>
-   */
-  public String getDesignVersion();
+    /**
+     * Get the specific version of Weka the class is designed for. eg:
+     * <code>3.5.1</code>
+     */
+    public String getDesignVersion();
 }

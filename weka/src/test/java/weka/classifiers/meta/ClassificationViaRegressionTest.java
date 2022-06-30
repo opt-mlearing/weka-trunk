@@ -34,19 +34,23 @@ import junit.framework.TestSuite;
  */
 public class ClassificationViaRegressionTest extends AbstractClassifierTest {
 
-  public ClassificationViaRegressionTest(String name) { super(name);  }
+    public ClassificationViaRegressionTest(String name) {
+        super(name);
+    }
 
-  /** Creates a default ClassificationViaRegression */
-  public Classifier getClassifier() {
-    return new ClassificationViaRegression();
-  }
+    /**
+     * Creates a default ClassificationViaRegression
+     */
+    public Classifier getClassifier() {
+        return new ClassificationViaRegression();
+    }
 
-  public static Test suite() {
-    return new TestSuite(ClassificationViaRegressionTest.class);
-  }
+    public static Test suite() {
+        return new TestSuite(ClassificationViaRegressionTest.class);
+    }
 
-  public static void main(String[] args){
-    junit.textui.TestRunner.run(suite());
-  }
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 
 }

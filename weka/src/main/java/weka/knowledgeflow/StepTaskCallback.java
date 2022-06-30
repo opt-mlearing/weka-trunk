@@ -24,31 +24,30 @@ package weka.knowledgeflow;
 /**
  * Callback that Steps can use when executing StepTasks via
  * EnvironmentManager.submitTask().
- * 
- * @author Mark Hall (mhall{[at]}pentaho{[dot]}com)
- * 
+ *
  * @param <T> the result return type (gets encapsulated in an ExecutionResult)
+ * @author Mark Hall (mhall{[at]}pentaho{[dot]}com)
  */
 public interface StepTaskCallback<T> {
 
-  /**
-   * Gets called when the {@code StepTask} finishes processing
-   * 
-   * @param result the {@code ExecutionrRsult} produced by the task
-   * @throws Exception if a problem occurs
-   */
-  public void taskFinished(ExecutionResult<T> result) throws Exception;
+    /**
+     * Gets called when the {@code StepTask} finishes processing
+     *
+     * @param result the {@code ExecutionrRsult} produced by the task
+     * @throws Exception if a problem occurs
+     */
+    public void taskFinished(ExecutionResult<T> result) throws Exception;
 
-  /**
-   * Gets called if the {@code StepTask} fails for some reason
-   * 
-   * @param failedTask the {@StepTask} that failed
-   * @param failedResult the {@ExecutionResult} produced by
-   *          the failed task (might contain information pertaining to the
-   *          failure)
-   * @throws Exception if a problem occurs
-   */
-  public void
+    /**
+     * Gets called if the {@code StepTask} fails for some reason
+     *
+     * @param failedTask   the {@StepTask} that failed
+     * @param failedResult the {@ExecutionResult} produced by
+     *                     the failed task (might contain information pertaining to the
+     *                     failure)
+     * @throws Exception if a problem occurs
+     */
+    public void
     taskFailed(StepTask<T> failedTask, ExecutionResult<T> failedResult)
-      throws Exception;
+            throws Exception;
 }

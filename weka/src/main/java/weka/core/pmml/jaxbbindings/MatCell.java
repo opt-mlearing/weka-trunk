@@ -19,9 +19,9 @@ import javax.xml.bind.annotation.XmlValue;
 
 /**
  * <p>Java class for MatCell element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="MatCell">
  *   &lt;complexType>
@@ -34,12 +34,10 @@ import javax.xml.bind.annotation.XmlValue;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "value"
+        "value"
 })
 @XmlRootElement(name = "MatCell")
 public class MatCell {
@@ -53,11 +51,9 @@ public class MatCell {
 
     /**
      * Gets the value of the value property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getValue() {
         return value;
@@ -65,11 +61,9 @@ public class MatCell {
 
     /**
      * Sets the value of the value property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setValue(String value) {
         this.value = value;
@@ -77,11 +71,9 @@ public class MatCell {
 
     /**
      * Gets the value of the col property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @return possible object is
+     * {@link BigInteger }
      */
     public BigInteger getCol() {
         return col;
@@ -89,11 +81,9 @@ public class MatCell {
 
     /**
      * Sets the value of the col property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link BigInteger }
      */
     public void setCol(BigInteger value) {
         this.col = value;
@@ -101,11 +91,9 @@ public class MatCell {
 
     /**
      * Gets the value of the row property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @return possible object is
+     * {@link BigInteger }
      */
     public BigInteger getRow() {
         return row;
@@ -113,11 +101,9 @@ public class MatCell {
 
     /**
      * Sets the value of the row property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link BigInteger }
      */
     public void setRow(BigInteger value) {
         this.row = value;

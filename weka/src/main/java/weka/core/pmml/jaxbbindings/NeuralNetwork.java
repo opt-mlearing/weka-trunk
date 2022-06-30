@@ -22,9 +22,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for NeuralNetwork element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="NeuralNetwork">
  *   &lt;complexType>
@@ -59,28 +59,26 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "content"
+        "content"
 })
 @XmlRootElement(name = "NeuralNetwork")
 public class NeuralNetwork {
 
     @XmlElementRefs({
-        @XmlElementRef(name = "ModelExplanation", namespace = "http://www.dmg.org/PMML-4_1", type = ModelExplanation.class),
-        @XmlElementRef(name = "ModelStats", namespace = "http://www.dmg.org/PMML-4_1", type = ModelStats.class),
-        @XmlElementRef(name = "Output", namespace = "http://www.dmg.org/PMML-4_1", type = Output.class),
-        @XmlElementRef(name = "LocalTransformations", namespace = "http://www.dmg.org/PMML-4_1", type = LocalTransformations.class),
-        @XmlElementRef(name = "NeuralLayer", namespace = "http://www.dmg.org/PMML-4_1", type = NeuralLayer.class),
-        @XmlElementRef(name = "Targets", namespace = "http://www.dmg.org/PMML-4_1", type = Targets.class),
-        @XmlElementRef(name = "NeuralOutputs", namespace = "http://www.dmg.org/PMML-4_1", type = NeuralOutputs.class),
-        @XmlElementRef(name = "MiningSchema", namespace = "http://www.dmg.org/PMML-4_1", type = MiningSchema.class),
-        @XmlElementRef(name = "NeuralInputs", namespace = "http://www.dmg.org/PMML-4_1", type = NeuralInputs.class),
-        @XmlElementRef(name = "ModelVerification", namespace = "http://www.dmg.org/PMML-4_1", type = ModelVerification.class),
-        @XmlElementRef(name = "Extension", namespace = "http://www.dmg.org/PMML-4_1", type = Extension.class)
+            @XmlElementRef(name = "ModelExplanation", namespace = "http://www.dmg.org/PMML-4_1", type = ModelExplanation.class),
+            @XmlElementRef(name = "ModelStats", namespace = "http://www.dmg.org/PMML-4_1", type = ModelStats.class),
+            @XmlElementRef(name = "Output", namespace = "http://www.dmg.org/PMML-4_1", type = Output.class),
+            @XmlElementRef(name = "LocalTransformations", namespace = "http://www.dmg.org/PMML-4_1", type = LocalTransformations.class),
+            @XmlElementRef(name = "NeuralLayer", namespace = "http://www.dmg.org/PMML-4_1", type = NeuralLayer.class),
+            @XmlElementRef(name = "Targets", namespace = "http://www.dmg.org/PMML-4_1", type = Targets.class),
+            @XmlElementRef(name = "NeuralOutputs", namespace = "http://www.dmg.org/PMML-4_1", type = NeuralOutputs.class),
+            @XmlElementRef(name = "MiningSchema", namespace = "http://www.dmg.org/PMML-4_1", type = MiningSchema.class),
+            @XmlElementRef(name = "NeuralInputs", namespace = "http://www.dmg.org/PMML-4_1", type = NeuralInputs.class),
+            @XmlElementRef(name = "ModelVerification", namespace = "http://www.dmg.org/PMML-4_1", type = ModelVerification.class),
+            @XmlElementRef(name = "Extension", namespace = "http://www.dmg.org/PMML-4_1", type = Extension.class)
     })
     protected List<Object> content;
     @XmlAttribute(required = true)
@@ -105,31 +103,31 @@ public class NeuralNetwork {
     protected Double width;
 
     /**
-     * Gets the rest of the content model. 
-     * 
+     * Gets the rest of the content model.
+     *
      * <p>
-     * You are getting this "catch-all" property because of the following reason: 
-     * The field name "Extension" is used by two different parts of a schema. See: 
+     * You are getting this "catch-all" property because of the following reason:
+     * The field name "Extension" is used by two different parts of a schema. See:
      * line 3183 of file:/home/david/workspace/weka/pmml-4-1.xsd
      * line 3172 of file:/home/david/workspace/weka/pmml-4-1.xsd
      * <p>
-     * To get rid of this property, apply a property customization to one 
-     * of both of the following declarations to change their names: 
+     * To get rid of this property, apply a property customization to one
+     * of both of the following declarations to change their names:
      * Gets the value of the content property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the content property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getContent().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ModelExplanation }
@@ -143,8 +141,6 @@ public class NeuralNetwork {
      * {@link ModelVerification }
      * {@link NeuralInputs }
      * {@link Extension }
-     * 
-     * 
      */
     public List<Object> getContent() {
         if (content == null) {
@@ -155,11 +151,9 @@ public class NeuralNetwork {
 
     /**
      * Gets the value of the activationFunction property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ACTIVATIONFUNCTION }
-     *     
+     *
+     * @return possible object is
+     * {@link ACTIVATIONFUNCTION }
      */
     public ACTIVATIONFUNCTION getActivationFunction() {
         return activationFunction;
@@ -167,11 +161,9 @@ public class NeuralNetwork {
 
     /**
      * Sets the value of the activationFunction property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link ACTIVATIONFUNCTION }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link ACTIVATIONFUNCTION }
      */
     public void setActivationFunction(ACTIVATIONFUNCTION value) {
         this.activationFunction = value;
@@ -179,11 +171,9 @@ public class NeuralNetwork {
 
     /**
      * Gets the value of the algorithmName property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getAlgorithmName() {
         return algorithmName;
@@ -191,11 +181,9 @@ public class NeuralNetwork {
 
     /**
      * Sets the value of the algorithmName property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setAlgorithmName(String value) {
         this.algorithmName = value;
@@ -203,15 +191,13 @@ public class NeuralNetwork {
 
     /**
      * Gets the value of the altitude property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public double getAltitude() {
         if (altitude == null) {
-            return  1.0D;
+            return 1.0D;
         } else {
             return altitude;
         }
@@ -219,11 +205,9 @@ public class NeuralNetwork {
 
     /**
      * Sets the value of the altitude property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setAltitude(Double value) {
         this.altitude = value;
@@ -231,11 +215,9 @@ public class NeuralNetwork {
 
     /**
      * Gets the value of the functionName property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link MININGFUNCTION }
-     *     
+     *
+     * @return possible object is
+     * {@link MININGFUNCTION }
      */
     public MININGFUNCTION getFunctionName() {
         return functionName;
@@ -243,11 +225,9 @@ public class NeuralNetwork {
 
     /**
      * Sets the value of the functionName property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link MININGFUNCTION }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link MININGFUNCTION }
      */
     public void setFunctionName(MININGFUNCTION value) {
         this.functionName = value;
@@ -255,11 +235,9 @@ public class NeuralNetwork {
 
     /**
      * Gets the value of the isScorable property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     *
+     * @return possible object is
+     * {@link Boolean }
      */
     public boolean isIsScorable() {
         if (isScorable == null) {
@@ -271,11 +249,9 @@ public class NeuralNetwork {
 
     /**
      * Sets the value of the isScorable property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Boolean }
      */
     public void setIsScorable(Boolean value) {
         this.isScorable = value;
@@ -283,11 +259,9 @@ public class NeuralNetwork {
 
     /**
      * Gets the value of the modelName property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getModelName() {
         return modelName;
@@ -295,11 +269,9 @@ public class NeuralNetwork {
 
     /**
      * Sets the value of the modelName property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setModelName(String value) {
         this.modelName = value;
@@ -307,11 +279,9 @@ public class NeuralNetwork {
 
     /**
      * Gets the value of the normalizationMethod property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link NNNORMALIZATIONMETHOD }
-     *     
+     *
+     * @return possible object is
+     * {@link NNNORMALIZATIONMETHOD }
      */
     public NNNORMALIZATIONMETHOD getNormalizationMethod() {
         if (normalizationMethod == null) {
@@ -323,11 +293,9 @@ public class NeuralNetwork {
 
     /**
      * Sets the value of the normalizationMethod property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link NNNORMALIZATIONMETHOD }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link NNNORMALIZATIONMETHOD }
      */
     public void setNormalizationMethod(NNNORMALIZATIONMETHOD value) {
         this.normalizationMethod = value;
@@ -335,11 +303,9 @@ public class NeuralNetwork {
 
     /**
      * Gets the value of the numberOfLayers property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @return possible object is
+     * {@link BigInteger }
      */
     public BigInteger getNumberOfLayers() {
         return numberOfLayers;
@@ -347,11 +313,9 @@ public class NeuralNetwork {
 
     /**
      * Sets the value of the numberOfLayers property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link BigInteger }
      */
     public void setNumberOfLayers(BigInteger value) {
         this.numberOfLayers = value;
@@ -359,15 +323,13 @@ public class NeuralNetwork {
 
     /**
      * Gets the value of the threshold property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public double getThreshold() {
         if (threshold == null) {
-            return  0.0D;
+            return 0.0D;
         } else {
             return threshold;
         }
@@ -375,11 +337,9 @@ public class NeuralNetwork {
 
     /**
      * Sets the value of the threshold property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setThreshold(Double value) {
         this.threshold = value;
@@ -387,11 +347,9 @@ public class NeuralNetwork {
 
     /**
      * Gets the value of the width property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public Double getWidth() {
         return width;
@@ -399,11 +357,9 @@ public class NeuralNetwork {
 
     /**
      * Sets the value of the width property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setWidth(Double value) {
         this.width = value;

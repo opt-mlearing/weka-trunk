@@ -32,93 +32,96 @@ import weka.core.Utils;
 /**
  * Ancestor to all ClusterDefinitions, i.e., subclasses that handle their own
  * parameters that the cluster generator only passes on.
- * 
- * 
+ *
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
 
 public abstract class ClusterDefinition implements Serializable, OptionHandler, RevisionHandler {
 
-  /** for serialization */
-  private static final long serialVersionUID = -5950001207047429961L;
+    /**
+     * for serialization
+     */
+    private static final long serialVersionUID = -5950001207047429961L;
 
-  /** the parent of the cluster */
-  protected ClusterGenerator m_Parent;
+    /**
+     * the parent of the cluster
+     */
+    protected ClusterGenerator m_Parent;
 
-  /**
-   * initializes the cluster, without a parent cluster (necessary for GOE)
-   */
-  public ClusterDefinition() {
-    this(null);
-  }
-
-  /**
-   * initializes the cluster by setting the parent and the defaults
-   * 
-   * @param parent the datagenerator this cluster belongs to
-   */
-  public ClusterDefinition(ClusterGenerator parent) {
-    m_Parent = parent;
-    try {
-      setDefaults();
-    } catch (Exception e) {
-      e.printStackTrace();
+    /**
+     * initializes the cluster, without a parent cluster (necessary for GOE)
+     */
+    public ClusterDefinition() {
+        this(null);
     }
-  }
 
-  /**
-   * sets the default values
-   * 
-   * @throws Exception if setting of defaults fails
-   */
-  protected abstract void setDefaults() throws Exception;
+    /**
+     * initializes the cluster by setting the parent and the defaults
+     *
+     * @param parent the datagenerator this cluster belongs to
+     */
+    public ClusterDefinition(ClusterGenerator parent) {
+        m_Parent = parent;
+        try {
+            setDefaults();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-  /**
-   * Returns a string describing this data generator.
-   * 
-   * @return a description of the data generator suitable for displaying in the
-   *         explorer/experimenter gui
-   */
-  public String globalInfo() {
-    return "Contains information about a certain cluster of a cluster generator.";
-  }
+    /**
+     * sets the default values
+     *
+     * @throws Exception if setting of defaults fails
+     */
+    protected abstract void setDefaults() throws Exception;
 
-  /**
-   * returns the parent datagenerator this cluster belongs to
-   * 
-   * @return the parent this cluster belongs to
-   */
-  public ClusterGenerator getParent() {
-    return m_Parent;
-  }
+    /**
+     * Returns a string describing this data generator.
+     *
+     * @return a description of the data generator suitable for displaying in the
+     * explorer/experimenter gui
+     */
+    public String globalInfo() {
+        return "Contains information about a certain cluster of a cluster generator.";
+    }
 
-  /**
-   * sets the parent datagenerator this cluster belongs to
-   * 
-   * @param parent the parent datagenerator
-   */
-  public void setParent(ClusterGenerator parent) {
-    m_Parent = parent;
-  }
+    /**
+     * returns the parent datagenerator this cluster belongs to
+     *
+     * @return the parent this cluster belongs to
+     */
+    public ClusterGenerator getParent() {
+        return m_Parent;
+    }
 
-  /**
-   * Returns the tip text for this property
-   * 
-   * @return tip text for this property suitable for displaying in the
-   *         explorer/experimenter gui
-   */
-  public String parentTipText() {
-    return "The cluster generator this object belongs to.";
-  }
+    /**
+     * sets the parent datagenerator this cluster belongs to
+     *
+     * @param parent the parent datagenerator
+     */
+    public void setParent(ClusterGenerator parent) {
+        m_Parent = parent;
+    }
 
-  /**
-   * returns a string representation of the cluster
-   * 
-   * @return the cluster definition as string
-   */
-  @Override
-  public String toString() {
-    return this.getClass().getName() + ": " + Utils.joinOptions(getOptions());
-  }
+    /**
+     * Returns the tip text for this property
+     *
+     * @return tip text for this property suitable for displaying in the
+     * explorer/experimenter gui
+     */
+    public String parentTipText() {
+        return "The cluster generator this object belongs to.";
+    }
+
+    /**
+     * returns a string representation of the cluster
+     *
+     * @return the cluster definition as string
+     */
+    @Override
+    public String toString() {
+        return this.getClass().getName() + ": " + Utils.joinOptions(getOptions());
+    }
 }

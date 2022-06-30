@@ -28,17 +28,17 @@ import java.util.EventListener;
  *
  * @author <a href="mailto:mhall@cs.waikato.ac.nz">Mark Hall</a>
  * @version $Revision$
- * @since 1.0
  * @see EventListener
+ * @since 1.0
  */
 public interface TextListener extends EventListener {
 
-  /**
-   * Accept and process a text event
-   *
-   * @param e a <code>TextEvent</code> value
-   */
-  void acceptText(TextEvent e);
+    /**
+     * Accept and process a text event
+     *
+     * @param e a <code>TextEvent</code> value
+     */
+    void acceptText(TextEvent e);
 }
 
 

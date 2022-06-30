@@ -32,26 +32,26 @@ import java.util.List;
  * a server for example). A copy of the component that is running with
  * access to a display can be passed the list of events in order to
  * construct its display-dependent output.
- * 
+ *
  * @author Mark Hall (mhall{[at]}pentaho{[dot]}com).
  * @version $Revision$
  */
 public interface HeadlessEventCollector {
 
-  /**
-   * Get the list of events processed in headless mode. May return
-   * null or an empty list if not running in headless mode or no
-   * events were processed
-   * 
-   * @return a list of EventObjects or null.
-   */
-  List<EventObject> retrieveHeadlessEvents();
-  
-  /**
-   * Process a list of events that have been collected earlier. Has
-   * no affect if the component is running in headless mode.
-   * 
-   * @param headless a list of EventObjects to process.
-   */
-  void processHeadlessEvents(List<EventObject> headless);
+    /**
+     * Get the list of events processed in headless mode. May return
+     * null or an empty list if not running in headless mode or no
+     * events were processed
+     *
+     * @return a list of EventObjects or null.
+     */
+    List<EventObject> retrieveHeadlessEvents();
+
+    /**
+     * Process a list of events that have been collected earlier. Has
+     * no affect if the component is running in headless mode.
+     *
+     * @param headless a list of EventObjects to process.
+     */
+    void processHeadlessEvents(List<EventObject> headless);
 }

@@ -34,19 +34,23 @@ import junit.framework.TestSuite;
  */
 public class LogisticTest extends AbstractClassifierTest {
 
-  public LogisticTest(String name) { super(name);  }
+    public LogisticTest(String name) {
+        super(name);
+    }
 
-  /** Creates a default Logistic */
-  public Classifier getClassifier() {
-    return new Logistic();
-  }
+    /**
+     * Creates a default Logistic
+     */
+    public Classifier getClassifier() {
+        return new Logistic();
+    }
 
-  public static Test suite() {
-    return new TestSuite(LogisticTest.class);
-  }
+    public static Test suite() {
+        return new TestSuite(LogisticTest.class);
+    }
 
-  public static void main(String[] args){
-    junit.textui.TestRunner.run(suite());
-  }
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 
 }

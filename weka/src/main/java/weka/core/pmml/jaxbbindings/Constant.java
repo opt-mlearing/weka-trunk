@@ -18,9 +18,9 @@ import javax.xml.bind.annotation.XmlValue;
 
 /**
  * <p>Java class for Constant element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="Constant">
  *   &lt;complexType>
@@ -32,12 +32,10 @@ import javax.xml.bind.annotation.XmlValue;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "value"
+        "value"
 })
 @XmlRootElement(name = "Constant")
 public class Constant {
@@ -49,11 +47,9 @@ public class Constant {
 
     /**
      * Gets the value of the value property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getValue() {
         return value;
@@ -61,11 +57,9 @@ public class Constant {
 
     /**
      * Sets the value of the value property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setValue(String value) {
         this.value = value;
@@ -73,11 +67,9 @@ public class Constant {
 
     /**
      * Gets the value of the dataType property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link DATATYPE }
-     *     
+     *
+     * @return possible object is
+     * {@link DATATYPE }
      */
     public DATATYPE getDataType() {
         return dataType;
@@ -85,11 +77,9 @@ public class Constant {
 
     /**
      * Sets the value of the dataType property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link DATATYPE }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link DATATYPE }
      */
     public void setDataType(DATATYPE value) {
         this.dataType = value;

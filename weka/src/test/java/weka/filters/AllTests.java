@@ -14,7 +14,7 @@
  */
 
 /*
- * Copyright (C) 2002 University of Waikato 
+ * Copyright (C) 2002 University of Waikato
  */
 
 package weka.filters;
@@ -32,19 +32,19 @@ import junit.framework.TestSuite;
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
-public class AllTests 
-  extends WekaTestSuite {
+public class AllTests
+        extends WekaTestSuite {
 
-  public static Test suite() {
-    TestSuite suite = (TestSuite) suite("weka.filters.Filter");
-    
-    suite.addTest(AllFilterTest.suite());
-    suite.addTest(MultiFilterTest.suite());
-    
-    return suite;
-  }
+    public static Test suite() {
+        TestSuite suite = (TestSuite) suite("weka.filters.Filter");
 
-  public static void main(String []args) {
-    junit.textui.TestRunner.run(suite());
-  }
+        suite.addTest(AllFilterTest.suite());
+        suite.addTest(MultiFilterTest.suite());
+
+        return suite;
+    }
+
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 }

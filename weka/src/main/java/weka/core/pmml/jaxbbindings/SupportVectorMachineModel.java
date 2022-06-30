@@ -21,9 +21,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for SupportVectorMachineModel element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="SupportVectorMachineModel">
  *   &lt;complexType>
@@ -62,31 +62,29 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "content"
+        "content"
 })
 @XmlRootElement(name = "SupportVectorMachineModel")
 public class SupportVectorMachineModel {
 
     @XmlElementRefs({
-        @XmlElementRef(name = "ModelExplanation", namespace = "http://www.dmg.org/PMML-4_1", type = ModelExplanation.class),
-        @XmlElementRef(name = "ModelStats", namespace = "http://www.dmg.org/PMML-4_1", type = ModelStats.class),
-        @XmlElementRef(name = "PolynomialKernelType", namespace = "http://www.dmg.org/PMML-4_1", type = PolynomialKernelType.class),
-        @XmlElementRef(name = "Output", namespace = "http://www.dmg.org/PMML-4_1", type = Output.class),
-        @XmlElementRef(name = "SupportVectorMachine", namespace = "http://www.dmg.org/PMML-4_1", type = SupportVectorMachine.class),
-        @XmlElementRef(name = "LinearKernelType", namespace = "http://www.dmg.org/PMML-4_1", type = LinearKernelType.class),
-        @XmlElementRef(name = "SigmoidKernelType", namespace = "http://www.dmg.org/PMML-4_1", type = SigmoidKernelType.class),
-        @XmlElementRef(name = "LocalTransformations", namespace = "http://www.dmg.org/PMML-4_1", type = LocalTransformations.class),
-        @XmlElementRef(name = "VectorDictionary", namespace = "http://www.dmg.org/PMML-4_1", type = VectorDictionary.class),
-        @XmlElementRef(name = "Targets", namespace = "http://www.dmg.org/PMML-4_1", type = Targets.class),
-        @XmlElementRef(name = "RadialBasisKernelType", namespace = "http://www.dmg.org/PMML-4_1", type = RadialBasisKernelType.class),
-        @XmlElementRef(name = "MiningSchema", namespace = "http://www.dmg.org/PMML-4_1", type = MiningSchema.class),
-        @XmlElementRef(name = "ModelVerification", namespace = "http://www.dmg.org/PMML-4_1", type = ModelVerification.class),
-        @XmlElementRef(name = "Extension", namespace = "http://www.dmg.org/PMML-4_1", type = Extension.class)
+            @XmlElementRef(name = "ModelExplanation", namespace = "http://www.dmg.org/PMML-4_1", type = ModelExplanation.class),
+            @XmlElementRef(name = "ModelStats", namespace = "http://www.dmg.org/PMML-4_1", type = ModelStats.class),
+            @XmlElementRef(name = "PolynomialKernelType", namespace = "http://www.dmg.org/PMML-4_1", type = PolynomialKernelType.class),
+            @XmlElementRef(name = "Output", namespace = "http://www.dmg.org/PMML-4_1", type = Output.class),
+            @XmlElementRef(name = "SupportVectorMachine", namespace = "http://www.dmg.org/PMML-4_1", type = SupportVectorMachine.class),
+            @XmlElementRef(name = "LinearKernelType", namespace = "http://www.dmg.org/PMML-4_1", type = LinearKernelType.class),
+            @XmlElementRef(name = "SigmoidKernelType", namespace = "http://www.dmg.org/PMML-4_1", type = SigmoidKernelType.class),
+            @XmlElementRef(name = "LocalTransformations", namespace = "http://www.dmg.org/PMML-4_1", type = LocalTransformations.class),
+            @XmlElementRef(name = "VectorDictionary", namespace = "http://www.dmg.org/PMML-4_1", type = VectorDictionary.class),
+            @XmlElementRef(name = "Targets", namespace = "http://www.dmg.org/PMML-4_1", type = Targets.class),
+            @XmlElementRef(name = "RadialBasisKernelType", namespace = "http://www.dmg.org/PMML-4_1", type = RadialBasisKernelType.class),
+            @XmlElementRef(name = "MiningSchema", namespace = "http://www.dmg.org/PMML-4_1", type = MiningSchema.class),
+            @XmlElementRef(name = "ModelVerification", namespace = "http://www.dmg.org/PMML-4_1", type = ModelVerification.class),
+            @XmlElementRef(name = "Extension", namespace = "http://www.dmg.org/PMML-4_1", type = Extension.class)
     })
     protected List<Object> content;
     @XmlAttribute
@@ -105,31 +103,31 @@ public class SupportVectorMachineModel {
     protected Double threshold;
 
     /**
-     * Gets the rest of the content model. 
-     * 
+     * Gets the rest of the content model.
+     *
      * <p>
-     * You are getting this "catch-all" property because of the following reason: 
-     * The field name "Extension" is used by two different parts of a schema. See: 
+     * You are getting this "catch-all" property because of the following reason:
+     * The field name "Extension" is used by two different parts of a schema. See:
      * line 1368 of file:/home/david/workspace/weka/pmml-4-1.xsd
      * line 1350 of file:/home/david/workspace/weka/pmml-4-1.xsd
      * <p>
-     * To get rid of this property, apply a property customization to one 
-     * of both of the following declarations to change their names: 
+     * To get rid of this property, apply a property customization to one
+     * of both of the following declarations to change their names:
      * Gets the value of the content property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the content property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getContent().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ModelExplanation }
@@ -146,8 +144,6 @@ public class SupportVectorMachineModel {
      * {@link MiningSchema }
      * {@link ModelVerification }
      * {@link Extension }
-     * 
-     * 
      */
     public List<Object> getContent() {
         if (content == null) {
@@ -158,11 +154,9 @@ public class SupportVectorMachineModel {
 
     /**
      * Gets the value of the algorithmName property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getAlgorithmName() {
         return algorithmName;
@@ -170,11 +164,9 @@ public class SupportVectorMachineModel {
 
     /**
      * Sets the value of the algorithmName property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setAlgorithmName(String value) {
         this.algorithmName = value;
@@ -182,11 +174,9 @@ public class SupportVectorMachineModel {
 
     /**
      * Gets the value of the classificationMethod property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link SVMCLASSIFICATIONMETHOD }
-     *     
+     *
+     * @return possible object is
+     * {@link SVMCLASSIFICATIONMETHOD }
      */
     public SVMCLASSIFICATIONMETHOD getClassificationMethod() {
         if (classificationMethod == null) {
@@ -198,11 +188,9 @@ public class SupportVectorMachineModel {
 
     /**
      * Sets the value of the classificationMethod property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link SVMCLASSIFICATIONMETHOD }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link SVMCLASSIFICATIONMETHOD }
      */
     public void setClassificationMethod(SVMCLASSIFICATIONMETHOD value) {
         this.classificationMethod = value;
@@ -210,11 +198,9 @@ public class SupportVectorMachineModel {
 
     /**
      * Gets the value of the functionName property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link MININGFUNCTION }
-     *     
+     *
+     * @return possible object is
+     * {@link MININGFUNCTION }
      */
     public MININGFUNCTION getFunctionName() {
         return functionName;
@@ -222,11 +208,9 @@ public class SupportVectorMachineModel {
 
     /**
      * Sets the value of the functionName property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link MININGFUNCTION }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link MININGFUNCTION }
      */
     public void setFunctionName(MININGFUNCTION value) {
         this.functionName = value;
@@ -234,11 +218,9 @@ public class SupportVectorMachineModel {
 
     /**
      * Gets the value of the isScorable property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     *
+     * @return possible object is
+     * {@link Boolean }
      */
     public boolean isIsScorable() {
         if (isScorable == null) {
@@ -250,11 +232,9 @@ public class SupportVectorMachineModel {
 
     /**
      * Sets the value of the isScorable property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Boolean }
      */
     public void setIsScorable(Boolean value) {
         this.isScorable = value;
@@ -262,11 +242,9 @@ public class SupportVectorMachineModel {
 
     /**
      * Gets the value of the modelName property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getModelName() {
         return modelName;
@@ -274,11 +252,9 @@ public class SupportVectorMachineModel {
 
     /**
      * Sets the value of the modelName property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setModelName(String value) {
         this.modelName = value;
@@ -286,11 +262,9 @@ public class SupportVectorMachineModel {
 
     /**
      * Gets the value of the svmRepresentation property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link SVMREPRESENTATION }
-     *     
+     *
+     * @return possible object is
+     * {@link SVMREPRESENTATION }
      */
     public SVMREPRESENTATION getSvmRepresentation() {
         if (svmRepresentation == null) {
@@ -302,11 +276,9 @@ public class SupportVectorMachineModel {
 
     /**
      * Sets the value of the svmRepresentation property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link SVMREPRESENTATION }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link SVMREPRESENTATION }
      */
     public void setSvmRepresentation(SVMREPRESENTATION value) {
         this.svmRepresentation = value;
@@ -314,15 +286,13 @@ public class SupportVectorMachineModel {
 
     /**
      * Gets the value of the threshold property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public double getThreshold() {
         if (threshold == null) {
-            return  0.0D;
+            return 0.0D;
         } else {
             return threshold;
         }
@@ -330,11 +300,9 @@ public class SupportVectorMachineModel {
 
     /**
      * Sets the value of the threshold property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setThreshold(Double value) {
         this.threshold = value;

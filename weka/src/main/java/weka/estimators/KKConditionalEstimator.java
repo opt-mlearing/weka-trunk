@@ -27,7 +27,7 @@ import weka.core.RevisionUtils;
 import weka.core.Statistics;
 import weka.core.Utils;
 
-/** 
+/**
  * Conditional probability estimator for a numeric domain conditional upon
  * a numeric domain.
  *

@@ -36,44 +36,46 @@ import java.awt.*;
  */
 public class NoteEditorDialog extends StepEditorDialog {
 
-  private static final long serialVersionUID = 2358735294813135692L;
+    private static final long serialVersionUID = 2358735294813135692L;
 
-  /** Text area of the note */
-  protected JTextArea m_textArea = new JTextArea(5, 40);
+    /**
+     * Text area of the note
+     */
+    protected JTextArea m_textArea = new JTextArea(5, 40);
 
-  /**
-   * Set the step (note) being edited
-   *
-   * @param step the step to edit
-   */
-  @Override
-  protected void setStepToEdit(Step step) {
-    // override to prevent an "about" panel getting added
-    m_stepToEdit = step;
-    layoutEditor();
-  }
+    /**
+     * Set the step (note) being edited
+     *
+     * @param step the step to edit
+     */
+    @Override
+    protected void setStepToEdit(Step step) {
+        // override to prevent an "about" panel getting added
+        m_stepToEdit = step;
+        layoutEditor();
+    }
 
-  /**
-   * Layout the note editor
-   */
-  @Override
-  public void layoutEditor() {
-    m_textArea.setLineWrap(true);
-    String noteText = ((Note) getStepToEdit()).getNoteText();
-    m_textArea.setText(noteText);
-    JScrollPane sc = new JScrollPane(m_textArea);
+    /**
+     * Layout the note editor
+     */
+    @Override
+    public void layoutEditor() {
+        m_textArea.setLineWrap(true);
+        String noteText = ((Note) getStepToEdit()).getNoteText();
+        m_textArea.setText(noteText);
+        JScrollPane sc = new JScrollPane(m_textArea);
 
-    JPanel holder = new JPanel(new BorderLayout());
-    holder.setBorder(BorderFactory.createTitledBorder("Note Editor"));
-    holder.add(sc, BorderLayout.CENTER);
-    add(holder, BorderLayout.CENTER);
-  }
+        JPanel holder = new JPanel(new BorderLayout());
+        holder.setBorder(BorderFactory.createTitledBorder("Note Editor"));
+        holder.add(sc, BorderLayout.CENTER);
+        add(holder, BorderLayout.CENTER);
+    }
 
-  /**
-   * Called when the OK button is pressed
-   */
-  @Override
-  public void okPressed() {
-    ((Note) getStepToEdit()).setNoteText(m_textArea.getText());
-  }
+    /**
+     * Called when the OK button is pressed
+     */
+    @Override
+    public void okPressed() {
+        ((Note) getStepToEdit()).setNoteText(m_textArea.getText());
+    }
 }

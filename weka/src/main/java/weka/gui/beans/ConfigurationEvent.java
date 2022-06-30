@@ -30,19 +30,21 @@ import java.util.EventObject;
  * Configurations will be pulled (rather than pushed) by
  * ConfigurationListeners. It is a listener's responsibility (if
  * they are interested in utilizing configurations) to implement
- * BeanCommon and store/delete reference(s) to ConfigurationProducers 
+ * BeanCommon and store/delete reference(s) to ConfigurationProducers
  * when connectionNotification() and disconnectionNotification() are
- * called on them. 
- * 
+ * called on them.
+ *
  * @author Mark Hall (mhall{[at]}pentaho{[dot]}org)
  * @version $Revision $
  */
 public class ConfigurationEvent extends EventObject {
 
-  /** For serialization */
-  private static final long serialVersionUID = 5433562112093780868L;
+    /**
+     * For serialization
+     */
+    private static final long serialVersionUID = 5433562112093780868L;
 
-  public ConfigurationEvent(Object source) {
-    super(source);
-  }
+    public ConfigurationEvent(Object source) {
+        super(source);
+    }
 }

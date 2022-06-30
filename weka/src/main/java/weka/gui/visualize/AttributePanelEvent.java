@@ -31,24 +31,31 @@ package weka.gui.visualize;
  */
 public class AttributePanelEvent {
 
-  /** True if the x selection changed */
-  public boolean m_xChange;
+    /**
+     * True if the x selection changed
+     */
+    public boolean m_xChange;
 
-  /** True if the y selection changed */
-  public boolean m_yChange;
+    /**
+     * True if the y selection changed
+     */
+    public boolean m_yChange;
 
-  /** The index for the new attribute */
-  public int m_indexVal;
+    /**
+     * The index for the new attribute
+     */
+    public int m_indexVal;
 
-  /**
-   * Constructor
-   * @param xChange true if a change occured to the x selection
-   * @param yChange true if a change occured to the y selection
-   * @param indexVal the index of the new attribute
-   */
-  public AttributePanelEvent(boolean xChange, boolean yChange, int indexVal) {
-    m_xChange = xChange;
-    m_yChange = yChange;
-    m_indexVal = indexVal;
-  }
+    /**
+     * Constructor
+     *
+     * @param xChange  true if a change occured to the x selection
+     * @param yChange  true if a change occured to the y selection
+     * @param indexVal the index of the new attribute
+     */
+    public AttributePanelEvent(boolean xChange, boolean yChange, int indexVal) {
+        m_xChange = xChange;
+        m_yChange = yChange;
+        m_indexVal = indexVal;
+    }
 }

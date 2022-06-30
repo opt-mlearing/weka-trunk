@@ -34,19 +34,23 @@ import junit.framework.TestSuite;
  */
 public class NaiveBayesTest extends AbstractClassifierTest {
 
-  public NaiveBayesTest(String name) { super(name);  }
+    public NaiveBayesTest(String name) {
+        super(name);
+    }
 
-  /** Creates a default NaiveBayes */
-  public Classifier getClassifier() {
-    return new NaiveBayes();
-  }
+    /**
+     * Creates a default NaiveBayes
+     */
+    public Classifier getClassifier() {
+        return new NaiveBayes();
+    }
 
-  public static Test suite() {
-    return new TestSuite(NaiveBayesTest.class);
-  }
+    public static Test suite() {
+        return new TestSuite(NaiveBayesTest.class);
+    }
 
-  public static void main(String[] args){
-    junit.textui.TestRunner.run(suite());
-  }
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 
 }

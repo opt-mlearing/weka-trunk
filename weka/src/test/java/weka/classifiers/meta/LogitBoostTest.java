@@ -34,19 +34,23 @@ import junit.framework.TestSuite;
  */
 public class LogitBoostTest extends AbstractClassifierTest {
 
-  public LogitBoostTest(String name) { super(name);  }
+    public LogitBoostTest(String name) {
+        super(name);
+    }
 
-  /** Creates a default LogitBoost */
-  public Classifier getClassifier() {
-    return new LogitBoost();
-  }
+    /**
+     * Creates a default LogitBoost
+     */
+    public Classifier getClassifier() {
+        return new LogitBoost();
+    }
 
-  public static Test suite() {
-    return new TestSuite(LogitBoostTest.class);
-  }
+    public static Test suite() {
+        return new TestSuite(LogitBoostTest.class);
+    }
 
-  public static void main(String[] args){
-    junit.textui.TestRunner.run(suite());
-  }
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 
 }

@@ -20,9 +20,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for TextModelNormalization element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="TextModelNormalization">
  *   &lt;complexType>
@@ -65,12 +65,10 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "extension"
+        "extension"
 })
 @XmlRootElement(name = "TextModelNormalization")
 public class TextModelNormalization {
@@ -86,25 +84,23 @@ public class TextModelNormalization {
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extension }
-     * 
-     * 
      */
     public List<Extension> getExtension() {
         if (extension == null) {
@@ -115,11 +111,9 @@ public class TextModelNormalization {
 
     /**
      * Gets the value of the documentNormalization property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getDocumentNormalization() {
         if (documentNormalization == null) {
@@ -131,11 +125,9 @@ public class TextModelNormalization {
 
     /**
      * Sets the value of the documentNormalization property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setDocumentNormalization(String value) {
         this.documentNormalization = value;
@@ -143,11 +135,9 @@ public class TextModelNormalization {
 
     /**
      * Gets the value of the globalTermWeights property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getGlobalTermWeights() {
         if (globalTermWeights == null) {
@@ -159,11 +149,9 @@ public class TextModelNormalization {
 
     /**
      * Sets the value of the globalTermWeights property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setGlobalTermWeights(String value) {
         this.globalTermWeights = value;
@@ -171,11 +159,9 @@ public class TextModelNormalization {
 
     /**
      * Gets the value of the localTermWeights property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getLocalTermWeights() {
         if (localTermWeights == null) {
@@ -187,11 +173,9 @@ public class TextModelNormalization {
 
     /**
      * Sets the value of the localTermWeights property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setLocalTermWeights(String value) {
         this.localTermWeights = value;

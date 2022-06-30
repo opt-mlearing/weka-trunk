@@ -31,68 +31,68 @@ import java.beans.SimpleBeanInfo;
  *
  * @author <a href="mailto:mhall@cs.waikato.ac.nz">Mark Hall</a>
  * @version $Revision$
- * @since 1.0
  * @see SimpleBeanInfo
+ * @since 1.0
  */
 public class PredictionAppenderBeanInfo extends SimpleBeanInfo {
 
-  /**
-   * Get the event set descriptors pertinent to data sources
-   *
-   * @return an <code>EventSetDescriptor[]</code> value
-   */
-  public EventSetDescriptor [] getEventSetDescriptors() {
-    try {
-      EventSetDescriptor [] esds =  
-      { new EventSetDescriptor(PredictionAppender.class, 
-	  "dataSet",
-	  DataSourceListener.class,
-      "acceptDataSet"),
-      new EventSetDescriptor(PredictionAppender.class, 
-	  "instance",
-	  InstanceListener.class,
-      "acceptInstance"),
-      new EventSetDescriptor(PredictionAppender.class, 
-	  "trainingSet",
-	  TrainingSetListener.class,
-      "acceptTrainingSet"),
-      new EventSetDescriptor(PredictionAppender.class, 
-	  "testSet",
-	  TestSetListener.class,
-      "acceptTestSet")
-      };
-      return esds;
-    } catch (Exception ex) {
-      ex.printStackTrace();
+    /**
+     * Get the event set descriptors pertinent to data sources
+     *
+     * @return an <code>EventSetDescriptor[]</code> value
+     */
+    public EventSetDescriptor[] getEventSetDescriptors() {
+        try {
+            EventSetDescriptor[] esds =
+                    {new EventSetDescriptor(PredictionAppender.class,
+                            "dataSet",
+                            DataSourceListener.class,
+                            "acceptDataSet"),
+                            new EventSetDescriptor(PredictionAppender.class,
+                                    "instance",
+                                    InstanceListener.class,
+                                    "acceptInstance"),
+                            new EventSetDescriptor(PredictionAppender.class,
+                                    "trainingSet",
+                                    TrainingSetListener.class,
+                                    "acceptTrainingSet"),
+                            new EventSetDescriptor(PredictionAppender.class,
+                                    "testSet",
+                                    TestSetListener.class,
+                                    "acceptTestSet")
+                    };
+            return esds;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return null;
     }
-    return null;
-  }
 
-  /**
-   * Return the property descriptors for this bean
-   *
-   * @return a <code>PropertyDescriptor[]</code> value
-   */
-  public PropertyDescriptor[] getPropertyDescriptors() {
-    try {
-      PropertyDescriptor p1;
-      p1 = new PropertyDescriptor("appendPredictedProbabilities", 
-				  PredictionAppender.class);
-      PropertyDescriptor [] pds = { p1 };
-      return pds;
-    } catch (Exception ex) {
-      ex.printStackTrace();
+    /**
+     * Return the property descriptors for this bean
+     *
+     * @return a <code>PropertyDescriptor[]</code> value
+     */
+    public PropertyDescriptor[] getPropertyDescriptors() {
+        try {
+            PropertyDescriptor p1;
+            p1 = new PropertyDescriptor("appendPredictedProbabilities",
+                    PredictionAppender.class);
+            PropertyDescriptor[] pds = {p1};
+            return pds;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return null;
     }
-    return null;
-  }
 
-  /**
-   * Return the bean descriptor for this bean
-   *
-   * @return a <code>BeanDescriptor</code> value
-   */
-  public BeanDescriptor getBeanDescriptor() {
-    return new BeanDescriptor(weka.gui.beans.PredictionAppender.class,
-			      PredictionAppenderCustomizer.class);
-  }
+    /**
+     * Return the bean descriptor for this bean
+     *
+     * @return a <code>BeanDescriptor</code> value
+     */
+    public BeanDescriptor getBeanDescriptor() {
+        return new BeanDescriptor(weka.gui.beans.PredictionAppender.class,
+                PredictionAppenderCustomizer.class);
+    }
 }

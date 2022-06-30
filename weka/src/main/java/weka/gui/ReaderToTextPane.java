@@ -33,130 +33,138 @@ import javax.swing.text.StyledDocument;
 
 /**
  * A class that sends all lines from a reader to a JTextPane component.
- * 
+ *
  * @author Len Trigg (trigg@cs.waikato.ac.nz)
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
 public class ReaderToTextPane
-  extends Thread {
+        extends Thread {
 
-  /** The reader being monitored. */
-  protected LineNumberReader m_Input;
+    /**
+     * The reader being monitored.
+     */
+    protected LineNumberReader m_Input;
 
-  /** The output text component. */
-  protected JTextPane m_Output;
-  
-  /** the color to use. */
-  protected Color m_Color;
+    /**
+     * The output text component.
+     */
+    protected JTextPane m_Output;
 
-  /** string buffer to use for content */
-  protected StringBuffer m_Buffer;
+    /**
+     * the color to use.
+     */
+    protected Color m_Color;
 
-  /**
-   * Sets up the thread. Using black as color for displaying the text.
-   *
-   * @param input 	the Reader to monitor
-   * @param output 	the TextArea to send output to
-   */
-  public ReaderToTextPane(Reader input, JTextPane output) {
-    this(input, output, Color.BLACK);
-  }
+    /**
+     * string buffer to use for content
+     */
+    protected StringBuffer m_Buffer;
 
-  /**
-   * Sets up the thread.
-   *
-   * @param input 	the Reader to monitor
-   * @param output 	the TextArea to send output to
-   * @param color	the color to use
-   */
-  public ReaderToTextPane(Reader input, JTextPane output, Color color) {
-    StyledDocument      doc;
-    Style               style;
-
-    setDaemon(true);
-    
-    m_Color  = color;
-    m_Input  = new LineNumberReader(input);
-    m_Output = output;
-    m_Buffer = new StringBuffer();
-    
-    doc   = m_Output.getStyledDocument();
-    style = StyleContext.getDefaultStyleContext()
-                        .getStyle(StyleContext.DEFAULT_STYLE);
-    style = doc.addStyle(getStyleName(), style);
-    StyleConstants.setFontFamily(style, "monospaced");
-    StyleConstants.setForeground(style, m_Color);
-  }
-  
-  /**
-   * Returns the color in use.
-   * 
-   * @return		the color
-   */
-  public Color getColor() {
-    return m_Color;
-  }
-  
-  /**
-   * Returns the style name.
-   * 
-   * @return		the style name
-   */
-  protected String getStyleName() {
-    return "" + m_Color.hashCode();
-  }
-
-  /**
-   * Sit here listening for lines of input and appending them straight
-   * to the text component.
-   */
-  public void run() {
-
-    Thread t = new Thread() {
-      public void run() {
-        long oldSize = 0;
-        while (true) {
-          try {
-            long currentSize = m_Buffer.length();
-            if ((currentSize > 0) && (currentSize == oldSize)) {
-              StyledDocument doc = m_Output.getStyledDocument();
-              doc.insertString(doc.getLength(), m_Buffer.toString(), doc.getStyle(getStyleName()));
-              m_Output.setCaretPosition(doc.getLength());
-              m_Buffer.delete(0, m_Buffer.length());
-              oldSize = 0;
-            } else {
-              oldSize = currentSize;
-            }
-            sleep(100);
-          } catch (Exception e) {
-            if (e instanceof InterruptedException || e instanceof InterruptedIOException) {
-              break;
-            }
-          }
-        }
-      }
-    };
-    t.start();
-
-    while (true) {
-      try {
-        String s = m_Input.readLine();
-        m_Buffer.append(s).append('\n');
-      } catch (Exception ex) {
-        if (ex instanceof InterruptedException || ex instanceof InterruptedIOException) {
-          t.interrupt();
-          break;
-        }
-        try {
-          sleep(100);
-        } catch (Exception e) {
-          if (e instanceof InterruptedException) {
-            t.interrupt();
-            break;
-          }
-        }
-      }
+    /**
+     * Sets up the thread. Using black as color for displaying the text.
+     *
+     * @param input  the Reader to monitor
+     * @param output the TextArea to send output to
+     */
+    public ReaderToTextPane(Reader input, JTextPane output) {
+        this(input, output, Color.BLACK);
     }
-  }
+
+    /**
+     * Sets up the thread.
+     *
+     * @param input  the Reader to monitor
+     * @param output the TextArea to send output to
+     * @param color  the color to use
+     */
+    public ReaderToTextPane(Reader input, JTextPane output, Color color) {
+        StyledDocument doc;
+        Style style;
+
+        setDaemon(true);
+
+        m_Color = color;
+        m_Input = new LineNumberReader(input);
+        m_Output = output;
+        m_Buffer = new StringBuffer();
+
+        doc = m_Output.getStyledDocument();
+        style = StyleContext.getDefaultStyleContext()
+                .getStyle(StyleContext.DEFAULT_STYLE);
+        style = doc.addStyle(getStyleName(), style);
+        StyleConstants.setFontFamily(style, "monospaced");
+        StyleConstants.setForeground(style, m_Color);
+    }
+
+    /**
+     * Returns the color in use.
+     *
+     * @return the color
+     */
+    public Color getColor() {
+        return m_Color;
+    }
+
+    /**
+     * Returns the style name.
+     *
+     * @return the style name
+     */
+    protected String getStyleName() {
+        return "" + m_Color.hashCode();
+    }
+
+    /**
+     * Sit here listening for lines of input and appending them straight
+     * to the text component.
+     */
+    public void run() {
+
+        Thread t = new Thread() {
+            public void run() {
+                long oldSize = 0;
+                while (true) {
+                    try {
+                        long currentSize = m_Buffer.length();
+                        if ((currentSize > 0) && (currentSize == oldSize)) {
+                            StyledDocument doc = m_Output.getStyledDocument();
+                            doc.insertString(doc.getLength(), m_Buffer.toString(), doc.getStyle(getStyleName()));
+                            m_Output.setCaretPosition(doc.getLength());
+                            m_Buffer.delete(0, m_Buffer.length());
+                            oldSize = 0;
+                        } else {
+                            oldSize = currentSize;
+                        }
+                        sleep(100);
+                    } catch (Exception e) {
+                        if (e instanceof InterruptedException || e instanceof InterruptedIOException) {
+                            break;
+                        }
+                    }
+                }
+            }
+        };
+        t.start();
+
+        while (true) {
+            try {
+                String s = m_Input.readLine();
+                m_Buffer.append(s).append('\n');
+            } catch (Exception ex) {
+                if (ex instanceof InterruptedException || ex instanceof InterruptedIOException) {
+                    t.interrupt();
+                    break;
+                }
+                try {
+                    sleep(100);
+                } catch (Exception e) {
+                    if (e instanceof InterruptedException) {
+                        t.interrupt();
+                        break;
+                    }
+                }
+            }
+        }
+    }
 }

@@ -15,7 +15,7 @@
 
 /*
  * TextSaverBeanInfo.java
- * 
+ *
  * Copyright (C) 2012 University of Waikato, Hamilton, New Zealand
  */
 package weka.gui.beans;
@@ -26,33 +26,33 @@ import java.beans.SimpleBeanInfo;
 
 /**
  * Bean info class for the serialized model saver bean
- * 
- * @author (thuvh87{[at]}gmail{[dot]}com)
+ *
+ * @author (thuvh87 { [at] } gmail { [dot] } com)
  * @author Mark Hall (mhall{[at]}pentaho{[dot]}com)
  * @version $Revision$
  */
 public class TextSaverBeanInfo extends SimpleBeanInfo {
 
-  /**
-   * Get the event set descriptors for this bean
-   * 
-   * @return an <code>EventSetDescriptor[]</code> value
-   */
-  @Override
-  public EventSetDescriptor[] getEventSetDescriptors() {
-    // hide all gui events
-    EventSetDescriptor[] esds = {};
-    return esds;
-  }
+    /**
+     * Get the event set descriptors for this bean
+     *
+     * @return an <code>EventSetDescriptor[]</code> value
+     */
+    @Override
+    public EventSetDescriptor[] getEventSetDescriptors() {
+        // hide all gui events
+        EventSetDescriptor[] esds = {};
+        return esds;
+    }
 
-  /**
-   * Get BeanDescriptor for this bean
-   * 
-   * @return an <code>BeanDescriptor</code> value
-   */
-  @Override
-  public BeanDescriptor getBeanDescriptor() {
-    return new BeanDescriptor(weka.gui.beans.TextSaver.class,
-        TextSaverCustomizer.class);
-  }
+    /**
+     * Get BeanDescriptor for this bean
+     *
+     * @return an <code>BeanDescriptor</code> value
+     */
+    @Override
+    public BeanDescriptor getBeanDescriptor() {
+        return new BeanDescriptor(weka.gui.beans.TextSaver.class,
+                TextSaverCustomizer.class);
+    }
 }

@@ -19,9 +19,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for ConfusionMatrix element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="ConfusionMatrix">
  *   &lt;complexType>
@@ -37,14 +37,12 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "extension",
-    "classLabels",
-    "matrix"
+        "extension",
+        "classLabels",
+        "matrix"
 })
 @XmlRootElement(name = "ConfusionMatrix")
 public class ConfusionMatrix {
@@ -58,25 +56,23 @@ public class ConfusionMatrix {
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extension }
-     * 
-     * 
      */
     public List<Extension> getExtension() {
         if (extension == null) {
@@ -87,11 +83,9 @@ public class ConfusionMatrix {
 
     /**
      * Gets the value of the classLabels property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ClassLabels }
-     *     
+     *
+     * @return possible object is
+     * {@link ClassLabels }
      */
     public ClassLabels getClassLabels() {
         return classLabels;
@@ -99,11 +93,9 @@ public class ConfusionMatrix {
 
     /**
      * Sets the value of the classLabels property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link ClassLabels }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link ClassLabels }
      */
     public void setClassLabels(ClassLabels value) {
         this.classLabels = value;
@@ -111,11 +103,9 @@ public class ConfusionMatrix {
 
     /**
      * Gets the value of the matrix property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Matrix }
-     *     
+     *
+     * @return possible object is
+     * {@link Matrix }
      */
     public Matrix getMatrix() {
         return matrix;
@@ -123,11 +113,9 @@ public class ConfusionMatrix {
 
     /**
      * Sets the value of the matrix property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Matrix }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Matrix }
      */
     public void setMatrix(Matrix value) {
         this.matrix = value;

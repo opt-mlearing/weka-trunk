@@ -20,9 +20,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for KNNInput element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="KNNInput">
  *   &lt;complexType>
@@ -39,12 +39,10 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "extension"
+        "extension"
 })
 @XmlRootElement(name = "KNNInput")
 public class KNNInput {
@@ -60,25 +58,23 @@ public class KNNInput {
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extension }
-     * 
-     * 
      */
     public List<Extension> getExtension() {
         if (extension == null) {
@@ -89,11 +85,9 @@ public class KNNInput {
 
     /**
      * Gets the value of the compareFunction property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link COMPAREFUNCTION }
-     *     
+     *
+     * @return possible object is
+     * {@link COMPAREFUNCTION }
      */
     public COMPAREFUNCTION getCompareFunction() {
         return compareFunction;
@@ -101,11 +95,9 @@ public class KNNInput {
 
     /**
      * Sets the value of the compareFunction property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link COMPAREFUNCTION }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link COMPAREFUNCTION }
      */
     public void setCompareFunction(COMPAREFUNCTION value) {
         this.compareFunction = value;
@@ -113,11 +105,9 @@ public class KNNInput {
 
     /**
      * Gets the value of the field property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getField() {
         return field;
@@ -125,11 +115,9 @@ public class KNNInput {
 
     /**
      * Sets the value of the field property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setField(String value) {
         this.field = value;
@@ -137,15 +125,13 @@ public class KNNInput {
 
     /**
      * Gets the value of the fieldWeight property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is
+     * {@link Double }
      */
     public double getFieldWeight() {
         if (fieldWeight == null) {
-            return  1.0D;
+            return 1.0D;
         } else {
             return fieldWeight;
         }
@@ -153,11 +139,9 @@ public class KNNInput {
 
     /**
      * Sets the value of the fieldWeight property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Double }
      */
     public void setFieldWeight(Double value) {
         this.fieldWeight = value;

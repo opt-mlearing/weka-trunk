@@ -32,23 +32,25 @@ import junit.framework.TestSuite;
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
-public class SubspaceClusterDefinitionTest 
-  extends AbstractClusterDefinitionTest {
+public class SubspaceClusterDefinitionTest
+        extends AbstractClusterDefinitionTest {
 
-  public SubspaceClusterDefinitionTest(String name) { 
-    super(name);  
-  }
+    public SubspaceClusterDefinitionTest(String name) {
+        super(name);
+    }
 
-  /** Creates a default SubspaceClusterDefinition */
-  public ClusterDefinition getDefinition() {
-    return new SubspaceClusterDefinition(new SubspaceCluster());
-  }
+    /**
+     * Creates a default SubspaceClusterDefinition
+     */
+    public ClusterDefinition getDefinition() {
+        return new SubspaceClusterDefinition(new SubspaceCluster());
+    }
 
-  public static Test suite() {
-    return new TestSuite(SubspaceClusterDefinitionTest.class);
-  }
+    public static Test suite() {
+        return new TestSuite(SubspaceClusterDefinitionTest.class);
+    }
 
-  public static void main(String[] args){
-    junit.textui.TestRunner.run(suite());
-  }
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 }

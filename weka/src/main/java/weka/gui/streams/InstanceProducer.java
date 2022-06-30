@@ -25,19 +25,19 @@ package weka.gui.streams;
 import weka.core.Instance;
 import weka.core.Instances;
 
-/** 
+/**
  * An interface for objects capable of producing streams of instances.
  *
  * @author Len Trigg (trigg@cs.waikato.ac.nz)
  * @version $Revision$
  */
 public interface InstanceProducer {
-  
-  void addInstanceListener(InstanceListener ipl);
-  
-  void removeInstanceListener(InstanceListener ipl);
 
-  Instances outputFormat() throws Exception;
-  
-  Instance outputPeek() throws Exception;
+    void addInstanceListener(InstanceListener ipl);
+
+    void removeInstanceListener(InstanceListener ipl);
+
+    Instances outputFormat() throws Exception;
+
+    Instance outputPeek() throws Exception;
 }

@@ -30,97 +30,99 @@ import java.net.URL;
  * This class is for loading resources from a JAR archive.
  *
  * @author FracPete (fracpete at waikato dot ac dot nz)
- * @version $Revision$ 
+ * @version $Revision$
  */
 
 public class Loader {
-  /** the dir to use as prefix if filenames are w/o it, must have a slash
-   * at the end (the path separator is a slash!) */
-  private String          dir;
-  
-  /**
-   * initializes the object
-   */
-  public Loader(String dir) {
-    this.dir = dir;
-  }
-  
-  /**
-   * returns the dir prefix
-   */
-  public String getDir() {
-    return dir;
-  }
-  
-  /**
-   * returns the processed filename, i.e. with the dir-prefix if it's
-   * missing
-   */
-  public String processFilename(String filename) {
-    if (!filename.startsWith(getDir()))
-      filename = getDir() + filename;
-    
-    return filename;
-  }
-  
-  /**
-   * returns a URL for the given filename, can be NULL if it fails
-   */
-  public static URL getURL(String dir, String filename) {
-    Loader         loader;
-    
-    loader = new Loader(dir);
-    return loader.getURL(filename);
-  }
-  
-  /**
-   * returns a URL for the given filename, can be NULL if it fails
-   */
-  public URL getURL(String filename) {
-    filename = processFilename(filename);
-    return Loader.class.getClassLoader().getResource(filename);
-  }
-  
-  /**
-   * returns an InputStream for the given dir and filename, can be NULL if it 
-   * fails
-   */
-  public static InputStream getInputStream(String dir, String filename) {
-    Loader         loader;
-    
-    loader = new Loader(dir);
-    return loader.getInputStream(filename);
-  }
-  
-  /**
-   * returns an InputStream for the given filename, can be NULL if it fails
-   */
-  public InputStream getInputStream(String filename) {
-    filename = processFilename(filename);
-    return Loader.class.getResourceAsStream(filename);
-  }
-  
-  /**
-   * returns a Reader for the given filename and dir, can be NULL if it fails
-   */
-  public static Reader getReader(String dir, String filename) {
-    Loader            loader;
-    
-    loader = new Loader(dir);
-    return loader.getReader(filename);
-  }
-  
-  /**
-   * returns a Reader for the given filename, can be NULL if it fails
-   */
-  public Reader getReader(String filename) {
-    InputStream          in;
-    
-    in = getInputStream(filename);
-    
-    if (in == null)
-      return null;
-    else
-      return new InputStreamReader(in);
-  }
+    /**
+     * the dir to use as prefix if filenames are w/o it, must have a slash
+     * at the end (the path separator is a slash!)
+     */
+    private String dir;
+
+    /**
+     * initializes the object
+     */
+    public Loader(String dir) {
+        this.dir = dir;
+    }
+
+    /**
+     * returns the dir prefix
+     */
+    public String getDir() {
+        return dir;
+    }
+
+    /**
+     * returns the processed filename, i.e. with the dir-prefix if it's
+     * missing
+     */
+    public String processFilename(String filename) {
+        if (!filename.startsWith(getDir()))
+            filename = getDir() + filename;
+
+        return filename;
+    }
+
+    /**
+     * returns a URL for the given filename, can be NULL if it fails
+     */
+    public static URL getURL(String dir, String filename) {
+        Loader loader;
+
+        loader = new Loader(dir);
+        return loader.getURL(filename);
+    }
+
+    /**
+     * returns a URL for the given filename, can be NULL if it fails
+     */
+    public URL getURL(String filename) {
+        filename = processFilename(filename);
+        return Loader.class.getClassLoader().getResource(filename);
+    }
+
+    /**
+     * returns an InputStream for the given dir and filename, can be NULL if it
+     * fails
+     */
+    public static InputStream getInputStream(String dir, String filename) {
+        Loader loader;
+
+        loader = new Loader(dir);
+        return loader.getInputStream(filename);
+    }
+
+    /**
+     * returns an InputStream for the given filename, can be NULL if it fails
+     */
+    public InputStream getInputStream(String filename) {
+        filename = processFilename(filename);
+        return Loader.class.getResourceAsStream(filename);
+    }
+
+    /**
+     * returns a Reader for the given filename and dir, can be NULL if it fails
+     */
+    public static Reader getReader(String dir, String filename) {
+        Loader loader;
+
+        loader = new Loader(dir);
+        return loader.getReader(filename);
+    }
+
+    /**
+     * returns a Reader for the given filename, can be NULL if it fails
+     */
+    public Reader getReader(String filename) {
+        InputStream in;
+
+        in = getInputStream(filename);
+
+        if (in == null)
+            return null;
+        else
+            return new InputStreamReader(in);
+    }
 }

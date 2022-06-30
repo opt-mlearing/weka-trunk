@@ -23,7 +23,7 @@ package weka.gui.beans;
 /**
  * Table model that automatically adds a new row to the table on pressing enter
  * in the last cell of a row.
- * 
+ *
  * @author Mark Hall (mhall{[at]}pentaho{[dot]}com)
  * @version $Revision: 47640 $
  * @deprecated Use {@code weka.gui.InteractiveTableModel} instead. Retained for
@@ -32,14 +32,14 @@ package weka.gui.beans;
 @Deprecated
 public class InteractiveTableModel extends weka.gui.InteractiveTableModel {
 
-  private static final long serialVersionUID = 7628124449228704885L;
+    private static final long serialVersionUID = 7628124449228704885L;
 
-  /**
-   * Constructor
-   *
-   * @param columnNames the names of the columns
-   */
-  public InteractiveTableModel(String[] columnNames) {
-    super(columnNames);
-  }
+    /**
+     * Constructor
+     *
+     * @param columnNames the names of the columns
+     */
+    public InteractiveTableModel(String[] columnNames) {
+        super(columnNames);
+    }
 }

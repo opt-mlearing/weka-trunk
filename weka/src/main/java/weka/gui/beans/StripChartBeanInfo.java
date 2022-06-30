@@ -33,46 +33,46 @@ import java.beans.SimpleBeanInfo;
  * @version $Revision$
  */
 public class StripChartBeanInfo extends SimpleBeanInfo {
-  
-  /**
-   * Get the event set descriptors for this bean
-   *
-   * @return an <code>EventSetDescriptor[]</code> value
-   */
-  public EventSetDescriptor [] getEventSetDescriptors() {
-    // hide all gui events
-    EventSetDescriptor [] esds = { };
-    return esds;
-  }
 
-  /**
-   * Get the property descriptors for this bean
-   *
-   * @return a <code>PropertyDescriptor[]</code> value
-   */
-  public PropertyDescriptor[] getPropertyDescriptors() {
-    try {
-      PropertyDescriptor p1;
-      PropertyDescriptor p2;
-      PropertyDescriptor p3;
-      p1 = new PropertyDescriptor("xLabelFreq", StripChart.class);
-      p2 = new PropertyDescriptor("refreshFreq", StripChart.class);
-      p3 = new PropertyDescriptor("refreshWidth", StripChart.class);
-      PropertyDescriptor [] pds = { p1, p2, p3 };
-      return pds;
-    } catch (Exception ex) {
-      ex.printStackTrace();
+    /**
+     * Get the event set descriptors for this bean
+     *
+     * @return an <code>EventSetDescriptor[]</code> value
+     */
+    public EventSetDescriptor[] getEventSetDescriptors() {
+        // hide all gui events
+        EventSetDescriptor[] esds = {};
+        return esds;
     }
-    return null;
-  }
 
-  /**
-   * Get the bean descriptor for this bean
-   *
-   * @return a <code>BeanDescriptor</code> value
-   */
-  public BeanDescriptor getBeanDescriptor() {
-    return new BeanDescriptor(weka.gui.beans.StripChart.class,
-			      StripChartCustomizer.class);
-  }
+    /**
+     * Get the property descriptors for this bean
+     *
+     * @return a <code>PropertyDescriptor[]</code> value
+     */
+    public PropertyDescriptor[] getPropertyDescriptors() {
+        try {
+            PropertyDescriptor p1;
+            PropertyDescriptor p2;
+            PropertyDescriptor p3;
+            p1 = new PropertyDescriptor("xLabelFreq", StripChart.class);
+            p2 = new PropertyDescriptor("refreshFreq", StripChart.class);
+            p3 = new PropertyDescriptor("refreshWidth", StripChart.class);
+            PropertyDescriptor[] pds = {p1, p2, p3};
+            return pds;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * Get the bean descriptor for this bean
+     *
+     * @return a <code>BeanDescriptor</code> value
+     */
+    public BeanDescriptor getBeanDescriptor() {
+        return new BeanDescriptor(weka.gui.beans.StripChart.class,
+                StripChartCustomizer.class);
+    }
 }

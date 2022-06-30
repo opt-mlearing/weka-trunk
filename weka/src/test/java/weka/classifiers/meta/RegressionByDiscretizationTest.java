@@ -34,19 +34,23 @@ import junit.framework.TestSuite;
  */
 public class RegressionByDiscretizationTest extends AbstractClassifierTest {
 
-  public RegressionByDiscretizationTest(String name) { super(name);  }
+    public RegressionByDiscretizationTest(String name) {
+        super(name);
+    }
 
-  /** Creates a default RegressionByDiscretization */
-  public Classifier getClassifier() {
-    return new RegressionByDiscretization();
-  }
+    /**
+     * Creates a default RegressionByDiscretization
+     */
+    public Classifier getClassifier() {
+        return new RegressionByDiscretization();
+    }
 
-  public static Test suite() {
-    return new TestSuite(RegressionByDiscretizationTest.class);
-  }
+    public static Test suite() {
+        return new TestSuite(RegressionByDiscretizationTest.class);
+    }
 
-  public static void main(String[] args){
-    junit.textui.TestRunner.run(suite());
-  }
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 
 }

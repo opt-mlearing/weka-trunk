@@ -29,28 +29,32 @@ import junit.framework.TestSuite;
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
-public class GainRatioAttributeEvalTest 
-  extends AbstractEvaluatorTest {
+public class GainRatioAttributeEvalTest
+        extends AbstractEvaluatorTest {
 
-  public GainRatioAttributeEvalTest(String name) { 
-    super(name);  
-  }
+    public GainRatioAttributeEvalTest(String name) {
+        super(name);
+    }
 
-  /** Creates a default Ranker */
-  public ASSearch getSearch() {
-    return new Ranker();
-  }
+    /**
+     * Creates a default Ranker
+     */
+    public ASSearch getSearch() {
+        return new Ranker();
+    }
 
-  /** Creates a default GainRatioAttributeEval */
-  public ASEvaluation getEvaluator() {
-    return new GainRatioAttributeEval();
-  }
+    /**
+     * Creates a default GainRatioAttributeEval
+     */
+    public ASEvaluation getEvaluator() {
+        return new GainRatioAttributeEval();
+    }
 
-  public static Test suite() {
-    return new TestSuite(GainRatioAttributeEvalTest.class);
-  }
+    public static Test suite() {
+        return new TestSuite(GainRatioAttributeEvalTest.class);
+    }
 
-  public static void main(String[] args){
-    junit.textui.TestRunner.run(suite());
-  }
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 }

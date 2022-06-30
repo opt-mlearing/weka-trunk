@@ -34,11 +34,12 @@ package weka.gui.treevisualizer;
  */
 public interface TreeDisplayListener {
 
-  /**
-   * Gets called when the user selects something, in the tree display.
-   * @param e Contains what the user selected with what it was selected for.
-   */
-  void userCommand(TreeDisplayEvent e);
+    /**
+     * Gets called when the user selects something, in the tree display.
+     *
+     * @param e Contains what the user selected with what it was selected for.
+     */
+    void userCommand(TreeDisplayEvent e);
 }
 
 

@@ -39,135 +39,139 @@ import java.awt.Graphics;
  */
 public class NoteVisual extends StepVisual {
 
-  private static final long serialVersionUID = -3291021235652124916L;
+    private static final long serialVersionUID = -3291021235652124916L;
 
-  /** The label that displays the note text */
-  protected JLabel m_label = new JLabel();
+    /**
+     * The label that displays the note text
+     */
+    protected JLabel m_label = new JLabel();
 
-  /** Adjustment for the font size */
-  protected int m_fontSizeAdjust = -1;
+    /**
+     * Adjustment for the font size
+     */
+    protected int m_fontSizeAdjust = -1;
 
-  /**
-   * Set the {@code StepManagerImpl} for the step covered by this visual
-   *
-   * @param manager the step manager to wrap
-   */
-  @Override
-  public void setStepManager(StepManagerImpl manager) {
-    super.setStepManager(manager);
+    /**
+     * Set the {@code StepManagerImpl} for the step covered by this visual
+     *
+     * @param manager the step manager to wrap
+     */
+    @Override
+    public void setStepManager(StepManagerImpl manager) {
+        super.setStepManager(manager);
 
-    removeAll();
-    setLayout(new BorderLayout());
-    setBorder(new ShadowBorder(2, Color.GRAY));
-    m_label.setText(convertToHTML(((Note) getStepManager().getManagedStep())
-      .getNoteText()));
-    m_label.setOpaque(true);
-    m_label.setBackground(Color.YELLOW);
-    JPanel holder = new JPanel();
-    holder.setLayout(new BorderLayout());
-    holder.setBorder(BorderFactory.createEmptyBorder(2, 2, 2, 2));
-    holder.setOpaque(true);
-    holder.setBackground(Color.YELLOW);
-    holder.add(m_label, BorderLayout.CENTER);
-    add(holder, BorderLayout.CENTER);
-  }
-
-  /**
-   * Set whether the note should appear "highlighted" (i.e. thicker border)
-   * 
-   * @param highlighted true if the note should appear highlighted
-   */
-  public void setHighlighted(boolean highlighted) {
-    if (highlighted) {
-      setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.BLUE));
-    } else {
-      // setBorder(BorderFactory.createEtchedBorder(EtchedBorder.LOWERED));
-      setBorder(new ShadowBorder(2, Color.GRAY));
+        removeAll();
+        setLayout(new BorderLayout());
+        setBorder(new ShadowBorder(2, Color.GRAY));
+        m_label.setText(convertToHTML(((Note) getStepManager().getManagedStep())
+                .getNoteText()));
+        m_label.setOpaque(true);
+        m_label.setBackground(Color.YELLOW);
+        JPanel holder = new JPanel();
+        holder.setLayout(new BorderLayout());
+        holder.setBorder(BorderFactory.createEmptyBorder(2, 2, 2, 2));
+        holder.setOpaque(true);
+        holder.setBackground(Color.YELLOW);
+        holder.add(m_label, BorderLayout.CENTER);
+        add(holder, BorderLayout.CENTER);
     }
-    revalidate();
-  }
 
-  /**
-   * Turn on/off the connector points
-   *
-   * @param dc a <code>boolean</code> value
-   */
-  @Override
-  public void setDisplayConnectors(boolean dc) {
-    // m_visualHolder.setDisplayConnectors(dc);
-    m_displayConnectors = dc;
-    m_connectorColor = Color.blue;
+    /**
+     * Set whether the note should appear "highlighted" (i.e. thicker border)
+     *
+     * @param highlighted true if the note should appear highlighted
+     */
+    public void setHighlighted(boolean highlighted) {
+        if (highlighted) {
+            setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.BLUE));
+        } else {
+            // setBorder(BorderFactory.createEtchedBorder(EtchedBorder.LOWERED));
+            setBorder(new ShadowBorder(2, Color.GRAY));
+        }
+        revalidate();
+    }
 
-    setHighlighted(dc);
-  }
+    /**
+     * Turn on/off the connector points
+     *
+     * @param dc a <code>boolean</code> value
+     */
+    @Override
+    public void setDisplayConnectors(boolean dc) {
+        // m_visualHolder.setDisplayConnectors(dc);
+        m_displayConnectors = dc;
+        m_connectorColor = Color.blue;
 
-  /**
-   * Turn on/off the connector points
-   *
-   * @param dc a <code>boolean</code> value
-   * @param c the Color to use
-   */
-  @Override
-  public void setDisplayConnectors(boolean dc, Color c) {
-    setDisplayConnectors(dc);
-    m_connectorColor = c;
-  }
+        setHighlighted(dc);
+    }
 
-  @Override
-  public boolean getDisplayStepLabel() {
-    return false;
-  }
+    /**
+     * Turn on/off the connector points
+     *
+     * @param dc a <code>boolean</code> value
+     * @param c  the Color to use
+     */
+    @Override
+    public void setDisplayConnectors(boolean dc, Color c) {
+        setDisplayConnectors(dc);
+        m_connectorColor = c;
+    }
 
-  @Override
-  public void paintComponent(Graphics gx) {
-    m_label.setText(convertToHTML(((Note) getStepManager().getManagedStep())
-      .getNoteText()));
-  }
+    @Override
+    public boolean getDisplayStepLabel() {
+        return false;
+    }
 
-  /**
-   * Convert plain text to HTML
-   * 
-   * @param text the text to convert to marked up HTML
-   * @return the marked up HTML
-   */
-  private String convertToHTML(String text) {
-    String htmlString = text.replace("\n", "<br>");
-    htmlString =
-      "<html><font size=" + m_fontSizeAdjust + ">" + htmlString + "</font>"
-        + "</html>";
+    @Override
+    public void paintComponent(Graphics gx) {
+        m_label.setText(convertToHTML(((Note) getStepManager().getManagedStep())
+                .getNoteText()));
+    }
 
-    return htmlString;
-  }
+    /**
+     * Convert plain text to HTML
+     *
+     * @param text the text to convert to marked up HTML
+     * @return the marked up HTML
+     */
+    private String convertToHTML(String text) {
+        String htmlString = text.replace("\n", "<br>");
+        htmlString =
+                "<html><font size=" + m_fontSizeAdjust + ">" + htmlString + "</font>"
+                        + "</html>";
 
-  /**
-   * Get the font size adjustment
-   *
-   * @return the font size adjustment
-   */
-  public int getFontSizeAdjust() {
-    return m_fontSizeAdjust;
-  }
+        return htmlString;
+    }
 
-  /**
-   * set the font size adjustment
-   *
-   * @param adjust the font size adjustment
-   */
-  public void setFontSizeAdjust(int adjust) {
-    m_fontSizeAdjust = adjust;
-  }
+    /**
+     * Get the font size adjustment
+     *
+     * @return the font size adjustment
+     */
+    public int getFontSizeAdjust() {
+        return m_fontSizeAdjust;
+    }
 
-  /**
-   * Decrease the font size by one
-   */
-  public void decreaseFontSize() {
-    m_fontSizeAdjust--;
-  }
+    /**
+     * set the font size adjustment
+     *
+     * @param adjust the font size adjustment
+     */
+    public void setFontSizeAdjust(int adjust) {
+        m_fontSizeAdjust = adjust;
+    }
 
-  /**
-   * Increase the font size by one
-   */
-  public void increaseFontSize() {
-    m_fontSizeAdjust++;
-  }
+    /**
+     * Decrease the font size by one
+     */
+    public void decreaseFontSize() {
+        m_fontSizeAdjust--;
+    }
+
+    /**
+     * Increase the font size by one
+     */
+    public void increaseFontSize() {
+        m_fontSizeAdjust++;
+    }
 }

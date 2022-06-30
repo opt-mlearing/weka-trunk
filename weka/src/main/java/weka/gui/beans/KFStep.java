@@ -31,11 +31,11 @@ import java.lang.annotation.Target;
  * Optional annotation for plugin beans in the Knowledge Flow. The main
  * purpose is to provide info on which top-level folder (category) the
  * plugin should appear under in the GUI. Note that learning algorithms
- * automatically appear in the Knowledge Flow under the correct category 
+ * automatically appear in the Knowledge Flow under the correct category
  * as long as they are in the classpath or are provided in packages. This
  * annotation mechanism is useful for plugin components that are not
  * standard Weka classifiers, clusterers, associators, loaders etc.
- * 
+ *
  * @author Mark Hall (mhall{[at]}pentaho{[dot]}com)
  * @version $Revision$
  */
@@ -44,20 +44,20 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 public @interface KFStep {
 
-  /**
-   * The top-level folder in the JTree that this plugin bean
-   * should appear in
-   * 
-   * @return the name of the top-level folder that this plugin
-   * bean should appear in
-   */
-  String category();
-  
-  /**
-   * Mouse-over tool tip for this plugin component (appears when the
-   * mouse hovers over the entry in the JTree)
-   * 
-   * @return the tool tip text for this plugin bean
-   */
-  String toolTipText();
+    /**
+     * The top-level folder in the JTree that this plugin bean
+     * should appear in
+     *
+     * @return the name of the top-level folder that this plugin
+     * bean should appear in
+     */
+    String category();
+
+    /**
+     * Mouse-over tool tip for this plugin component (appears when the
+     * mouse hovers over the entry in the JTree)
+     *
+     * @return the tool tip text for this plugin bean
+     */
+    String toolTipText();
 }

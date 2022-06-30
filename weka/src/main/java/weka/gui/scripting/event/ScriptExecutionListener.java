@@ -22,16 +22,16 @@ package weka.gui.scripting.event;
 
 /**
  * For classes that want to be notified about changes in the script execution.
- * 
- * @author  fracpete (fracpete at waikato dot ac dot nz)
+ *
+ * @author fracpete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
 public interface ScriptExecutionListener {
-  
-  /**
-   * Gets sent when a script execution changes.
-   * 
-   * @param e		the event
-   */
-  public void scriptFinished(ScriptExecutionEvent e);
+
+    /**
+     * Gets sent when a script execution changes.
+     *
+     * @param e the event
+     */
+    public void scriptFinished(ScriptExecutionEvent e);
 }

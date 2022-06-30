@@ -30,7 +30,7 @@ import java.lang.annotation.Target;
 /**
  * Marker annotation. Used to prevent the GenericPropertiesCreator from making
  * something available.
- * 
+ *
  * @author Mark Hall (mhall{[at]}pentaho{[dot]}com)
  */
 @Documented

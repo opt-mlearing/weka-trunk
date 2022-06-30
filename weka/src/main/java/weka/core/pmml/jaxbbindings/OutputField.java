@@ -21,9 +21,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for OutputField element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="OutputField">
  *   &lt;complexType>
@@ -80,21 +80,19 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "extension",
-    "decisions",
-    "constant",
-    "fieldRef",
-    "normContinuous",
-    "normDiscrete",
-    "discretize",
-    "mapValues",
-    "apply",
-    "aggregate"
+        "extension",
+        "decisions",
+        "constant",
+        "fieldRef",
+        "normContinuous",
+        "normDiscrete",
+        "discretize",
+        "mapValues",
+        "apply",
+        "aggregate"
 })
 @XmlRootElement(name = "OutputField")
 public class OutputField {
@@ -150,25 +148,23 @@ public class OutputField {
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extension }
-     * 
-     * 
      */
     public List<Extension> getExtension() {
         if (extension == null) {
@@ -179,11 +175,9 @@ public class OutputField {
 
     /**
      * Gets the value of the decisions property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Decisions }
-     *     
+     *
+     * @return possible object is
+     * {@link Decisions }
      */
     public Decisions getDecisions() {
         return decisions;
@@ -191,11 +185,9 @@ public class OutputField {
 
     /**
      * Sets the value of the decisions property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Decisions }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Decisions }
      */
     public void setDecisions(Decisions value) {
         this.decisions = value;
@@ -203,11 +195,9 @@ public class OutputField {
 
     /**
      * Gets the value of the constant property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Constant }
-     *     
+     *
+     * @return possible object is
+     * {@link Constant }
      */
     public Constant getConstant() {
         return constant;
@@ -215,11 +205,9 @@ public class OutputField {
 
     /**
      * Sets the value of the constant property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Constant }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Constant }
      */
     public void setConstant(Constant value) {
         this.constant = value;
@@ -227,11 +215,9 @@ public class OutputField {
 
     /**
      * Gets the value of the fieldRef property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link FieldRef }
-     *     
+     *
+     * @return possible object is
+     * {@link FieldRef }
      */
     public FieldRef getFieldRef() {
         return fieldRef;
@@ -239,11 +225,9 @@ public class OutputField {
 
     /**
      * Sets the value of the fieldRef property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link FieldRef }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link FieldRef }
      */
     public void setFieldRef(FieldRef value) {
         this.fieldRef = value;
@@ -251,11 +235,9 @@ public class OutputField {
 
     /**
      * Gets the value of the normContinuous property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link NormContinuous }
-     *     
+     *
+     * @return possible object is
+     * {@link NormContinuous }
      */
     public NormContinuous getNormContinuous() {
         return normContinuous;
@@ -263,11 +245,9 @@ public class OutputField {
 
     /**
      * Sets the value of the normContinuous property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link NormContinuous }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link NormContinuous }
      */
     public void setNormContinuous(NormContinuous value) {
         this.normContinuous = value;
@@ -275,11 +255,9 @@ public class OutputField {
 
     /**
      * Gets the value of the normDiscrete property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link NormDiscrete }
-     *     
+     *
+     * @return possible object is
+     * {@link NormDiscrete }
      */
     public NormDiscrete getNormDiscrete() {
         return normDiscrete;
@@ -287,11 +265,9 @@ public class OutputField {
 
     /**
      * Sets the value of the normDiscrete property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link NormDiscrete }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link NormDiscrete }
      */
     public void setNormDiscrete(NormDiscrete value) {
         this.normDiscrete = value;
@@ -299,11 +275,9 @@ public class OutputField {
 
     /**
      * Gets the value of the discretize property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Discretize }
-     *     
+     *
+     * @return possible object is
+     * {@link Discretize }
      */
     public Discretize getDiscretize() {
         return discretize;
@@ -311,11 +285,9 @@ public class OutputField {
 
     /**
      * Sets the value of the discretize property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Discretize }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Discretize }
      */
     public void setDiscretize(Discretize value) {
         this.discretize = value;
@@ -323,11 +295,9 @@ public class OutputField {
 
     /**
      * Gets the value of the mapValues property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link MapValues }
-     *     
+     *
+     * @return possible object is
+     * {@link MapValues }
      */
     public MapValues getMapValues() {
         return mapValues;
@@ -335,11 +305,9 @@ public class OutputField {
 
     /**
      * Sets the value of the mapValues property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link MapValues }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link MapValues }
      */
     public void setMapValues(MapValues value) {
         this.mapValues = value;
@@ -347,11 +315,9 @@ public class OutputField {
 
     /**
      * Gets the value of the apply property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Apply }
-     *     
+     *
+     * @return possible object is
+     * {@link Apply }
      */
     public Apply getApply() {
         return apply;
@@ -359,11 +325,9 @@ public class OutputField {
 
     /**
      * Sets the value of the apply property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Apply }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Apply }
      */
     public void setApply(Apply value) {
         this.apply = value;
@@ -371,11 +335,9 @@ public class OutputField {
 
     /**
      * Gets the value of the aggregate property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Aggregate }
-     *     
+     *
+     * @return possible object is
+     * {@link Aggregate }
      */
     public Aggregate getAggregate() {
         return aggregate;
@@ -383,11 +345,9 @@ public class OutputField {
 
     /**
      * Sets the value of the aggregate property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Aggregate }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Aggregate }
      */
     public void setAggregate(Aggregate value) {
         this.aggregate = value;
@@ -395,11 +355,9 @@ public class OutputField {
 
     /**
      * Gets the value of the algorithm property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getAlgorithm() {
         if (algorithm == null) {
@@ -411,11 +369,9 @@ public class OutputField {
 
     /**
      * Sets the value of the algorithm property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setAlgorithm(String value) {
         this.algorithm = value;
@@ -423,11 +379,9 @@ public class OutputField {
 
     /**
      * Gets the value of the dataType property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link DATATYPE }
-     *     
+     *
+     * @return possible object is
+     * {@link DATATYPE }
      */
     public DATATYPE getDataType() {
         return dataType;
@@ -435,11 +389,9 @@ public class OutputField {
 
     /**
      * Sets the value of the dataType property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link DATATYPE }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link DATATYPE }
      */
     public void setDataType(DATATYPE value) {
         this.dataType = value;
@@ -447,11 +399,9 @@ public class OutputField {
 
     /**
      * Gets the value of the displayName property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getDisplayName() {
         return displayName;
@@ -459,11 +409,9 @@ public class OutputField {
 
     /**
      * Sets the value of the displayName property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setDisplayName(String value) {
         this.displayName = value;
@@ -471,11 +419,9 @@ public class OutputField {
 
     /**
      * Gets the value of the feature property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link RESULTFEATURE }
-     *     
+     *
+     * @return possible object is
+     * {@link RESULTFEATURE }
      */
     public RESULTFEATURE getFeature() {
         return feature;
@@ -483,11 +429,9 @@ public class OutputField {
 
     /**
      * Sets the value of the feature property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link RESULTFEATURE }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link RESULTFEATURE }
      */
     public void setFeature(RESULTFEATURE value) {
         this.feature = value;
@@ -495,11 +439,9 @@ public class OutputField {
 
     /**
      * Gets the value of the isMultiValued property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getIsMultiValued() {
         if (isMultiValued == null) {
@@ -511,11 +453,9 @@ public class OutputField {
 
     /**
      * Sets the value of the isMultiValued property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setIsMultiValued(String value) {
         this.isMultiValued = value;
@@ -523,11 +463,9 @@ public class OutputField {
 
     /**
      * Gets the value of the name property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getName() {
         return name;
@@ -535,11 +473,9 @@ public class OutputField {
 
     /**
      * Sets the value of the name property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setName(String value) {
         this.name = value;
@@ -547,11 +483,9 @@ public class OutputField {
 
     /**
      * Gets the value of the optype property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link OPTYPE }
-     *     
+     *
+     * @return possible object is
+     * {@link OPTYPE }
      */
     public OPTYPE getOptype() {
         return optype;
@@ -559,11 +493,9 @@ public class OutputField {
 
     /**
      * Sets the value of the optype property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link OPTYPE }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link OPTYPE }
      */
     public void setOptype(OPTYPE value) {
         this.optype = value;
@@ -571,11 +503,9 @@ public class OutputField {
 
     /**
      * Gets the value of the rank property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @return possible object is
+     * {@link BigInteger }
      */
     public BigInteger getRank() {
         if (rank == null) {
@@ -587,11 +517,9 @@ public class OutputField {
 
     /**
      * Sets the value of the rank property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link BigInteger }
      */
     public void setRank(BigInteger value) {
         this.rank = value;
@@ -599,11 +527,9 @@ public class OutputField {
 
     /**
      * Gets the value of the rankBasis property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getRankBasis() {
         if (rankBasis == null) {
@@ -615,11 +541,9 @@ public class OutputField {
 
     /**
      * Sets the value of the rankBasis property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setRankBasis(String value) {
         this.rankBasis = value;
@@ -627,11 +551,9 @@ public class OutputField {
 
     /**
      * Gets the value of the rankOrder property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getRankOrder() {
         if (rankOrder == null) {
@@ -643,11 +565,9 @@ public class OutputField {
 
     /**
      * Sets the value of the rankOrder property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setRankOrder(String value) {
         this.rankOrder = value;
@@ -655,11 +575,9 @@ public class OutputField {
 
     /**
      * Gets the value of the ruleFeature property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link RULEFEATURE }
-     *     
+     *
+     * @return possible object is
+     * {@link RULEFEATURE }
      */
     public RULEFEATURE getRuleFeature() {
         if (ruleFeature == null) {
@@ -671,11 +589,9 @@ public class OutputField {
 
     /**
      * Sets the value of the ruleFeature property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link RULEFEATURE }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link RULEFEATURE }
      */
     public void setRuleFeature(RULEFEATURE value) {
         this.ruleFeature = value;
@@ -683,11 +599,9 @@ public class OutputField {
 
     /**
      * Gets the value of the segmentId property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getSegmentId() {
         return segmentId;
@@ -695,11 +609,9 @@ public class OutputField {
 
     /**
      * Sets the value of the segmentId property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setSegmentId(String value) {
         this.segmentId = value;
@@ -707,11 +619,9 @@ public class OutputField {
 
     /**
      * Gets the value of the targetField property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getTargetField() {
         return targetField;
@@ -719,11 +629,9 @@ public class OutputField {
 
     /**
      * Sets the value of the targetField property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setTargetField(String value) {
         this.targetField = value;
@@ -731,11 +639,9 @@ public class OutputField {
 
     /**
      * Gets the value of the value property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getValue() {
         return value;
@@ -743,11 +649,9 @@ public class OutputField {
 
     /**
      * Sets the value of the value property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setValue(String value) {
         this.value = value;

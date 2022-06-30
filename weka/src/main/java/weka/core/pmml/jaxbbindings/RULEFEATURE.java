@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlEnumValue;
 
 /**
  * <p>Java class for RULE-FEATURE.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
@@ -32,7 +32,6 @@ import javax.xml.bind.annotation.XmlEnumValue;
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
- * 
  */
 @XmlEnum
 public enum RULEFEATURE {
@@ -66,7 +65,7 @@ public enum RULEFEATURE {
     }
 
     public static RULEFEATURE fromValue(String v) {
-        for (RULEFEATURE c: RULEFEATURE.values()) {
+        for (RULEFEATURE c : RULEFEATURE.values()) {
             if (c.value.equals(v)) {
                 return c;
             }

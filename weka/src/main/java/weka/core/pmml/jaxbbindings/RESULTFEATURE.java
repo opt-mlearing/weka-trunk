@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlEnumValue;
 
 /**
  * <p>Java class for RESULT-FEATURE.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
@@ -38,7 +38,6 @@ import javax.xml.bind.annotation.XmlEnumValue;
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
- * 
  */
 @XmlEnum
 public enum RESULTFEATURE {
@@ -84,7 +83,7 @@ public enum RESULTFEATURE {
     }
 
     public static RESULTFEATURE fromValue(String v) {
-        for (RESULTFEATURE c: RESULTFEATURE.values()) {
+        for (RESULTFEATURE c : RESULTFEATURE.values()) {
             if (c.value.equals(v)) {
                 return c;
             }

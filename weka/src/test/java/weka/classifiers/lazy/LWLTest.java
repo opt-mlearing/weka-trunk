@@ -34,19 +34,23 @@ import junit.framework.TestSuite;
  */
 public class LWLTest extends AbstractClassifierTest {
 
-  public LWLTest(String name) { super(name);  }
+    public LWLTest(String name) {
+        super(name);
+    }
 
-  /** Creates a default LWL */
-  public Classifier getClassifier() {
-    return new LWL();
-  }
+    /**
+     * Creates a default LWL
+     */
+    public Classifier getClassifier() {
+        return new LWL();
+    }
 
-  public static Test suite() {
-    return new TestSuite(LWLTest.class);
-  }
+    public static Test suite() {
+        return new TestSuite(LWLTest.class);
+    }
 
-  public static void main(String[] args){
-    junit.textui.TestRunner.run(suite());
-  }
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 
 }

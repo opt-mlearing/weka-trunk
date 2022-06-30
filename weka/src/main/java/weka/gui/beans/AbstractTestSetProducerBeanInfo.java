@@ -32,18 +32,18 @@ import java.beans.SimpleBeanInfo;
  */
 public class AbstractTestSetProducerBeanInfo extends SimpleBeanInfo {
 
-  public EventSetDescriptor [] getEventSetDescriptors() {
-    try {
-      EventSetDescriptor [] esds = { 
-	new EventSetDescriptor(TestSetProducer.class, 
-			       "testSet", 
-			       TestSetListener.class, 
-			       "acceptTestSet") 
-	  };
-      return esds;
-    } catch (Exception ex) {
-      ex.printStackTrace();
+    public EventSetDescriptor[] getEventSetDescriptors() {
+        try {
+            EventSetDescriptor[] esds = {
+                    new EventSetDescriptor(TestSetProducer.class,
+                            "testSet",
+                            TestSetListener.class,
+                            "acceptTestSet")
+            };
+            return esds;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return null;
     }
-    return null;
-  }
 }

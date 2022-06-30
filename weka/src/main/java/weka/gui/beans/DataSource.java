@@ -23,7 +23,7 @@ package weka.gui.beans;
 
 
 /**
- * Interface to something that is capable of being a source for data - 
+ * Interface to something that is capable of being a source for data -
  * either batch or incremental data
  *
  * @author <a href="mailto:mhall@cs.waikato.ac.nz">Mark Hall</a>
@@ -32,31 +32,31 @@ package weka.gui.beans;
  */
 public interface DataSource {
 
-  /**
-   * Add a data source listener
-   *
-   * @param dsl a <code>DataSourceListener</code> value
-   */
-  void addDataSourceListener(DataSourceListener dsl);
+    /**
+     * Add a data source listener
+     *
+     * @param dsl a <code>DataSourceListener</code> value
+     */
+    void addDataSourceListener(DataSourceListener dsl);
 
-  /**
-   * Remove a data source listener
-   *
-   * @param dsl a <code>DataSourceListener</code> value
-   */
-  void removeDataSourceListener(DataSourceListener dsl);
+    /**
+     * Remove a data source listener
+     *
+     * @param dsl a <code>DataSourceListener</code> value
+     */
+    void removeDataSourceListener(DataSourceListener dsl);
 
-  /**
-   * Add an instance listener
-   *
-   * @param dsl an <code>InstanceListener</code> value
-   */
-  void addInstanceListener(InstanceListener dsl);
+    /**
+     * Add an instance listener
+     *
+     * @param dsl an <code>InstanceListener</code> value
+     */
+    void addInstanceListener(InstanceListener dsl);
 
-  /**
-   * Remove an instance listener
-   *
-   * @param dsl an <code>InstanceListener</code> value
-   */
-  void removeInstanceListener(InstanceListener dsl);
+    /**
+     * Remove an instance listener
+     *
+     * @param dsl an <code>InstanceListener</code> value
+     */
+    void removeInstanceListener(InstanceListener dsl);
 }

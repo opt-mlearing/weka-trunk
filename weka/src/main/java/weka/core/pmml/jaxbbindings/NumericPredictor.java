@@ -21,9 +21,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for NumericPredictor element declaration.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;element name="NumericPredictor">
  *   &lt;complexType>
@@ -40,12 +40,10 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexType>
  * &lt;/element>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "extension"
+        "extension"
 })
 @XmlRootElement(name = "NumericPredictor")
 public class NumericPredictor {
@@ -58,36 +56,35 @@ public class NumericPredictor {
     protected BigInteger exponent;
     @XmlAttribute(required = true)
     protected String name;
-    
-    public NumericPredictor() {}
-    
+
+    public NumericPredictor() {
+    }
+
     public NumericPredictor(String name, BigInteger exponent, double coefficient) {
-    	this.name = name;
-    	this.exponent = exponent;
-    	this.coefficient = coefficient;
+        this.name = name;
+        this.exponent = exponent;
+        this.coefficient = coefficient;
     }
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extension }
-     * 
-     * 
      */
     public List<Extension> getExtension() {
         if (extension == null) {
@@ -98,7 +95,6 @@ public class NumericPredictor {
 
     /**
      * Gets the value of the coefficient property.
-     * 
      */
     public double getCoefficient() {
         return coefficient;
@@ -106,7 +102,6 @@ public class NumericPredictor {
 
     /**
      * Sets the value of the coefficient property.
-     * 
      */
     public void setCoefficient(double value) {
         this.coefficient = value;
@@ -114,11 +109,9 @@ public class NumericPredictor {
 
     /**
      * Gets the value of the exponent property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @return possible object is
+     * {@link BigInteger }
      */
     public BigInteger getExponent() {
         if (exponent == null) {
@@ -130,11 +123,9 @@ public class NumericPredictor {
 
     /**
      * Sets the value of the exponent property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link BigInteger }
      */
     public void setExponent(BigInteger value) {
         this.exponent = value;
@@ -142,11 +133,9 @@ public class NumericPredictor {
 
     /**
      * Gets the value of the name property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getName() {
         return name;
@@ -154,11 +143,9 @@ public class NumericPredictor {
 
     /**
      * Sets the value of the name property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setName(String value) {
         this.name = value;

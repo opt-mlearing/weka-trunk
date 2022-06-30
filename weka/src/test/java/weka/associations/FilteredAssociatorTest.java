@@ -32,25 +32,25 @@ import junit.framework.TestSuite;
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
-public class FilteredAssociatorTest 
-  extends AbstractAssociatorTest {
+public class FilteredAssociatorTest
+        extends AbstractAssociatorTest {
 
-  public FilteredAssociatorTest(String name) { 
-    super(name);  
-  }
+    public FilteredAssociatorTest(String name) {
+        super(name);
+    }
 
-  /**
-   * Creates a default FilteredAssociator
-   */
-  public Associator getAssociator() {
-    return new FilteredAssociator();
-  }
+    /**
+     * Creates a default FilteredAssociator
+     */
+    public Associator getAssociator() {
+        return new FilteredAssociator();
+    }
 
-  public static Test suite() {
-    return new TestSuite(FilteredAssociatorTest.class);
-  }
+    public static Test suite() {
+        return new TestSuite(FilteredAssociatorTest.class);
+    }
 
-  public static void main(String[] args){
-    junit.textui.TestRunner.run(suite());
-  }
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
 }

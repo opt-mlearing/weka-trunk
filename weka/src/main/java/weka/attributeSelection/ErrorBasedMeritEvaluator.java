@@ -22,7 +22,7 @@
 package weka.attributeSelection;
 
 
-/** 
+/**
  * Interface for evaluators that calculate the "merit" of attributes/subsets
  * as the error of a learning scheme
  *

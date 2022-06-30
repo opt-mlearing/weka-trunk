@@ -43,8 +43,7 @@ import javax.swing.SwingConstants;
 import weka.experiment.Experiment;
 
 
-
-/** 
+/**
  * This panel controls configuration of lower and upper run numbers
  * in an experiment.
  *
@@ -52,145 +51,153 @@ import weka.experiment.Experiment;
  * @version $Revision$
  */
 public class RunNumberPanel
-  extends JPanel {
+        extends JPanel {
 
-  /** for serialization */
-  private static final long serialVersionUID = -1644336658426067852L;
+    /**
+     * for serialization
+     */
+    private static final long serialVersionUID = -1644336658426067852L;
 
-  /** Configures the lower run number */
-  protected JTextField m_LowerText = new JTextField("1");
+    /**
+     * Configures the lower run number
+     */
+    protected JTextField m_LowerText = new JTextField("1");
 
-  /** Configures the upper run number */
-  protected JTextField m_UpperText = new JTextField("10");
+    /**
+     * Configures the upper run number
+     */
+    protected JTextField m_UpperText = new JTextField("10");
 
-  /** The experiment being configured */
-  protected Experiment m_Exp;
-  
-  /**
-   * Creates the panel with no initial experiment.
-   */
-  public RunNumberPanel() {
-    
-    // Updates occur to the values in exp whenever enter is pressed
-    // or the component loses focus
-    m_LowerText.addKeyListener(new KeyAdapter() {
-      public void keyReleased(KeyEvent e) {
-	m_Exp.setRunLower(getLower());
-      }
-    });
-    m_LowerText.addFocusListener(new FocusAdapter() {
-      public void focusLost(FocusEvent e) {
-	m_Exp.setRunLower(getLower());
-      }
-    });
-    m_UpperText.addKeyListener(new KeyAdapter() {
-      public void keyReleased(KeyEvent e) {
-	m_Exp.setRunUpper(getUpper());
-      }
-    });
-    m_UpperText.addFocusListener(new FocusAdapter() {
-      public void focusLost(FocusEvent e) {
-	m_Exp.setRunUpper(getUpper());
-      }
-    });
-    m_LowerText.setEnabled(false);
-    m_UpperText.setEnabled(false);
+    /**
+     * The experiment being configured
+     */
+    protected Experiment m_Exp;
 
-    // Set the GUI layout
-    setLayout(new GridLayout(1,2));
-    setBorder(BorderFactory.createTitledBorder("Runs"));
-    Box b1 = new Box(BoxLayout.X_AXIS);
-    b1.add(Box.createHorizontalStrut(10));
-    b1.add(new JLabel("From:", SwingConstants.RIGHT));
-    b1.add(Box.createHorizontalStrut(5));
-    b1.add(m_LowerText);
-    add(b1);
-    Box b2 = new Box(BoxLayout.X_AXIS);
-    b2.add(Box.createHorizontalStrut(10));
-    b2.add(new JLabel("To:", SwingConstants.RIGHT));
-    b2.add(Box.createHorizontalStrut(5));
-    b2.add(m_UpperText);
-    add(b2);
-  }
+    /**
+     * Creates the panel with no initial experiment.
+     */
+    public RunNumberPanel() {
 
-  /**
-   * Creates the panel with the supplied initial experiment.
-   *
-   * @param exp a value of type 'Experiment'
-   */
-  public RunNumberPanel(Experiment exp) {
+        // Updates occur to the values in exp whenever enter is pressed
+        // or the component loses focus
+        m_LowerText.addKeyListener(new KeyAdapter() {
+            public void keyReleased(KeyEvent e) {
+                m_Exp.setRunLower(getLower());
+            }
+        });
+        m_LowerText.addFocusListener(new FocusAdapter() {
+            public void focusLost(FocusEvent e) {
+                m_Exp.setRunLower(getLower());
+            }
+        });
+        m_UpperText.addKeyListener(new KeyAdapter() {
+            public void keyReleased(KeyEvent e) {
+                m_Exp.setRunUpper(getUpper());
+            }
+        });
+        m_UpperText.addFocusListener(new FocusAdapter() {
+            public void focusLost(FocusEvent e) {
+                m_Exp.setRunUpper(getUpper());
+            }
+        });
+        m_LowerText.setEnabled(false);
+        m_UpperText.setEnabled(false);
 
-    this();
-    setExperiment(exp);
-  }
-
-  /**
-   * Sets the experiment to be configured.
-   *
-   * @param exp a value of type 'Experiment'
-   */
-  public void setExperiment(Experiment exp) {
-    
-    m_Exp = exp;
-    m_LowerText.setText("" + m_Exp.getRunLower());
-    m_UpperText.setText("" + m_Exp.getRunUpper());
-    m_LowerText.setEnabled(true);
-    m_UpperText.setEnabled(true);
-  }
-  
-  /**
-   * Gets the current lower run number.
-   *
-   * @return the lower run number.
-   */
-  public int getLower() {
-
-    int result = 1;
-    try {
-      result = Integer.parseInt(m_LowerText.getText());
-    } catch (Exception ex) {
+        // Set the GUI layout
+        setLayout(new GridLayout(1, 2));
+        setBorder(BorderFactory.createTitledBorder("Runs"));
+        Box b1 = new Box(BoxLayout.X_AXIS);
+        b1.add(Box.createHorizontalStrut(10));
+        b1.add(new JLabel("From:", SwingConstants.RIGHT));
+        b1.add(Box.createHorizontalStrut(5));
+        b1.add(m_LowerText);
+        add(b1);
+        Box b2 = new Box(BoxLayout.X_AXIS);
+        b2.add(Box.createHorizontalStrut(10));
+        b2.add(new JLabel("To:", SwingConstants.RIGHT));
+        b2.add(Box.createHorizontalStrut(5));
+        b2.add(m_UpperText);
+        add(b2);
     }
-    return Math.max(1, result);
-  }
-  
-  /**
-   * Gets the current upper run number.
-   *
-   * @return the upper run number.
-   */
-  public int getUpper() {
 
-    int result = 1;
-    try {
-      result = Integer.parseInt(m_UpperText.getText());
-    } catch (Exception ex) {
-    }
-    return Math.max(1, result);
-  }
-  
-  /**
-   * Tests out the panel from the command line.
-   *
-   * @param args ignored.
-   */
-  public static void main(String [] args) {
+    /**
+     * Creates the panel with the supplied initial experiment.
+     *
+     * @param exp a value of type 'Experiment'
+     */
+    public RunNumberPanel(Experiment exp) {
 
-    try {
-      final JFrame jf = new JFrame("Dataset List Editor");
-      jf.getContentPane().setLayout(new BorderLayout());
-      jf.getContentPane().add(new RunNumberPanel(new Experiment()),
-			      BorderLayout.CENTER);
-      jf.addWindowListener(new WindowAdapter() {
-	public void windowClosing(WindowEvent e) {
-	  jf.dispose();
-	  System.exit(0);
-	}
-      });
-      jf.pack();
-      jf.setVisible(true);
-    } catch (Exception ex) {
-      ex.printStackTrace();
-      System.err.println(ex.getMessage());
+        this();
+        setExperiment(exp);
     }
-  }
+
+    /**
+     * Sets the experiment to be configured.
+     *
+     * @param exp a value of type 'Experiment'
+     */
+    public void setExperiment(Experiment exp) {
+
+        m_Exp = exp;
+        m_LowerText.setText("" + m_Exp.getRunLower());
+        m_UpperText.setText("" + m_Exp.getRunUpper());
+        m_LowerText.setEnabled(true);
+        m_UpperText.setEnabled(true);
+    }
+
+    /**
+     * Gets the current lower run number.
+     *
+     * @return the lower run number.
+     */
+    public int getLower() {
+
+        int result = 1;
+        try {
+            result = Integer.parseInt(m_LowerText.getText());
+        } catch (Exception ex) {
+        }
+        return Math.max(1, result);
+    }
+
+    /**
+     * Gets the current upper run number.
+     *
+     * @return the upper run number.
+     */
+    public int getUpper() {
+
+        int result = 1;
+        try {
+            result = Integer.parseInt(m_UpperText.getText());
+        } catch (Exception ex) {
+        }
+        return Math.max(1, result);
+    }
+
+    /**
+     * Tests out the panel from the command line.
+     *
+     * @param args ignored.
+     */
+    public static void main(String[] args) {
+
+        try {
+            final JFrame jf = new JFrame("Dataset List Editor");
+            jf.getContentPane().setLayout(new BorderLayout());
+            jf.getContentPane().add(new RunNumberPanel(new Experiment()),
+                    BorderLayout.CENTER);
+            jf.addWindowListener(new WindowAdapter() {
+                public void windowClosing(WindowEvent e) {
+                    jf.dispose();
+                    System.exit(0);
+                }
+            });
+            jf.pack();
+            jf.setVisible(true);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            System.err.println(ex.getMessage());
+        }
+    }
 }
