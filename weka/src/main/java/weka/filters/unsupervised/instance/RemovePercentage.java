@@ -54,6 +54,7 @@ import weka.filters.UnsupervisedFilter;
  * @author Eibe Frank (eibe@cs.waikato.ac.nz)
  * @version $Revision$
  */
+// 根据属性值，删除数据集中给定阈值的实例.
 public class RemovePercentage extends Filter implements UnsupervisedFilter,
         OptionHandler, WeightedAttributesHandler {
 

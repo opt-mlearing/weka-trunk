@@ -80,6 +80,7 @@ import weka.filters.UnsupervisedFilter;
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
+// 根据最大或者最小频次进行实例过滤.
 public class RemoveFrequentValues extends Filter implements OptionHandler,
         UnsupervisedFilter, WeightedAttributesHandler {
 

@@ -73,6 +73,7 @@ import weka.gui.ProgrammaticProperty;
  * @author Stuart Inglis (stuart@reeltwo.com)
  * @version $Revision$
  **/
+// 有监督过滤器，产生一个随机子样本，可以控制最稀少&最常见的类别之间的频率差异.
 public class SpreadSubsample extends Filter implements SupervisedFilter,
         OptionHandler, Randomizable, WeightedAttributesHandler {
 

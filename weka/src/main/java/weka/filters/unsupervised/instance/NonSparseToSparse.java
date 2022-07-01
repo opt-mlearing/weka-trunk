@@ -40,6 +40,7 @@ import weka.filters.UnsupervisedFilter;
  * @author Eibe Frank (eibe@cs.waikato.ac.nz)
  * @version $Revision$
  */
+// 将实例转化为稀疏实例，与SparseToNonSparse正好相对称.
 public class NonSparseToSparse extends Filter implements UnsupervisedFilter,
         StreamableFilter, OptionHandler, WeightedAttributesHandler, WeightedInstancesHandler {
 

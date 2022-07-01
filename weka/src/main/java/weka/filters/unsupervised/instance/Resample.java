@@ -73,6 +73,7 @@ import weka.gui.ProgrammaticProperty;
  * @author Eibe Frank
  * @version $Revision$
  */
+// 有监督过滤器，Resample保持在子样本的类别分布，可配置是否使用均匀的的分类偏倚，抽样可以设置为有放回(默认)或无放回的模式.
 public class Resample extends Filter implements UnsupervisedFilter,
         OptionHandler, Randomizable, WeightedAttributesHandler {
 

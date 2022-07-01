@@ -19,7 +19,6 @@
  *
  */
 
-
 package weka.filters.unsupervised.instance;
 
 import weka.core.*;
@@ -37,8 +36,8 @@ import weka.filters.UnsupervisedFilter;
  * @author Len Trigg (len@reeltwo.com)
  * @version $Revision$
  */
-public class SparseToNonSparse
-        extends Filter
+// 将稀疏实例转化为非稀疏实例，与NonSparseToSparse相对应.
+public class SparseToNonSparse extends Filter
         implements UnsupervisedFilter, StreamableFilter, WeightedAttributesHandler, WeightedInstancesHandler {
 
     /**

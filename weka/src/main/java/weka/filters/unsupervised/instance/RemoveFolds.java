@@ -66,6 +66,7 @@ import weka.filters.UnsupervisedFilter;
  * @author Eibe Frank (eibe@cs.waikato.ac.nz)
  * @version $Revision$
  */
+// 无监督实例过滤器，将数据器将数据分割为给定的交叉验证折数.
 public class RemoveFolds extends Filter implements UnsupervisedFilter,
         OptionHandler, WeightedAttributesHandler {
 
