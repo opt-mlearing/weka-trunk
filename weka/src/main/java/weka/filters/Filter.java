@@ -85,7 +85,9 @@ import java.util.Vector;
  * 1) 添加和删除属性；
  * 2) 改变值；
  * 3) 转换；
- *
+ * 4) 字符串转换;
+ * 5) 时间序列；
+ * 6) 随机化；
  */
 public abstract class Filter implements Serializable, CapabilitiesHandler,
         RevisionHandler, OptionHandler, CapabilitiesIgnorer, CommandlineRunnable {
