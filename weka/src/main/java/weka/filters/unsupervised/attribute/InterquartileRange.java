@@ -110,6 +110,7 @@ import weka.filters.SimpleBatchFilter;
  * @author fracpete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
+// InterquartileRange 新功能可区分离群值或极值.
 public class InterquartileRange extends SimpleBatchFilter implements WeightedAttributesHandler {
 
     /**
@@ -828,8 +829,9 @@ public class InterquartileRange extends SimpleBatchFilter implements WeightedAtt
     }
 
     /**
-     * returns whether the instance has an outlier in the specified attribute or
-     * not
+     * 指示实例的值是否可以视为离群值或极端值.
+     * 一般离群值和极端值定义为基于属性值的第25个和第75个四分位之间的差.
+     * returns whether the instance has an outlier in the specified attribute or not.
      *
      * @param inst  the instance to test
      * @param index the index of the attribute index in the list of selected attributes

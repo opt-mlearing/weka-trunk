@@ -75,6 +75,7 @@ import weka.filters.UnsupervisedFilter;
  * @author Mark Hall (mhall@cs.waikato.ac.nz)
  * @version $Revision$
  */
+// 通过将一个数学函数应用于的树枝型属性而生成一个新属性.
 public class AddExpression extends Filter implements UnsupervisedFilter,
         StreamableFilter, OptionHandler, WeightedInstancesHandler, WeightedAttributesHandler {
 

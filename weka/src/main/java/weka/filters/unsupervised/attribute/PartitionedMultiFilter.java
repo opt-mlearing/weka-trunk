@@ -72,6 +72,7 @@ import java.util.Vector;
  * @version $Revision$
  * @see weka.filters.StreamableFilter
  */
+// 一种特殊的过滤器，在输入数据集中的应用一组过滤器.类似一组过滤器的管理器.
 public class PartitionedMultiFilter extends SimpleBatchFilter
         implements WeightedInstancesHandler, WeightedAttributesHandler {
 

@@ -80,6 +80,13 @@ import java.util.Vector;
  * @author Len Trigg (trigg@cs.waikato.ac.nz)
  * @version $Revision$
  */
+/**
+ * 过滤器功能分类：
+ * 1) 添加和删除属性；
+ * 2) 改变值；
+ * 3) 转换；
+ *
+ */
 public abstract class Filter implements Serializable, CapabilitiesHandler,
         RevisionHandler, OptionHandler, CapabilitiesIgnorer, CommandlineRunnable {
 

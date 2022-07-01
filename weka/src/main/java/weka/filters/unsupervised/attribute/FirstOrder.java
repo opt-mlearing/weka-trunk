@@ -66,6 +66,7 @@ import weka.filters.UnsupervisedFilter;
  * @author Len Trigg (trigg@cs.waikato.ac.nz)
  * @version $Revision$
  */
+// 一阶差分算子.
 public class FirstOrder extends Filter implements UnsupervisedFilter,
         StreamableFilter, OptionHandler, WeightedInstancesHandler {
 

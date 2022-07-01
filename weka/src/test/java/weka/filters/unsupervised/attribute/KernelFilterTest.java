@@ -36,8 +36,7 @@ import junit.framework.TestSuite;
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
-public class KernelFilterTest
-        extends AbstractFilterTest {
+public class KernelFilterTest extends AbstractFilterTest {
 
     public KernelFilterTest(String name) {
         super(name);
@@ -58,12 +57,9 @@ public class KernelFilterTest
      */
     protected FilteredClassifier getFilteredClassifier() {
         FilteredClassifier result;
-
         result = new FilteredClassifier();
-
         result.setFilter(getFilter());
         result.setClassifier(new weka.classifiers.trees.J48());
-
         return result;
     }
 
@@ -76,12 +72,9 @@ public class KernelFilterTest
     protected Instances getFilteredClassifierData() throws Exception {
         TestInstances test;
         Instances result;
-
         test = TestInstances.forCapabilities(m_FilteredClassifier.getCapabilities());
         test.setClassIndex(TestInstances.CLASS_IS_LAST);
-
         result = test.generate();
-
         return result;
     }
 
@@ -93,7 +86,6 @@ public class KernelFilterTest
      */
     protected void setUp() throws Exception {
         super.setUp();
-
         TestInstances test = new TestInstances();
         test.setNumNominal(0);
         test.setNumNumeric(2);
@@ -106,7 +98,6 @@ public class KernelFilterTest
      */
     public void testTypical() {
         Instances icopy = new Instances(m_Instances);
-
         m_Filter = getFilter();
         Instances result = useFilter();
         assertEquals(result.numAttributes(), icopy.numInstances() + 1);

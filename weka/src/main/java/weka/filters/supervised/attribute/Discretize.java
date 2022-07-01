@@ -103,6 +103,7 @@ import weka.filters.SupervisedFilter;
  * @author Eibe Frank (eibe@cs.waikato.ac.nz)
  * @version $Revision$
  */
+// Discretize过滤器使用等宽或等频分箱将指定范围的数值属性离散化.
 public class Discretize extends Filter implements SupervisedFilter,
         OptionHandler, WeightedInstancesHandler, WeightedAttributesHandler, TechnicalInformationHandler {
 

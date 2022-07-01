@@ -69,6 +69,7 @@ import weka.filters.UnsupervisedFilter;
  * @author Eibe Frank (eibe@cs.waikato.ac.nz)
  * @version $Revision$
  */
+// 数值类型转换.
 public class NumericTransform extends Filter implements UnsupervisedFilter,
         StreamableFilter, OptionHandler, WeightedInstancesHandler, WeightedAttributesHandler {
 

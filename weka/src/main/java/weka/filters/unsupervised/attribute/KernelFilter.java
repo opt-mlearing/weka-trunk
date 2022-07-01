@@ -200,6 +200,7 @@ import weka.filters.UnsupervisedFilter;
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
+// 过滤器将数据转换成为核矩阵.
 public class KernelFilter extends SimpleBatchFilter implements
         UnsupervisedFilter, TechnicalInformationHandler {
 

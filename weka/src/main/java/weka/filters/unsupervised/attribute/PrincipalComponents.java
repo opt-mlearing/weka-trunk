@@ -88,6 +88,7 @@ import weka.filters.UnsupervisedFilter;
  * @author fracpete (fracpete at waikato dot ac dot nz) -- filter code
  * @version $Revision$
  */
+// 过滤器在数据集上进行主成分转换.
 public class PrincipalComponents extends Filter implements OptionHandler,
         UnsupervisedFilter {
 

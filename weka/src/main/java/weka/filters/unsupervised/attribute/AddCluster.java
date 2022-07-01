@@ -72,6 +72,7 @@ import weka.filters.UnsupervisedFilter;
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
+// 先将一种聚类算法应用于数据，然后再进行过滤.
 public class AddCluster extends Filter implements UnsupervisedFilter,
         OptionHandler, WeightedAttributesHandler, WeightedInstancesHandler {
 

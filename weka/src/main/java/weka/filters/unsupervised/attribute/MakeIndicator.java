@@ -64,6 +64,7 @@ import weka.filters.UnsupervisedFilter;
  * @author Eibe Frank (eibe@cs.waikato.ac.nz)
  * @version $Revision$
  */
+// 将标准属性转换为二元指示符属性, 可用于将多个类别的数据集转换成多个两个类别的数据集.
 public class MakeIndicator extends Filter implements UnsupervisedFilter,
         StreamableFilter, OptionHandler, WeightedAttributesHandler, WeightedInstancesHandler {
 
@@ -125,10 +126,8 @@ public class MakeIndicator extends Filter implements UnsupervisedFilter,
      *                     structure (any instances contained in the object are ignored -
      *                     only the structure is required).
      * @return true if the outputFormat may be collected immediately
-     * @throws UnsupportedAttributeTypeException the selecte attribute is not
-     *                                           nominal
-     * @throws UnsupportedAttributeTypeException the selecte attribute has fewer
-     *                                           than two values.
+     * @throws UnsupportedAttributeTypeException the select attribute is not nominal.
+     * @throws UnsupportedAttributeTypeException the select attribute has fewer than two values.
      */
     @Override
     public boolean setInputFormat(Instances instanceInfo) throws Exception {

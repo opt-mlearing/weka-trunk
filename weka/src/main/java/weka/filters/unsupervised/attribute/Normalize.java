@@ -67,6 +67,7 @@ import weka.filters.UnsupervisedFilter;
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
+// 将全部数值属性规范化为[0, 1]区间.
 public class Normalize extends PotentialClassIgnorer implements
         UnsupervisedFilter, Sourcable, OptionHandler, WeightedInstancesHandler, WeightedAttributesHandler {
 
