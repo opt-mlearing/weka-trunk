@@ -56,7 +56,7 @@ public class WekaTestSuite extends TestSuite {
      * specified packages
      *
      * @param superclass the class to find subclasses for
-     * @param pacakges   the packages to search in for subclasses
+     * @param packages   the packages to search in for subclasses
      * @return the classes that were found
      */
     protected static Vector<String> getClassnames(String superclass,

@@ -35,8 +35,7 @@ import weka.core.converters.ConverterUtils.DataSource;
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
-public class InstancesTest
-        extends TestCase {
+public class InstancesTest extends TestCase {
 
     private static final double TOLERANCE = 1e-14;
 

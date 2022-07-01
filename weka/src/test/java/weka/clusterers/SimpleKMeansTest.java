@@ -19,9 +19,6 @@
 
 package weka.clusterers;
 
-import weka.clusterers.AbstractClustererTest;
-import weka.clusterers.Clusterer;
-
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
@@ -32,8 +29,7 @@ import junit.framework.TestSuite;
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
-public class SimpleKMeansTest
-        extends AbstractClustererTest {
+public class SimpleKMeansTest extends AbstractClustererTest {
 
     public SimpleKMeansTest(String name) {
         super(name);

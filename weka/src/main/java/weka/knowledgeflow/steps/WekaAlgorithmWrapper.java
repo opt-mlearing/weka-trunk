@@ -35,8 +35,7 @@ import java.lang.annotation.Annotation;
  * @author Mark Hall (mhall{[at]}pentaho{[dot]}com)
  * @version $Revision: $
  */
-public abstract class WekaAlgorithmWrapper extends BaseStep implements
-        Serializable {
+public abstract class WekaAlgorithmWrapper extends BaseStep implements Serializable {
 
     private static final long serialVersionUID = -1013404060247467085L;
 

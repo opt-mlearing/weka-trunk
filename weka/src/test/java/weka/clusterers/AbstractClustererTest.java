@@ -37,8 +37,7 @@ import junit.framework.TestCase;
  * @see CheckClusterer
  * @see CheckClusterer#runTests(boolean, boolean, boolean)
  */
-public abstract class AbstractClustererTest
-        extends TestCase {
+public abstract class AbstractClustererTest extends TestCase {
 
     /**
      * The clusterer to be tested
@@ -207,7 +206,7 @@ public abstract class AbstractClustererTest
      * Sets the Clusterer returned from the getClusterer() method.
      *
      * @return the fully configured CheckGOE
-     * @see    #getClusterer()
+     * @see #getClusterer()
      */
     protected CheckGOE getGOETester() {
         CheckGOE result;

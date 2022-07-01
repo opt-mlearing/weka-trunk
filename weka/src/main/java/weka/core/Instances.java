@@ -73,8 +73,7 @@ import weka.core.converters.ConverterUtils.DataSource;
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
-public class Instances extends AbstractList<Instance> implements Serializable,
-        RevisionHandler {
+public class Instances extends AbstractList<Instance> implements Serializable, RevisionHandler {
 
     /**
      * for serialization

@@ -44,9 +44,9 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @author Mark Hall (mhall{[at]}pentaho{[dot]}com)
  * @version $Revision: $
  */
-@KFStep(name = "Filter", category = "Filters",
-        toolTipText = "Weka filter wrapper", iconPath = "")
+@KFStep(name = "Filter", category = "Filters", toolTipText = "Weka filter wrapper", iconPath = "")
 public class Filter extends WekaAlgorithmWrapper {
+
     private static final long serialVersionUID = 6857031910153224479L;
 
     /**

@@ -61,8 +61,8 @@ public interface Clusterer {
      *
      * @param instance the instance to be assigned a cluster.
      * @return an array containing the estimated membership
-     * probabilities of the test instance in each cluster (this
-     * should sum to at most 1)
+     * probabilities of the test instance in each cluster
+     * (this should sum to at most 1, 概率总和为1, 归一化, 守衡.)
      * @throws Exception if distribution could not be
      *                   computed successfully
      */
