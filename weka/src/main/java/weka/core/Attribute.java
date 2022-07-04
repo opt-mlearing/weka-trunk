@@ -84,6 +84,7 @@ import java.util.Properties;
  * @author Eibe Frank (eibe@cs.waikato.ac.nz)
  * @version $Revision$
  */
+// 该类容纳数据集中的单个列的类型信息，它存储属性的类型，以及标签属性的标签，字符串属性的可能值，以及关系属性的数据集.
 public class Attribute implements Copyable, Serializable, RevisionHandler {
 
     /**

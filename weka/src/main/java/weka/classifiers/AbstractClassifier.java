@@ -121,9 +121,7 @@ public abstract class AbstractClassifier implements Classifier, BatchPredictor,
      * @return an array of classifiers.
      * @throws Exception if an error occurs
      */
-    public static Classifier[] makeCopies(Classifier model, int num)
-            throws Exception {
-
+    public static Classifier[] makeCopies(Classifier model, int num) throws Exception {
         if (model == null) {
             throw new Exception("No model classifier set");
         }

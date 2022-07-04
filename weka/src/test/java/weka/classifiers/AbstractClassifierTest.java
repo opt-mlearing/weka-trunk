@@ -469,8 +469,7 @@ public abstract class AbstractClassifierTest extends TestCase {
      * tests whether the classifier can handle different types of attributes and
      * if not, if the exception is OK
      *
-     * @see #checkAttributes(boolean, boolean, boolean, boolean, boolean, boolean,
-     * boolean)
+     * @see AbstractClassifierTest#checkAttributes(boolean, boolean, boolean, boolean, boolean, boolean)
      */
     public void testAttributes() {
         // nominal

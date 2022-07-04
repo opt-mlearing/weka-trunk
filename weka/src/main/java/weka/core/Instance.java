@@ -64,6 +64,8 @@ import java.util.Enumeration;
  * @author Eibe Frank (eibe@cs.waikato.ac.nz)
  * @version $Revision$
  */
+// 改类封装单个行，基本上是一个原始 double 数组的包装器，因为改类没有包含列的类型信息，所以总是需要访问 {@link weka.core.Instances} 对象.
+//
 public interface Instance extends Copyable {
 
     /**
@@ -71,8 +73,7 @@ public interface Instance extends Copyable {
      *
      * @param index the attribute's index
      * @return the attribute at the given position
-     * @throws UnassignedDatasetException if instance doesn't have access to a
-     *                                    dataset
+     * @throws UnassignedDatasetException if instance doesn't have access to a dataset.
      */
     public Attribute attribute(int index);
 
@@ -82,8 +83,7 @@ public interface Instance extends Copyable {
      *
      * @param indexOfIndex the index of the attribute's index
      * @return the attribute at the given position
-     * @throws UnassignedDatasetException if instance doesn't have access to a
-     *                                    dataset
+     * @throws UnassignedDatasetException if instance doesn't have access to a dataset.
      */
     public Attribute attributeSparse(int indexOfIndex);
 
@@ -91,8 +91,7 @@ public interface Instance extends Copyable {
      * Returns class attribute.
      *
      * @return the class attribute
-     * @throws UnassignedDatasetException if the class is not set or the instance
-     *                                    doesn't have access to a dataset
+     * @throws UnassignedDatasetException if the class is not set or the instance doesn't have access to a dataset.
      */
     public Attribute classAttribute();
 
@@ -100,8 +99,7 @@ public interface Instance extends Copyable {
      * Returns the class attribute's index.
      *
      * @return the class index as an integer
-     * @throws UnassignedDatasetException if instance doesn't have access to a
-     *                                    dataset
+     * @throws UnassignedDatasetException if instance doesn't have access to a dataset
      */
     public int classIndex();
 
@@ -109,8 +107,7 @@ public interface Instance extends Copyable {
      * Tests if an instance's class is missing.
      *
      * @return true if the instance's class is missing
-     * @throws UnassignedClassException if the class is not set or the instance
-     *                                  doesn't have access to a dataset
+     * @throws UnassignedClassException if the class is not set or the instance doesn't have access to a dataset
      */
     public boolean classIsMissing();
 
@@ -135,6 +132,7 @@ public interface Instance extends Copyable {
     public Instance copy(double[] values);
 
     /**
+     * 返回实例使用的数据集.
      * Returns the dataset this instance has access to. (ie. obtains information
      * about attribute types from) Null if the instance doesn't have access to a
      * dataset.
@@ -224,7 +222,7 @@ public interface Instance extends Copyable {
     public boolean isMissing(int attIndex);
 
     /**
-     * Tests if a specific value is "missing" in the sparse representation. Samse
+     * Tests if a specific value is "missing" in the sparse representation. Same
      * as isMissing(int) for a DenseInstance.
      *
      * @param indexOfIndex the index of the attribute's index
@@ -324,6 +322,7 @@ public interface Instance extends Copyable {
     public void setClassValue(String value);
 
     /**
+     * 设置数据集的引用.
      * Sets the reference to the dataset. Does not check if the instance is
      * compatible with the dataset. Note: the dataset does not know about this
      * instance. If the structure of the dataset's header gets changed, this

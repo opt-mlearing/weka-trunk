@@ -233,10 +233,15 @@ public class CheckEstimator implements OptionHandler, RevisionHandler {
      */
     public static class AttrTypes implements RevisionHandler {
 
+        // 标签类型，预定义的标签.
         boolean nominal = false;
+        // 数值型，连续变量.
         boolean numeric = false;
+        // 字符串型，文本数据.
         boolean string = false;
+        // 日期型，日期变量.
         boolean date = false;
+        // 关系型，包含其他关系.
         boolean relational = false;
 
         AttrTypes() {

@@ -19,6 +19,7 @@
 
 package weka.filters.unsupervised.instance;
 
+import lombok.extern.slf4j.Slf4j;
 import weka.core.Instances;
 import weka.core.SparseInstance;
 import weka.filters.AbstractFilterTest;
@@ -34,6 +35,7 @@ import junit.framework.TestSuite;
  * @author <a href="mailto:len@reeltwo.com">Len Trigg</a>
  * @version $Revision$
  */
+@Slf4j
 public class NonSparseToSparseTest extends AbstractFilterTest {
 
     public NonSparseToSparseTest(String name) {
@@ -50,6 +52,7 @@ public class NonSparseToSparseTest extends AbstractFilterTest {
 
     public void testTypical() {
         Instances result = useFilter();
+        log.info("result {}", result.stringFreeStructure());
         // Number of attributes and instances shouldn't change
         assertEquals(m_Instances.numAttributes(), result.numAttributes());
         assertEquals(m_Instances.numInstances(), result.numInstances());

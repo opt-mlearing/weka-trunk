@@ -312,8 +312,7 @@ public class LinearRegression extends AbstractClassifier implements
                     }
                 }
                 if (!ok) {
-                    throw new Exception(
-                            "Can only compute additional statistics on unweighted data");
+                    throw new Exception("Can only compute additional statistics on unweighted data");
                 }
             }
 

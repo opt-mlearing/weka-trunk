@@ -73,6 +73,9 @@ import weka.core.converters.ConverterUtils.DataSource;
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
+// 该类容纳完整的数据集吗，采用基于行的数据结构.
+// 可以通过调用 instance(int) 方法获取单个行，其方法参数为基于0的行索引.
+// 可以通过 attribute(int) 方法访问列信息
 public class Instances extends AbstractList<Instance> implements Serializable, RevisionHandler {
 
     /**
