@@ -294,6 +294,7 @@ public class J48 extends AbstractClassifier implements OptionHandler, Drawable,
     }
 
     /**
+     * 构建分类器.
      * Generates the classifier.
      *
      * @param instances the data to train the classifier with
@@ -592,6 +593,7 @@ public class J48 extends AbstractClassifier implements OptionHandler, Drawable,
      * </pre>
      * <p>
      * <!-- options-end -->
+     * 设置选项卡.
      *
      * @param options the list of options as an array of strings
      * @throws Exception if an option is not supported

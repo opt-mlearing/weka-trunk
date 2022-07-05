@@ -304,6 +304,7 @@ public class Evaluation implements Serializable, Summarizable, RevisionHandler {
     }
 
     /**
+     * 指定的类别的标签索引（基于0的索引）的AUC.
      * Returns the area under ROC for those predictions that have been collected
      * in the evaluateClassifier(Classifier, Instances) method. Returns
      * Utils.missingValue() if the area is not available.
@@ -802,6 +803,7 @@ public class Evaluation implements Serializable, Summarizable, RevisionHandler {
     }
 
     /**
+     * 类别值的实例数量.
      * Gets the number of test instances that had a known class value (actually
      * the sum of the weights of test instances with known class value).
      *
@@ -874,6 +876,7 @@ public class Evaluation implements Serializable, Summarizable, RevisionHandler {
     }
 
     /**
+     * 正确分类的实例数量.
      * Gets the number of instances correctly classified (that is, for which a
      * correct prediction was made). (Actually the sum of the weights of these
      * instances)
@@ -885,6 +888,7 @@ public class Evaluation implements Serializable, Summarizable, RevisionHandler {
     }
 
     /**
+     * 正确分类的实例的百分比
      * Gets the percentage of instances correctly classified (that is, for which a
      * correct prediction was made).
      *
@@ -895,9 +899,9 @@ public class Evaluation implements Serializable, Summarizable, RevisionHandler {
     }
 
     /**
+     * 未分类的实例数量.
      * Gets the number of instances not classified (that is, for which no
-     * prediction was made by the classifier). (Actually the sum of the weights of
-     * these instances)
+     * prediction was made by the classifier). (Actually the sum of the weights of these instances).
      *
      * @return the number of unclassified instances
      */
@@ -906,8 +910,8 @@ public class Evaluation implements Serializable, Summarizable, RevisionHandler {
     }
 
     /**
-     * Gets the percentage of instances not classified (that is, for which no
-     * prediction was made by the classifier).
+     * 未分类的实例的百分比.
+     * Gets the percentage of instances not classified (that is, for which no prediction was made by the classifier).
      *
      * @return the percent of unclassified instances (between 0 and 100)
      */
@@ -942,6 +946,7 @@ public class Evaluation implements Serializable, Summarizable, RevisionHandler {
     }
 
     /**
+     * 相关系数.
      * Returns the correlation coefficient if the class is numeric.
      *
      * @return the correlation coefficient
@@ -952,9 +957,10 @@ public class Evaluation implements Serializable, Summarizable, RevisionHandler {
     }
 
     /**
-     * Returns the mean absolute error. Refers to the error of the predicted
-     * values for numeric classes, and the error of the predicted probability
-     * distribution for nominal classes.
+     * 平均绝对误差.
+     * Returns the mean absolute error.
+     * Refers to the error of the predicted values for numeric classes,
+     * and the error of the predicted probability distribution for nominal classes.
      *
      * @return the mean absolute error
      */
@@ -982,6 +988,7 @@ public class Evaluation implements Serializable, Summarizable, RevisionHandler {
     }
 
     /**
+     * 平均绝对误差.
      * Returns the root mean squared error.
      *
      * @return the root mean squared error
@@ -1139,14 +1146,14 @@ public class Evaluation implements Serializable, Summarizable, RevisionHandler {
     }
 
     /**
+     * 以摘要的形式输出性能统计数据
      * Outputs the performance statistics in summary form. Lists number (and
      * percentage) of instances classified correctly, incorrectly and
      * unclassified. Outputs the total number of instances classified, and the
      * number of instances (if any) that had no class value provided.
      *
-     * @param title                     the title for the statistics
-     * @param printComplexityStatistics if true, complexity statistics are
-     *                                  returned as well
+     * @param title                     the title for the statistics 摘要标题
+     * @param printComplexityStatistics if true, complexity statistics are returned as well 是否打印复杂的性能统计数据.
      * @return the summary as a String
      */
     public String toSummaryString(String title, boolean printComplexityStatistics) {
@@ -1377,11 +1384,9 @@ public class Evaluation implements Serializable, Summarizable, RevisionHandler {
     }
 
     /**
-     * Calculates the matthews correlation coefficient (sometimes called phi
-     * coefficient) for the supplied class
+     * Calculates the matthews correlation coefficient (sometimes called phi coefficient) for the supplied class
      *
-     * @param classIndex the index of the class to compute the matthews
-     *                   correlation coefficient for
+     * @param classIndex the index of the class to compute the matthews correlation coefficient for
      * @return the mathews correlation coefficient
      */
     public double matthewsCorrelationCoefficient(int classIndex) {
