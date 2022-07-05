@@ -1890,26 +1890,23 @@ public class Instances extends AbstractList<Instance> implements Serializable, R
     /**
      * Creates the training set for one fold of a cross-validation on the dataset.
      *
-     * @param numFolds the number of folds in the cross-validation. Must be
-     *                 greater than 1.
+     * @param numFolds the number of folds in the cross-validation. Must be greater than 1.
      * @param numFold  0 for the first fold, 1 for the second, ...
      * @return the training set
-     * @throws IllegalArgumentException if the number of folds is less than 2 or
-     *                                  greater than the number of instances.
+     * @throws IllegalArgumentException if the number of folds is less than 2 or greater than the number of instances.
      */
     // @ requires 2 <= numFolds && numFolds < numInstances();
     // @ requires 0 <= numFold && numFold < numFolds;
     public Instances trainCV(int numFolds, int numFold) {
-
-        int numInstForFold, first, offset;
+        int numInstForFold;
+        int first;
+        int offset;
         Instances train;
-
         if (numFolds < 2) {
             throw new IllegalArgumentException("Number of folds must be at least 2!");
         }
         if (numFolds > numInstances()) {
-            throw new IllegalArgumentException(
-                    "Can't have more folds than instances!");
+            throw new IllegalArgumentException("Can't have more folds than instances!");
         }
         numInstForFold = numInstances() / numFolds;
         if (numFold < numInstances() % numFolds) {
@@ -1921,9 +1918,7 @@ public class Instances extends AbstractList<Instance> implements Serializable, R
         train = new Instances(this, numInstances() - numInstForFold);
         first = numFold * (numInstances() / numFolds) + offset;
         copyInstances(0, train, first);
-        copyInstances(first + numInstForFold, train, numInstances() - first
-                - numInstForFold);
-
+        copyInstances(first + numInstForFold, train, numInstances() - first - numInstForFold);
         return train;
     }
 

@@ -25,7 +25,7 @@ import java.util.Random;
  * @date 2022/7/5 10:51
  */
 @Slf4j
-public class J48InvokerTest {
+public class J48ClassifierInvokerTest {
 
     private static final String FILE_PATH = "data/weather.nominal.arff";
 
@@ -166,7 +166,7 @@ public class J48InvokerTest {
         log.info(evaluation.toSummaryString("=== " + folds + "折交叉验证 ===", false));
     }
 
-    // 当行交叉验证，并将预测结果保留结果.
+    // 单次交叉验证，并将预测结果保留结果.
     @Test
     public void testCVPrediction() throws Exception {
         // 加载数据
@@ -251,6 +251,54 @@ public class J48InvokerTest {
             writeObj.delete();
         }
         ConverterUtils.DataSink.write(writeTarget, predictedData);
+    }
+
+    // 多次运行交叉验证.
+    @Test
+    public void testRunTenTimesCV() throws Exception {
+        String file = "data/labor.arff";
+        // 获取并加载数据
+        Instances originDataSource = ConverterUtils.DataSource.read(file);
+        // 设置类别索引
+        originDataSource.setClassIndex(originDataSource.numAttributes() - 1);
+        String className = "weka.classifiers.trees.J48";
+        String[] options = new String[2];
+        options[0] = "-C";
+        options[1] = "0.25";
+        Classifier classifier = (Classifier) Utils.forName(Classifier.class, className, options);
+        // 运行次数
+        int runs = 10;
+        // 对折数
+        int folds = 10;
+        for (int i = 0; i < runs; ++i) {
+            long seed = 1234L + i;
+            Random random = new Random(seed);
+            Instances instances = new Instances(originDataSource);
+            instances.randomize(random);
+            // 如果类别为标称类型，则根据其类别值进行分层.
+            if (instances.classAttribute().isNominal()) {
+                // 根据类别进行分层
+                instances.stratify(folds);
+            }
+            Evaluation evaluation = new Evaluation(instances);
+            for (int j = 0; j < folds; ++j) {
+                // 训练集
+                Instances train = instances.trainCV(folds, i);
+                // 测试集
+                Instances test = instances.testCV(folds, i);
+                Classifier copyClassifier = AbstractClassifier.makeCopy(classifier);
+                // 构建分类器
+                copyClassifier.buildClassifier(train);
+                // 评估分类器
+                evaluation.evaluateModel(copyClassifier, test);
+            }
+            log.info("=== 运行第 " + (i - 1) + " 次的分类器设置 ===");
+            log.info("分类器 {}", Utils.toCommandLine(classifier));
+            log.info("数据集 {}", originDataSource.relationName());
+            log.info("对折次数 {}", folds);
+            log.info("重跑次数 {}", runs);
+            log.info(evaluation.toSummaryString("=== " + folds + "  折交叉验证运行第" + (i + 1) + " 次===", false));
+        }
     }
 
 }

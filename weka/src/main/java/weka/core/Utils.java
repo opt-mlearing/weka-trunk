@@ -66,23 +66,22 @@ public final class Utils implements RevisionHandler {
     /**
      * Decimal format
      */
-    private static final ThreadLocal<DecimalFormat> DF =
-            new ThreadLocal<DecimalFormat>() {
+    private static final ThreadLocal<DecimalFormat> DF = new ThreadLocal<DecimalFormat>() {
 
-                @Override
-                protected DecimalFormat initialValue() {
+        @Override
+        protected DecimalFormat initialValue() {
 
-                    DecimalFormat df = new DecimalFormat();
-                    DecimalFormatSymbols dfs = df.getDecimalFormatSymbols();
-                    dfs.setDecimalSeparator('.');
-                    dfs.setNaN("NaN");
-                    dfs.setInfinity("Infinity");
-                    df.setGroupingUsed(false);
-                    df.setRoundingMode(RoundingMode.HALF_UP);
-                    df.setDecimalFormatSymbols(dfs);
-                    return df;
-                }
-            };
+            DecimalFormat df = new DecimalFormat();
+            DecimalFormatSymbols dfs = df.getDecimalFormatSymbols();
+            dfs.setDecimalSeparator('.');
+            dfs.setNaN("NaN");
+            dfs.setInfinity("Infinity");
+            df.setGroupingUsed(false);
+            df.setRoundingMode(RoundingMode.HALF_UP);
+            df.setDecimalFormatSymbols(dfs);
+            return df;
+        }
+    };
 
     /**
      * Suffixes for ordinal representation of indices.
@@ -97,10 +96,8 @@ public final class Utils implements RevisionHandler {
      * @param dateFormat the date format as a string
      * @return milliseconds since 1 January 1970 (as a double converted from long)
      */
-    public static double dateToMillis(String dateString, String dateFormat)
-            throws ParseException {
-        return new java.text.SimpleDateFormat(dateFormat).parse(dateString)
-                .getTime();
+    public static double dateToMillis(String dateString, String dateFormat) throws ParseException {
+        return new java.text.SimpleDateFormat(dateFormat).parse(dateString).getTime();
     }
 
     /**
@@ -204,8 +201,7 @@ public final class Utils implements RevisionHandler {
      * @throws Exception if no default properties are defined, or if an error
      *                   occurs reading the properties files.
      */
-    public static Properties readProperties(String resourceName,
-                                            ClassLoader loader) throws Exception {
+    public static Properties readProperties(String resourceName, ClassLoader loader) throws Exception {
 
         return ResourceUtils.readProperties(resourceName, loader);
     }
@@ -274,8 +270,7 @@ public final class Utils implements RevisionHandler {
      * @param replaceString the replacement substring
      * @return the input string with occurrences of substring replaced.
      */
-    public static String replaceSubstring(String inString, String subString,
-                                          String replaceString) {
+    public static String replaceSubstring(String inString, String subString, String replaceString) {
 
         StringBuffer result = new StringBuffer();
         int oldLoc = 0, loc = 0;
@@ -350,8 +345,7 @@ public final class Utils implements RevisionHandler {
      *                          decimal point
      * @return the double as a formatted string
      */
-    public static/* @pure@ */String doubleToString(double value,
-                                                   int afterDecimalPoint) {
+    public static/* @pure@ */String doubleToString(double value, int afterDecimalPoint) {
 
         DF.get().setMaximumFractionDigits(afterDecimalPoint);
         return DF.get().format(value);
@@ -366,8 +360,7 @@ public final class Utils implements RevisionHandler {
      * @param afterDecimalPoint the number of digits after the decimal point
      * @return the double as a formatted string
      */
-    public static/* @pure@ */String doubleToString(double value, int width,
-                                                   int afterDecimalPoint) {
+    public static/* @pure@ */String doubleToString(double value, int width, int afterDecimalPoint) {
 
         String tempString = doubleToString(value, afterDecimalPoint);
         char[] result;
@@ -519,8 +512,7 @@ public final class Utils implements RevisionHandler {
      * @param options an array of strings
      * @throws Exception if there are any non-empty options
      */
-    public static void checkForRemainingOptions(String[] options)
-            throws Exception {
+    public static void checkForRemainingOptions(String[] options) throws Exception {
 
         int illegalOptionsFound = 0;
         StringBuffer text = new StringBuffer();
@@ -585,8 +577,7 @@ public final class Utils implements RevisionHandler {
      * @return the indicated option or an empty string
      * @throws Exception if the option indicated by the flag can't be found
      */
-    public static/* @non_null@ */String getOption(char flag, String[] options)
-            throws Exception {
+    public static/* @non_null@ */String getOption(char flag, String[] options) throws Exception {
 
         return getOption("" + flag, options);
     }
@@ -601,8 +592,7 @@ public final class Utils implements RevisionHandler {
      * @return the indicated option or an empty string
      * @throws Exception if the option indicated by the flag can't be found
      */
-    public static/* @non_null@ */String getOption(String flag, String[] options)
-            throws Exception {
+    public static/* @non_null@ */String getOption(String flag, String[] options) throws Exception {
 
         String newString;
         int i = getOptionPos(flag, options);
@@ -694,20 +684,14 @@ public final class Utils implements RevisionHandler {
         boolean quote = false;
 
         // backquote the following characters
-        if ((string.indexOf('\n') != -1) || (string.indexOf('\r') != -1)
-                || (string.indexOf('\'') != -1) || (string.indexOf('"') != -1)
-                || (string.indexOf('\\') != -1) || (string.indexOf('\t') != -1)
-                || (string.indexOf('%') != -1) || (string.indexOf('\u001E') != -1)) {
+        if ((string.indexOf('\n') != -1) || (string.indexOf('\r') != -1) || (string.indexOf('\'') != -1) || (string.indexOf('"') != -1) || (string.indexOf('\\') != -1) || (string.indexOf('\t') != -1) || (string.indexOf('%') != -1) || (string.indexOf('\u001E') != -1)) {
             string = backQuoteChars(string);
             quote = true;
         }
 
         // Enclose the string in 's if the string contains a recently added
         // backquote or contains one of the following characters.
-        if ((quote == true) || (string.indexOf('{') != -1)
-                || (string.indexOf('}') != -1) || (string.indexOf(',') != -1)
-                || (string.equals("?")) || (string.indexOf(' ') != -1)
-                || (string.equals(""))) {
+        if ((quote == true) || (string.indexOf('{') != -1) || (string.indexOf('}') != -1) || (string.indexOf(',') != -1) || (string.equals("?")) || (string.indexOf(' ') != -1) || (string.equals(""))) {
             string = ("'".concat(string)).concat("'");
         }
 
@@ -726,10 +710,7 @@ public final class Utils implements RevisionHandler {
         if (string.startsWith("'") && string.endsWith("'")) {
             string = string.substring(1, string.length() - 1);
 
-            if ((string.indexOf("\\n") != -1) || (string.indexOf("\\r") != -1)
-                    || (string.indexOf("\\'") != -1) || (string.indexOf("\\\"") != -1)
-                    || (string.indexOf("\\\\") != -1) || (string.indexOf("\\t") != -1)
-                    || (string.indexOf("\\%") != -1) || (string.indexOf("\\u001E") != -1)) {
+            if ((string.indexOf("\\n") != -1) || (string.indexOf("\\r") != -1) || (string.indexOf("\\'") != -1) || (string.indexOf("\\\"") != -1) || (string.indexOf("\\\\") != -1) || (string.indexOf("\\t") != -1) || (string.indexOf("\\%") != -1) || (string.indexOf("\\u001E") != -1)) {
                 string = unbackQuoteChars(string);
             }
         }
@@ -752,8 +733,7 @@ public final class Utils implements RevisionHandler {
 
         // replace each of the following characters with the backquoted version
         char charsFind[] = {'\\', '\'', '\t', '\n', '\r', '"', '%', '\u001E'};
-        String charsReplace[] =
-                {"\\\\", "\\'", "\\t", "\\n", "\\r", "\\\"", "\\%", "\\u001E"};
+        String charsReplace[] = {"\\\\", "\\'", "\\t", "\\n", "\\r", "\\\"", "\\%", "\\u001E"};
         for (int i = 0; i < charsFind.length; i++) {
             if (string.indexOf(charsFind[i]) != -1) {
                 newStringBuffer = new StringBuffer();
@@ -957,8 +937,7 @@ public final class Utils implements RevisionHandler {
      * @throws Exception in case of an unterminated string, unknown character or a
      *                   parse error
      */
-    public static String[] splitOptions(String quotedOptionString)
-            throws Exception {
+    public static String[] splitOptions(String quotedOptionString) throws Exception {
 
         return splitOptions(quotedOptionString, null, null);
     }
@@ -976,8 +955,7 @@ public final class Utils implements RevisionHandler {
      * @throws Exception in case of an unterminated string, unknown character or a
      *                   parse error
      */
-    public static String[] splitOptions(String quotedOptionString, String[] toReplace, char[] replacements)
-            throws Exception {
+    public static String[] splitOptions(String quotedOptionString, String[] toReplace, char[] replacements) throws Exception {
 
         Vector<String> optionsVec = new Vector<String>();
         String str = new String(quotedOptionString);
@@ -1065,8 +1043,7 @@ public final class Utils implements RevisionHandler {
             }
             boolean escape = false;
             for (int n = 0; n < element.length(); n++) {
-                if (Character.isWhitespace(element.charAt(n))
-                        || element.charAt(n) == '"' || element.charAt(n) == '\'') {
+                if (Character.isWhitespace(element.charAt(n)) || element.charAt(n) == '"' || element.charAt(n) == '\'') {
                     escape = true;
                     break;
                 }
@@ -1108,8 +1085,7 @@ public final class Utils implements RevisionHandler {
      *                   assignable to the desired class type, or the options supplied
      *                   are not acceptable to the object
      */
-    public static Object forName(Class<?> classType, String className,
-                                 String[] options) throws Exception {
+    public static Object forName(Class<?> classType, String className, String[] options) throws Exception {
 
         return ResourceUtils.forName(classType, className, options);
     }
@@ -1153,16 +1129,13 @@ public final class Utils implements RevisionHandler {
      */
     public static String toCommandLine(Object obj) {
         StringBuffer result;
-
         result = new StringBuffer();
-
         if (obj != null) {
             result.append(obj.getClass().getName());
             if (obj instanceof OptionHandler) {
                 result.append(" " + joinOptions(((OptionHandler) obj).getOptions()));
             }
         }
-
         return result.toString().trim();
     }
 
@@ -1174,7 +1147,6 @@ public final class Utils implements RevisionHandler {
      * array [a b c]
      */
     public static/* @pure@ */double info(int counts[]) {
-
         int total = 0;
         double x = 0;
         for (int count : counts) {
@@ -1442,8 +1414,7 @@ public final class Utils implements RevisionHandler {
     public static/* @pure@ */double probToLogOdds(double prob) {
 
         if (gr(prob, 1) || (sm(prob, 0))) {
-            throw new IllegalArgumentException("probToLogOdds: probability must "
-                    + "be in [0,1] " + prob);
+            throw new IllegalArgumentException("probToLogOdds: probability must " + "be in [0,1] " + prob);
         }
         double p = SMALL + (1.0 - 2 * SMALL) * prob;
         return Math.log(p / (1 - p));
@@ -1458,8 +1429,7 @@ public final class Utils implements RevisionHandler {
      */
     public static/* @pure@ */int round(double value) {
 
-        int roundedValue =
-                value > 0 ? (int) (value + 0.5) : -(int) (Math.abs(value) + 0.5);
+        int roundedValue = value > 0 ? (int) (value + 0.5) : -(int) (Math.abs(value) + 0.5);
 
         return roundedValue;
     }
@@ -1517,8 +1487,7 @@ public final class Utils implements RevisionHandler {
      * @param afterDecimalPoint the number of digits after the decimal point
      * @return the double rounded to the given precision
      */
-    public static/* @pure@ */double roundDouble(double value,
-                                                int afterDecimalPoint) {
+    public static/* @pure@ */double roundDouble(double value, int afterDecimalPoint) {
 
         double mask = Math.pow(10.0, afterDecimalPoint);
 
@@ -1669,8 +1638,7 @@ public final class Utils implements RevisionHandler {
      */
     public static/* @pure@ */double variance(double[] vector) {
 
-        if (vector.length <= 1)
-            return Double.NaN;
+        if (vector.length <= 1) return Double.NaN;
 
         double mean = 0;
         double var = 0;
@@ -1753,8 +1721,7 @@ public final class Utils implements RevisionHandler {
      * Sorts left, right, and center elements only, returns resulting center as
      * pivot.
      */
-    private static int sortLeftRightAndCenter(double[] array, int[] index, int l,
-                                              int r) {
+    private static int sortLeftRightAndCenter(double[] array, int[] index, int l, int r) {
 
         int c = (l + r) / 2;
         conditionalSwap(array, index, l, c);
@@ -1776,8 +1743,7 @@ public final class Utils implements RevisionHandler {
     /**
      * Conditional swap for quick sort.
      */
-    private static void conditionalSwap(double[] array, int[] index, int left,
-                                        int right) {
+    private static void conditionalSwap(double[] array, int[] index, int left, int right) {
 
         if (array[index[left]] > array[index[right]]) {
             int help = index[left];
@@ -1796,8 +1762,7 @@ public final class Utils implements RevisionHandler {
      * @param r     the last index of the subset
      * @return the index of the middle element
      */
-    private static int partition(double[] array, int[] index, int l, int r,
-                                 double pivot) {
+    private static int partition(double[] array, int[] index, int l, int r, double pivot) {
 
         r--;
         while (true) {
@@ -1894,8 +1859,7 @@ public final class Utils implements RevisionHandler {
 
                 // Move pivot to the right, partition, and restore pivot
                 swap(index, pivotLocation, right - 1);
-                int center =
-                        partition(array, index, left, right, array[index[right - 1]]);
+                int center = partition(array, index, left, right, array[index[right - 1]]);
                 swap(index, center, right - 1);
 
                 // Sort recursively
@@ -1967,8 +1931,7 @@ public final class Utils implements RevisionHandler {
 
                 // Move pivot to the right, partition, and restore pivot
                 swap(index, pivotLocation, right - 1);
-                int center =
-                        partition(array, index, left, right, array[index[right - 1]]);
+                int center = partition(array, index, left, right, array[index[right - 1]]);
                 swap(index, center, right - 1);
 
                 // Proceed recursively
@@ -2024,8 +1987,7 @@ public final class Utils implements RevisionHandler {
     protected static File createRelativePath(File absolute) throws Exception {
         File userDir = new File(System.getProperty("user.dir"));
         String userPath = userDir.getAbsolutePath() + File.separator;
-        String targetPath =
-                (new File(absolute.getParent())).getPath() + File.separator;
+        String targetPath = (new File(absolute.getParent())).getPath() + File.separator;
         String fileName = absolute.getName();
         StringBuffer relativePath = new StringBuffer();
         // relativePath.append("."+File.separator);
@@ -2071,8 +2033,7 @@ public final class Utils implements RevisionHandler {
             }
             if (tcount == -1) {
                 // then target file is probably on another drive (under windows)
-                throw new Exception("Can't construct a path to file relative to user "
-                        + "dir.");
+                throw new Exception("Can't construct a path to file relative to user " + "dir.");
             }
             if (targetTemp.indexOf(File.separator) == -1) {
                 targetTemp = "";
@@ -2129,14 +2090,12 @@ public final class Utils implements RevisionHandler {
             return false;
         }
 
-        File dialogSubDir =
-                new File(wekaHome.toString() + File.separator + "systemDialogs");
+        File dialogSubDir = new File(wekaHome.toString() + File.separator + "systemDialogs");
         if (!dialogSubDir.exists()) {
             return false;
         }
 
-        File dialogFile =
-                new File(dialogSubDir.toString() + File.separator + dialogName);
+        File dialogFile = new File(dialogSubDir.toString() + File.separator + dialogName);
 
         return dialogFile.exists();
     }
@@ -2157,16 +2116,14 @@ public final class Utils implements RevisionHandler {
             return;
         }
 
-        File dialogSubDir =
-                new File(wekaHome.toString() + File.separator + "systemDialogs");
+        File dialogSubDir = new File(wekaHome.toString() + File.separator + "systemDialogs");
         if (!dialogSubDir.exists()) {
             if (!dialogSubDir.mkdir()) {
                 return;
             }
         }
 
-        File dialogFile =
-                new File(dialogSubDir.toString() + File.separator + dialogName);
+        File dialogFile = new File(dialogSubDir.toString() + File.separator + dialogName);
         dialogFile.createNewFile();
     }
 
@@ -2181,16 +2138,13 @@ public final class Utils implements RevisionHandler {
      * dialog (if they opted not to view it again in the future) or null
      * if the user opted to view the dialog again in the future.
      */
-    public static String getDontShowDialogResponse(String dialogName)
-            throws Exception {
+    public static String getDontShowDialogResponse(String dialogName) throws Exception {
         if (!getDontShowDialog(dialogName)) {
             return null; // This must be the first time - no file recorded yet.
         }
 
         File wekaHome = ResourceUtils.getWekaHome();
-        File dialogSubDir =
-                new File(wekaHome.toString() + File.separator + "systemDialogs"
-                        + File.separator + dialogName);
+        File dialogSubDir = new File(wekaHome.toString() + File.separator + "systemDialogs" + File.separator + dialogName);
 
         BufferedReader br = new BufferedReader(new FileReader(dialogSubDir));
         String response = br.readLine();
@@ -2207,8 +2161,7 @@ public final class Utils implements RevisionHandler {
      * @param response   the user selected response when they closed the dialog
      * @throws Exception if there is a problem saving the information
      */
-    public static void setDontShowDialogResponse(String dialogName,
-                                                 String response) throws Exception {
+    public static void setDontShowDialogResponse(String dialogName, String response) throws Exception {
 
         File wekaHome = ResourceUtils.getWekaHome();
 
@@ -2216,16 +2169,14 @@ public final class Utils implements RevisionHandler {
             return;
         }
 
-        File dialogSubDir =
-                new File(wekaHome.toString() + File.separator + "systemDialogs");
+        File dialogSubDir = new File(wekaHome.toString() + File.separator + "systemDialogs");
         if (!dialogSubDir.exists()) {
             if (!dialogSubDir.mkdir()) {
                 return;
             }
         }
 
-        File dialogFile =
-                new File(dialogSubDir.toString() + File.separator + dialogName);
+        File dialogFile = new File(dialogSubDir.toString() + File.separator + dialogName);
         BufferedWriter br = new BufferedWriter(new FileWriter(dialogFile));
         br.write(response + "\n");
         br.flush();
@@ -2357,21 +2308,14 @@ public final class Utils implements RevisionHandler {
                 if (!result.toString().endsWith("<br><br>")) {
                     result.append("<br>");
                 }
-                String caps =
-                        CapabilitiesUtils.addCapabilities(
-                                "<font color=red>CAPABILITIES</font>",
-                                ((CapabilitiesHandler) object).getCapabilities());
+                String caps = CapabilitiesUtils.addCapabilities("<font color=red>CAPABILITIES</font>", ((CapabilitiesHandler) object).getCapabilities());
                 caps = Utils.lineWrap(caps, lineWidth).replace("\n", "<br>");
                 result.append(caps);
             }
 
             if (object instanceof MultiInstanceCapabilitiesHandler) {
                 result.append("<br>");
-                String caps =
-                        CapabilitiesUtils.addCapabilities(
-                                "<font color=red>MI CAPABILITIES</font>",
-                                ((MultiInstanceCapabilitiesHandler) object)
-                                        .getMultiInstanceCapabilities());
+                String caps = CapabilitiesUtils.addCapabilities("<font color=red>MI CAPABILITIES</font>", ((MultiInstanceCapabilitiesHandler) object).getMultiInstanceCapabilities());
                 caps = Utils.lineWrap(caps, lineWidth).replace("\n", "<br>");
                 result.append(caps);
             }
@@ -2434,8 +2378,7 @@ public final class Utils implements RevisionHandler {
      * @return a Range object configured to cover the supplied rangeString
      * @throws Exception if a problem occured
      */
-    public static Range configureRangeFromRangeStringOrAttributeNameList(
-            Instances instanceInfo, String rangeString) throws Exception {
+    public static Range configureRangeFromRangeStringOrAttributeNameList(Instances instanceInfo, String rangeString) throws Exception {
         Range result = new Range(rangeString);
 
         try {
@@ -2444,9 +2387,7 @@ public final class Utils implements RevisionHandler {
             // now try as a list of named attributes
             String[] parts = rangeString.split(",");
             if (parts.length == 0) {
-                throw new Exception(
-                        "Must specify a list of attributes to configure the range object "
-                                + "with!");
+                throw new Exception("Must specify a list of attributes to configure the range object " + "with!");
             }
 
             StringBuilder indexList = new StringBuilder();
@@ -2454,8 +2395,7 @@ public final class Utils implements RevisionHandler {
                 att = att.trim();
                 Attribute a = instanceInfo.attribute(att);
                 if (a == null) {
-                    throw new Exception("I can't find the requested attribute '" + att
-                            + "' in the supplied instances information.");
+                    throw new Exception("I can't find the requested attribute '" + att + "' in the supplied instances information.");
                 }
                 indexList.append(a.index() + 1).append(",");
             }
@@ -2574,11 +2514,9 @@ public final class Utils implements RevisionHandler {
             for (String partitionedOption : partitionedOptions) {
                 System.out.println(partitionedOption);
             }
-            System.out.println("Get position of flag -f: "
-                    + Utils.getOptionPos('f', ops));
+            System.out.println("Get position of flag -f: " + Utils.getOptionPos('f', ops));
             System.out.println("Get flag -f: " + Utils.getFlag('f', ops));
-            System.out.println("Get position of option -o: "
-                    + Utils.getOptionPos('o', ops));
+            System.out.println("Get position of option -o: " + Utils.getOptionPos('o', ops));
             System.out.println("Get option -o: " + Utils.getOption('o', ops));
             System.out.println("Checking for remaining options... ");
             Utils.checkForRemainingOptions(ops);
@@ -2599,8 +2537,7 @@ public final class Utils implements RevisionHandler {
                 System.out.print(j + " ");
             }
             System.out.println();
-            System.out.println("Correlation: "
-                    + Utils.correlation(doubles, doubles, doubles.length));
+            System.out.println("Correlation: " + Utils.correlation(doubles, doubles, doubles.length));
             System.out.println("Mean: " + Utils.mean(doubles));
             System.out.println("Variance: " + Utils.variance(doubles));
             System.out.println("Sum (doubles): " + Utils.sum(doubles));
@@ -2609,10 +2546,8 @@ public final class Utils implements RevisionHandler {
             System.out.println("Max index (ints): " + Utils.maxIndex(ints));
             System.out.println("Min index (doubles): " + Utils.minIndex(doubles));
             System.out.println("Min index (ints): " + Utils.minIndex(ints));
-            System.out.println("Median (doubles): "
-                    + Utils.kthSmallestValue(doubles, doubles.length / 2));
-            System.out.println("Median (ints): "
-                    + Utils.kthSmallestValue(ints, ints.length / 2));
+            System.out.println("Median (doubles): " + Utils.kthSmallestValue(doubles, doubles.length / 2));
+            System.out.println("Median (ints): " + Utils.kthSmallestValue(ints, ints.length / 2));
 
             // Sorting and normalizing
             System.out.println("Sorted array with NaN (doubles): ");
@@ -2674,17 +2609,13 @@ public final class Utils implements RevisionHandler {
             System.out.println("log2(4.6): " + Utils.log2(4.6));
             System.out.println("5 * log(5): " + Utils.xlogx(5));
             System.out.println("5.5 rounded: " + Utils.round(5.5));
-            System.out.println("5.55555 rounded to 2 decimal places: "
-                    + Utils.roundDouble(5.55555, 2));
+            System.out.println("5.55555 rounded to 2 decimal places: " + Utils.roundDouble(5.55555, 2));
 
             // Arrays
-            System.out.println("Array-Dimensions of 'new int[][]': "
-                    + Utils.getArrayDimensions(new int[][]{}));
-            System.out.println("Array-Dimensions of 'new int[][]{{1,2,3},{4,5,6}}': "
-                    + Utils.getArrayDimensions(new int[][]{{1, 2, 3}, {4, 5, 6}}));
+            System.out.println("Array-Dimensions of 'new int[][]': " + Utils.getArrayDimensions(new int[][]{}));
+            System.out.println("Array-Dimensions of 'new int[][]{{1,2,3},{4,5,6}}': " + Utils.getArrayDimensions(new int[][]{{1, 2, 3}, {4, 5, 6}}));
             String[][][] s = new String[3][4][];
-            System.out.println("Array-Dimensions of 'new String[3][4][]': "
-                    + Utils.getArrayDimensions(s));
+            System.out.println("Array-Dimensions of 'new String[3][4][]': " + Utils.getArrayDimensions(s));
         } catch (Exception e) {
             e.printStackTrace();
         }
