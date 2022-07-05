@@ -26,8 +26,7 @@ import weka.core.Instance;
 import weka.core.Instances;
 
 /**
- * Interface for clusterers. Clients will typically extend either
- * AbstractClusterer or AbstractDensityBasedClusterer.
+ * Interface for clusterers. Clients will typically extend either AbstractClusterer or AbstractDensityBasedClusterer.
  *
  * @author Mark Hall (mhall@cs.waikato.ac.nz)
  * @version $Revision$

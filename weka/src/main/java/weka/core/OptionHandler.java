@@ -24,6 +24,7 @@ package weka.core;
 import java.util.Enumeration;
 
 /**
+ * 设置选项卡.
  * Interface to something that understands options.
  *
  * @author Eibe Frank (eibe@cs.waikato.ac.nz)

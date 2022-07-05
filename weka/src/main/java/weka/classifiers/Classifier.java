@@ -29,6 +29,7 @@ import weka.core.Instances;
  * Classifier interface. All schemes for numeric or nominal prediction in
  * Weka implement this interface. Note that a classifier MUST either implement
  * distributionForInstance() or classifyInstance().
+ * 分类器必须实现 distributionForInstance 或 classifyInstance 中的一种.
  *
  * @author Eibe Frank (eibe@cs.waikato.ac.nz)
  * @author Len Trigg (trigg@cs.waikato.ac.nz)
@@ -37,14 +38,13 @@ import weka.core.Instances;
 public interface Classifier {
 
     /**
+     * 构建分类器.
      * Generates a classifier. Must initialize all fields of the classifier
      * that are not being set via options (ie. multiple calls of buildClassifier
-     * must always lead to the same result). Must not change the dataset
-     * in any way.
+     * must always lead to the same result). Must not change the dataset in any way.
      *
-     * @param data set of instances serving as training data
-     * @throws Exception if the classifier has not been
-     *                   generated successfully
+     * @param data set of instances serving as training data.
+     * @throws Exception if the classifier has not been generated successfully.
      */
     public abstract void buildClassifier(Instances data) throws Exception;
 

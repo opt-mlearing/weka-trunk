@@ -3,3 +3,4 @@
 build/
 *.ref
 dist/
+doc/

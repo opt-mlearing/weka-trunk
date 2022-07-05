@@ -958,7 +958,6 @@ public class Instances extends AbstractList<Instance> implements Serializable, R
      */
     // @ ensures \result == m_Attributes.size();
     public/* @pure@ */int numAttributes() {
-
         return m_Attributes.size();
     }
 
@@ -1604,19 +1603,16 @@ public class Instances extends AbstractList<Instance> implements Serializable, R
      * @param att attribute to be the class
      */
     public void setClass(Attribute att) {
-
         m_ClassIndex = att.index();
     }
 
     /**
-     * Sets the class index of the set. If the class index is negative there is
-     * assumed to be no class. (ie. it is undefined)
+     * Sets the class index of the set. If the class index is negative there is assumed to be no class. (ie. it is undefined)
      *
      * @param classIndex the new class index (index starts with 0)
      * @throws IllegalArgumentException if the class index is too big or < 0
      */
     public void setClassIndex(int classIndex) {
-
         if (classIndex >= numAttributes()) {
             throw new IllegalArgumentException("Invalid class index: " + classIndex);
         }
@@ -1629,7 +1625,6 @@ public class Instances extends AbstractList<Instance> implements Serializable, R
      * @param newName the new relation name.
      */
     public void setRelationName(/* @non_null@ */String newName) {
-
         m_RelationName = newName;
     }
 

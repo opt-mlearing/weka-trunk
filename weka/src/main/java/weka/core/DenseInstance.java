@@ -86,7 +86,6 @@ public class DenseInstance extends AbstractInstance {
      */
     // @ ensures m_Dataset == null;
     public DenseInstance(/* @non_null@ */Instance instance) {
-
         if (instance instanceof DenseInstance) {
             m_AttValues = ((DenseInstance) instance).m_AttValues;
         } else {
@@ -106,7 +105,6 @@ public class DenseInstance extends AbstractInstance {
      */
     // @ ensures m_Dataset == null;
     public DenseInstance(double weight, /* @non_null@ */double[] attValues) {
-
         m_AttValues = attValues;
         m_Weight = weight;
         m_Dataset = null;
@@ -122,7 +120,6 @@ public class DenseInstance extends AbstractInstance {
     // @ requires numAttributes > 0; // Or maybe == 0 is okay too?
     // @ ensures m_Dataset == null;
     public DenseInstance(int numAttributes) {
-
         m_AttValues = new double[numAttributes];
         for (int i = 0; i < m_AttValues.length; i++) {
             m_AttValues[i] = Utils.missingValue();
@@ -143,50 +140,45 @@ public class DenseInstance extends AbstractInstance {
     // @ also ensures ((DenseInstance)\result).m_Dataset == m_Dataset;
     @Override
     public/* @pure@ */Object copy() {
-
         DenseInstance result = new DenseInstance(this);
         result.m_Dataset = m_Dataset;
         return result;
     }
 
     /**
-     * Copies the instance but fills up its values based on the given array
-     * of doubles. The copy has access to the same dataset.
+     * Copies the instance but fills up its values based on the given array of doubles.
+     * The copy has access to the same dataset.
      *
      * @param values the array with new values
      * @return the new instance
      */
     public Instance copy(double[] values) {
-
         DenseInstance result = new DenseInstance(this.m_Weight, values);
         result.m_Dataset = m_Dataset;
         return result;
     }
 
     /**
-     * Returns the index of the attribute stored at the given position. Just
-     * returns the given value.
+     * Returns the index of the attribute stored at the given position.
+     * Just returns the given value.
      *
      * @param position the position
      * @return the index of the attribute stored at the given position
      */
     @Override
     public/* @pure@ */int index(int position) {
-
         return position;
     }
 
     /**
      * Merges this instance with the given instance and returns the result.
-     * Dataset is set to null. The returned instance is of the same type as this
-     * instance.
+     * Dataset is set to null. The returned instance is of the same type as this instance.
      *
      * @param inst the instance to be merged with this one
      * @return the merged instances
      */
     @Override
     public Instance mergeInstance(Instance inst) {
-
         int m = 0;
         double[] newVals = new double[numAttributes() + inst.numAttributes()];
         for (int j = 0; j < numAttributes(); j++, m++) {
@@ -206,33 +198,30 @@ public class DenseInstance extends AbstractInstance {
     // @ ensures \result == m_AttValues.length;
     @Override
     public/* @pure@ */int numAttributes() {
-
         return m_AttValues.length;
     }
 
     /**
-     * Returns the number of values present. Always the same as numAttributes().
+     * Returns the number of values present.
+     * Always the same as numAttributes().
      *
      * @return the number of values
      */
     // @ ensures \result == m_AttValues.length;
     @Override
     public/* @pure@ */int numValues() {
-
         return m_AttValues.length;
     }
 
     /**
-     * Replaces all missing values in the instance with the values contained in
-     * the given array. A deep copy of the vector of attribute values is performed
-     * before the values are replaced.
+     * Replaces all missing values in the instance with the values contained in the given array.
+     * A deep copy of the vector of attribute values is performed before the values are replaced.
      *
      * @param array containing the means and modes
      * @throws IllegalArgumentException if numbers of attributes are unequal
      */
     @Override
     public void replaceMissingValues(double[] array) {
-
         if ((array == null) || (array.length != m_AttValues.length)) {
             throw new IllegalArgumentException("Unequal number of attributes!");
         }
@@ -245,9 +234,8 @@ public class DenseInstance extends AbstractInstance {
     }
 
     /**
-     * Sets a specific value in the instance to the given value (internal
-     * floating-point format). Performs a deep copy of the vector of attribute
-     * values before the value is set.
+     * Sets a specific value in the instance to the given value (internal floating-point format).
+     * Performs a deep copy of the vector of attribute values before the value is set.
      *
      * @param attIndex the attribute's index
      * @param value    the new attribute value (If the corresponding attribute is
@@ -256,7 +244,6 @@ public class DenseInstance extends AbstractInstance {
      */
     @Override
     public void setValue(int attIndex, double value) {
-
         freshAttributeVector();
         m_AttValues[attIndex] = value;
     }
@@ -385,11 +372,9 @@ public class DenseInstance extends AbstractInstance {
     }
 
     /**
-     * Clones the attribute vector of the instance and overwrites it with the
-     * clone.
+     * Clones the attribute vector of the instance and overwrites it with the clone.
      */
     private void freshAttributeVector() {
-
         m_AttValues = toDoubleArray();
     }
 
@@ -402,7 +387,6 @@ public class DenseInstance extends AbstractInstance {
     public static void main(String[] options) {
 
         try {
-
             // Create numeric attributes "length" and "weight"
             Attribute length = new Attribute("length");
             Attribute weight = new Attribute("weight");
@@ -431,8 +415,7 @@ public class DenseInstance extends AbstractInstance {
             // Create empty instance with three attribute values
             Instance inst = new DenseInstance(3);
 
-            // Set instance's values for the attributes "length", "weight", and
-            // "position"
+            // Set instance's values for the attributes "length", "weight", and "position".
             inst.setValue(length, 5.3);
             inst.setValue(weight, 300);
             inst.setValue(position, "first");
@@ -471,8 +454,7 @@ public class DenseInstance extends AbstractInstance {
             copy.deleteAttributeAt(0);
             copy.insertAttributeAt(0);
             copy.setDataset(inst.dataset());
-            System.out.println("Copy with first attribute deleted and inserted: "
-                    + copy);
+            System.out.println("Copy with first attribute deleted and inserted: " + copy);
 
             // Enumerate attributes (leaving out the class attribute)
             System.out.println("Enumerating attributes (leaving out class):");
@@ -483,15 +465,12 @@ public class DenseInstance extends AbstractInstance {
             }
 
             // Headers are equivalent?
-            System.out.println("Header of original and copy equivalent: "
-                    + inst.equalHeaders(copy));
+            System.out.println("Header of original and copy equivalent: " + inst.equalHeaders(copy));
 
             // Test for missing values
             System.out.println("Length of copy missing: " + copy.isMissing(length));
-            System.out.println("Weight of copy missing: "
-                    + copy.isMissing(weight.index()));
-            System.out.println("Length of copy missing: "
-                    + Utils.isMissingValue(copy.value(length)));
+            System.out.println("Weight of copy missing: " + copy.isMissing(weight.index()));
+            System.out.println("Length of copy missing: " + Utils.isMissingValue(copy.value(length)));
 
             // Prints number of attributes and classes
             System.out.println("Number of attributes: " + copy.numAttributes());
@@ -510,8 +489,7 @@ public class DenseInstance extends AbstractInstance {
             copy.setClassValue("third");
             System.out.println("Copy with class value set to \"third\": " + copy);
             copy.setMissing(1);
-            System.out.println("Copy with second attribute set to be missing: "
-                    + copy);
+            System.out.println("Copy with second attribute set to be missing: " + copy);
             copy.setMissing(length);
             System.out.println("Copy with length set to be missing: " + copy);
             copy.setValue(0, 0);
@@ -524,15 +502,11 @@ public class DenseInstance extends AbstractInstance {
             System.out.println("Copy with last attribute set to \"first\": " + copy);
             System.out.println("Current weight of instance copy: " + copy.weight());
             copy.setWeight(2);
-            System.out.println("Current weight of instance copy (set to 2): "
-                    + copy.weight());
+            System.out.println("Current weight of instance copy (set to 2): " + copy.weight());
             System.out.println("Last value of copy: " + copy.toString(2));
-            System.out.println("Value of position for copy: "
-                    + copy.toString(position));
-            System.out.println("Last value of copy (internal format): "
-                    + copy.value(2));
-            System.out.println("Value of position for copy (internal format): "
-                    + copy.value(position));
+            System.out.println("Value of position for copy: " + copy.toString(position));
+            System.out.println("Last value of copy (internal format): " + copy.value(2));
+            System.out.println("Value of position for copy (internal format): " + copy.value(position));
         } catch (Exception e) {
             e.printStackTrace();
         }

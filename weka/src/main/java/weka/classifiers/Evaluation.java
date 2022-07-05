@@ -186,6 +186,7 @@ import weka.core.Summarizable;
  * @author Len Trigg (trigg@cs.waikato.ac.nz)
  * @version $Revision$
  */
+// 使用专用的测试集来评估分类器与交叉验证一样简单，但肯定需要提供一个训练过的分类器，而不是提供一个为经训练的分类器.
 public class Evaluation implements Serializable, Summarizable, RevisionHandler {
 
     /**
@@ -1104,6 +1105,8 @@ public class Evaluation implements Serializable, Summarizable, RevisionHandler {
     }
 
     /**
+     * 输出累计边距分布，如果不希望使用这些总结方法，也可以直接访问单个的统计度量.
+     * <p>
      * Output the cumulative margin distribution as a string suitable for input
      * for gnuplot or similar package.
      *
@@ -1151,6 +1154,7 @@ public class Evaluation implements Serializable, Summarizable, RevisionHandler {
     }
 
     /**
+     * 输出混淆矩阵.
      * Calls toMatrixString() with a default title.
      *
      * @return the confusion matrix as a string
@@ -1173,6 +1177,7 @@ public class Evaluation implements Serializable, Summarizable, RevisionHandler {
     }
 
     /**
+     * 输出 TP/FP率、查准率、查全率、F-度量、AUC(每个类别).
      * Generates a breakdown of the accuracy for each class (with default title),
      * incorporating various information-retrieval statistics, such as true/false
      * positive rate, precision/recall/F-Measure. Should be useful for ROC curves,

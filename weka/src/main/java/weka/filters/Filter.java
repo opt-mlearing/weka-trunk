@@ -80,7 +80,11 @@ import java.util.Vector;
  * @author Len Trigg (trigg@cs.waikato.ac.nz)
  * @version $Revision$
  */
+
 /**
+ * 在Weka中，过滤器用于进行数据出处理，过滤器分为有监督过滤器和无监督过滤器两类，前者需要设置一个类别属性，后者不需要类别属性.
+ * 过滤器还可以分为基于属性(attribute-based，针对列进行处理)和基于实例(instance-based，针对行进行处理).
+ * <p>
  * 过滤器功能分类：
  * 1) 添加和删除属性；
  * 2) 改变值；

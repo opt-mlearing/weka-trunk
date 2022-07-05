@@ -31,8 +31,7 @@ import java.util.Enumeration;
  * @author Eibe Frank (eibe@cs.waikato.ac.nz)
  * @version $Revision$
  */
-public abstract class AbstractInstance implements Instance, Serializable,
-        RevisionHandler {
+public abstract class AbstractInstance implements Instance, Serializable, RevisionHandler {
 
     /**
      * for serialization
@@ -72,10 +71,8 @@ public abstract class AbstractInstance implements Instance, Serializable,
     // @ requires m_Dataset != null;
     @Override
     public/* @pure@ */Attribute attribute(int index) {
-
         if (m_Dataset == null) {
-            throw new UnassignedDatasetException(
-                    "Instance doesn't have access to a dataset!");
+            throw new UnassignedDatasetException("Instance doesn't have access to a dataset!");
         }
         return m_Dataset.attribute(index);
     }
@@ -91,10 +88,8 @@ public abstract class AbstractInstance implements Instance, Serializable,
     // @ requires m_Dataset != null;
     @Override
     public/* @pure@ */Attribute attributeSparse(int indexOfIndex) {
-
         if (m_Dataset == null) {
-            throw new UnassignedDatasetException(
-                    "Instance doesn't have access to a dataset!");
+            throw new UnassignedDatasetException("Instance doesn't have access to a dataset!");
         }
         return m_Dataset.attribute(index(indexOfIndex));
     }
@@ -109,10 +104,8 @@ public abstract class AbstractInstance implements Instance, Serializable,
     // @ requires m_Dataset != null;
     @Override
     public/* @pure@ */Attribute classAttribute() {
-
         if (m_Dataset == null) {
-            throw new UnassignedDatasetException(
-                    "Instance doesn't have access to a dataset!");
+            throw new UnassignedDatasetException("Instance doesn't have access to a dataset!");
         }
         return m_Dataset.classAttribute();
     }
@@ -128,10 +121,8 @@ public abstract class AbstractInstance implements Instance, Serializable,
     // @ ensures \result == m_Dataset.classIndex();
     @Override
     public/* @pure@ */int classIndex() {
-
         if (m_Dataset == null) {
-            throw new UnassignedDatasetException(
-                    "Instance doesn't have access to a dataset!");
+            throw new UnassignedDatasetException("Instance doesn't have access to a dataset!");
         }
         return m_Dataset.classIndex();
     }
@@ -146,7 +137,6 @@ public abstract class AbstractInstance implements Instance, Serializable,
     // @ requires classIndex() >= 0;
     @Override
     public/* @pure@ */boolean classIsMissing() {
-
         int classIndex = classIndex();
         if (classIndex < 0) {
             throw new UnassignedClassException("Class is not set!");
@@ -167,7 +157,6 @@ public abstract class AbstractInstance implements Instance, Serializable,
     // @ requires classIndex() >= 0;
     @Override
     public/* @pure@ */double classValue() {
-
         int classIndex = classIndex();
         if (classIndex < 0) {
             throw new UnassignedClassException("Class is not set!");
@@ -185,7 +174,6 @@ public abstract class AbstractInstance implements Instance, Serializable,
     // @ ensures \result == m_Dataset;
     @Override
     public/* @pure@ */Instances dataset() {
-
         return m_Dataset;
     }
 
@@ -200,7 +188,6 @@ public abstract class AbstractInstance implements Instance, Serializable,
     // @ requires m_Dataset != null;
     @Override
     public void deleteAttributeAt(int position) {
-
         if (m_Dataset != null) {
             throw new RuntimeException("Instance has access to a dataset!");
         }
@@ -217,10 +204,8 @@ public abstract class AbstractInstance implements Instance, Serializable,
     // @ requires m_Dataset != null;
     @Override
     public/* @pure@ */Enumeration<Attribute> enumerateAttributes() {
-
         if (m_Dataset == null) {
-            throw new UnassignedDatasetException(
-                    "Instance doesn't have access to a dataset!");
+            throw new UnassignedDatasetException("Instance doesn't have access to a dataset!");
         }
         return m_Dataset.enumerateAttributes();
     }
@@ -237,10 +222,8 @@ public abstract class AbstractInstance implements Instance, Serializable,
     // @ requires m_Dataset != null;
     @Override
     public/* @pure@ */boolean equalHeaders(Instance inst) {
-
         if (m_Dataset == null) {
-            throw new UnassignedDatasetException(
-                    "Instance doesn't have access to a dataset!");
+            throw new UnassignedDatasetException("Instance doesn't have access to a dataset!");
         }
         return m_Dataset.equalHeaders(inst.dataset());
     }
@@ -249,7 +232,7 @@ public abstract class AbstractInstance implements Instance, Serializable,
      * Checks if the headers of two instances are equivalent. If not, then returns
      * a message why they differ.
      *
-     * @param dataset another instance
+     * @param inst another instance
      * @return null if the header of the given instance is equivalent to this
      * instance's header, otherwise a message with details on why they
      * differ
@@ -257,10 +240,8 @@ public abstract class AbstractInstance implements Instance, Serializable,
     @Override
     public String equalHeadersMsg(Instance inst) {
         if (m_Dataset == null) {
-            throw new UnassignedDatasetException(
-                    "Instance doesn't have access to a dataset!");
+            throw new UnassignedDatasetException("Instance doesn't have access to a dataset!");
         }
-
         return m_Dataset.equalHeadersMsg(inst.dataset());
     }
 
@@ -275,10 +256,8 @@ public abstract class AbstractInstance implements Instance, Serializable,
     // @ requires m_Dataset != null;
     @Override
     public/* @pure@ */boolean hasMissingValue() {
-
         if (m_Dataset == null) {
-            throw new UnassignedDatasetException(
-                    "Instance doesn't have access to a dataset!");
+            throw new UnassignedDatasetException("Instance doesn't have access to a dataset!");
         }
         int classIndex = classIndex();
         for (int i = 0; i < numValues(); i++) {
@@ -304,13 +283,11 @@ public abstract class AbstractInstance implements Instance, Serializable,
     // @ requires 0 <= position && position <= numAttributes();
     @Override
     public void insertAttributeAt(int position) {
-
         if (m_Dataset != null) {
-            throw new RuntimeException("Instance has accesss to a dataset!");
+            throw new RuntimeException("Instance has access to a dataset!");
         }
         if ((position < 0) || (position > numAttributes())) {
-            throw new IllegalArgumentException("Can't insert attribute: index out "
-                    + "of range");
+            throw new IllegalArgumentException("Can't insert attribute: index out of range");
         }
         forceInsertAttributeAt(position);
     }
@@ -323,7 +300,6 @@ public abstract class AbstractInstance implements Instance, Serializable,
      */
     @Override
     public/* @pure@ */boolean isMissing(int attIndex) {
-
         if (Utils.isMissingValue(value(attIndex))) {
             return true;
         }
@@ -339,7 +315,6 @@ public abstract class AbstractInstance implements Instance, Serializable,
      */
     @Override
     public/* @pure@ */boolean isMissingSparse(int indexOfIndex) {
-
         if (Utils.isMissingValue(valueSparse(indexOfIndex))) {
             return true;
         }
@@ -355,7 +330,6 @@ public abstract class AbstractInstance implements Instance, Serializable,
      */
     @Override
     public/* @pure@ */boolean isMissing(Attribute att) {
-
         return isMissing(att.index());
     }
 
@@ -370,10 +344,8 @@ public abstract class AbstractInstance implements Instance, Serializable,
     // @ requires m_Dataset != null;
     @Override
     public/* @pure@ */int numClasses() {
-
         if (m_Dataset == null) {
-            throw new UnassignedDatasetException(
-                    "Instance doesn't have access to a dataset!");
+            throw new UnassignedDatasetException("Instance doesn't have access to a dataset!");
         }
         return m_Dataset.numClasses();
     }
@@ -390,7 +362,6 @@ public abstract class AbstractInstance implements Instance, Serializable,
     // @ requires classIndex() >= 0;
     @Override
     public void setClassMissing() {
-
         int classIndex = classIndex();
         if (classIndex < 0) {
             throw new UnassignedClassException("Class is not set!");
@@ -413,7 +384,6 @@ public abstract class AbstractInstance implements Instance, Serializable,
     // @ requires classIndex() >= 0;
     @Override
     public void setClassValue(double value) {
-
         int classIndex = classIndex();
         if (classIndex < 0) {
             throw new UnassignedClassException("Class is not set!");
@@ -435,7 +405,6 @@ public abstract class AbstractInstance implements Instance, Serializable,
     // @ requires classIndex() >= 0;
     @Override
     public final void setClassValue(String value) {
-
         int classIndex = classIndex();
         if (classIndex < 0) {
             throw new UnassignedClassException("Class is not set!");
@@ -453,7 +422,6 @@ public abstract class AbstractInstance implements Instance, Serializable,
      */
     @Override
     public final void setDataset(Instances instances) {
-
         m_Dataset = instances;
     }
 
@@ -465,7 +433,6 @@ public abstract class AbstractInstance implements Instance, Serializable,
      */
     @Override
     public final void setMissing(int attIndex) {
-
         setValue(attIndex, Utils.missingValue());
     }
 
@@ -478,7 +445,6 @@ public abstract class AbstractInstance implements Instance, Serializable,
      */
     @Override
     public final void setMissing(Attribute att) {
-
         setMissing(att.index());
     }
 
@@ -498,22 +464,17 @@ public abstract class AbstractInstance implements Instance, Serializable,
     // @ requires m_Dataset != null;
     @Override
     public final void setValue(int attIndex, String value) {
-
         int valIndex;
-
         if (m_Dataset == null) {
-            throw new UnassignedDatasetException(
-                    "Instance doesn't have access to a dataset!");
+            throw new UnassignedDatasetException("Instance doesn't have access to a dataset!");
         }
         if (!attribute(attIndex).isNominal() && !attribute(attIndex).isString()) {
-            throw new IllegalArgumentException(
-                    "Attribute neither nominal nor string!");
+            throw new IllegalArgumentException("Attribute neither nominal nor string!");
         }
         valIndex = attribute(attIndex).indexOfValue(value);
         if (valIndex == -1) {
             if (attribute(attIndex).isNominal()) {
-                throw new IllegalArgumentException(
-                        "Value not defined for given nominal attribute!");
+                throw new IllegalArgumentException("Value not defined for given nominal attribute!");
             } else {
                 attribute(attIndex).forceAddValue(value);
                 valIndex = attribute(attIndex).indexOfValue(value);
@@ -536,7 +497,6 @@ public abstract class AbstractInstance implements Instance, Serializable,
      */
     @Override
     public final void setValue(Attribute att, double value) {
-
         setValue(att.index(), value);
     }
 
@@ -556,16 +516,13 @@ public abstract class AbstractInstance implements Instance, Serializable,
      */
     @Override
     public final void setValue(Attribute att, String value) {
-
         if (!att.isNominal() && !att.isString()) {
-            throw new IllegalArgumentException(
-                    "Attribute neither nominal nor string!");
+            throw new IllegalArgumentException("Attribute neither nominal nor string!");
         }
         int valIndex = att.indexOfValue(value);
         if (valIndex == -1) {
             if (att.isNominal()) {
-                throw new IllegalArgumentException(
-                        "Value not defined for given nominal attribute!");
+                throw new IllegalArgumentException("Value not defined for given nominal attribute!");
             } else {
                 att.forceAddValue(value);
                 valIndex = att.indexOfValue(value);
@@ -581,7 +538,6 @@ public abstract class AbstractInstance implements Instance, Serializable,
      */
     @Override
     public final void setWeight(double weight) {
-
         m_Weight = weight;
     }
 
@@ -598,10 +554,8 @@ public abstract class AbstractInstance implements Instance, Serializable,
     // @ requires m_Dataset != null;
     @Override
     public final/* @pure@ */Instances relationalValue(int attIndex) {
-
         if (m_Dataset == null) {
-            throw new UnassignedDatasetException(
-                    "Instance doesn't have access to a dataset!");
+            throw new UnassignedDatasetException("Instance doesn't have access to a dataset!");
         }
         return relationalValue(m_Dataset.attribute(attIndex));
     }
@@ -618,7 +572,6 @@ public abstract class AbstractInstance implements Instance, Serializable,
      */
     @Override
     public final/* @pure@ */Instances relationalValue(Attribute att) {
-
         int attIndex = att.index();
         if (att.isRelationValued()) {
             if (isMissing(attIndex)) {
@@ -631,23 +584,18 @@ public abstract class AbstractInstance implements Instance, Serializable,
     }
 
     /**
-     * Returns the value of a nominal, string, date, or relational attribute for
-     * the instance as a string.
+     * Returns the value of a nominal, string, date, or relational attribute for the instance as a string.
      *
      * @param attIndex the attribute's index
      * @return the value as a string
-     * @throws IllegalArgumentException   if the attribute is not a nominal, string,
-     *                                    date, or relation-valued attribute.
-     * @throws UnassignedDatasetException if the instance doesn't belong to a
-     *                                    dataset.
+     * @throws IllegalArgumentException   if the attribute is not a nominal, string, date, or relation-valued attribute.
+     * @throws UnassignedDatasetException if the instance doesn't belong to a dataset.
      */
     // @ requires m_Dataset != null;
     @Override
     public final/* @pure@ */String stringValue(int attIndex) {
-
         if (m_Dataset == null) {
-            throw new UnassignedDatasetException(
-                    "Instance doesn't have access to a dataset!");
+            throw new UnassignedDatasetException("Instance doesn't have access to a dataset!");
         }
         return stringValue(m_Dataset.attribute(attIndex));
     }
@@ -665,7 +613,6 @@ public abstract class AbstractInstance implements Instance, Serializable,
      */
     @Override
     public final/* @pure@ */String stringValue(Attribute att) {
-
         int attIndex = att.index();
         if (isMissing(attIndex)) {
             return "?";
@@ -679,8 +626,7 @@ public abstract class AbstractInstance implements Instance, Serializable,
             case Attribute.RELATIONAL:
                 return att.relation((int) value(attIndex)).stringWithoutHeader();
             default:
-                throw new IllegalArgumentException(
-                        "Attribute isn't nominal, string or date!");
+                throw new IllegalArgumentException("Attribute isn't nominal, string or date!");
         }
     }
 
@@ -697,12 +643,9 @@ public abstract class AbstractInstance implements Instance, Serializable,
     @Override
     public final String toStringMaxDecimalDigits(int afterDecimalPoint) {
         StringBuffer text = new StringBuffer(toStringNoWeight(afterDecimalPoint));
-
         if (m_Weight != 1.0) {
-            text.append(",{" + Utils.doubleToString(m_Weight, afterDecimalPoint)
-                    + "}");
+            text.append(",{" + Utils.doubleToString(m_Weight, afterDecimalPoint) + "}");
         }
-
         return text.toString();
     }
 
@@ -715,7 +658,6 @@ public abstract class AbstractInstance implements Instance, Serializable,
      */
     @Override
     public String toString() {
-
         return toStringMaxDecimalDigits(s_numericAfterDecimalPoint);
     }
 
@@ -746,9 +688,7 @@ public abstract class AbstractInstance implements Instance, Serializable,
      */
     @Override
     public final/* @pure@ */String toString(int attIndex, int afterDecimalPoint) {
-
         StringBuffer text = new StringBuffer();
-
         if (isMissing(attIndex)) {
             text.append("?");
         } else {
@@ -785,7 +725,6 @@ public abstract class AbstractInstance implements Instance, Serializable,
      */
     @Override
     public final String toString(Attribute att) {
-
         return toString(att.index());
     }
 
@@ -802,7 +741,6 @@ public abstract class AbstractInstance implements Instance, Serializable,
      */
     @Override
     public final String toString(Attribute att, int afterDecimalPoint) {
-
         return toString(att.index(), afterDecimalPoint);
     }
 
@@ -817,7 +755,6 @@ public abstract class AbstractInstance implements Instance, Serializable,
      */
     @Override
     public/* @pure@ */double value(Attribute att) {
-
         return value(att.index());
     }
 
@@ -832,7 +769,6 @@ public abstract class AbstractInstance implements Instance, Serializable,
      */
     @Override
     public/* @pure@ */double valueSparse(int indexOfIndex) {
-
         return m_AttValues[indexOfIndex];
     }
 
@@ -843,7 +779,6 @@ public abstract class AbstractInstance implements Instance, Serializable,
      */
     @Override
     public final/* @pure@ */double weight() {
-
         return m_Weight;
     }
 
