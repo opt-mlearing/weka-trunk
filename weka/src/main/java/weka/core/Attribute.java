@@ -820,12 +820,10 @@ public class Attribute implements Copyable, Serializable, RevisionHandler {
      * @return the attribute's value as a string
      */
     public final/* @ non_null pure @ */String value(int valIndex) {
-
         if (!isNominal() && !isString()) {
             return "";
         } else {
             Object val = ((NominalAttributeInfo) m_AttributeInfo).m_Values.get(valIndex);
-
             // If we're storing strings compressed, uncompress it.
             if (val instanceof SerializedObject) {
                 val = ((SerializedObject) val).getObject();

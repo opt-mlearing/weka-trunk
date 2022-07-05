@@ -4,3 +4,4 @@ build/
 *.ref
 dist/
 doc/
+files/

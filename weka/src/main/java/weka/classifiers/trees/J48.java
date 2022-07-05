@@ -361,7 +361,6 @@ public class J48 extends AbstractClassifier implements OptionHandler, Drawable,
      */
     @Override
     public double classifyInstance(Instance instance) throws Exception {
-
         return m_root.classifyInstance(instance);
     }
 

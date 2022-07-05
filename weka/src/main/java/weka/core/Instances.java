@@ -215,8 +215,7 @@ public class Instances extends AbstractList<Instance> implements Serializable, R
     }
 
     /**
-     * initializes with the header information of the given dataset and sets the
-     * capacity of the set of instances.
+     * initializes with the header information of the given dataset and sets the capacity of the set of instances.
      *
      * @param dataset  the dataset to use as template
      * @param capacity the number of rows to reserve
@@ -225,7 +224,6 @@ public class Instances extends AbstractList<Instance> implements Serializable, R
         if (capacity < 0) {
             capacity = 0;
         }
-
         // Strings only have to be "shallow" copied because
         // they can't be modified.
         m_ClassIndex = dataset.m_ClassIndex;
@@ -503,7 +501,6 @@ public class Instances extends AbstractList<Instance> implements Serializable, R
      */
     // @ requires classIndex() >= 0;
     public/* @pure@ */Attribute classAttribute() {
-
         if (m_ClassIndex < 0) {
             throw new UnassignedClassException("Class index is negative (not set)!");
         }

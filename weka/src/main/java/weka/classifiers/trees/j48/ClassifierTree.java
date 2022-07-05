@@ -244,6 +244,7 @@ public class ClassifierTree implements Drawable, Serializable, RevisionHandler, 
     }
 
     /**
+     * 对一个Instance进行分类预测.
      * Classifies an instance.
      *
      * @param instance the instance to classify
@@ -251,12 +252,10 @@ public class ClassifierTree implements Drawable, Serializable, RevisionHandler, 
      * @throws Exception if something goes wrong
      */
     public double classifyInstance(Instance instance) throws Exception {
-
         double maxProb = -1;
         double currentProb;
         int maxIndex = 0;
         int j;
-
         for (j = 0; j < instance.numClasses(); j++) {
             currentProb = getProbs(j, instance, 1);
             if (Utils.gr(currentProb, maxProb)) {
@@ -264,7 +263,6 @@ public class ClassifierTree implements Drawable, Serializable, RevisionHandler, 
                 maxProb = currentProb;
             }
         }
-
         return maxIndex;
     }
 
