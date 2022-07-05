@@ -108,9 +108,7 @@ public class Standardize
      * @throws Exception if the input format can't be set
      *                   successfully
      */
-    public boolean setInputFormat(Instances instanceInfo)
-            throws Exception {
-
+    public boolean setInputFormat(Instances instanceInfo) throws Exception {
         super.setInputFormat(instanceInfo);
         setOutputFormat(instanceInfo);
         m_Means = m_StdDevs = null;

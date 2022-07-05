@@ -721,16 +721,14 @@ public abstract class Filter implements Serializable, CapabilitiesHandler,
     }
 
     /**
-     * Filters an entire set of instances through a filter and returns the new
-     * set.
+     * Filters an entire set of instances through a filter and returns the new set.
      *
      * @param data   the data to be filtered
      * @param filter the filter to be used
      * @return the filtered set of data
      * @throws Exception if the filter can't be used successfully
      */
-    public static Instances useFilter(Instances data, Filter filter)
-            throws Exception {
+    public static Instances useFilter(Instances data, Filter filter) throws Exception {
         /*
          * System.err.println(filter.getClass().getName() + " in:" +
          * data.numInstances());
