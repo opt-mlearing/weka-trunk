@@ -25,7 +25,7 @@ import java.util.Random;
  * @date 2022/7/5 10:51
  */
 @Slf4j
-public class J48ClassifierInvokerTest {
+public class ClassifierInvokerTest {
 
     private static final String FILE_PATH = "data/weather.nominal.arff";
 
