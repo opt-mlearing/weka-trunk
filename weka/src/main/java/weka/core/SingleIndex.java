@@ -24,23 +24,21 @@ package weka.core;
 import java.io.Serializable;
 
 /**
- * Class representing a single cardinal number. The number is set by a
- * string representation such as: <P>
- *
+ * Class representing a single cardinal number. The number is set by a string representation such as:
+ * <p>
  * <code>
  * first
  * last
  * 1
  * 3
  * </code> <P>
- * The number is internally converted from 1-based to 0-based (so methods that
- * set or get numbers not in string format should use 0-based numbers).
+ * The number is internally converted from 1-based to 0-based
+ * (so methods that set or get numbers not in string format should use 0-based numbers).
  *
  * @author Eibe Frank (eibe@cs.waikato.ac.nz)
  * @version $Revision$
  */
-public class SingleIndex
-        implements Serializable, RevisionHandler, CustomDisplayStringProvider {
+public class SingleIndex implements Serializable, RevisionHandler, CustomDisplayStringProvider {
 
     /**
      * for serialization.
@@ -83,7 +81,6 @@ public class SingleIndex
     //@ ensures m_SelectedIndex == -1;
     //@ ensures m_Upper == -1;
     public SingleIndex(/*@non_null@*/ String index) {
-
         setSingleIndex(index);
     }
 
@@ -96,7 +93,6 @@ public class SingleIndex
     //@ ensures newUpper < 0 ==> m_Upper == \old(m_Upper);
     //@ ensures newUpper >= 0 ==> m_Upper == newUpper;
     public void setUpper(int newUpper) {
-
         if (newUpper >= 0) {
             m_Upper = newUpper;
             setValue();
@@ -110,7 +106,6 @@ public class SingleIndex
      */
     //@ ensures \result == m_IndexString;
     public /*@pure@*/ String getSingleIndex() {
-
         return m_IndexString;
     }
 
@@ -125,7 +120,6 @@ public class SingleIndex
     //@ ensures m_IndexString == index;
     //@ ensures m_SelectedIndex == -1;
     public void setSingleIndex(/*@non_null@*/ String index) {
-
         m_IndexString = index;
         m_SelectedIndex = -1;
     }
@@ -139,7 +133,6 @@ public class SingleIndex
     //@ also signals (RuntimeException e) \old(m_Upper) < 0;
     //@ ensures \result != null;
     public /*@pure@*/ String toString() {
-
         if (m_IndexString.equals("")) {
             return "No index set";
         }
@@ -159,7 +152,6 @@ public class SingleIndex
     //@ requires m_IndexString.length() > 0;
     //@ ensures \result == m_SelectedIndex;
     public /*@pure@*/ int getIndex() {
-
         if (m_IndexString.equals("")) {
             throw new RuntimeException("No index set");
         }
@@ -179,7 +171,6 @@ public class SingleIndex
      */
     //@ requires index >= 0;
     public static /*@pure non_null@*/ String indexToString(int index) {
-
         return "" + (index + 1);
     }
 
@@ -188,7 +179,6 @@ public class SingleIndex
      */
     //@ assignable m_SelectedIndex, m_IndexString;
     protected void setValue() {
-
         if (m_IndexString.equals("")) {
             throw new RuntimeException("No index set");
         }
@@ -234,7 +224,6 @@ public class SingleIndex
      */
     //@ requires \nonnullelements(argv);
     public static void main(/*@non_null@*/ String[] argv) {
-
         try {
             if (argv.length == 0) {
                 throw new Exception("Usage: SingleIndex <indexspec>");
@@ -242,8 +231,7 @@ public class SingleIndex
             SingleIndex singleIndex = new SingleIndex();
             singleIndex.setSingleIndex(argv[0]);
             singleIndex.setUpper(9);
-            System.out.println("Input: " + argv[0] + "\n"
-                    + singleIndex.toString());
+            System.out.println("Input: " + argv[0] + "\n" + singleIndex.toString());
             int selectedIndex = singleIndex.getIndex();
             System.out.println(selectedIndex + "");
         } catch (Exception ex) {
@@ -251,4 +239,5 @@ public class SingleIndex
             System.out.println(ex.getMessage());
         }
     }
+
 }

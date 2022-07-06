@@ -21,19 +21,24 @@
 package weka.core;
 
 import java.io.Serializable;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Properties;
+import java.util.Vector;
 
 import weka.core.converters.ConverterUtils.DataSource;
 
 /**
+ * <p>
  * A class that describes the capabilites (e.g., handling certain types of
  * attributes, missing values, types of classes, etc.) of a specific classifier.
- * By default, the classifier is capable of nothing. This ensures that new
- * features have to be enabled explicitly.
- * <p/>
- * <p>
- * A common code fragment for making use of the capabilities in a classifier
- * would be this:
+ * By default, the classifier is capable of nothing.
+ * This ensures that new features have to be enabled explicitly.
+ * </p>
+ * A common code fragment for making use of the capabilities in a classifier would be this:
  *
  * <pre>
  * public void <b>buildClassifier</b>(Instances instances) throws Exception {
@@ -52,8 +57,7 @@ import weka.core.converters.ConverterUtils.DataSource;
  *   ...
  * </pre>
  * <p>
- * Or for testing the class attribute (uses the capabilities that are especially
- * for the class):
+ * Or for testing the class attribute (uses the capabilities that are especially for the class):
  *
  * <pre>
  *   ...
@@ -408,12 +412,9 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
      */
     public Capabilities(CapabilitiesHandler owner) {
         super();
-
         setOwner(owner);
-
         m_Capabilities = new HashSet<Capability>();
         m_Dependencies = new HashSet<Capability>();
-
         if (owner instanceof weka.classifiers.UpdateableClassifier
                 || owner instanceof weka.clusterers.UpdateableClusterer) {
             setMinimumNumberInstances(0);
@@ -657,7 +658,6 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
      * @return iterator over the current dependencies
      */
     public Iterator<Capability> dependencies() {
-
         return m_Dependencies.iterator();
     }
 
@@ -939,9 +939,7 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
      */
     public Capabilities getClassCapabilities() {
         Capabilities result;
-
         result = new Capabilities(getOwner());
-
         for (Capability cap : Capability.values()) {
             if (cap.isClassCapability()) {
                 if (handles(cap)) {
@@ -949,7 +947,6 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
                 }
             }
         }
-
         return result;
     }
 
@@ -1508,16 +1505,14 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
     }
 
     /**
-     * tests the given attribute by calling the test(Attribute,boolean) method and
-     * throws an exception if the test fails. The method assumes that the
-     * specified attribute is not the class attribute.
+     * tests the given attribute by calling the test(Attribute,boolean) method and throws an exception if the test fails.
+     * The method assumes that the specified attribute is not the class attribute.
      *
      * @param att the attribute to test
      * @throws Exception in case the attribute doesn't pass the tests
      * @see #test(Attribute, boolean)
      */
     public void testWithFail(Attribute att) throws Exception {
-
         test(att, false);
     }
 
@@ -1531,7 +1526,6 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
      * @see #test(Attribute, boolean)
      */
     public void testWithFail(Attribute att, boolean isClass) throws Exception {
-
         if (!test(att, isClass)) {
             throw m_FailReason;
         }

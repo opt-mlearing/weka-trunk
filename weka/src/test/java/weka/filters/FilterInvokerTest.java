@@ -6,8 +6,11 @@ import weka.classifiers.meta.FilteredClassifier;
 import weka.classifiers.trees.J48;
 import weka.core.Instances;
 import weka.core.converters.ConverterUtils;
+import weka.filters.unsupervised.attribute.Add;
 import weka.filters.unsupervised.attribute.Remove;
 import weka.filters.unsupervised.attribute.Standardize;
+
+import java.util.Random;
 
 /**
  * filer component invoker sample.
@@ -78,6 +81,106 @@ public class FilterInvokerTest {
             log.info("编号 {}, 实际类别 {}, 预测类别 {}", i + 1,
                     test.classAttribute().value((int) test.instance(i).classValue()),
                     test.classAttribute().value((int) predicted));
+        }
+    }
+
+    // 简单过滤，增加特征.
+    @Test
+    public void testAddFilter() throws Exception {
+        String path = "data/weather.numeric.arff";
+        // 加载数据集
+        Instances originData = ConverterUtils.DataSource.read(path);
+        log.info("origin data {}", originData);
+        Instances result = new Instances(originData);
+        log.info("at start, attribute size {}", result.numAttributes());
+        log.info("attribute size {}", result.numAttributes());
+        // 新增一个数值属性
+        Add add1 = new Add();
+        add1.setAttributeIndex("last");
+        add1.setAttributeName("NumericAttribute");
+        // 初始化add数据集样例
+        add1.setInputFormat(result);
+        // Filter.useFilter(result, filter)中的result是形参.
+        result = Filter.useFilter(result, add1);
+        log.info("after insert NumericAttribute, attribute size {}", result.numAttributes());
+        // 新增一个标称属性
+        Add add2 = new Add();
+        add2.setAttributeIndex("last");
+        // 设置标签
+        add2.setNominalLabels("A,B,C");
+        add2.setAttributeName("NominalAttribute");
+        add2.setInputFormat(result);
+        result = Filter.useFilter(result, add2);
+        log.info("after insert NominalAttribute, attribute size {}", result.numAttributes());
+        // 用随机值填充新增的两个属性
+        Random random = new Random(1234L);
+        int size = result.numAttributes();
+        for (int i = 0; i < result.numInstances(); ++i) {
+            result.instance(i).setValue(size - 2, random.nextDouble());
+            result.instance(i).setValue(size - 1, random.nextInt(3));
+        }
+        log.info("finally result {}", result);
+    }
+
+    // 批量过滤
+    @Test
+    public void testBatchFiltering() throws Exception {
+        // 加载数据
+        String trainPath = "data/segment-challenge.arff";
+        Instances train = ConverterUtils.DataSource.read(trainPath);
+        String testPath = "data/segment-test.arff";
+        Instances test = ConverterUtils.DataSource.read(testPath);
+        log.info("origin train {}", train);
+        log.info("origin test {}", test);
+        // 过滤数据
+        // 使用保准化的过程
+        Standardize standardize = new Standardize();
+        // 初始化过滤器的数据样式
+        standardize.setInputFormat(train);
+        // 基于训练集配置过滤器，并返回新的数据集
+        Instances train1 = Filter.useFilter(train, standardize);
+        // 基于测试集配置过滤器，并返回新的数据集
+        Instances test1 = Filter.useFilter(test, standardize);
+        // 打印数据集
+        log.info("train {}", train1);
+        log.info("test {}", test1);
+    }
+
+    // 即时过滤
+    @Test
+    public void testFilteringOnTheFly() throws Exception {
+        // 加载数据
+        String trainPath = "data/segment-challenge.arff";
+        Instances train = ConverterUtils.DataSource.read(trainPath);
+        String testPath = "data/segment-test.arff";
+        Instances test = ConverterUtils.DataSource.read(testPath);
+        // 设置类别属性
+        train.setClassIndex(train.numAttributes() - 1);
+        test.setClassIndex(test.numAttributes() - 1);
+        // 检查训练集和测试集是否匹配
+        if (!train.equalHeaders(test)) {
+            throw new Exception("训练集和测试集不匹配: \n" + train.equalHeaders(test));
+        }
+        // 过滤器
+        Remove remove = new Remove();
+        remove.setAttributeIndices("1");
+        // 分类器
+        J48 tree = new J48();
+        // 使用未减枝的的J48分类器
+        tree.setUnpruned(true);
+        // 元分类器
+        FilteredClassifier classifier = new FilteredClassifier();
+        classifier.setFilter(remove);
+        classifier.setClassifier(tree);
+        // 训练分类模型
+        classifier.buildClassifier(train);
+        // 进行预测
+        for (int i = 0; i < test.numInstances(); ++i) {
+            double predict = classifier.classifyInstance(test.instance(i));
+            String actualClz = test.classAttribute().value((int) test.instance(i).classValue());
+            String predictClz = test.classAttribute().value((int) predict);
+            log.info("test instance\b {}, actual classify\b {}, J48 predicted classify\b {}",
+                    i + 1, actualClz, predictClz);
         }
     }
 

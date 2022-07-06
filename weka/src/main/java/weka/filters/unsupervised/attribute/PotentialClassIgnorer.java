@@ -120,7 +120,6 @@ public abstract class PotentialClassIgnorer extends Filter implements
      */
     @Override
     public boolean setInputFormat(Instances instanceInfo) throws Exception {
-
         boolean result = super.setInputFormat(instanceInfo);
         if (m_IgnoreClass) {
             m_ClassIndex = inputFormatPeek().classIndex();

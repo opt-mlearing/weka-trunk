@@ -215,8 +215,7 @@ public class AddID extends Filter
      * explorer/experimenter gui
      */
     public String IDIndexTipText() {
-        return "The position (starting from 1) where the attribute will be inserted "
-                + "(first and last are valid indices).";
+        return "The position (starting from 1) where the attribute will be inserted (first and last are valid indices).";
     }
 
     /**

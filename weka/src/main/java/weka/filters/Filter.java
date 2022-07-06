@@ -525,9 +525,7 @@ public abstract class Filter implements Serializable, CapabilitiesHandler,
      * @throws Exception if the inputFormat can't be set successfully
      */
     public boolean setInputFormat(Instances instanceInfo) throws Exception {
-
         testInputFormat(instanceInfo);
-
         m_InputFormat = instanceInfo.stringFreeStructure();
         m_OutputFormat = null;
         m_OutputQueue = new Queue();
@@ -721,6 +719,7 @@ public abstract class Filter implements Serializable, CapabilitiesHandler,
     }
 
     /**
+     * keep note: 针对@param data的全部 filter 操作，均是产生一个新的 Instances的实例.
      * Filters an entire set of instances through a filter and returns the new set.
      *
      * @param data   the data to be filtered
@@ -729,10 +728,7 @@ public abstract class Filter implements Serializable, CapabilitiesHandler,
      * @throws Exception if the filter can't be used successfully
      */
     public static Instances useFilter(Instances data, Filter filter) throws Exception {
-        /*
-         * System.err.println(filter.getClass().getName() + " in:" +
-         * data.numInstances());
-         */
+        // System.err.println(filter.getClass().getName() + " in:" + data.numInstances());
         if (filter instanceof SimpleBatchFilter) {
             ((SimpleBatchFilter) filter).input(data);
         } else {

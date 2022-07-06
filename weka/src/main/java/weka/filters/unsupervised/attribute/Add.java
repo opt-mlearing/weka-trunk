@@ -492,7 +492,6 @@ public class Add extends Filter implements UnsupervisedFilter,
      * @param attIndex the index of the attribute
      */
     public void setAttributeIndex(String attIndex) {
-
         m_Insert.setSingleIndex(attIndex);
     }
 

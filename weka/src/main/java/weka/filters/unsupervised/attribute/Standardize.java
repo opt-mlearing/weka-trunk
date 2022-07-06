@@ -28,7 +28,8 @@ import weka.filters.UnsupervisedFilter;
 
 /**
  * <!-- globalinfo-start -->
- * Standardizes all numeric attributes in the given dataset to have zero mean and unit variance (apart from the class attribute, if set).
+ * Standardizes all numeric attributes in the given dataset to have zero mean and unit variance
+ * (apart from the class attribute, if set).
  * <p/>
  * <!-- globalinfo-end -->
  * <p>
@@ -45,8 +46,7 @@ import weka.filters.UnsupervisedFilter;
  * @author Eibe Frank (eibe@cs.waikato.ac.nz)
  * @version $Revision$
  */
-public class Standardize
-        extends PotentialClassIgnorer
+public class Standardize extends PotentialClassIgnorer
         implements UnsupervisedFilter, Sourcable, WeightedAttributesHandler, WeightedInstancesHandler {
 
     /**
@@ -71,7 +71,6 @@ public class Standardize
      * displaying in the explorer/experimenter gui
      */
     public String globalInfo() {
-
         return "Standardizes all numeric attributes in the given dataset "
                 + "to have zero mean and unit variance (apart from the class attribute, if set).";
     }
