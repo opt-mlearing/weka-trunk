@@ -72,16 +72,15 @@ public interface Classifier {
      * @return an array containing the estimated membership
      * probabilities of the test instance in each class
      * or the numeric prediction
-     * @throws Exception if distribution could not be
-     *                   computed successfully
+     * @throws Exception if distribution could not be computed successfully.
      */
     public double[] distributionForInstance(Instance instance) throws Exception;
 
     /**
-     * Returns the Capabilities of this classifier. Maximally permissive
-     * capabilities are allowed by default. Derived classifiers should
-     * override this method and first disable all capabilities and then
-     * enable just those capabilities that make sense for the scheme.
+     * Returns the Capabilities of this classifier.
+     * Maximally permissive capabilities are allowed by default.
+     * Derived classifiers should override this method and first disable all capabilities
+     * and then enable just those capabilities that make sense for the scheme.
      *
      * @return the capabilities of this object
      * @see Capabilities

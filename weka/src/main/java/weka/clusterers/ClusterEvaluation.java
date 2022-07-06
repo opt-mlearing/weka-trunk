@@ -100,6 +100,7 @@ import weka.filters.unsupervised.attribute.Remove;
  * Outputs the graph representation of the clusterer to the file. Only for
  * clusterer that implemented the <code>weka.core.Drawable</code> interface.
  * <p/>
+ * 聚类评估器.
  *
  * @author Mark Hall (mhall@cs.waikato.ac.nz)
  * @version $Revision$
@@ -128,14 +129,12 @@ public class ClusterEvaluation implements Serializable, RevisionHandler {
     private int m_numClusters;
 
     /**
-     * holds the assigments of instances to clusters for a particular testing
-     * dataset
+     * holds the assigments of instances to clusters for a particular testing dataset
      */
     private double[] m_clusterAssignments;
 
     /**
-     * holds the average log likelihood for a particular testing dataset if the
-     * clusterer is a DensityBasedClusterer
+     * holds the average log likelihood for a particular testing dataset if the clusterer is a DensityBasedClusterer
      */
     private double m_logL;
 
@@ -163,8 +162,7 @@ public class ClusterEvaluation implements Serializable, RevisionHandler {
     }
 
     /**
-     * Return the number of clusters found for the most recent call to
-     * evaluateClusterer
+     * Return the number of clusters found for the most recent call to evaluateClusterer
      *
      * @return the number of clusters found
      */
@@ -173,8 +171,7 @@ public class ClusterEvaluation implements Serializable, RevisionHandler {
     }
 
     /**
-     * Return an array of cluster assignments corresponding to the most recent set
-     * of instances clustered.
+     * Return an array of cluster assignments corresponding to the most recent set of instances clustered.
      *
      * @return an array of cluster assignments
      */
@@ -183,8 +180,7 @@ public class ClusterEvaluation implements Serializable, RevisionHandler {
     }
 
     /**
-     * Return the array (ordered by cluster number) of minimum error class to
-     * cluster mappings
+     * Return the array (ordered by cluster number) of minimum error class to cluster mappings
      *
      * @return an array of class to cluster mappings
      */
@@ -193,8 +189,7 @@ public class ClusterEvaluation implements Serializable, RevisionHandler {
     }
 
     /**
-     * Return the log likelihood corresponding to the most recent set of instances
-     * clustered.
+     * Return the log likelihood corresponding to the most recent set of instances clustered.
      *
      * @return a <code>double</code> value
      */
@@ -203,8 +198,7 @@ public class ClusterEvaluation implements Serializable, RevisionHandler {
     }
 
     /**
-     * Constructor. Sets defaults for each member variable. Default Clusterer is
-     * EM.
+     * Constructor. Sets defaults for each member variable. Default Clusterer is EM.
      */
     public ClusterEvaluation() {
         setClusterer(new SimpleKMeans());
@@ -214,8 +208,7 @@ public class ClusterEvaluation implements Serializable, RevisionHandler {
 
     /**
      * Evaluate the clusterer on a set of instances. Calculates clustering
-     * statistics and stores cluster assigments for the instances in
-     * m_clusterAssignments
+     * statistics and stores cluster assigments for the instances in m_clusterAssignments
      *
      * @param test the set of instances to cluster
      * @throws Exception if something goes wrong
@@ -226,33 +219,26 @@ public class ClusterEvaluation implements Serializable, RevisionHandler {
 
     /**
      * Evaluate the clusterer on a set of instances. Calculates clustering
-     * statistics and stores cluster assigments for the instances in
-     * m_clusterAssignments
+     * statistics and stores cluster assigments for the instances in m_clusterAssignments.
      *
      * @param test         the set of instances to cluster
-     * @param testFileName the name of the test file for incremental testing, if
-     *                     "" or null then not used
+     * @param testFileName the name of the test file for incremental testing, if "" or null then not used.
      * @throws Exception if something goes wrong
      */
-    public void evaluateClusterer(Instances test, String testFileName)
-            throws Exception {
+    public void evaluateClusterer(Instances test, String testFileName) throws Exception {
         evaluateClusterer(test, testFileName, true);
     }
 
     /**
-     * Evaluate the clusterer on a set of instances. Calculates clustering
-     * statistics and stores cluster assigments for the instances in
-     * m_clusterAssignments
+     * Evaluate the clusterer on a set of instances.
+     * Calculates clustering statistics and stores cluster assigments for the instances in m_clusterAssignments
      *
      * @param test         the set of instances to cluster
-     * @param testFileName the name of the test file for incremental testing, if
-     *                     "" or null then not used
-     * @param outputModel  true if the clustering model is to be output as well as
-     *                     the stats
+     * @param testFileName the name of the test file for incremental testing, if "" or null then not used
+     * @param outputModel  true if the clustering model is to be output as well as the stats
      * @throws Exception if something goes wrong
      */
-    public void evaluateClusterer(Instances test, String testFileName,
-                                  boolean outputModel) throws Exception {
+    public void evaluateClusterer(Instances test, String testFileName, boolean outputModel) throws Exception {
         int i = 0;
         int cnum;
         double loglk = 0.0;
@@ -291,9 +277,8 @@ public class ClusterEvaluation implements Serializable, RevisionHandler {
             filter.setInputFormat(testRaw);
         }
 
-        Instances forBatchPredictors =
-                filter != null ? new Instances(filter.getOutputFormat(), 0)
-                        : new Instances(source.getStructure(), 0);
+        Instances forBatchPredictors = filter != null ?
+                new Instances(filter.getOutputFormat(), 0) : new Instances(source.getStructure(), 0);
         i = 0;
         while (source.hasMoreElements(testRaw)) {
             // next instance
@@ -304,16 +289,14 @@ public class ClusterEvaluation implements Serializable, RevisionHandler {
                 inst = filter.output();
             }
 
-            if (m_Clusterer instanceof BatchPredictor
-                    && ((BatchPredictor) m_Clusterer)
-                    .implementsMoreEfficientBatchPrediction()) {
+            if (m_Clusterer instanceof BatchPredictor &&
+                    ((BatchPredictor) m_Clusterer).implementsMoreEfficientBatchPrediction()) {
                 forBatchPredictors.add(inst);
             } else {
                 cnum = -1;
                 try {
                     if (m_Clusterer instanceof DensityBasedClusterer) {
-                        loglk +=
-                                ((DensityBasedClusterer) m_Clusterer).logDensityForInstance(inst);
+                        loglk += ((DensityBasedClusterer) m_Clusterer).logDensityForInstance(inst);
                         cnum = m_Clusterer.clusterInstance(inst);
                         clusterAssignments.add((double) cnum);
                     } else {
@@ -331,12 +314,9 @@ public class ClusterEvaluation implements Serializable, RevisionHandler {
             }
         }
 
-        if (m_Clusterer instanceof BatchPredictor
-                && ((BatchPredictor) m_Clusterer)
-                .implementsMoreEfficientBatchPrediction()) {
-            double[][] dists =
-                    ((BatchPredictor) m_Clusterer)
-                            .distributionsForInstances(forBatchPredictors);
+        if (m_Clusterer instanceof BatchPredictor &&
+                ((BatchPredictor) m_Clusterer).implementsMoreEfficientBatchPrediction()) {
+            double[][] dists = ((BatchPredictor) m_Clusterer).distributionsForInstances(forBatchPredictors);
             for (double[] d : dists) {
                 cnum = Utils.maxIndex(d);
                 clusterAssignments.add((double) cnum);
@@ -351,8 +331,7 @@ public class ClusterEvaluation implements Serializable, RevisionHandler {
         for (i = 0; i < clusterAssignments.size(); i++) {
             m_clusterAssignments[i] = clusterAssignments.get(i);
         }
-        int numInstFieldWidth =
-                (int) ((Math.log(clusterAssignments.size()) / Math.log(10)) + 1);
+        int numInstFieldWidth = (int) ((Math.log(clusterAssignments.size()) / Math.log(10)) + 1);
 
         if (outputModel) {
             m_clusteringResults.append(m_Clusterer.toString());
@@ -370,13 +349,11 @@ public class ClusterEvaluation implements Serializable, RevisionHandler {
         }
 
         if (unclusteredInstances > 0) {
-            m_clusteringResults.append("\nUnclustered instances : "
-                    + unclusteredInstances);
+            m_clusteringResults.append("\nUnclustered instances : " + unclusteredInstances);
         }
 
         if (m_Clusterer instanceof DensityBasedClusterer) {
-            m_clusteringResults.append("\n\nLog likelihood: "
-                    + Utils.doubleToString(loglk, 1, 5) + "\n");
+            m_clusteringResults.append("\n\nLog likelihood: " + Utils.doubleToString(loglk, 1, 5) + "\n");
         }
 
         if (hasClass) {

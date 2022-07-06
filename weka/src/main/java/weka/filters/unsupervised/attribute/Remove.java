@@ -361,7 +361,6 @@ public class Remove extends Filter implements UnsupervisedFilter,
      *                  eg: first-3,5,6-last
      */
     public void setAttributeIndices(String rangeList) {
-
         m_SelectCols.setRanges(rangeList);
     }
 

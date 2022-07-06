@@ -23,8 +23,12 @@ package weka.clusterers;
 import weka.core.Instance;
 
 /**
- * Interface to incremental cluster models that can learn using one instance
- * at a time.
+ * 增量聚类器.
+ * 增量聚类器的训练一般分三个阶段完成：
+ * 1）调用{@link Clusterer#buildClusterer(weka.core.Instances)}初始化模型；
+ * 2）调用{@link UpdateableClusterer#updateClusterer(weka.core.Instance)}逐行更新模型；
+ * 3）调用{@link UpdateableClusterer#updateFinished()}完成训练；
+ * Interface to incremental cluster models that can learn using one instance at a time.
  *
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision$

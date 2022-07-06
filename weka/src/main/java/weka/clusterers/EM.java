@@ -48,7 +48,8 @@ import weka.filters.unsupervised.attribute.ReplaceMissingValues;
  * <!-- globalinfo-start -->
  * Simple EM (expectation maximisation) class.<br/>
  * <br/>
- * EM assigns a probability distribution to each instance which indicates the probability of it belonging to each of the clusters. EM can decide how many clusters to create by cross validation, or you may specify apriori how many clusters to generate.<br/>
+ * EM assigns a probability distribution to each instance which indicates the probability of it belonging to each of the clusters.
+ * EM can decide how many clusters to create by cross validation, or you may specify apriori how many clusters to generate.<br/>
  * <br/>
  * The cross validation performed to determine the number of clusters is done in the following steps:<br/>
  * 1. the number of clusters is set to 1<br/>
@@ -57,7 +58,8 @@ import weka.filters.unsupervised.attribute.ReplaceMissingValues;
  * 4. the loglikelihood is averaged over all 10 results.<br/>
  * 5. if loglikelihood has increased the number of clusters is increased by 1 and the program continues at step 2. <br/>
  * <br/>
- * The number of folds is fixed to 10, as long as the number of instances in the training set is not smaller 10. If this is the case the number of folds is set equal to the number of instances.<br/>
+ * The number of folds is fixed to 10, as long as the number of instances in the training set is not smaller 10.
+ * If this is the case the number of folds is set equal to the number of instances.<br/>
  * <br/>
  * Missing values are globally replaced with ReplaceMissingValues.
  * <p/>

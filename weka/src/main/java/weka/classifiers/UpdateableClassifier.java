@@ -24,8 +24,12 @@ package weka.classifiers;
 import weka.core.Instance;
 
 /**
- * Interface to incremental classification models that can learn using
- * one instance at a time.
+ * 增量分类器.
+ * 当处理较大的的数据时，可以只占用较小的存储空间 --> 因为不必要一次性训练数据加载进内存.
+ * 增量分类器主要分两个阶段完成：
+ * 1）调用{@link Classifier#buildClassifier(weka.core.Instances)}进行模型初始化；
+ * 2）调用{@link UpdateableClassifier#updateClassifier(weka.core.Instance)}逐行更新模型.
+ * Interface to incremental classification models that can learn using one instance at a time.
  *
  * @author Eibe Frank (eibe@cs.waikato.ac.nz)
  * @version $Revision$
@@ -36,8 +40,7 @@ public interface UpdateableClassifier {
      * Updates a classifier using the given instance.
      *
      * @param instance the instance to included
-     * @throws Exception if instance could not be incorporated
-     *                   successfully
+     * @throws Exception if instance could not be incorporated successfully.
      */
     void updateClassifier(Instance instance) throws Exception;
 

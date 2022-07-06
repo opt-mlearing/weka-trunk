@@ -150,16 +150,13 @@ public class Range implements Serializable, RevisionHandler,
      * Sets the ranges from a string representation. Note that setUpper() must be
      * called afterwards for ranges to be actually set internally.
      *
-     * @param rangeList the comma separated list of ranges. The empty string sets
-     *                  the range to empty.
+     * @param rangeList the comma separated list of ranges. The empty string sets the range to empty.
      * @throws IllegalArgumentException if the rangeList was not well formed
      */
     // @requires rangeList != null;
     // @assignable m_RangeStrings,m_SelectFlags;
     public void setRanges(String rangeList) {
-
         ArrayList<String> ranges = new ArrayList<String>(10);
-
         // Split the rangeList up into the vector
         while (!rangeList.equals("")) {
             String range = rangeList.trim();

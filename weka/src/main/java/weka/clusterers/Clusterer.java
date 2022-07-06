@@ -34,51 +34,48 @@ import weka.core.Instances;
 public interface Clusterer {
 
     /**
-     * Generates a clusterer. Has to initialize all fields of the clusterer
-     * that are not being set via options.
+     * 构建&&初始化聚类模型.
+     * Generates a clusterer. Has to initialize all fields of the clusterer that are not being set via options.
      *
      * @param data set of instances serving as training data
-     * @throws Exception if the clusterer has not been
-     *                   generated successfully
+     * @throws Exception if the clusterer has not been generated successfully.
      */
     void buildClusterer(Instances data) throws Exception;
 
     /**
-     * Classifies a given instance. Either this or distributionForInstance()
-     * needs to be implemented by subclasses.
+     * 确定实例隶属于哪个簇.
+     * Classifies a given instance. Either this or distributionForInstance() needs to be implemented by subclasses.
      *
      * @param instance the instance to be assigned to a cluster
      * @return the number of the assigned cluster as an integer
-     * @throws Exception if instance could not be clustered
-     *                   successfully
+     * @throws Exception if instance could not be clustered successfully.
      */
     int clusterInstance(Instance instance) throws Exception;
 
     /**
-     * Predicts the cluster memberships for a given instance.  Either
-     * this or clusterInstance() needs to be implemented by subclasses.
+     * 预测实例隶属于簇的隶属度，该数组的总和为1.
+     * Predicts the cluster memberships for a given instance.
+     * Either this or clusterInstance() needs to be implemented by subclasses.
      *
      * @param instance the instance to be assigned a cluster.
      * @return an array containing the estimated membership
      * probabilities of the test instance in each cluster
-     * (this should sum to at most 1, 概率总和为1, 归一化, 守衡.)
-     * @throws Exception if distribution could not be
-     *                   computed successfully
+     * (this should sum to at most 1, 概率总和为1, 隶属度)
+     * @throws Exception if distribution could not be computed successfully.
      */
     public double[] distributionForInstance(Instance instance) throws Exception;
 
     /**
+     * 返回聚类(簇)的个数.
      * Returns the number of clusters.
      *
      * @return the number of clusters generated for a training dataset.
-     * @throws Exception if number of clusters could not be returned
-     *                   successfully
+     * @throws Exception if number of clusters could not be returned successfully.
      */
     int numberOfClusters() throws Exception;
 
     /**
-     * Returns the Capabilities of this clusterer. Derived classifiers have to
-     * override this method to enable capabilities.
+     * Returns the Capabilities of this clusterer. Derived classifiers have to override this method to enable capabilities.
      *
      * @return the capabilities of this object
      * @see Capabilities
