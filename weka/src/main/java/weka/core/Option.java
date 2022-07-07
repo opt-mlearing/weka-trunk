@@ -49,8 +49,7 @@ public class Option implements RevisionHandler {
     /**
      * A cache of property descriptors
      */
-    private static final Map<Class<?>, PropertyDescriptor[]> s_descriptorCache =
-            new HashMap<Class<?>, PropertyDescriptor[]>();
+    private static final Map<Class<?>, PropertyDescriptor[]> s_descriptorCache = new HashMap<Class<?>, PropertyDescriptor[]>();
 
     /**
      * What does this option do?
@@ -75,14 +74,12 @@ public class Option implements RevisionHandler {
     /**
      * Creates new option with the given parameters.
      *
-     * @param description  the option's description
-     * @param name         the option's name
-     * @param numArguments the number of arguments
-     * @param synopsis     the option's synopsis
+     * @param description  the option's description  选项的描述字符串
+     * @param name         the option's name         选项的名称
+     * @param numArguments the number of arguments   选项所带参数的个数
+     * @param synopsis     the option's synopsis     选项的概要介绍
      */
-    public Option(String description, String name, int numArguments,
-                  String synopsis) {
-
+    public Option(String description, String name, int numArguments, String synopsis) {
         m_Description = description;
         m_Name = name;
         m_NumArguments = numArguments;
@@ -197,12 +194,10 @@ public class Option implements RevisionHandler {
      * including, the supplied oldest superclass are returned.
      *
      * @param target              the target object to get settings for
-     * @param oldestAncestorClazz the oldest superclass at which to stop getting
-     *                            options from
+     * @param oldestAncestorClazz the oldest superclass at which to stop getting options from.
      * @return
      */
-    public static String[] getOptionsForHierarchy(Object target,
-                                                  Class<?> oldestAncestorClazz) {
+    public static String[] getOptionsForHierarchy(Object target, Class<?> oldestAncestorClazz) {
 
         ArrayList<String> options = new ArrayList<String>();
         for (String s : getOptions(target, target.getClass())) {
@@ -293,25 +288,20 @@ public class Option implements RevisionHandler {
                         } else if (value instanceof OptionHandler) {
                             if (parameterDescription.commandLineParamIsFlag()) {
                                 throw new IllegalArgumentException(
-                                        "Getter method for a command "
-                                                + "line flag should return a boolean value");
+                                        "Getter method for a command " + "line flag should return a boolean value");
                             }
-                            options
-                                    .add(getOptionStringForOptionHandler((OptionHandler) value));
+                            options.add(getOptionStringForOptionHandler((OptionHandler) value));
                         } else if (value instanceof SelectedTag) {
-                            options.add(""
-                                    + ((SelectedTag) value).getSelectedTag().getReadable());
+                            options.add("" + ((SelectedTag) value).getSelectedTag().getReadable());
                         } else {
                             // check for boolean/flag
                             if (parameterDescription.commandLineParamIsFlag()) {
                                 if (!(value instanceof Boolean)) {
-                                    throw new IllegalArgumentException(
-                                            "Getter method for a command "
-                                                    + "line flag should return a boolean value");
+                                    throw new IllegalArgumentException("Getter method for a command "
+                                            + "line flag should return a boolean value");
                                 }
                                 if (((Boolean) value).booleanValue()) {
-                                    options
-                                            .add("-" + parameterDescription.commandLineParamName());
+                                    options.add("-" + parameterDescription.commandLineParamName());
                                 }
                             } else {
                                 if (value.toString().length() > 0) {
@@ -334,8 +324,7 @@ public class Option implements RevisionHandler {
     }
 
     /**
-     * Construct a String containing the class name of an OptionHandler and its
-     * option settings
+     * Construct a String containing the class name of an OptionHandler and its option settings.
      *
      * @param handler the OptionHandler to construct an option string for
      * @return a String containing the name of the handler class and its options
@@ -357,36 +346,31 @@ public class Option implements RevisionHandler {
      *
      * @param options             the options to set
      * @param target              the target on which to set options
-     * @param oldestAncestorClazz the oldest superclass at which to stop setting
-     *                            options
+     * @param oldestAncestorClazz the oldest superclass at which to stop setting options.
      */
-    public static void setOptionsForHierarchy(String[] options, Object target,
-                                              Class<?> oldestAncestorClazz) {
+    public static void setOptionsForHierarchy(String[] options, Object target, Class<?> oldestAncestorClazz) {
 
         setOptions(options, target, target.getClass());
-
         Class<?> parent = target.getClass();
         do {
             parent = parent.getSuperclass();
             if (parent == null) {
                 break;
             }
-
             setOptions(options, target, parent);
         } while (!parent.equals(oldestAncestorClazz));
     }
 
     /**
-     * Get property descriptors for a target class. Checks a cache first before
-     * using introspection.
+     * Get property descriptors for a target class. Checks a cache first before using introspection.
      *
      * @param targetClazz the target to get the descriptors for
      * @param parent      the parent class at which to stop getting descriptors
      * @return an array of property descriptors
      * @throws IntrospectionException if a problem occurs
      */
-    private static PropertyDescriptor[] getPropertyDescriptors(
-            Class<?> targetClazz, Class<?> parent) throws IntrospectionException {
+    private static PropertyDescriptor[] getPropertyDescriptors(Class<?> targetClazz, Class<?> parent)
+            throws IntrospectionException {
 
         PropertyDescriptor[] result = s_descriptorCache.get(targetClazz);
         if (result == null) {
@@ -411,15 +395,13 @@ public class Option implements RevisionHandler {
      *                    This class is expected to be either the class of the target or one
      *                    of its superclasses
      */
-    public static void setOptions(String[] options, Object target,
-                                  Class<?> targetClazz) {
+    public static void setOptions(String[] options, Object target, Class<?> targetClazz) {
         if (options != null && options.length > 0) {
             // Set the options just for this class
             try {
                 Object[] getterArgs = {};
                 Class<?> parent = targetClazz.getSuperclass();
-                PropertyDescriptor[] properties =
-                        getPropertyDescriptors(targetClazz, parent);
+                PropertyDescriptor[] properties = getPropertyDescriptors(targetClazz, parent);
 
                 for (PropertyDescriptor p : properties) {
                     Method getter = p.getReadMethod();
@@ -440,13 +422,9 @@ public class Option implements RevisionHandler {
                         Object valueToSet = null;
                         if (parameterDescription.commandLineParamIsFlag()) {
                             processOpt = true;
-                            valueToSet =
-                                    (Utils.getFlag(parameterDescription.commandLineParamName(),
-                                            options));
+                            valueToSet = (Utils.getFlag(parameterDescription.commandLineParamName(), options));
                         } else {
-                            optionValue =
-                                    Utils.getOption(parameterDescription.commandLineParamName(),
-                                            options);
+                            optionValue = Utils.getOption(parameterDescription.commandLineParamName(), options);
                             processOpt = optionValue.length() > 0;
                         }
 
@@ -456,24 +434,20 @@ public class Option implements RevisionHandler {
                         if (value != null && processOpt) {
                             if (value.getClass().isArray() && ((Object[]) value).length >= 0) {
                                 // We're interested in the actual element type...
-                                Class<?> elementType =
-                                        getter.getReturnType().getComponentType();
+                                Class<?> elementType = getter.getReturnType().getComponentType();
 
                                 // handle arrays by looking for the option multiple times
                                 List<String> optionValues = new ArrayList<String>();
                                 optionValues.add(optionValue);
                                 while (true) {
-                                    optionValue =
-                                            Utils.getOption(
-                                                    parameterDescription.commandLineParamName(), options);
+                                    optionValue = Utils.getOption(parameterDescription.commandLineParamName(), options);
                                     if (optionValue.length() == 0) {
                                         break;
                                     }
                                     optionValues.add(optionValue);
                                 }
 
-                                valueToSet =
-                                        Array.newInstance(elementType, optionValues.size());
+                                valueToSet = Array.newInstance(elementType, optionValues.size());
                                 for (int i = 0; i < optionValues.size(); i++) {
                                     Object elementObject = null;
                                     if (elementType.isAssignableFrom(File.class)) {
@@ -525,15 +499,13 @@ public class Option implements RevisionHandler {
                                                     + parameterDescription.commandLineParamName()
                                                     + "'. This option takes a SelectedTag argument, and "
                                                     + "the supplied value of '" + optionValues.get(i) + "' "
-                                                    + "does not match any of the legal IDs or strings "
-                                                    + "for it.");
+                                                    + "does not match any of the legal IDs or strings " + "for it.");
                                         }
                                     } else if (elementType.isAssignableFrom(String.class)) {
                                         elementObject = optionValues.get(i);
                                     } else {
                                         // assume option handler spec
-                                        elementObject =
-                                                constructOptionHandlerValue(optionValues.get(i));
+                                        elementObject = constructOptionHandlerValue(optionValues.get(i));
                                     }
                                     Array.set(valueToSet, i, elementObject);
                                 }
@@ -565,8 +537,7 @@ public class Option implements RevisionHandler {
                                             + parameterDescription.commandLineParamName()
                                             + "'. This option takes a SelectedTag argument, and "
                                             + "the supplied value of '" + optionValue + "' "
-                                            + "does not match any of the legal IDs or strings "
-                                            + "for it.");
+                                            + "does not match any of the legal IDs or strings " + "for it.");
                                 }
                             } else if (value instanceof Enum) {
                                 Class<?> eClazz = value.getClass();
@@ -587,8 +558,7 @@ public class Option implements RevisionHandler {
                                 } catch (NumberFormatException e) {
                                     throw new Exception("Option: '"
                                             + parameterDescription.commandLineParamName()
-                                            + "' requires a " + value.getClass().getCanonicalName()
-                                            + " argument");
+                                            + "' requires a " + value.getClass().getCanonicalName() + " argument");
                                 }
                             } else if (value instanceof String) {
                                 valueToSet = optionValue;
@@ -613,20 +583,16 @@ public class Option implements RevisionHandler {
     }
 
     /**
-     * Construct an instance of an option handler from a String specifying its
-     * class name and option values
+     * Construct an instance of an option handler from a String specifying its class name and option values
      *
-     * @param optionValue a String containing the class of the option handler
-     *                    followed by its options
+     * @param optionValue a String containing the class of the option handler followed by its options
      * @return an instantiated option handling object
      * @throws Exception if a problem occurs
      */
-    protected static Object constructOptionHandlerValue(String optionValue)
-            throws Exception {
+    protected static Object constructOptionHandlerValue(String optionValue) throws Exception {
         String[] optHandlerSpec = Utils.splitOptions(optionValue);
         if (optHandlerSpec.length == 0) {
-            throw new Exception("Invalid option handler specification " + "string '"
-                    + optionValue);
+            throw new Exception("Invalid option handler specification " + "string '" + optionValue);
         }
         String optionHandler = optHandlerSpec[0];
         optHandlerSpec[0] = "";
@@ -696,8 +662,8 @@ public class Option implements RevisionHandler {
      * @throws InvocationTargetException if a problem occurs
      * @throws IllegalAccessException    if a problem occurs
      */
-    protected static void setOption(Method setter, Object target,
-                                    Object valueToSet) throws InvocationTargetException, IllegalAccessException {
+    protected static void setOption(Method setter, Object target, Object valueToSet)
+            throws InvocationTargetException, IllegalAccessException {
         Object[] setterArgs = {valueToSet};
         setter.invoke(target, setterArgs);
     }
@@ -708,7 +674,6 @@ public class Option implements RevisionHandler {
      * @return the option's description
      */
     public String description() {
-
         return m_Description;
     }
 
@@ -718,7 +683,6 @@ public class Option implements RevisionHandler {
      * @return the option's name
      */
     public String name() {
-
         return m_Name;
     }
 
@@ -728,7 +692,6 @@ public class Option implements RevisionHandler {
      * @return the option's number of arguments
      */
     public int numArguments() {
-
         return m_NumArguments;
     }
 

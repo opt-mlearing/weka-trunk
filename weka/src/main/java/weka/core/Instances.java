@@ -1707,7 +1707,6 @@ public class Instances extends AbstractList<Instance> implements Serializable, R
      * @param att the attribute
      */
     public void sort(Attribute att) {
-
         sort(att.index());
     }
 

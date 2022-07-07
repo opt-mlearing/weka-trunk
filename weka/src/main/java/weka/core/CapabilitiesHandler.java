@@ -21,8 +21,9 @@
 package weka.core;
 
 /**
- * Classes implementing this interface return their capabilities in regards
- * to datasets.
+ * 返回算法能处理数据的特征.
+ * [例如：返回算法能处理标称属性、数值属性、缺失值、标称类别以及缺失值类别值.]
+ * Classes implementing this interface return their capabilities in regards to datasets.
  *
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision$

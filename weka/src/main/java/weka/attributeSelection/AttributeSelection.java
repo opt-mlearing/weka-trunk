@@ -227,7 +227,6 @@ public class AttributeSelection implements Serializable, RevisionHandler {
      */
     public void setSearch(ASSearch search) {
         m_searchMethod = search;
-
         if (m_searchMethod instanceof RankedOutputSearch) {
             setRanking(((RankedOutputSearch) m_searchMethod).getGenerateRanking());
         }

@@ -29,14 +29,13 @@ import weka.core.Statistics;
 import weka.core.Utils;
 
 /**
- * Simple probability estimator that places a single normal distribution over
- * the observed values.
+ * Simple probability estimator that places a single normal distribution over the observed values.
+ * 正态评估器.
  *
  * @author Len Trigg (trigg@cs.waikato.ac.nz)
  * @version $Revision$
  */
-public class NormalEstimator extends Estimator implements IncrementalEstimator,
-        Aggregateable<NormalEstimator> {
+public class NormalEstimator extends Estimator implements IncrementalEstimator, Aggregateable<NormalEstimator> {
 
     /**
      * for serialization

@@ -29,14 +29,13 @@ import weka.core.Statistics;
 import weka.core.Utils;
 
 /**
- * Simple kernel density estimator. Uses one gaussian kernel per observed data
- * value.
+ * Simple kernel density estimator. Uses one gaussian kernel per observed data value.
+ * 核估计器.
  *
  * @author Len Trigg (trigg@cs.waikato.ac.nz)
  * @version $Revision$
  */
-public class KernelEstimator extends Estimator implements IncrementalEstimator,
-        Aggregateable<KernelEstimator> {
+public class KernelEstimator extends Estimator implements IncrementalEstimator, Aggregateable<KernelEstimator> {
 
     /**
      * for serialization

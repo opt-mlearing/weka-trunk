@@ -28,13 +28,13 @@ import weka.core.RevisionUtils;
 import weka.core.Utils;
 
 /**
+ * 离散评估器.
  * Simple symbolic probability estimator based on symbol counts.
  *
  * @author Len Trigg (trigg@cs.waikato.ac.nz)
  * @version $Revision$
  */
-public class DiscreteEstimator extends Estimator implements
-        IncrementalEstimator, Aggregateable<DiscreteEstimator> {
+public class DiscreteEstimator extends Estimator implements IncrementalEstimator, Aggregateable<DiscreteEstimator> {
 
     /**
      * for serialization
