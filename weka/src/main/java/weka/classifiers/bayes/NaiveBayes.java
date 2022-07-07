@@ -26,10 +26,22 @@ import java.util.Enumeration;
 import java.util.Vector;
 
 import weka.classifiers.AbstractClassifier;
-import weka.core.*;
+import weka.core.Aggregateable;
+import weka.core.Attribute;
 import weka.core.Capabilities.Capability;
+import weka.core.Capabilities;
+import weka.core.OptionHandler;
+import weka.core.Option;
+import weka.core.Instances;
+import weka.core.Instance;
+import weka.core.RevisionUtils;
 import weka.core.TechnicalInformation.Field;
 import weka.core.TechnicalInformation.Type;
+import weka.core.TechnicalInformation;
+import weka.core.TechnicalInformationHandler;
+import weka.core.Utils;
+import weka.core.WeightedAttributesHandler;
+import weka.core.WeightedInstancesHandler;
 import weka.estimators.DiscreteEstimator;
 import weka.estimators.Estimator;
 import weka.estimators.KernelEstimator;
@@ -642,7 +654,6 @@ public class NaiveBayes extends AbstractClassifier implements OptionHandler, Wei
             temp.append(pad("", "=", maxAttWidth + (maxWidth * m_Instances.numClasses())
                     + m_Instances.numClasses() + 1, true));
             temp.append("\n");
-
             // loop over the attributes
             int counter = 0;
             for (int i = 0; i < m_Instances.numAttributes(); i++) {
@@ -692,7 +703,6 @@ public class NaiveBayes extends AbstractClassifier implements OptionHandler, Wei
                         temp.append(pad(precision, " ", maxWidth + 1 - precision.length(), true));
                     }
                     temp.append("\n\n");
-
                 } else if (m_Distributions[counter][0] instanceof DiscreteEstimator) {
                     Attribute a = m_Instances.attribute(i);
                     for (int j = 0; j < a.numValues(); j++) {
@@ -779,21 +789,21 @@ public class NaiveBayes extends AbstractClassifier implements OptionHandler, Wei
     }
 
     /**
+     * 以旧格式返回分类器的描述.
      * Returns a description of the classifier in the old format.
      *
      * @return a description of the classifier as a string.
      */
     protected String toStringOriginal() {
-
         StringBuffer text = new StringBuffer();
-
         text.append("Naive Bayes Classifier");
         if (m_Instances == null) {
             text.append(": No model built yet.");
         } else {
             try {
                 for (int i = 0; i < m_Distributions[0].length; i++) {
-                    text.append("\n\nClass " + m_Instances.classAttribute().value(i) + ": Prior probability = " + Utils.doubleToString(m_ClassDistribution.getProbability(i), 4, 2) + "\n\n");
+                    text.append("\n\nClass " + m_Instances.classAttribute().value(i) + ": Prior probability = "
+                            + Utils.doubleToString(m_ClassDistribution.getProbability(i), 4, 2) + "\n\n");
                     Enumeration<Attribute> enumAtts = m_Instances.enumerateAttributes();
                     int attIndex = 0;
                     while (enumAtts.hasMoreElements()) {
@@ -808,13 +818,11 @@ public class NaiveBayes extends AbstractClassifier implements OptionHandler, Wei
                 text.append(ex.getMessage());
             }
         }
-
         return text.toString();
     }
 
     private String pad(String source, String padChar, int length, boolean leftPad) {
         StringBuffer temp = new StringBuffer();
-
         if (leftPad) {
             for (int i = 0; i < length; i++) {
                 temp.append(padChar);
@@ -845,7 +853,6 @@ public class NaiveBayes extends AbstractClassifier implements OptionHandler, Wei
      * @return Value of m_UseKernelEstimatory.
      */
     public boolean getUseKernelEstimator() {
-
         return m_UseKernelEstimator;
     }
 
@@ -855,7 +862,6 @@ public class NaiveBayes extends AbstractClassifier implements OptionHandler, Wei
      * @param v Value to assign to m_UseKernelEstimatory.
      */
     public void setUseKernelEstimator(boolean v) {
-
         m_UseKernelEstimator = v;
     }
 
@@ -875,7 +881,6 @@ public class NaiveBayes extends AbstractClassifier implements OptionHandler, Wei
      * @return true if supervised discretization is to be used.
      */
     public boolean getUseSupervisedDiscretization() {
-
         return m_UseDiscretization;
     }
 
@@ -885,7 +890,6 @@ public class NaiveBayes extends AbstractClassifier implements OptionHandler, Wei
      * @param s true if supervised discretization is to be used.
      */
     public void setUseSupervisedDiscretization(boolean s) {
-
         m_UseDiscretization = s;
     }
 
@@ -896,7 +900,9 @@ public class NaiveBayes extends AbstractClassifier implements OptionHandler, Wei
      * explorer/experimenter gui
      */
     public String displayModelInOldFormatTipText() {
-        return "Use old format for model output. The old format is " + "better when there are many class values. The new format " + "is better when there are fewer classes and many attributes.";
+        return "Use old format for model output. The old format is "
+                + "better when there are many class values. The new format "
+                + "is better when there are fewer classes and many attributes.";
     }
 
     /**
@@ -945,6 +951,7 @@ public class NaiveBayes extends AbstractClassifier implements OptionHandler, Wei
     }
 
     /**
+     * 返回一个版本标识.
      * Returns the revision string.
      *
      * @return the revision

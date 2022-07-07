@@ -192,7 +192,6 @@ public class DiscreteEstimator extends Estimator implements IncrementalEstimator
     public Capabilities getCapabilities() {
         Capabilities result = super.getCapabilities();
         result.disableAll();
-
         // class
         if (!m_noClass) {
             result.enable(Capability.NOMINAL_CLASS);
@@ -200,7 +199,6 @@ public class DiscreteEstimator extends Estimator implements IncrementalEstimator
         } else {
             result.enable(Capability.NO_CLASS);
         }
-
         // attributes
         result.enable(Capability.NUMERIC_ATTRIBUTES);
         return result;
@@ -217,21 +215,15 @@ public class DiscreteEstimator extends Estimator implements IncrementalEstimator
     }
 
     @Override
-    public DiscreteEstimator aggregate(DiscreteEstimator toAggregate)
-            throws Exception {
-
+    public DiscreteEstimator aggregate(DiscreteEstimator toAggregate) throws Exception {
         if (toAggregate.m_Counts.length != m_Counts.length) {
-            throw new Exception("DiscreteEstimator to aggregate has a different "
-                    + "number of symbols");
+            throw new Exception("DiscreteEstimator to aggregate has a different " + "number of symbols");
         }
-
         m_SumOfCounts += toAggregate.m_SumOfCounts;
         for (int i = 0; i < m_Counts.length; i++) {
             m_Counts[i] += (toAggregate.m_Counts[i] - toAggregate.m_FPrior);
         }
-
         m_SumOfCounts -= (toAggregate.m_FPrior * m_Counts.length);
-
         return this;
     }
 
@@ -244,9 +236,7 @@ public class DiscreteEstimator extends Estimator implements IncrementalEstimator
         DiscreteEstimator df = new DiscreteEstimator(5, true);
         DiscreteEstimator one = new DiscreteEstimator(5, true);
         DiscreteEstimator two = new DiscreteEstimator(5, true);
-
         java.util.Random r = new java.util.Random(1);
-
         for (int i = 0; i < 100; i++) {
             int z = r.nextInt(5);
             df.addValue(z, 1);
@@ -257,20 +247,15 @@ public class DiscreteEstimator extends Estimator implements IncrementalEstimator
                 two.addValue(z, 1);
             }
         }
-
         try {
             System.out.println("\n\nFull\n");
             System.out.println(df.toString());
             System.out.println("Prob (0): " + df.getProbability(0));
-
             System.out.println("\nOne\n" + one.toString());
             System.out.println("Prob (0): " + one.getProbability(0));
-
             System.out.println("\nTwo\n" + two.toString());
             System.out.println("Prob (0): " + two.getProbability(0));
-
             one = one.aggregate(two);
-
             System.out.println("\nAggregated\n");
             System.out.println(one.toString());
             System.out.println("Prob (0): " + one.getProbability(0));
@@ -282,11 +267,9 @@ public class DiscreteEstimator extends Estimator implements IncrementalEstimator
     /**
      * Main method for testing this class.
      *
-     * @param argv should contain a sequence of integers which will be treated as
-     *             symbolic.
+     * @param argv should contain a sequence of integers which will be treated as symbolic.
      */
     public static void main(String[] argv) {
-
         try {
             if (argv.length == 0) {
                 System.out.println("Please specify a set of instances.");
@@ -308,10 +291,10 @@ public class DiscreteEstimator extends Estimator implements IncrementalEstimator
                         + newEst.getProbability(current));
                 newEst.addValue(current, 1);
             }
-
             DiscreteEstimator.testAggregation();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
+
 }

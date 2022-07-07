@@ -126,7 +126,6 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
         if (PROPERTIES == null) {
             try {
                 PROPERTIES = Utils.readProperties(PROPERTIES_FILE);
-
                 TEST = Boolean.parseBoolean(PROPERTIES.getProperty("Test", "true"));
                 INSTANCES_TEST = Boolean.parseBoolean(PROPERTIES.getProperty(
                         "InstancesTest", "true")) && TEST;
@@ -456,7 +455,6 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
      * @param c the capabilities object to initialize with
      */
     public void assign(Capabilities c) {
-
         for (Capability cap : Capability.values()) {
             // capability
             if (c.handles(cap)) {
@@ -471,9 +469,7 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
                 disableDependency(cap);
             }
         }
-
         setMinimumNumberInstances(c.getMinimumNumberInstances());
-
         m_InterfaceDefinedCapabilities = new HashSet(c.m_InterfaceDefinedCapabilities);
     }
 
@@ -484,7 +480,6 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
      * @param c the capabilities to AND with
      */
     public void and(Capabilities c) {
-
         for (Capability cap : Capability.values()) {
             // capability
             if (handles(cap) && c.handles(cap)) {
@@ -499,12 +494,10 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
                 m_Dependencies.remove(cap);
             }
         }
-
         // minimum number of instances that both handlers need at least to work
         if (c.getMinimumNumberInstances() > getMinimumNumberInstances()) {
             setMinimumNumberInstances(c.getMinimumNumberInstances());
         }
-
         HashSet<Class> intersection = new HashSet<Class>();
         for (Class cl : c.m_InterfaceDefinedCapabilities) {
             if (m_InterfaceDefinedCapabilities.contains(cl)) {
@@ -515,13 +508,11 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
     }
 
     /**
-     * performs an OR conjunction with the capabilities of the given Capabilities
-     * object and updates itself
+     * performs an OR conjunction with the capabilities of the given Capabilities object and updates itself.
      *
      * @param c the capabilities to OR with
      */
     public void or(Capabilities c) {
-
         for (Capability cap : Capability.values()) {
             // capability
             if (handles(cap) || c.handles(cap)) {
@@ -536,11 +527,9 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
                 m_Dependencies.remove(cap);
             }
         }
-
         if (c.getMinimumNumberInstances() < getMinimumNumberInstances()) {
             setMinimumNumberInstances(c.getMinimumNumberInstances());
         }
-
         m_InterfaceDefinedCapabilities.addAll(c.m_InterfaceDefinedCapabilities);
     }
 
@@ -552,20 +541,17 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
      * @return true if all the requested capabilities are supported
      */
     public boolean supports(Capabilities c) {
-
         for (Capability cap : Capability.values()) {
             if (c.handles(cap) && !handles(cap)) {
                 return false;
             }
         }
-
         // Check interface-based capabilities
         for (Class cl : c.m_InterfaceDefinedCapabilities) {
             if (!m_InterfaceDefinedCapabilities.contains(cl)) {
                 return false;
             }
         }
-
         return true;
     }
 
@@ -579,20 +565,17 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
      * have a dependency)
      */
     public boolean supportsMaybe(Capabilities c) {
-
         for (Capability cap : Capability.values()) {
             if (c.handles(cap) && !(handles(cap) || hasDependency(cap))) {
                 return false;
             }
         }
-
         // Check interface-based capabilities
         for (Class cl : c.m_InterfaceDefinedCapabilities) {
             if (!m_InterfaceDefinedCapabilities.contains(cl)) {
                 return false;
             }
         }
-
         return true;
     }
 
@@ -673,7 +656,6 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
      * @param c the capability to enable
      */
     public void enable(Capability c) {
-
         // attributes
         if (c == Capability.NOMINAL_ATTRIBUTES) {
             enable(Capability.BINARY_ATTRIBUTES);
@@ -686,7 +668,6 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
         else if (c == Capability.NOMINAL_CLASS) {
             enable(Capability.BINARY_CLASS);
         }
-
         m_Capabilities.add(c);
     }
 
@@ -702,7 +683,6 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
      * @param c the capability to enable the dependency flag for
      */
     public void enableDependency(Capability c) {
-
         // attributes
         if (c == Capability.NOMINAL_ATTRIBUTES) {
             enableDependency(Capability.BINARY_ATTRIBUTES);
@@ -715,7 +695,6 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
         else if (c == Capability.NOMINAL_CLASS) {
             enableDependency(Capability.BINARY_CLASS);
         }
-
         m_Dependencies.add(c);
     }
 
@@ -726,7 +705,6 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
      * @see #getClassCapabilities()
      */
     public void enableAllClasses() {
-
         for (Capability cap : Capability.values()) {
             if (cap.isClass()) {
                 enable(cap);
@@ -741,7 +719,6 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
      * @see #getClassCapabilities()
      */
     public void enableAllClassDependencies() {
-
         for (Capability cap : Capability.values()) {
             if (cap.isClass()) {
                 enableDependency(cap);
@@ -756,7 +733,6 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
      * @see #getAttributeCapabilities()
      */
     public void enableAllAttributes() {
-
         for (Capability cap : Capability.values()) {
             if (cap.isAttribute()) {
                 enable(cap);
@@ -771,7 +747,6 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
      * @see #getAttributeCapabilities()
      */
     public void enableAllAttributeDependencies() {
-
         for (Capability cap : Capability.values()) {
             if (cap.isAttribute()) {
                 enableDependency(cap);
@@ -783,7 +758,6 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
      * enables all attribute and class types (including dependencies)
      */
     public void enableAll() {
-
         enableAllAttributes();
         enableAllAttributeDependencies();
         enableAllClasses();
@@ -803,7 +777,6 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
      * @param c the capability to disable
      */
     public void disable(Capability c) {
-
         // attributes
         if (c == Capability.NOMINAL_ATTRIBUTES) {
             disable(Capability.BINARY_ATTRIBUTES);
@@ -820,7 +793,6 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
         } else if (c == Capability.UNARY_CLASS) {
             disable(Capability.EMPTY_NOMINAL_CLASS);
         }
-
         m_Capabilities.remove(c);
     }
 
@@ -835,7 +807,6 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
      * @param c the capability to disable the dependency flag for
      */
     public void disableDependency(Capability c) {
-
         // attributes
         if (c == Capability.NOMINAL_ATTRIBUTES) {
             disableDependency(Capability.BINARY_ATTRIBUTES);
@@ -852,7 +823,6 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
         } else if (c == Capability.UNARY_CLASS) {
             disableDependency(Capability.EMPTY_NOMINAL_CLASS);
         }
-
         m_Dependencies.remove(c);
     }
 
@@ -863,7 +833,6 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
      * @see #getClassCapabilities()
      */
     public void disableAllClasses() {
-
         for (Capability cap : Capability.values()) {
             if (cap.isClass()) {
                 disable(cap);
@@ -878,7 +847,6 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
      * @see #getClassCapabilities()
      */
     public void disableAllClassDependencies() {
-
         for (Capability cap : Capability.values()) {
             if (cap.isClass()) {
                 disableDependency(cap);
@@ -908,7 +876,6 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
      * @see #getAttributeCapabilities()
      */
     public void disableAllAttributeDependencies() {
-
         for (Capability cap : Capability.values()) {
             if (cap.isAttribute()) {
                 disableDependency(cap);
@@ -920,7 +887,6 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
      * disables all attribute and class types (including dependencies)
      */
     public void disableAll() {
-
         disableAllAttributes();
         disableAllAttributeDependencies();
         disableAllClasses();
@@ -959,7 +925,6 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
      */
     public Capabilities getAttributeCapabilities() {
         Capabilities result;
-
         result = new Capabilities(getOwner());
 
         for (Capability cap : Capability.values()) {
@@ -969,7 +934,6 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
                 }
             }
         }
-
         return result;
     }
 
@@ -980,9 +944,7 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
      */
     public Capabilities getOtherCapabilities() {
         Capabilities result;
-
         result = new Capabilities(getOwner());
-
         for (Capability cap : Capability.values()) {
             if (cap.isOtherCapability()) {
                 if (handles(cap)) {
@@ -990,31 +952,27 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
                 }
             }
         }
-
         return result;
     }
 
     /**
      * returns true if the classifier handler has the specified capability
      *
-     * @param c the capability to test
+     * @param capability the capability to test
      * @return true if the classifier handler has the capability
      */
-    public boolean handles(Capability c) {
-
-        return m_Capabilities.contains(c);
+    public boolean handles(Capability capability) {
+        return m_Capabilities.contains(capability);
     }
 
     /**
-     * returns true if the classifier handler has a dependency for the specified
-     * capability
+     * returns true if the classifier handler has a dependency for the specified capability.
      *
      * @param c the capability to test
      * @return true if the classifier handler has a dependency for the capability
      */
-    public boolean hasDependency(Capability c) {
-
-        return m_Dependencies.contains(c);
+    public boolean hasDependency(Capability capability) {
+        return m_Dependencies.contains(capability);
     }
 
     /**
@@ -1023,7 +981,6 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
      * @return true if there is at least one dependency for a capability
      */
     public boolean hasDependencies() {
-
         return (m_Dependencies.size() > 0);
     }
 
@@ -1033,28 +990,24 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
      * @return the reason why the tests failed
      */
     public Exception getFailReason() {
-
         return m_FailReason;
     }
 
     /**
-     * Generates the message for, e.g., an exception. Adds the classname before
-     * the actual message and returns that string.
+     * Generates the message for, e.g., an exception.
+     * Adds the classname before the actual message and returns that string.
      *
      * @param msg the actual content of the message, e.g., exception
      * @return the new message
      */
     protected String createMessage(String msg) {
         String result;
-
         if (getOwner() != null) {
             result = getOwner().getClass().getName();
         } else {
             result = "<anonymous>";
         }
-
         result += ": " + msg;
-
         return result;
     }
 
@@ -1081,26 +1034,21 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
      * @see #m_AttributeTest
      */
     public boolean test(Attribute att, boolean isClass) {
-
         // Do we actually want to check capabilities?
         if (doNotCheckCapabilities()) {
             return true;
         }
-
         boolean result;
         Capability cap;
         Capability capBinary;
         Capability capUnary;
         Capability capEmpty;
         String errorStr;
-
         result = true;
-
         // shall we test the data?
         if (!m_AttributeTest) {
             return result;
         }
-
         // for exception
         if (isClass) {
             errorStr = "class";
@@ -1239,7 +1187,6 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
      * Gets the class for the given name. Return Object if class is not found.
      */
     protected static Class getClass(String name) {
-
         try {
             return Class.forName(name);
         } catch (Exception ex) {
@@ -1266,7 +1213,6 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
      * @see #m_MinimumNumberInstancesTest
      */
     public boolean test(Instances data, int fromIndex, int toIndex) {
-
         // Do we actually want to check capabilities?
         if (doNotCheckCapabilities()) {
             return true;
