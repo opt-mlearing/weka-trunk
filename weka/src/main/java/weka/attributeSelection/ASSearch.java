@@ -33,8 +33,7 @@ import weka.core.*;
  * @author Mark Hall (mhall@cs.waikato.ac.nz)
  * @version $Revision$
  */
-public abstract class ASSearch
-        implements Serializable, RevisionHandler, OptionHandler {
+public abstract class ASSearch implements Serializable, RevisionHandler, OptionHandler {
 
     /**
      * for serialization

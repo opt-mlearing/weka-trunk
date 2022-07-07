@@ -56,6 +56,7 @@ package weka.attributeSelection;
 
 
 /**
+ * 属性集评估器, 评估属性的集合.
  * Abstract attribute set evaluator.
  *
  * @author Zheng Zhao: zhaozheng at asu.edu

@@ -105,10 +105,12 @@ import weka.core.Capabilities.Capability;
  * @author Mark Hall (mhall@cs.waikato.ac.nz)
  * @version $Revision$
  */
-public class AttributeSelectedClassifier
-        extends SingleClassifierEnhancer
-        implements OptionHandler, Drawable, AdditionalMeasureProducer,
-        WeightedInstancesHandler {
+// 元分类器.
+// AttributeSelectedClassifier与分类器FilteredClassifier类似，但不采用将基分类器和过滤器作为参数来执行过滤操作.
+// 而是使用一个由 {@link weka.attributeSelection.ASEvaluation} 派生的搜索算法，以及一个由{@link weka.attributeSelection.ASSearch}
+// 派生的评估器来执行属性选择，并由基分类器对精简后的数据进行训练.
+public class AttributeSelectedClassifier extends SingleClassifierEnhancer
+        implements OptionHandler, Drawable, AdditionalMeasureProducer, WeightedInstancesHandler {
 
     /**
      * for serialization

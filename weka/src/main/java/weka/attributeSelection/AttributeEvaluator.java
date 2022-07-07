@@ -23,6 +23,7 @@ package weka.attributeSelection;
 
 
 /**
+ * 单属性的评估器.
  * Interface for classes that evaluate attributes individually.
  *
  * @author Mark Hall (mhall@cs.waikato.ac.nz)

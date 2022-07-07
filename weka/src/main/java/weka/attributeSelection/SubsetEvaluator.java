@@ -24,6 +24,7 @@ package weka.attributeSelection;
 import java.util.BitSet;
 
 /**
+ * 属性子集的评估器. 对数据集全部属性的子集进行评估.
  * Interface for attribute subset evaluators.
  *
  * @author Mark Hall (mhall@cs.waikato.ac.nz)
