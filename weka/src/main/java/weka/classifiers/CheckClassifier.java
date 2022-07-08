@@ -27,6 +27,7 @@ import java.util.Enumeration;
 import java.util.Random;
 import java.util.Vector;
 
+import weka.clusterers.Clusterer;
 import weka.core.Attribute;
 import weka.core.CheckScheme;
 import weka.core.Instance;
@@ -196,6 +197,17 @@ import weka.core.WeightedInstancesHandler;
  * @version $Revision$
  * @see TestInstances
  */
+// weka官方提供的辅助类，用户可以使用 CheckClassifier类检测某个自定义分类器的基本行为.
+// 这是一个检查分类器的能力(capabilities)以及发现问题的weka官方检测试类.
+// 如果利用weka库实现新的分类器，强烈建议运行 CheckClassifier 类进行检查，保证自定义分类器的正确性和健壮性.
+
+/**
+ * CheckClassifier约定：
+ * 1）每次调用分类器的{@link Clusterer#buildClusterer(weka.core.Instances)}方法时，分类器必须重置(复位)模型；保证分类结果的一致性.
+ * 2.1）当某个分类器不能做出预测时，{@link weka.clusterers.Clusterer#clusterInstance(weka.core.Instance)}必须返回Instance.missingValue();
+ * 2.2) 当某个分类器不能做出预测时，{@link Clusterer#distributionForInstance(weka.core.Instance)}所有类别对应的概率均为0;
+ * 3) toString()方法返回描述;
+ **/
 public class CheckClassifier extends CheckScheme {
 
     /*

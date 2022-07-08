@@ -68,7 +68,6 @@ public abstract class Check implements OptionHandler, RevisionHandler {
     @Override
     public void setOptions(String[] options) throws Exception {
         setDebug(Utils.getFlag('D', options));
-
         setSilent(Utils.getFlag('S', options));
     }
 
@@ -98,8 +97,7 @@ public abstract class Check implements OptionHandler, RevisionHandler {
      * Tries to instantiate a new instance of the given class and checks whether
      * it is an instance of the specified class. For convenience one can also
      * specify a classname prefix (e.g., "weka.classifiers") to avoid long
-     * classnames and then instantiate it with the shortened classname (e.g.,
-     * "trees.J48").
+     * classnames and then instantiate it with the shortened classname (e.g., "trees.J48").
      *
      * @param prefix    the classname prefix (without trailing dot)
      * @param cls       the class to check whether the generated object is an instance
@@ -109,8 +107,7 @@ public abstract class Check implements OptionHandler, RevisionHandler {
      * @return the configured object
      * @throws Exception if instantiation fails
      */
-    protected Object forName(String prefix, Class<?> cls, String classname,
-                             String[] options) throws Exception {
+    protected Object forName(String prefix, Class<?> cls, String classname, String[] options) throws Exception {
 
         Object result;
 
@@ -239,4 +236,5 @@ public abstract class Check implements OptionHandler, RevisionHandler {
             System.err.println(ex.getMessage());
         }
     }
+
 }

@@ -28,25 +28,22 @@ import java.util.StringTokenizer;
 import java.util.Vector;
 
 /**
- * Abstract general class for testing schemes in Weka. Derived classes are
- * also used for JUnit tests.
+ * Abstract general class for testing schemes in Weka. Derived classes are also used for JUnit tests.
  *
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  * @see TestInstances
  */
-public abstract class CheckScheme
-        extends Check {
+public abstract class CheckScheme extends Check {
 
     /**
      * a class for postprocessing the test-data
      */
-    public static class PostProcessor
-            implements RevisionHandler {
+    public static class PostProcessor implements RevisionHandler {
 
         /**
-         * Provides a hook for derived classes to further modify the data. Currently,
-         * the data is just passed through.
+         * Provides a hook for derived classes to further modify the data.
+         * Currently, the data is just passed through.
          *
          * @param data the data to process
          * @return the processed data
@@ -131,44 +128,34 @@ public abstract class CheckScheme
 
         result.addAll(Collections.list(super.listOptions()));
 
-        result.addElement(new Option(
-                "\tThe number of instances in the datasets (default 20).",
+        result.addElement(new Option("\tThe number of instances in the datasets (default 20).",
                 "N", 1, "-N <num>"));
 
-        result.addElement(new Option(
-                "\tThe number of nominal attributes (default 2).",
+        result.addElement(new Option("\tThe number of nominal attributes (default 2).",
                 "nominal", 1, "-nominal <num>"));
 
-        result.addElement(new Option(
-                "\tThe number of values for nominal attributes (default 1).",
+        result.addElement(new Option("\tThe number of values for nominal attributes (default 1).",
                 "nominal-values", 1, "-nominal-values <num>"));
 
-        result.addElement(new Option(
-                "\tThe number of numeric attributes (default 1).",
+        result.addElement(new Option("\tThe number of numeric attributes (default 1).",
                 "numeric", 1, "-numeric <num>"));
 
-        result.addElement(new Option(
-                "\tThe number of string attributes (default 1).",
+        result.addElement(new Option("\tThe number of string attributes (default 1).",
                 "string", 1, "-string <num>"));
 
-        result.addElement(new Option(
-                "\tThe number of date attributes (default 1).",
+        result.addElement(new Option("\tThe number of date attributes (default 1).",
                 "date", 1, "-date <num>"));
 
-        result.addElement(new Option(
-                "\tThe number of relational attributes (default 1).",
+        result.addElement(new Option("\tThe number of relational attributes (default 1).",
                 "relational", 1, "-relational <num>"));
 
-        result.addElement(new Option(
-                "\tThe number of instances in relational/bag attributes (default 10).",
+        result.addElement(new Option("\tThe number of instances in relational/bag attributes (default 10).",
                 "num-instances-relational", 1, "-num-instances-relational <num>"));
 
-        result.addElement(new Option(
-                "\tThe words to use in string attributes.",
+        result.addElement(new Option("\tThe words to use in string attributes.",
                 "words", 1, "-words <comma-separated-list>"));
 
-        result.addElement(new Option(
-                "\tThe word separators to use in string attributes.",
+        result.addElement(new Option("\tThe word separators to use in string attributes.",
                 "word-separators", 1, "-word-separators <chars>"));
 
         return result.elements();
@@ -186,52 +173,36 @@ public abstract class CheckScheme
         super.setOptions(options);
 
         tmpStr = Utils.getOption('N', options);
-        if (tmpStr.length() != 0)
-            setNumInstances(Integer.parseInt(tmpStr));
-        else
-            setNumInstances(20);
+        if (tmpStr.length() != 0) setNumInstances(Integer.parseInt(tmpStr));
+        else setNumInstances(20);
 
         tmpStr = Utils.getOption("nominal", options);
-        if (tmpStr.length() != 0)
-            setNumNominal(Integer.parseInt(tmpStr));
-        else
-            setNumNominal(2);
+        if (tmpStr.length() != 0) setNumNominal(Integer.parseInt(tmpStr));
+        else setNumNominal(2);
 
         tmpStr = Utils.getOption("numeric", options);
-        if (tmpStr.length() != 0)
-            setNumNumeric(Integer.parseInt(tmpStr));
-        else
-            setNumNumeric(1);
+        if (tmpStr.length() != 0) setNumNumeric(Integer.parseInt(tmpStr));
+        else setNumNumeric(1);
 
         tmpStr = Utils.getOption("string", options);
-        if (tmpStr.length() != 0)
-            setNumString(Integer.parseInt(tmpStr));
-        else
-            setNumString(1);
+        if (tmpStr.length() != 0) setNumString(Integer.parseInt(tmpStr));
+        else setNumString(1);
 
         tmpStr = Utils.getOption("date", options);
-        if (tmpStr.length() != 0)
-            setNumDate(Integer.parseInt(tmpStr));
-        else
-            setNumDate(1);
+        if (tmpStr.length() != 0) setNumDate(Integer.parseInt(tmpStr));
+        else setNumDate(1);
 
         tmpStr = Utils.getOption("relational", options);
-        if (tmpStr.length() != 0)
-            setNumRelational(Integer.parseInt(tmpStr));
-        else
-            setNumRelational(1);
+        if (tmpStr.length() != 0) setNumRelational(Integer.parseInt(tmpStr));
+        else setNumRelational(1);
 
         tmpStr = Utils.getOption("num-instances-relational", options);
-        if (tmpStr.length() != 0)
-            setNumInstancesRelational(Integer.parseInt(tmpStr));
-        else
-            setNumInstancesRelational(10);
+        if (tmpStr.length() != 0) setNumInstancesRelational(Integer.parseInt(tmpStr));
+        else setNumInstancesRelational(10);
 
         tmpStr = Utils.getOption("words", options);
-        if (tmpStr.length() != 0)
-            setWords(tmpStr);
-        else
-            setWords(new TestInstances().getWords());
+        if (tmpStr.length() != 0) setWords(tmpStr);
+        else setWords(new TestInstances().getWords());
 
         if (Utils.getOptionPos("word-separators", options) > -1) {
             tmpStr = Utils.getOption("word-separators", options);
@@ -239,6 +210,7 @@ public abstract class CheckScheme
         } else {
             setWordSeparators(TestInstances.DEFAULT_SEPARATORS);
         }
+
     }
 
     /**
@@ -254,8 +226,9 @@ public abstract class CheckScheme
         result = new Vector<String>();
 
         options = super.getOptions();
-        for (i = 0; i < options.length; i++)
+        for (i = 0; i < options.length; i++) {
             result.add(options[i]);
+        }
 
         result.add("-N");
         result.add("" + getNumInstances());
@@ -453,12 +426,11 @@ public abstract class CheckScheme
     protected static String[] listToArray(String value) {
         StringTokenizer tok;
         Vector<String> list;
-
         list = new Vector<String>();
         tok = new StringTokenizer(value, ",");
-        while (tok.hasMoreTokens())
+        while (tok.hasMoreTokens()) {
             list.add(tok.nextToken());
-
+        }
         return (String[]) list.toArray(new String[list.size()]);
     }
 
@@ -471,15 +443,13 @@ public abstract class CheckScheme
     protected static String arrayToList(String[] value) {
         String result;
         int i;
-
         result = "";
-
         for (i = 0; i < value.length; i++) {
-            if (i > 0)
+            if (i > 0) {
                 result += ",";
+            }
             result += value[i];
         }
-
         return result;
     }
 
@@ -491,32 +461,25 @@ public abstract class CheckScheme
      */
     public static String attributeTypeToString(int type) {
         String result;
-
         switch (type) {
             case Attribute.NUMERIC:
                 result = "numeric";
                 break;
-
             case Attribute.NOMINAL:
                 result = "nominal";
                 break;
-
             case Attribute.STRING:
                 result = "string";
                 break;
-
             case Attribute.DATE:
                 result = "date";
                 break;
-
             case Attribute.RELATIONAL:
                 result = "relational";
                 break;
-
             default:
                 result = "???";
         }
-
         return result;
     }
 
@@ -528,9 +491,9 @@ public abstract class CheckScheme
      * @throws IllegalArgumentException if not at least 2 words are provided
      */
     public void setWords(String value) {
-        if (listToArray(value).length < 2)
+        if (listToArray(value).length < 2) {
             throw new IllegalArgumentException("At least 2 words must be provided!");
-
+        }
         m_Words = listToArray(value);
     }
 
@@ -568,8 +531,7 @@ public abstract class CheckScheme
      * @param data2 the other set of instances
      * @throws Exception if the datasets differ
      */
-    protected void compareDatasets(Instances data1, Instances data2)
-            throws Exception {
+    protected void compareDatasets(Instances data1, Instances data2) throws Exception {
 
         if (!data2.equalHeaders(data1)) {
             throw new Exception("header has been modified\n" + data2.equalHeadersMsg(data1));
@@ -605,18 +567,16 @@ public abstract class CheckScheme
      * @param predictorMissing if true, predictor attributes will be modified
      * @param classMissing     if true, the class attribute will be modified
      */
-    protected void addMissing(Instances data, int level,
-                              boolean predictorMissing, boolean classMissing) {
-
+    protected void addMissing(Instances data, int level, boolean predictorMissing, boolean classMissing) {
         int classIndex = data.classIndex();
         Random random = new Random(1);
         for (int i = 0; i < data.numInstances(); i++) {
             Instance current = data.instance(i);
             for (int j = 0; j < data.numAttributes(); j++) {
-                if (((j == classIndex) && classMissing) ||
-                        ((j != classIndex) && predictorMissing)) {
-                    if (random.nextInt(100) < level)
+                if (((j == classIndex) && classMissing) || ((j != classIndex) && predictorMissing)) {
+                    if (random.nextInt(100) < level) {
                         current.setMissing(j);
+                    }
                 }
             }
         }
@@ -630,9 +590,11 @@ public abstract class CheckScheme
      * @see #m_PostProcessor
      */
     protected Instances process(Instances data) {
-        if (getPostProcessor() == null)
+        if (getPostProcessor() == null) {
             return data;
-        else
+        } else {
             return getPostProcessor().process(data);
+        }
     }
+
 }
