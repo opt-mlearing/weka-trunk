@@ -39,13 +39,13 @@ import java.util.Enumeration;
 import java.util.Vector;
 
 /**
+ * 聚类器.
  * Abstract clusterer.
  *
  * @author Mark Hall (mhall@cs.waikato.ac.nz)
  * @version $Revision$
  */
-public abstract class AbstractClusterer
-        implements Clusterer, Cloneable, Serializable, CapabilitiesHandler,
+public abstract class AbstractClusterer implements Clusterer, Cloneable, Serializable, CapabilitiesHandler,
         RevisionHandler, OptionHandler, CapabilitiesIgnorer, CommandlineRunnable {
 
     /**

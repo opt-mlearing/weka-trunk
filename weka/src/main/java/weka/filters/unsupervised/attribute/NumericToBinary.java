@@ -42,6 +42,10 @@ import weka.filters.StreamableFilter;
 import weka.filters.UnsupervisedFilter;
 
 /**
+ * 过滤器采用将非零值变为1的办法，将所有数值属性转换成二元属性.
+ * 如果设置了类别属性则除外，新属性是标称类型.
+ * 如果数值类型的值恰好是零，那么新属性的值也是零.如果数值属性的值丢失，新属性的值也将丢失,否则，新属性的值将是1.
+ * <p>
  * <!-- globalinfo-start --> Converts all numeric attributes into binary
  * attributes (apart from the class attribute, if set): if the value of the
  * numeric attribute is exactly zero, the value of the new attribute will be

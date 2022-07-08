@@ -41,9 +41,9 @@ import java.util.Enumeration;
 import java.util.Vector;
 
 /**
- * Abstract classifier. All schemes for numeric or nominal prediction in Weka
- * extend this class. Note that a classifier MUST either implement
- * distributionForInstance() or classifyInstance().
+ * 分类器.
+ * Abstract classifier. All schemes for numeric or nominal prediction in Weka extend this class.
+ * Note that a classifier MUST either implement distributionForInstance() or classifyInstance().
  *
  * @author Eibe Frank (eibe@cs.waikato.ac.nz)
  * @author Len Trigg (trigg@cs.waikato.ac.nz)

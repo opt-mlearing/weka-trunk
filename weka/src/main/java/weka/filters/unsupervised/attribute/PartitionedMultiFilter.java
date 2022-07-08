@@ -72,7 +72,8 @@ import java.util.Vector;
  * @version $Revision$
  * @see weka.filters.StreamableFilter
  */
-// 一种特殊的过滤器，在输入数据集中的应用一组过滤器.类似一组过滤器的管理器.
+// 是一个元过滤器，该过滤器对指定范围的属性子集应用多个过滤器，并汇聚输出到一个新的数据集。
+// 不包括在所选范围内的属性，可以从输出中选择保留或删除.
 public class PartitionedMultiFilter extends SimpleBatchFilter
         implements WeightedInstancesHandler, WeightedAttributesHandler {
 
@@ -271,9 +272,8 @@ public class PartitionedMultiFilter extends SimpleBatchFilter
      */
     protected void checkDimensions() throws Exception {
         if (getFilters().length != getRanges().length) {
-            throw new IllegalArgumentException("Number of filters (= "
-                    + getFilters().length + ") " + "and ranges (= " + getRanges().length
-                    + ") don't match!");
+            throw new IllegalArgumentException("Number of filters (= " + getFilters().length + ") "
+                    + "and ranges (= " + getRanges().length + ") don't match!");
         }
     }
 
@@ -329,8 +329,8 @@ public class PartitionedMultiFilter extends SimpleBatchFilter
     }
 
     /**
-     * Sets the list of possible filters to choose from. Also resets the state of
-     * the filter (this reset doesn't affect the options).
+     * Sets the list of possible filters to choose from.
+     * Also resets the state of the filter(this reset doesn't affect the options).
      *
      * @param filters an array of filters with all options set.
      * @see #reset()
@@ -352,8 +352,7 @@ public class PartitionedMultiFilter extends SimpleBatchFilter
     /**
      * Returns the tip text for this property.
      *
-     * @return tip text for this property suitable for displaying in the
-     * explorer/experimenter gui
+     * @return tip text for this property suitable for displaying in the explorer/experimenter gui.
      */
     public String filtersTipText() {
         return "The base filters to be used.";
@@ -383,8 +382,7 @@ public class PartitionedMultiFilter extends SimpleBatchFilter
         } else {
             result = filter.getClass().getName();
             if (filter instanceof OptionHandler) {
-                result += " "
-                        + Utils.joinOptions(((OptionHandler) filter).getOptions());
+                result += " " + Utils.joinOptions(((OptionHandler) filter).getOptions());
             }
         }
 
@@ -392,8 +390,8 @@ public class PartitionedMultiFilter extends SimpleBatchFilter
     }
 
     /**
-     * Sets the list of possible Ranges to choose from. Also resets the state of
-     * the Range (this reset doesn't affect the options).
+     * Sets the list of possible Ranges to choose from.
+     * Also resets the state of the Range (this reset doesn't affect the options).
      *
      * @param Ranges an array of Ranges with all options set.
      * @see #reset()
@@ -415,8 +413,7 @@ public class PartitionedMultiFilter extends SimpleBatchFilter
     /**
      * Returns the tip text for this property.
      *
-     * @return tip text for this property suitable for displaying in the
-     * explorer/experimenter gui
+     * @return tip text for this property suitable for displaying in the explorer/experimenter gui
      */
     public String rangesTipText() {
         return "The attribute ranges to be used; 'inv(...)' denotes an inverted range.";
@@ -433,8 +430,7 @@ public class PartitionedMultiFilter extends SimpleBatchFilter
     }
 
     /**
-     * determines the indices of unused attributes (ones that are not covered by
-     * any of the range).
+     * determines the indices of unused attributes (ones that are not covered by any of the range).
      *
      * @param data the data to base the determination on
      * @see #m_IndicesUnused
@@ -472,8 +468,7 @@ public class PartitionedMultiFilter extends SimpleBatchFilter
         }
 
         if (getDebug()) {
-            System.out.println("Unused indices: "
-                    + Utils.arrayToString(m_IndicesUnused));
+            System.out.println("Unused indices: " + Utils.arrayToString(m_IndicesUnused));
         }
     }
 
@@ -486,8 +481,7 @@ public class PartitionedMultiFilter extends SimpleBatchFilter
      * @return the generated subset
      * @throws Exception if creation fails
      */
-    protected Instances generateSubset(Instances data, Range range)
-            throws Exception {
+    protected Instances generateSubset(Instances data, Range range) throws Exception {
         Remove filter;
         StringBuilder atts;
         Instances result;
@@ -528,8 +522,7 @@ public class PartitionedMultiFilter extends SimpleBatchFilter
      * @return a copy of the data with the attributes renamed
      * @throws Exception if renaming fails
      */
-    protected Instances renameAttributes(Instances data, String prefix)
-            throws Exception {
+    protected Instances renameAttributes(Instances data, String prefix) throws Exception {
         Instances result;
         int i;
         ArrayList<Attribute> atts;
@@ -571,8 +564,7 @@ public class PartitionedMultiFilter extends SimpleBatchFilter
      * @see #batchFinished()
      */
     @Override
-    protected Instances determineOutputFormat(Instances inputFormat)
-            throws Exception {
+    protected Instances determineOutputFormat(Instances inputFormat) throws Exception {
         Instances result;
         Instances processed;
         int i;
@@ -643,8 +635,8 @@ public class PartitionedMultiFilter extends SimpleBatchFilter
     }
 
     /**
-     * Processes the given data (may change the provided dataset) and returns the
-     * modified version. This method is called in batchFinished().
+     * Processes the given data (may change the provided dataset) and returns the modified version.
+     * This method is called in batchFinished().
      *
      * @param instances the data to process
      * @return the modified data
@@ -702,8 +694,7 @@ public class PartitionedMultiFilter extends SimpleBatchFilter
             }
         }
         if (errors.size() > 0) {
-            throw new IllegalStateException(
-                    "The following filter(s) changed the number of instances: " + errors);
+            throw new IllegalStateException("The following filter(s) changed the number of instances: " + errors);
         }
 
         // assemble data

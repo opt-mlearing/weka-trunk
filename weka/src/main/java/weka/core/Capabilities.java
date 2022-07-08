@@ -32,6 +32,8 @@ import java.util.Vector;
 import weka.core.converters.ConverterUtils.DataSource;
 
 /**
+ * Capabilities字面意思表示能力，weka的能力使学习方案可以表示它能够处理哪些数据特征.
+ * 封装该方案能处理的数据特征.
  * <p>
  * A class that describes the capabilites (e.g., handling certain types of
  * attributes, missing values, types of classes, etc.) of a specific classifier.
@@ -184,86 +186,105 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
         // attributes
         /**
          * can handle nominal attributes
+         * 能处理标称属性
          */
         NOMINAL_ATTRIBUTES(ATTRIBUTE + ATTRIBUTE_CAPABILITY, "Nominal attributes"),
         /**
          * can handle binary attributes
+         * 能处理二元属性
          */
         BINARY_ATTRIBUTES(ATTRIBUTE + ATTRIBUTE_CAPABILITY, "Binary attributes"),
         /**
          * can handle unary attributes
+         * 能处理一元属性
          */
         UNARY_ATTRIBUTES(ATTRIBUTE + ATTRIBUTE_CAPABILITY, "Unary attributes"),
         /**
          * can handle empty nominal attributes
+         * 能处理空标称属性
          */
         EMPTY_NOMINAL_ATTRIBUTES(ATTRIBUTE + ATTRIBUTE_CAPABILITY,
                 "Empty nominal attributes"),
         /**
          * can handle numeric attributes
+         * 能处理数值属性
          */
         NUMERIC_ATTRIBUTES(ATTRIBUTE + ATTRIBUTE_CAPABILITY, "Numeric attributes"),
         /**
          * can handle date attributes
+         * 能处理日期属性
          */
         DATE_ATTRIBUTES(ATTRIBUTE + ATTRIBUTE_CAPABILITY, "Date attributes"),
         /**
          * can handle string attributes
+         * 能处理字符串属性
          */
         STRING_ATTRIBUTES(ATTRIBUTE + ATTRIBUTE_CAPABILITY, "String attributes"),
         /**
          * can handle relational attributes
+         * 能处理关系属性
          */
-        RELATIONAL_ATTRIBUTES(ATTRIBUTE + ATTRIBUTE_CAPABILITY,
-                "Relational attributes"),
+        RELATIONAL_ATTRIBUTES(ATTRIBUTE + ATTRIBUTE_CAPABILITY, "Relational attributes"),
         /**
          * can handle missing values in attributes
+         * 能处理属性中的缺失值
          */
         MISSING_VALUES(ATTRIBUTE_CAPABILITY, "Missing values"),
         // class
         /**
          * can handle data without class attribute, eg clusterers
+         * 能处理无类别属性的数据，例如巨类器
          */
         NO_CLASS(CLASS_CAPABILITY, "No class"),
         /**
          * can handle nominal classes
+         * 能处理标称类别
          */
         NOMINAL_CLASS(CLASS + CLASS_CAPABILITY, "Nominal class"),
         /**
          * can handle binary classes
+         * 能处理二元类别
          */
         BINARY_CLASS(CLASS + CLASS_CAPABILITY, "Binary class"),
         /**
          * can handle unary classes
+         * 能处理一元类别
          */
         UNARY_CLASS(CLASS + CLASS_CAPABILITY, "Unary class"),
         /**
          * can handle empty nominal classes
+         * 能处理空标称类别
          */
         EMPTY_NOMINAL_CLASS(CLASS + CLASS_CAPABILITY, "Empty nominal class"),
         /**
          * can handle numeric classes
+         * 能处理数值类别
          */
         NUMERIC_CLASS(CLASS + CLASS_CAPABILITY, "Numeric class"),
         /**
          * can handle date classes
+         * 能处理日期类别
          */
         DATE_CLASS(CLASS + CLASS_CAPABILITY, "Date class"),
         /**
          * can handle string classes
+         * 能处理字符串类别
          */
         STRING_CLASS(CLASS + CLASS_CAPABILITY, "String class"),
         /**
          * can handle relational classes
+         * 能处理关系类别
          */
         RELATIONAL_CLASS(CLASS + CLASS_CAPABILITY, "Relational class"),
         /**
          * can handle missing values in class attribute
+         * 能处理类别属性的缺失值
          */
         MISSING_CLASS_VALUES(CLASS_CAPABILITY, "Missing class values"),
         // other
         /**
          * can handle multi-instance data
+         * 能处理多实例数据
          */
         ONLY_MULTIINSTANCE(OTHER_CAPABILITY, "Only multi-Instance data");
 
@@ -968,7 +989,7 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
     /**
      * returns true if the classifier handler has a dependency for the specified capability.
      *
-     * @param c the capability to test
+     * @param capability the capability to test
      * @return true if the classifier handler has a dependency for the capability
      */
     public boolean hasDependency(Capability capability) {

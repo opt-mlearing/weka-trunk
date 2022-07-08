@@ -58,6 +58,8 @@ import java.util.Vector;
  * @author fracpete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
+// 过滤器通过简单的添加的某个数字属性的所有观测值到标称值的列表，将数值属性装换为标称属性.
+// 不同与离散化，该过程只是将全部数字值添加到该属性的标称列表中.
 public class NumericToNominal extends SimpleBatchFilter implements WeightedInstancesHandler, WeightedAttributesHandler {
 
     /**

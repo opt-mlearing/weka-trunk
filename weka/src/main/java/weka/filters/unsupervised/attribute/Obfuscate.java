@@ -30,6 +30,8 @@ import weka.filters.StreamableFilter;
 import weka.filters.UnsupervisedFilter;
 
 /**
+ * Obfuscate是一个简单的实例过滤器，用于对关系、全部属性名称、以及所有标称型和字符串型属型值进行重命名，
+ * 对数据集进行模糊化处理，其目的主要是交换敏感数据集。目前不支持处理字符串属性和关系型属性.
  * <!-- globalinfo-start --> A simple instance filter that renames the relation,
  * all attribute names and all nominal attribute values. For
  * exchanging sensitive datasets. Leaves string and relational
@@ -40,8 +42,8 @@ import weka.filters.UnsupervisedFilter;
  * @author Len Trigg (len@reeltwo.com)
  * @version $Revision$
  */
-public class Obfuscate extends Filter implements UnsupervisedFilter,
-        StreamableFilter, WeightedAttributesHandler, WeightedInstancesHandler {
+public class Obfuscate extends Filter implements
+        UnsupervisedFilter, StreamableFilter, WeightedAttributesHandler, WeightedInstancesHandler {
 
     /**
      * for serialization
