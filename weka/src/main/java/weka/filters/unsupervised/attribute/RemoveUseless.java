@@ -52,6 +52,8 @@ import weka.filters.UnsupervisedFilter;
  * @author Richard Kirkby (rkirkby@cs.waikato.ac.nz)
  * @version $Revision$
  */
+// 过滤器删除全部值都不变的常量属性，以及差别较大的标称属性，即在全部实例中值都各部相同的标称属性.
+// 用户可以通过确定不相同的值的数量占值总数的百分比来决定可以容忍的变化度, 决定是否删除一个属性.
 public class RemoveUseless extends Filter implements UnsupervisedFilter,
         OptionHandler, WeightedInstancesHandler, WeightedAttributesHandler {
 
@@ -310,8 +312,8 @@ public class RemoveUseless extends Filter implements UnsupervisedFilter,
     }
 
     /**
-     * Sets the maximum variance attributes are allowed to have before they are
-     * deleted by the filter.
+     * 设置删除标称属性最大偏差的阈值.
+     * Sets the maximum variance attributes are allowed to have before they are deleted by the filter.
      *
      * @param maxVariance the maximum variance allowed, specified as a percentage
      */

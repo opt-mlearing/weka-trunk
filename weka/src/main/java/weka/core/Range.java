@@ -42,8 +42,7 @@ import java.util.Iterator;
  * @author Len Trigg (trigg@cs.waikato.ac.nz)
  * @version $Revision$
  */
-public class Range implements Serializable, RevisionHandler,
-        CustomDisplayStringProvider {
+public class Range implements Serializable, RevisionHandler, CustomDisplayStringProvider {
 
     /**
      * for serialization.

@@ -54,6 +54,7 @@ import weka.filters.UnsupervisedFilter;
  * @author Eibe Frank (eibe@cs.waikato.ac.nz)
  * @version $Revision$
  */
+// 过滤器根据属性值过滤实例.
 public class RemoveRange extends Filter implements UnsupervisedFilter,
         OptionHandler, WeightedAttributesHandler, WeightedInstancesHandler {
 

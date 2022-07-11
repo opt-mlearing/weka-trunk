@@ -28,9 +28,7 @@ import weka.classifiers.AbstractClassifier;
 import weka.classifiers.bayes.net.ADNode;
 import weka.classifiers.bayes.net.BIFReader;
 import weka.classifiers.bayes.net.ParentSet;
-import weka.classifiers.bayes.net.estimate.BayesNetEstimator;
-import weka.classifiers.bayes.net.estimate.DiscreteEstimatorBayes;
-import weka.classifiers.bayes.net.estimate.SimpleEstimator;
+import weka.classifiers.bayes.net.estimate.*;
 import weka.classifiers.bayes.net.search.SearchAlgorithm;
 import weka.classifiers.bayes.net.search.local.K2;
 import weka.classifiers.bayes.net.search.local.LocalScoreSearchAlgorithm;
@@ -621,6 +619,9 @@ public class BayesNet extends AbstractClassifier implements OptionHandler,
 
     /**
      * Set the Estimator Algorithm used in calculating the CPTs
+     * 设置贝叶斯网络的评估器算法，以寻找贝叶斯网络的条件概率。
+     * 目前支持的评估器有：{@link BayesNetEstimator}/{@link BMAEstimator}/
+     * {@link MultiNomialBMAEstimator}/{@link SimpleEstimator};
      *
      * @param newBayesNetEstimator the Estimator to use.
      */

@@ -63,8 +63,8 @@ import weka.core.Utils;
  * @author Len Trigg (trigg@cs.waikato.ac.nz)
  * @version $Revision$
  */
-public class TimeSeriesTranslate
-        extends AbstractTimeSeries {
+// 过滤器假定实例构成时间序列的数据，并采用以前（或未来）的实例的等效属性取代当前实例中的属性值.
+public class TimeSeriesTranslate extends AbstractTimeSeries {
 
     /**
      * for serialization

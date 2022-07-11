@@ -55,6 +55,7 @@ import weka.filters.UnsupervisedFilter;
  * @author Richard Kirkby (rkirkby@cs.waikato.ac.nz)
  * @version $Revision$
  */
+// 删除给定类型(标称型、数字型、字符型或日期型)的全部属性.
 public class RemoveType extends Filter implements UnsupervisedFilter,
         StreamableFilter, OptionHandler, WeightedAttributesHandler, WeightedInstancesHandler {
 

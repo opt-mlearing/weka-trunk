@@ -103,7 +103,8 @@ import weka.filters.SupervisedFilter;
  * @author Eibe Frank (eibe@cs.waikato.ac.nz)
  * @version $Revision$
  */
-// Discretize过滤器使用等宽或等频分箱将指定范围的数值属性离散化.
+// Discretize过滤器将数据集中一定范围内的数值属性离散化为标称属性，
+// 默认的离散化方法是 Fayyad & Irani的MDL判断.
 public class Discretize extends Filter implements SupervisedFilter,
         OptionHandler, WeightedInstancesHandler, WeightedAttributesHandler, TechnicalInformationHandler {
 
@@ -716,8 +717,7 @@ public class Discretize extends Filter implements SupervisedFilter,
     }
 
     /**
-     * Sets which attributes are to be Discretized (only numeric attributes among
-     * the selection will be Discretized).
+     * Sets which attributes are to be Discretized (only numeric attributes among the selection will be Discretized).
      *
      * @param rangeList a string representing the list of attributes. Since the
      *                  string will typically come from a user, attributes are indexed
@@ -726,7 +726,6 @@ public class Discretize extends Filter implements SupervisedFilter,
      * @throws IllegalArgumentException if an invalid range list is supplied
      */
     public void setAttributeIndices(String rangeList) {
-
         m_DiscretizeCols.setRanges(rangeList);
     }
 
@@ -740,17 +739,14 @@ public class Discretize extends Filter implements SupervisedFilter,
      * @throws IllegalArgumentException if an invalid set of ranges is supplied
      */
     public void setAttributeIndicesArray(int[] attributes) {
-
         setAttributeIndices(Range.indicesToRangeList(attributes));
     }
 
     /**
      * Gets the cut points for an attribute
      *
-     * @param attributeIndex the index (from 0) of the attribute to get the cut
-     *                       points of
-     * @return an array containing the cutpoints (or null if the attribute
-     * requested isn't being Discretized
+     * @param attributeIndex the index (from 0) of the attribute to get the cut points of
+     * @return an array containing the cutpoints (or null if the attribute requested isn't being Discretized)
      */
     public double[] getCutPoints(int attributeIndex) {
 
@@ -763,10 +759,8 @@ public class Discretize extends Filter implements SupervisedFilter,
     /**
      * Gets the bin ranges string for an attribute
      *
-     * @param attributeIndex the index (from 0) of the attribute to get the bin
-     *                       ranges string of
-     * @return the bin ranges string (or null if the attribute requested has been
-     * discretized into only one interval.)
+     * @param attributeIndex the index (from 0) of the attribute to get the bin ranges string of
+     * @return the bin ranges string (or null if the attribute requested has been discretized into only one interval.)
      */
     public String getBinRangesString(int attributeIndex) {
 
@@ -978,8 +972,7 @@ public class Discretize extends Filter implements SupervisedFilter,
      * @param lastPlusOne
      * @return
      */
-    private double[] cutPointsForSubset(Instances instances, int attIndex,
-                                        int first, int lastPlusOne) {
+    private double[] cutPointsForSubset(Instances instances, int attIndex, int first, int lastPlusOne) {
 
         double[][] counts, bestCounts;
         double[] priorCounts, left, right, cutPoints;

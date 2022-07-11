@@ -69,6 +69,7 @@ import weka.filters.SimpleStreamFilter;
  * @author fracpete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
+// 该过滤器是一个针对[标称属性]标签进行排序的简单过滤器.
 public class SortLabels extends SimpleStreamFilter implements WeightedInstancesHandler, WeightedAttributesHandler {
 
     /**

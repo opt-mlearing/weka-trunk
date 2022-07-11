@@ -58,6 +58,7 @@ import weka.filters.UnsupervisedFilter;
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
+// 更改属性的顺序.
 public class Reorder extends Filter implements UnsupervisedFilter,
         StreamableFilter, OptionHandler, WeightedAttributesHandler, WeightedInstancesHandler {
 

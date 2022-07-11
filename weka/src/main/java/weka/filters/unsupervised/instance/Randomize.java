@@ -51,6 +51,7 @@ import weka.gui.ProgrammaticProperty;
  * @author Len Trigg (trigg@cs.waikato.ac.nz)
  * @version $Revision$
  */
+// Randomize随机打乱通过的实例顺序.
 // 无监督实例过滤器，Randomize将数据集中的实例进行随机重排. 产生一种有放回或无放回的随机样本.
 public class Randomize extends Filter implements UnsupervisedFilter,
         OptionHandler, Randomizable, WeightedInstancesHandler, WeightedAttributesHandler {

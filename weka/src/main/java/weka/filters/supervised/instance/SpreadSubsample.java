@@ -74,6 +74,7 @@ import weka.gui.ProgrammaticProperty;
  * @version $Revision$
  **/
 // 有监督过滤器，产生一个随机子样本，可以控制最稀少&最常见的类别之间的频率差异.
+// 此过率器必须将原始数据完全加载到内存中，此过滤器允许指定最稀有与最常见类之间的最大"spread"差幅.
 public class SpreadSubsample extends Filter implements SupervisedFilter,
         OptionHandler, Randomizable, WeightedAttributesHandler {
 
@@ -89,11 +90,13 @@ public class SpreadSubsample extends Filter implements SupervisedFilter,
 
     /**
      * The maximum count of any class
+     * 任意分布最大计数，0== 无限制.
      */
     private int m_MaxCount;
 
     /**
      * True if the first batch has been done
+     * 最大分类分布的差幅，0== 最大差幅，1== 均匀分布，10== 允许分类之间最大比例为10：1.
      */
     private double m_DistributionSpread = 0;
 

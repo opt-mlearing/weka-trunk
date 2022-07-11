@@ -46,6 +46,7 @@ import weka.filters.UnsupervisedFilter;
  * @author Eibe Frank (eibe@cs.waikato.ac.nz)
  * @version $Revision$
  */
+// 该过滤器将给定数据集的全部[数值属性]标准化为校具有零均值和单位方差，而非数值类型的属性将忽略.
 public class Standardize extends PotentialClassIgnorer
         implements UnsupervisedFilter, Sourcable, WeightedAttributesHandler, WeightedInstancesHandler {
 

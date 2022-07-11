@@ -64,8 +64,8 @@ import weka.core.Utils;
  * @author Len Trigg (trigg@cs.waikato.ac.nz)
  * @version $Revision$
  */
-public class TimeSeriesDelta
-        extends TimeSeriesTranslate {
+// 实例过滤器，假定实例形成时序列数据，并将当前实例属性值替换的为以前（或未来）的实例的等效属性值与当前值之间的差值.
+public class TimeSeriesDelta extends TimeSeriesTranslate {
 
     /**
      * for serialization

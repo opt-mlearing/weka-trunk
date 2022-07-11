@@ -63,6 +63,8 @@ import weka.filters.SimpleBatchFilter;
  * @author eibe@cs.waikato.ac.nz
  * @version $Revision$
  */
+// 过滤器选择属性的一个随机子集, 可以用绝对数值或百分比指定抽取的范围.
+// 输出的新数据集总是把类别属性作为最后一个属性.
 public class RandomSubset extends SimpleBatchFilter
         implements Randomizable, WeightedInstancesHandler, WeightedAttributesHandler {
 

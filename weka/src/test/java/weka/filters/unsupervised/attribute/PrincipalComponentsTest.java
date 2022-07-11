@@ -35,8 +35,7 @@ import junit.textui.TestRunner;
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
-public class PrincipalComponentsTest
-        extends AbstractFilterTest {
+public class PrincipalComponentsTest extends AbstractFilterTest {
 
     /**
      * Initializes the test.

@@ -88,9 +88,8 @@ import weka.filters.UnsupervisedFilter;
  * @author fracpete (fracpete at waikato dot ac dot nz) -- filter code
  * @version $Revision$
  */
-// 过滤器在数据集上进行主成分转换.
-public class PrincipalComponents extends Filter implements OptionHandler,
-        UnsupervisedFilter {
+// PrincipalComponents过滤器进行数据的主成分分析和转换.
+public class PrincipalComponents extends Filter implements OptionHandler, UnsupervisedFilter {
 
     /**
      * for serialization.
@@ -357,8 +356,7 @@ public class PrincipalComponents extends Filter implements OptionHandler,
      * explorer/experimenter gui
      */
     public String centerDataTipText() {
-        return "Center (rather than standardize) the data. PCA will "
-                + "be computed from the covariance (rather than correlation) " + "matrix";
+        return "Center (rather than standardize) the data. PCA will " + "be computed from the covariance (rather than correlation) " + "matrix";
     }
 
     /**
@@ -498,18 +496,17 @@ public class PrincipalComponents extends Filter implements OptionHandler,
     }
 
     /**
-     * Determines the output format based on the input format and returns this. In
-     * case the output format cannot be returned immediately, i.e.,
-     * immediateOutputFormat() returns false, then this method will be called from
-     * batchFinished().
+     * Determines the output format based on the input format and returns this.
+     * In case the output format cannot be returned immediately, i.e.,
+     * immediateOutputFormat() returns false,
+     * then this method will be called from batchFinished().
      *
      * @param inputFormat the input format to base the output format on
      * @return the output format
      * @throws Exception in case the determination goes wrong
      * @see #batchFinished()
      */
-    protected Instances determineOutputFormat(Instances inputFormat)
-            throws Exception {
+    protected Instances determineOutputFormat(Instances inputFormat) throws Exception {
         double cumulative;
         ArrayList<Attribute> attributes;
         int i;
@@ -543,8 +540,7 @@ public class PrincipalComponents extends Filter implements OptionHandler,
             for (j = 0; j < m_NumAttribs; j++) {
                 coeff_mags[j] = -Math.abs(m_Eigenvectors[j][m_SortedEigens[i]]);
             }
-            num_attrs = (m_MaxAttrsInName > 0) ? Math.min(m_NumAttribs,
-                    m_MaxAttrsInName) : m_NumAttribs;
+            num_attrs = (m_MaxAttrsInName > 0) ? Math.min(m_NumAttribs, m_MaxAttrsInName) : m_NumAttribs;
 
             // this array contains the sorted indices of the coefficients
             if (m_NumAttribs > 0) {
@@ -582,8 +578,8 @@ public class PrincipalComponents extends Filter implements OptionHandler,
             attributes.add((Attribute) m_TrainCopy.classAttribute().copy());
         }
 
-        Instances outputFormat = new Instances(m_TrainCopy.relationName()
-                + "_principal components", attributes, 0);
+        Instances outputFormat =
+                new Instances(m_TrainCopy.relationName() + "_principal components", attributes, 0);
 
         // set the class to be the last attribute if necessary
         if (m_HasClass) {
@@ -596,7 +592,6 @@ public class PrincipalComponents extends Filter implements OptionHandler,
     }
 
     protected void fillCovariance() throws Exception {
-
 
         // just center the data or standardize it?
         if (m_center) {
@@ -614,16 +609,15 @@ public class PrincipalComponents extends Filter implements OptionHandler,
 
         for (int i = 0; i < m_NumAttribs; i++) {
             for (int j = i; j < m_NumAttribs; j++) {
-
                 double cov = 0;
                 for (Instance inst : m_TrainInstances) {
                     cov += inst.value(i) * inst.value(j);
                 }
-
                 cov /= m_TrainInstances.numInstances() - 1;
                 m_Correlation.set(i, j, cov);
             }
         }
+
     }
 
     /**
@@ -729,13 +723,11 @@ public class PrincipalComponents extends Filter implements OptionHandler,
 
         m_ReplaceMissingFilter = new ReplaceMissingValues();
         m_ReplaceMissingFilter.setInputFormat(m_TrainInstances);
-        m_TrainInstances = Filter.useFilter(m_TrainInstances,
-                m_ReplaceMissingFilter);
+        m_TrainInstances = Filter.useFilter(m_TrainInstances, m_ReplaceMissingFilter);
 
         m_NominalToBinaryFilter = new NominalToBinary();
         m_NominalToBinaryFilter.setInputFormat(m_TrainInstances);
-        m_TrainInstances = Filter.useFilter(m_TrainInstances,
-                m_NominalToBinaryFilter);
+        m_TrainInstances = Filter.useFilter(m_TrainInstances, m_NominalToBinaryFilter);
 
         // delete any attributes with only one distinct value or are all missing
         deleteCols = new Vector<Integer>();
@@ -800,8 +792,7 @@ public class PrincipalComponents extends Filter implements OptionHandler,
      * Sets the format of the input instances.
      *
      * @param instanceInfo an Instances object containing the input instance
-     *                     structure (any instances contained in the object are ignored -
-     *                     only the structure is required).
+     *                     structure (any instances contained in the object are ignored only the structure is required).
      * @return true if the outputFormat may be collected immediately
      * @throws Exception if the input format can't be set successfully
      */
@@ -819,8 +810,7 @@ public class PrincipalComponents extends Filter implements OptionHandler,
     }
 
     /**
-     * Input an instance for filtering. Filter requires all training instances be
-     * read before producing output.
+     * Input an instance for filtering. Filter requires all training instances be read before producing output.
      *
      * @param instance the input instance
      * @return true if the filtered instance may now be collected with output().

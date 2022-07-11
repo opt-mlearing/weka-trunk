@@ -21,8 +21,8 @@
 package weka.core;
 
 /**
- * Classes implementing this interface make it possible to turn off
- * capabilities checking.
+ * Capabilities关闭校验接口.
+ * Classes implementing this interface make it possible to turn off capabilities checking.
  *
  * @author Eibe Frank
  * @version $Revision: 11004 $

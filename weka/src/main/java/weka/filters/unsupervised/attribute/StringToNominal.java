@@ -57,6 +57,8 @@ import weka.filters.UnsupervisedFilter;
  * @author Len Trigg (len@reeltwo.com)
  * @version $Revision$
  */
+// StringToNominal将指定范围内的字符串属性（未指定值的数目）转换为标称值（指定值的数目）.
+// 注意：用户需要确保所有出现的字符串值都会在第一批数据中出现.
 public class StringToNominal extends Filter implements UnsupervisedFilter,
         OptionHandler, WeightedAttributesHandler, WeightedInstancesHandler {
 

@@ -48,6 +48,7 @@ import weka.filters.UnsupervisedFilter;
  * @author Eibe Frank (eibe@cs.waikato.ac.nz)
  * @version $Revision$
  */
+// 该过滤器将数据集中全部缺失的标称属性值和数值属性值替换为训练数据的模值(models)和均值.
 public class ReplaceMissingValues extends PotentialClassIgnorer implements
         UnsupervisedFilter, Sourcable, WeightedInstancesHandler,
         WeightedAttributesHandler {

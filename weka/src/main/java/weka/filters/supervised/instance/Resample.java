@@ -83,8 +83,8 @@ import weka.gui.ProgrammaticProperty;
  * @author Eibe Frank
  * @version $Revision$
  */
-public class Resample extends Filter
-        implements SupervisedFilter, OptionHandler, Randomizable, WeightedAttributesHandler {
+// 通过有放回或者无放回的抽样产生数据即集一个随机子样本.
+public class Resample extends Filter implements SupervisedFilter, OptionHandler, Randomizable, WeightedAttributesHandler {
 
     /**
      * for serialization.
@@ -93,27 +93,31 @@ public class Resample extends Filter
 
     /**
      * The subsample size, percent of original set, default 100%.
+     * 子样本大小占原始集的百分比.
      */
     protected double m_SampleSizePercent = 100;
 
     /**
      * The random number generator seed.
+     * 设置子采样的随机数种子.
      */
     protected int m_RandomSeed = 1;
 
     /**
      * The degree of bias towards uniform (nominal) class distribution.
+     * 是否使用均匀的分类偏倚，其值为0，保持原分类分布，其值为1，确保输出数据的分类分布是均匀的.
      */
     protected double m_BiasToUniformClass = 0;
 
     /**
      * Whether to perform sampling with replacement or without.
+     * 禁用实例放回抽样.
      */
     protected boolean m_NoReplacement = false;
 
     /**
-     * Whether to invert the selection (only if instances are drawn WITHOUT
-     * replacement).
+     * Whether to invert the selection (only if instances are drawn WITHOUT replacement).
+     * 反向选择，仅用于不替换抽取实例.
      *
      * @see #m_NoReplacement
      */
@@ -147,26 +151,22 @@ public class Resample extends Filter
 
         Vector<Option> result = new Vector<Option>(5);
 
-        result.addElement(new Option(
-                "\tSpecify the random number seed (default 1)", "S", 1, "-S <num>"));
+        result.addElement(new Option("\tSpecify the random number seed (default 1)",
+                "S", 1, "-S <num>"));
 
-        result.addElement(new Option(
-                "\tThe size of the output dataset, as a percentage of\n"
-                        + "\tthe input dataset (default 100)", "Z", 1, "-Z <num>"));
+        result.addElement(new Option("\tThe size of the output dataset, as a percentage of\n"
+                + "\tthe input dataset (default 100)", "Z", 1, "-Z <num>"));
 
-        result.addElement(new Option(
-                "\tBias factor towards uniform class distribution.\n"
-                        + "\t0 = distribution in input data -- 1 = uniform distribution.\n"
-                        + "\t(default 0)", "B", 1, "-B <num>"));
+        result.addElement(new Option("\tBias factor towards uniform class distribution.\n"
+                + "\t0 = distribution in input data -- 1 = uniform distribution.\n"
+                + "\t(default 0)", "B", 1, "-B <num>"));
 
-        result
-                .addElement(new Option("\tDisables replacement of instances\n"
-                        + "\t(default: with replacement)", "no-replacement", 0,
-                        "-no-replacement"));
+        result.addElement(new Option("\tDisables replacement of instances\n"
+                + "\t(default: with replacement)", "no-replacement", 0,
+                "-no-replacement"));
 
-        result.addElement(new Option(
-                "\tInverts the selection - only available with '-no-replacement'.", "V",
-                0, "-V"));
+        result.addElement(new Option("\tInverts the selection - only available with '-no-replacement'.",
+                "V", 0, "-V"));
 
         return result.elements();
     }

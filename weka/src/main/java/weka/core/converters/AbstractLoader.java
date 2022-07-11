@@ -25,13 +25,12 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
-import weka.core.CommandlineRunnable;
 import weka.core.Instance;
 import weka.core.Instances;
 
 /**
- * Abstract class gives default implementation of setSource methods. All other
- * methods must be overridden.
+ * Abstract class gives default implementation of setSource methods.
+ * All other methods must be overridden.
  *
  * @author Richard Kirkby (rkirkby@cs.waikato.ac.nz)
  * @version $Revision$
@@ -54,7 +53,6 @@ public abstract class AbstractLoader implements Loader {
      */
     @Override
     public void setRetrieval(int mode) {
-
         m_retrieval = mode;
     }
 
@@ -64,7 +62,6 @@ public abstract class AbstractLoader implements Loader {
      * @return the retrieval mode
      */
     protected int getRetrieval() {
-
         return m_retrieval;
     }
 
@@ -76,14 +73,13 @@ public abstract class AbstractLoader implements Loader {
      */
     @Override
     public void setSource(File file) throws IOException {
-
         throw new IOException("Setting File as source not supported");
     }
 
     /**
      * Default implementation sets retrieval mode to NONE
      *
-     * @throws never.
+     * @throws Exception;
      */
     @Override
     public void reset() throws Exception {
@@ -98,7 +94,6 @@ public abstract class AbstractLoader implements Loader {
      */
     @Override
     public void setSource(InputStream input) throws IOException {
-
         throw new IOException("Setting InputStream as source not supported");
     }
 
@@ -118,6 +113,5 @@ public abstract class AbstractLoader implements Loader {
      * To be overridden.
      */
     @Override
-    public abstract Instance getNextInstance(Instances structure)
-            throws IOException;
+    public abstract Instance getNextInstance(Instances structure) throws IOException;
 }

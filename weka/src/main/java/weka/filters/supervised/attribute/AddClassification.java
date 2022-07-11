@@ -97,6 +97,7 @@ import weka.filters.SimpleBatchFilter;
  * @author fracpete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
+// 顾虑器使用分类器为数据集添加分类器、分类分布和错误标志，分类器可以通过对数据本身进行训练得到，也可以通过序列化模型得到.
 public class AddClassification extends SimpleBatchFilter
         implements WeightedAttributesHandler, WeightedInstancesHandler {
 
@@ -113,8 +114,7 @@ public class AddClassification extends SimpleBatchFilter
     /**
      * The file from which to load a serialized classifier.
      */
-    protected File m_SerializedClassifierFile = new File(
-            System.getProperty("user.dir"));
+    protected File m_SerializedClassifierFile = new File(System.getProperty("user.dir"));
 
     /**
      * The actual classifier used to do the classification.
@@ -508,8 +508,9 @@ public class AddClassification extends SimpleBatchFilter
     }
 
     /**
-     * Gets the file pointing to a serialized, trained classifier. If it is null
-     * or pointing to a directory it will not be used.
+     * 序列化分类器文件，一个序列化模型文件，包含已经训练过的分类器.
+     * Gets the file pointing to a serialized, trained classifier.
+     * If it is null or pointing to a directory it will not be used.
      *
      * @return the file the serialized, trained classifier is located in
      */
@@ -518,9 +519,8 @@ public class AddClassification extends SimpleBatchFilter
     }
 
     /**
-     * Sets the file pointing to a serialized, trained classifier. If the argument
-     * is null, doesn't exist or pointing to a directory, then the value is
-     * ignored.
+     * Sets the file pointing to a serialized, trained classifier.
+     * If the argument is null, doesn't exist or pointing to a directory, then the value is ignored.
      *
      * @param value the file pointing to the serialized, trained classifier
      */

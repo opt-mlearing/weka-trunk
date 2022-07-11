@@ -61,6 +61,7 @@ import weka.filters.SupervisedFilter;
  * @author Eibe Frank (eibe@cs.waikato.ac.nz)
  * @version $Revision$
  */
+// 过滤器更改类别顺序，使类别值不按标头值中指定的顺序。类别值将按用用户指定的顺序，可以按类别频率升序/降序排列, 也可以随机顺序排列.
 public class ClassOrder extends Filter implements SupervisedFilter,
         OptionHandler, WeightedAttributesHandler, WeightedInstancesHandler {
 
@@ -257,8 +258,7 @@ public class ClassOrder extends Filter implements SupervisedFilter,
      * explorer/experimenter gui
      */
     public String classOrderTipText() {
-        return "Specify the class order after the filtering (0: ascending," +
-                "1: descending, or 2: random)";
+        return "Specify the class order after the filtering (0: ascending," + "1: descending, or 2: random)";
     }
 
     /**
@@ -431,17 +431,14 @@ public class ClassOrder extends Filter implements SupervisedFilter,
             }
 
             // Change the class values
-            ArrayList<String> values = new ArrayList<String>(data.classAttribute()
-                    .numValues());
+            ArrayList<String> values = new ArrayList<String>(data.classAttribute().numValues());
             for (int i = 0; i < data.numClasses(); i++) {
                 values.add(data.classAttribute().value(m_Converter[i]));
             }
-            ArrayList<Attribute> newVec = new ArrayList<Attribute>(
-                    data.numAttributes());
+            ArrayList<Attribute> newVec = new ArrayList<Attribute>(data.numAttributes());
             for (int i = 0; i < data.numAttributes(); i++) {
                 if (i == data.classIndex()) {
-                    newVec.add(new Attribute(data.classAttribute().name(), values, data
-                            .classAttribute().getMetadata()));
+                    newVec.add(new Attribute(data.classAttribute().name(), values, data.classAttribute().getMetadata()));
                 } else {
                     newVec.add(data.attribute(i));
                 }

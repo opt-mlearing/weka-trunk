@@ -53,8 +53,7 @@ import weka.core.Utils;
  * @author Remco Bouckaert (rrb@xm.co.nz)
  * @version $Revision$
  */
-public class BayesNetEstimator implements OptionHandler, Serializable,
-        RevisionHandler {
+public class BayesNetEstimator implements OptionHandler, Serializable, RevisionHandler {
 
     /**
      * for serialization
@@ -86,8 +85,7 @@ public class BayesNetEstimator implements OptionHandler, Serializable,
      * @throws Exception always throws an exception, since subclass needs to be
      *                   used
      */
-    public void updateClassifier(BayesNet bayesNet, Instance instance)
-            throws Exception {
+    public void updateClassifier(BayesNet bayesNet, Instance instance) throws Exception {
         throw new Exception("Incorrect BayesNetEstimator: use subclass instead.");
     }
 

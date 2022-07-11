@@ -109,8 +109,9 @@ import weka.filters.SupervisedFilter;
  * @author Mark Hall (mhall@cs.waikato.ac.nz)
  * @version $Revision$
  */
-public class AttributeSelection extends Filter implements SupervisedFilter,
-        OptionHandler, WeightedAttributesHandler, WeightedInstancesHandler {
+// 一个有监督的属性过滤器，可用于选择属性。该过滤器非常灵活，允许将各种搜索和评估方法联合使用.
+public class AttributeSelection extends Filter
+        implements SupervisedFilter, OptionHandler, WeightedAttributesHandler, WeightedInstancesHandler {
 
     /**
      * for serialization
@@ -149,7 +150,6 @@ public class AttributeSelection extends Filter implements SupervisedFilter,
      * explorer/experimenter gui
      */
     public String globalInfo() {
-
         return "A supervised attribute filter that can be used to select "
                 + "attributes. It is very flexible and allows various search "
                 + "and evaluation methods to be combined.";
@@ -159,7 +159,6 @@ public class AttributeSelection extends Filter implements SupervisedFilter,
      * Constructor
      */
     public AttributeSelection() {
-
         resetOptions();
     }
 
@@ -170,36 +169,27 @@ public class AttributeSelection extends Filter implements SupervisedFilter,
      */
     @Override
     public Enumeration<Option> listOptions() {
-
         Vector<Option> newVector = new Vector<Option>(6);
 
-        newVector.addElement(new Option(
-                "\tSets search method for subset evaluators.\n"
-                        + "\teg. -S \"weka.attributeSelection.BestFirst -S 8\"", "S", 1,
+        newVector.addElement(new Option("\tSets search method for subset evaluators.\n"
+                + "\teg. -S \"weka.attributeSelection.BestFirst -S 8\"", "S", 1,
                 "-S <\"Name of search class [search options]\">"));
-
-        newVector
-                .addElement(new Option("\tSets attribute/subset evaluator.\n"
-                        + "\teg. -E \"weka.attributeSelection.CfsSubsetEval -L\"", "E", 1,
-                        "-E <\"Name of attribute/subset evaluation class [evaluator options]\">"));
+        newVector.addElement(new Option("\tSets attribute/subset evaluator.\n"
+                + "\teg. -E \"weka.attributeSelection.CfsSubsetEval -L\"", "E", 1,
+                "-E <\"Name of attribute/subset evaluation class [evaluator options]\">"));
 
         if ((m_ASEvaluator != null) && (m_ASEvaluator instanceof OptionHandler)) {
-
             newVector.addElement(new Option("", "", 0, "\nOptions specific to "
                     + "evaluator " + m_ASEvaluator.getClass().getName() + ":"));
-
-            newVector.addAll(Collections.list(((OptionHandler) m_ASEvaluator)
-                    .listOptions()));
+            newVector.addAll(Collections.list(((OptionHandler) m_ASEvaluator).listOptions()));
         }
 
         if ((m_ASSearch != null) && (m_ASSearch instanceof OptionHandler)) {
-
             newVector.addElement(new Option("", "", 0, "\nOptions specific to "
                     + "search " + m_ASSearch.getClass().getName() + ":"));
-
-            newVector.addAll(Collections.list(((OptionHandler) m_ASSearch)
-                    .listOptions()));
+            newVector.addAll(Collections.list(((OptionHandler) m_ASSearch).listOptions()));
         }
+
         return newVector.elements();
     }
 
@@ -320,13 +310,13 @@ public class AttributeSelection extends Filter implements SupervisedFilter,
     }
 
     /**
-     * Gets the current settings for the attribute selection (search, evaluator)
-     * etc.
+     * Gets the current settings for the attribute selection (search, evaluator) etc.
      *
      * @return an array of strings suitable for passing to setOptions()
      */
     @Override
     public String[] getOptions() {
+
         String[] EvaluatorOptions = new String[0];
         String[] SearchOptions = new String[0];
         int current = 0;
@@ -341,13 +331,10 @@ public class AttributeSelection extends Filter implements SupervisedFilter,
 
         String[] setOptions = new String[10];
         setOptions[current++] = "-E";
-        setOptions[current++] =
-                getEvaluator().getClass().getName() + " "
-                        + Utils.joinOptions(EvaluatorOptions);
+        setOptions[current++] = getEvaluator().getClass().getName() + " " + Utils.joinOptions(EvaluatorOptions);
 
         setOptions[current++] = "-S";
-        setOptions[current++] =
-                getSearch().getClass().getName() + " " + Utils.joinOptions(SearchOptions);
+        setOptions[current++] = getSearch().getClass().getName() + " " + Utils.joinOptions(SearchOptions);
 
         while (current < setOptions.length) {
             setOptions[current++] = "";
@@ -359,8 +346,7 @@ public class AttributeSelection extends Filter implements SupervisedFilter,
     /**
      * Returns the tip text for this property
      *
-     * @return tip text for this property suitable for displaying in the
-     * explorer/experimenter gui
+     * @return tip text for this property suitable for displaying in the explorer/experimenter gui
      */
     public String evaluatorTipText() {
 
@@ -383,7 +369,6 @@ public class AttributeSelection extends Filter implements SupervisedFilter,
      * explorer/experimenter gui
      */
     public String searchTipText() {
-
         return "Determines the search method.";
     }
 
@@ -402,7 +387,6 @@ public class AttributeSelection extends Filter implements SupervisedFilter,
      * @return the name of the attribute/subset evaluator as a string
      */
     public ASEvaluation getEvaluator() {
-
         return m_ASEvaluator;
     }
 
@@ -412,7 +396,6 @@ public class AttributeSelection extends Filter implements SupervisedFilter,
      * @return the name of the search method as a string
      */
     public ASSearch getSearch() {
-
         return m_ASSearch;
     }
 
@@ -443,15 +426,14 @@ public class AttributeSelection extends Filter implements SupervisedFilter,
     }
 
     /**
-     * Input an instance for filtering. Ordinarily the instance is processed and
-     * made available for output immediately. Some filters require all instances
-     * be read before producing output.
+     * Input an instance for filtering.
+     * Ordinarily the instance is processed and made available for output immediately.
+     * Some filters require all instances be read before producing output.
      *
      * @param instance the input instance
      * @return true if the filtered instance may now be collected with output().
      * @throws IllegalStateException if no input format has been defined.
-     * @throws Exception             if the input instance was not of the correct format or if
-     *                               there was a problem with the filtering.
+     * @throws Exception             if the input instance was not of the correct format or if there was a problem with the filtering.
      */
     @Override
     public boolean input(Instance instance) throws Exception {

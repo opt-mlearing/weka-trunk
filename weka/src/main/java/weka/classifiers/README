@@ -1,0 +1,8 @@
+weka的分类算法按照其功能主要分成7种：
+1）bayes（贝叶斯）
+2）functions（功能）
+3）lazy（消极）
+4）meta（元）
+5）misc（杂项）
+6）rules（规则）
+7）trees（树）

@@ -35,12 +35,16 @@ import weka.filters.UnsupervisedFilter;
 
 /**
  * <!-- globalinfo-start -->
- * Reduces the dimensionality of the data by projecting it onto a lower dimensional subspace using a random matrix with columns of unit length. It will reduce the number of attributes in the data while preserving much of its variation like PCA, but at a much less computational cost.<br/>
- * It first applies the NominalToBinary filter to convert all attributes to numeric before reducing the dimension. It preserves the class attribute.<br/>
+ * Reduces the dimensionality of the data by projecting it onto a lower dimensional subspace using a random matrix with columns of unit length.
+ * It will reduce the number of attributes in the data while preserving much of its variation like PCA, but at a much less computational cost.<br/>
+ * It first applies the NominalToBinary filter to convert all attributes to numeric before reducing the dimension.
+ * It preserves the class attribute.<br/>
  * <br/>
  * For more information, see:<br/>
  * <br/>
- * Dmitriy Fradkin, David Madigan: Experiments with random projections for machine learning. In: KDD '03: Proceedings of the ninth ACM SIGKDD international conference on Knowledge discovery and data mining, New York, NY, USA, 517-522, 003.
+ * Dmitriy Fradkin, David Madigan: Experiments with random projections for machine learning.
+ * In: KDD '03: Proceedings of the ninth ACM SIGKDD international conference on Knowledge discovery and data mining,
+ * New York, NY, USA, 517-522, 003.
  * <p/>
  * <!-- globalinfo-end -->
  * <p>
@@ -65,7 +69,8 @@ import weka.filters.UnsupervisedFilter;
  *
  * <pre> -N &lt;number&gt;
  *  The number of dimensions (attributes) the data should be reduced to
- *  (default 10; exclusive of the class attribute, if it is set).</pre>
+ *  (default 10; exclusive of the class attribute, if it is set).
+ *  </pre>
  *
  * <pre> -D [SPARSE1|SPARSE2|GAUSSIAN]
  *  The distribution to use for calculating the random matrix.
@@ -77,12 +82,12 @@ import weka.filters.UnsupervisedFilter;
  *
  * <pre> -P &lt;percent&gt;
  *  The percentage of dimensions (attributes) the data should
- *  be reduced to (exclusive of the class attribute, if it is set). The -N
- *  option is ignored if this option is present and is greater
- *  than zero.</pre>
+ *  be reduced to (exclusive of the class attribute, if it is set).
+ *  The -N option is ignored if this option is present and is greater than zero.</pre>
  *
  * <pre> -M
- *  Replace missing values using the ReplaceMissingValues filter instead of just skipping them.</pre>
+ *  Replace missing values using the ReplaceMissingValues filter instead of just skipping them.
+ *  </pre>
  *
  * <pre> -R &lt;num&gt;
  *  The random seed for the random number generator used for
@@ -91,9 +96,10 @@ import weka.filters.UnsupervisedFilter;
  * <!-- options-end -->
  *
  * @author Ashraf M. Kibriya (amk14@cs.waikato.ac.nz)
- * @version $Revision$ [1.0 - 22 July 2003 - Initial version (Ashraf M.
- * Kibriya)]
+ * @version $Revision$ [1.0 - 22 July 2003 - Initial version (Ashraf M.Kibriya)]
  */
+// 使用里列为单位长度的随机矩阵，将数据投影到一个低维度子空间，以此来降低数据维度.
+// 类似PCA, RandomProjection过滤器会减少在数据中属性数目的同时，尽可能保留其变化，但计算量少的多.
 public class RandomProjection extends Filter implements UnsupervisedFilter,
         OptionHandler, TechnicalInformationHandler, Randomizable, WeightedInstancesHandler {
 
@@ -127,11 +133,12 @@ public class RandomProjection extends Filter implements UnsupervisedFilter,
     public static final int GAUSSIAN = 3;
 
     /**
-     * The types of distributions that can be used for calculating the random
-     * matrix
+     * The types of distributions that can be used for calculating the random matrix
      */
-    public static final Tag[] TAGS_DSTRS_TYPE = {new Tag(SPARSE1, "Sparse1"),
-            new Tag(SPARSE2, "Sparse2"), new Tag(GAUSSIAN, "Gaussian"),};
+    public static final Tag[] TAGS_DSTRS_TYPE = {
+            new Tag(SPARSE1, "Sparse1"),
+            new Tag(SPARSE2, "Sparse2"),
+            new Tag(GAUSSIAN, "Gaussian"),};
 
     /**
      * Stores the distribution to use for calculating the random matrix
@@ -139,8 +146,7 @@ public class RandomProjection extends Filter implements UnsupervisedFilter,
     protected int m_distribution = SPARSE1;
 
     /**
-     * Should the missing values be replaced using
-     * unsupervised.ReplaceMissingValues filter
+     * Should the missing values be replaced using unsupervised.ReplaceMissingValues filter
      */
     protected boolean m_useReplaceMissing = false;
 
@@ -189,24 +195,22 @@ public class RandomProjection extends Filter implements UnsupervisedFilter,
                         + "\t(default 10; exclusive of the class attribute, if it is set).",
                 "N", 1, "-N <number>"));
 
-        newVector
-                .addElement(new Option(
-                        "\tThe distribution to use for calculating the random matrix.\n"
-                                + "\tSparse1 is:\n"
-                                + "\t  sqrt(3)*{-1 with prob(1/6), 0 with prob(2/3), +1 with prob(1/6)}\n"
-                                + "\tSparse2 is:\n" + "\t  {-1 with prob(1/2), +1 with prob(1/2)}",
-                        "D", 1, "-D [SPARSE1|SPARSE2|GAUSSIAN]"));
+        newVector.addElement(new Option(
+                "\tThe distribution to use for calculating the random matrix.\n"
+                        + "\tSparse1 is:\n"
+                        + "\t  sqrt(3)*{-1 with prob(1/6), 0 with prob(2/3), +1 with prob(1/6)}\n"
+                        + "\tSparse2 is:\n" + "\t  {-1 with prob(1/2), +1 with prob(1/2)}",
+                "D", 1, "-D [SPARSE1|SPARSE2|GAUSSIAN]"));
 
         // newVector.addElement(new Option(
         // "\tUse Gaussian distribution for calculating the random matrix.",
         // "G", 0, "-G"));
 
-        newVector
-                .addElement(new Option(
-                        "\tThe percentage of dimensions (attributes) the data should\n"
-                                + "\tbe reduced to (exclusive of the class attribute, if it is set). The -N\n"
-                                + "\toption is ignored if this option is present and is greater\n"
-                                + "\tthan zero.", "P", 1, "-P <percent>"));
+        newVector.addElement(new Option(
+                "\tThe percentage of dimensions (attributes) the data should\n"
+                        + "\tbe reduced to (exclusive of the class attribute, if it is set). The -N\n"
+                        + "\toption is ignored if this option is present and is greater\n"
+                        + "\tthan zero.", "P", 1, "-P <percent>"));
 
         newVector.addElement(new Option(
                 "\tReplace missing values using the ReplaceMissingValues filter instead of just skipping them.",
@@ -333,11 +337,9 @@ public class RandomProjection extends Filter implements UnsupervisedFilter,
     /**
      * Returns a string describing this filter
      *
-     * @return a description of the filter suitable for displaying in the
-     * explorer/experimenter gui
+     * @return a description of the filter suitable for displaying in the explorer/experimenter gui
      */
     public String globalInfo() {
-
         return "Reduces the dimensionality of the data by projecting"
                 + " it onto a lower dimensional subspace using a random"
                 + " matrix with columns of unit length. It will reduce"
@@ -347,12 +349,13 @@ public class RandomProjection extends Filter implements UnsupervisedFilter,
                 + "It first applies the NominalToBinary filter to"
                 + " convert all attributes to numeric before reducing the"
                 + " dimension. It preserves the class attribute.\n\n"
-                + "For more information, see:\n\n" + getTechnicalInformation().toString();
+                + "For more information, see:\n\n"
+                + getTechnicalInformation().toString();
     }
 
     /**
-     * Returns an instance of a TechnicalInformation object, containing detailed
-     * information about the technical background of this class, e.g., paper
+     * Returns an instance of a TechnicalInformation object,
+     * containing detailed information about the technical background of this class, e.g., paper
      * reference or book this class is based on.
      *
      * @return the technical information about this class
@@ -363,12 +366,8 @@ public class RandomProjection extends Filter implements UnsupervisedFilter,
 
         result = new TechnicalInformation(Type.INPROCEEDINGS);
         result.setValue(Field.AUTHOR, "Dmitriy Fradkin and David Madigan");
-        result.setValue(Field.TITLE,
-                "Experiments with random projections for machine learning");
-        result
-                .setValue(
-                        Field.BOOKTITLE,
-                        "KDD '03: Proceedings of the ninth ACM SIGKDD International Conference on Knowledge Discovery and Data mining");
+        result.setValue(Field.TITLE, "Experiments with random projections for machine learning");
+        result.setValue(Field.BOOKTITLE, "KDD '03: Proceedings of the ninth ACM SIGKDD International Conference on Knowledge Discovery and Data mining");
         result.setValue(Field.YEAR, "003");
         result.setValue(Field.PAGES, "517-522");
         result.setValue(Field.PUBLISHER, "ACM Press");
@@ -380,13 +379,11 @@ public class RandomProjection extends Filter implements UnsupervisedFilter,
     /**
      * Returns the tip text for this property
      *
-     * @return tip text for this property suitable for displaying in the
-     * explorer/experimenter gui
+     * @return tip text for this property suitable for displaying in the explorer/experimenter gui
      */
     public String numberOfAttributesTipText() {
 
-        return "The number of dimensions (attributes) the data should"
-                + " be reduced to.";
+        return "The number of dimensions (attributes) the data should" + " be reduced to.";
     }
 
     /**
@@ -451,8 +448,7 @@ public class RandomProjection extends Filter implements UnsupervisedFilter,
      * explorer/experimenter gui
      */
     public String seedTipText() {
-        return "The random seed used by the random"
-                + " number generator used for generating the random matrix ";
+        return "The random seed used by the random" + " number generator used for generating the random matrix ";
     }
 
     /**
@@ -503,8 +499,7 @@ public class RandomProjection extends Filter implements UnsupervisedFilter,
     }
 
     /**
-     * Returns the current distribution that'll be used for calculating the random
-     * matrix
+     * Returns the current distribution that'll be used for calculating the random matrix
      *
      * @return the current distribution
      */
@@ -667,7 +662,8 @@ public class RandomProjection extends Filter implements UnsupervisedFilter,
         }
 
         for (Instance instance : insts) {
-            push(convertInstance(instance), false); // No need to copy
+            // No need to copy
+            push(convertInstance(instance), false);
         }
 
         flushInput();

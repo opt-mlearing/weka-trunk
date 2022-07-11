@@ -60,6 +60,7 @@ import weka.filters.SimpleStreamFilter;
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
+// 过滤器删除其名字与正则表达式相匹配的属性.
 public class RemoveByName extends SimpleStreamFilter implements WeightedInstancesHandler, WeightedAttributesHandler {
 
     /**
@@ -74,11 +75,13 @@ public class RemoveByName extends SimpleStreamFilter implements WeightedInstance
 
     /**
      * the regular expression for selecting the attributes by name.
+     * 用于匹配的属性名称的正则表达式
      */
     protected String m_Expression = DEFAULT_EXPRESSION;
 
     /**
      * whether to invert the matching sense.
+     * 反选：确定是否选择还是排除操作，如果设置为True，只保留指定的属性；如果设置为False，将删除指定的属性.
      */
     protected boolean m_InvertSelection;
 

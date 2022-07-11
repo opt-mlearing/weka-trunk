@@ -82,6 +82,7 @@ import weka.filters.UnsupervisedFilter;
  * @author Malcolm Ware (mfw4@cs.waikato.ac.nz)
  * @version $Revision$
  */
+// 过滤器用于删除错分类的实例，主要用于去除离群值.
 public class RemoveMisclassified extends Filter implements UnsupervisedFilter,
         OptionHandler, WeightedAttributesHandler, WeightedInstancesHandler {
 

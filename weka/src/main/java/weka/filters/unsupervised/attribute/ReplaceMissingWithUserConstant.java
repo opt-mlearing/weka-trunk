@@ -44,6 +44,7 @@ import weka.filters.UnsupervisedFilter;
  * @author Mark Hall (mhall{[at]}pentaho{[dot]}com)
  * @version $Revision$
  */
+// 过滤器将数据集中标称、字符串、数值和日期属性的全部缺失值替换成用户指定的常量值.
 public class ReplaceMissingWithUserConstant extends PotentialClassIgnorer
         implements UnsupervisedFilter, StreamableFilter, EnvironmentHandler,
         WeightedInstancesHandler, WeightedAttributesHandler {

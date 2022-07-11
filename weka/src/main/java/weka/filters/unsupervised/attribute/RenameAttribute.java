@@ -87,6 +87,7 @@ import weka.filters.SimpleStreamFilter;
  * @author fracpete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
+// 该过滤器用于重命名属性名称.
 public class RenameAttribute extends SimpleStreamFilter implements WeightedInstancesHandler, WeightedAttributesHandler {
 
     /**

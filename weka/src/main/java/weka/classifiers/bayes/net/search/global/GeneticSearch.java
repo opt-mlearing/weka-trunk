@@ -310,8 +310,7 @@ public class GeneticSearch extends GlobalScoreSearchAlgorithm {
         } // mutate
 
         /**
-         * Apply cross-over operation to BayesNet Calculate score and as a side
-         * effect sets BayesNet parent sets.
+         * Apply cross-over operation to BayesNet Calculate score and as a side effect sets BayesNet parent sets.
          *
          * @param other BayesNetRepresentation to cross over with
          */
@@ -373,16 +372,13 @@ public class GeneticSearch extends GlobalScoreSearchAlgorithm {
      *                   mutation was chosen
      */
     @Override
-    protected void search(BayesNet bayesNet, Instances instances)
-            throws Exception {
+    protected void search(BayesNet bayesNet, Instances instances) throws Exception {
         // sanity check
         if (getDescendantPopulationSize() < getPopulationSize()) {
-            throw new Exception(
-                    "Descendant PopulationSize should be at least Population Size");
+            throw new Exception("Descendant PopulationSize should be at least Population Size");
         }
         if (!getUseCrossOver() && !getUseMutation()) {
-            throw new Exception(
-                    "At least one of mutation or cross-over should be used");
+            throw new Exception("At least one of mutation or cross-over should be used");
         }
 
         m_random = new Random(m_nSeed);
@@ -415,19 +411,16 @@ public class GeneticSearch extends GlobalScoreSearchAlgorithm {
             // create descendants
             BayesNetRepresentation[] descendantPopulation = new BayesNetRepresentation[getDescendantPopulationSize()];
             for (int i = 0; i < getDescendantPopulationSize(); i++) {
-                descendantPopulation[i] = population[m_random
-                        .nextInt(getPopulationSize())].copy();
+                descendantPopulation[i] = population[m_random.nextInt(getPopulationSize())].copy();
                 if (getUseMutation()) {
                     if (getUseCrossOver() && m_random.nextBoolean()) {
-                        descendantPopulation[i].crossOver(population[m_random
-                                .nextInt(getPopulationSize())]);
+                        descendantPopulation[i].crossOver(population[m_random.nextInt(getPopulationSize())]);
                     } else {
                         descendantPopulation[i].mutate();
                     }
                 } else {
                     // use crossover
-                    descendantPopulation[i].crossOver(population[m_random
-                            .nextInt(getPopulationSize())]);
+                    descendantPopulation[i].crossOver(population[m_random.nextInt(getPopulationSize())]);
                 }
 
                 if (descendantPopulation[i].getScore() > fBestScore) {
@@ -449,8 +442,7 @@ public class GeneticSearch extends GlobalScoreSearchAlgorithm {
                     while (bSelected[iSelected2]) {
                         iSelected2 = (iSelected2 + 1) % getDescendantPopulationSize();
                     }
-                    if (descendantPopulation[iSelected2].getScore() > descendantPopulation[iSelected]
-                            .getScore()) {
+                    if (descendantPopulation[iSelected2].getScore() > descendantPopulation[iSelected].getScore()) {
                         iSelected = iSelected2;
                     }
                 } else {
@@ -518,22 +510,18 @@ public class GeneticSearch extends GlobalScoreSearchAlgorithm {
     public Enumeration<Option> listOptions() {
         Vector<Option> newVector = new Vector<Option>(7);
 
-        newVector
-                .addElement(new Option("\tPopulation size", "L", 1, "-L <integer>"));
+        newVector.addElement(new Option("\tPopulation size", "L", 1, "-L <integer>"));
         newVector.addElement(new Option("\tDescendant population size", "A", 1,
                 "-A <integer>"));
-        newVector
-                .addElement(new Option("\tNumber of runs", "U", 1, "-U <integer>"));
+        newVector.addElement(new Option("\tNumber of runs", "U", 1, "-U <integer>"));
         newVector.addElement(new Option("\tUse mutation.\n\t(default true)", "M",
                 0, "-M"));
         newVector.addElement(new Option("\tUse cross-over.\n\t(default true)", "C",
                 0, "-C"));
-        newVector
-                .addElement(new Option(
-                        "\tUse tournament selection (true) or maximum subpopulatin (false).\n\t(default false)",
-                        "O", 0, "-O"));
-        newVector
-                .addElement(new Option("\tRandom number seed", "R", 1, "-R <seed>"));
+        newVector.addElement(new Option(
+                "\tUse tournament selection (true) or maximum subpopulatin (false).\n\t(default false)",
+                "O", 0, "-O"));
+        newVector.addElement(new Option("\tRandom number seed", "R", 1, "-R <seed>"));
 
         newVector.addAll(Collections.list(super.listOptions()));
 

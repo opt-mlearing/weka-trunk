@@ -75,6 +75,7 @@ import java.util.Vector;
  * @author Mark Hall (mhall{[at]}pentaho{[dot]}org)
  * @version $Revision$
  */
+// ReservoirSample过滤器使用Vitter的水库抽样算法"R"，产生数据集的一个随机子样本.
 public class ReservoirSample extends Filter implements UnsupervisedFilter,
         OptionHandler, StreamableFilter, Randomizable, WeightedAttributesHandler {
 
@@ -85,6 +86,7 @@ public class ReservoirSample extends Filter implements UnsupervisedFilter,
 
     /**
      * The subsample size, number of instances%
+     * 子样本（水库）的大小，即实例的数量.
      */
     protected int m_SampleSize = 100;
 
@@ -100,6 +102,7 @@ public class ReservoirSample extends Filter implements UnsupervisedFilter,
 
     /**
      * The random number generator seed
+     * 用于随机抽样的种子
      */
     protected int m_RandomSeed = 1;
 

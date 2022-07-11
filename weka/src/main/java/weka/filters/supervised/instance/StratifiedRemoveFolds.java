@@ -66,8 +66,8 @@ import weka.filters.SupervisedFilter;
  * @author Eibe Frank (eibe@cs.waikato.ac.nz)
  * @version $Revision$
  */
-public class StratifiedRemoveFolds extends Filter implements SupervisedFilter,
-        OptionHandler, WeightedAttributesHandler {
+// 过滤器将数据集作为输入，输出指定折数的交叉验证。如果不希望折分层，请使用无监督的版本.
+public class StratifiedRemoveFolds extends Filter implements SupervisedFilter, OptionHandler, WeightedAttributesHandler {
 
     /**
      * for serialization
@@ -104,21 +104,17 @@ public class StratifiedRemoveFolds extends Filter implements SupervisedFilter,
 
         Vector<Option> newVector = new Vector<Option>(4);
 
-        newVector.addElement(new Option(
-                "\tSpecifies if inverse of selection is to be output.\n", "V", 0, "-V"));
+        newVector.addElement(new Option("\tSpecifies if inverse of selection is to be output.\n",
+                "V", 0, "-V"));
 
-        newVector.addElement(new Option(
-                "\tSpecifies number of folds dataset is split into. \n"
-                        + "\t(default 10)\n", "N", 1, "-N <number of folds>"));
+        newVector.addElement(new Option("\tSpecifies number of folds dataset is split into. \n"
+                + "\t(default 10)\n", "N", 1, "-N <number of folds>"));
 
-        newVector
-                .addElement(new Option(
-                        "\tSpecifies which fold is selected. (default 1)\n", "F", 1,
-                        "-F <fold>"));
+        newVector.addElement(new Option("\tSpecifies which fold is selected. (default 1)\n",
+                "F", 1, "-F <fold>"));
 
-        newVector.addElement(new Option(
-                "\tSpecifies random number seed. (default 0, no randomizing)\n", "S", 1,
-                "-S <seed>"));
+        newVector.addElement(new Option("\tSpecifies random number seed. (default 0, no randomizing)\n",
+                "S", 1, "-S <seed>"));
 
         return newVector.elements();
     }

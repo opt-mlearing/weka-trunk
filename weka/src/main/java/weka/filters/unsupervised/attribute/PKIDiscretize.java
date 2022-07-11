@@ -89,6 +89,7 @@ import weka.core.TechnicalInformation.Type;
  * @author Richard Kirkby (rkirkby@cs.waikato.ac.nz)
  * @version $Revision$
  */
+// PKIDiscretize过滤器使用等频分箱离散化数值属性，其中，箱的数目等于非缺失值数量的平方根.
 public class PKIDiscretize extends Discretize implements
         TechnicalInformationHandler, WeightedAttributesHandler, WeightedInstancesHandler {
 

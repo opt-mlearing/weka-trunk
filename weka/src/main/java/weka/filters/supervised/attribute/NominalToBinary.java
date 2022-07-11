@@ -86,6 +86,7 @@ import weka.filters.SupervisedFilter;
  * @author Eibe Frank (eibe@cs.waikato.ac.nz)
  * @version $Revision$
  */
+// 过滤器将全部标称属性转换成二元的的数值属性. 如果类别属性是标称型，使用每个值一个属性的方法，将k个值的属性转换成k个二元属性.
 public class NominalToBinary extends Filter implements SupervisedFilter,
         OptionHandler, TechnicalInformationHandler, WeightedAttributesHandler, WeightedInstancesHandler {
 

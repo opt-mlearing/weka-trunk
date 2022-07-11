@@ -132,8 +132,8 @@ import weka.filters.UnsupervisedFilter;
  * @author Asrhaf M. Kibriya (amk14@cs.waikato.ac.nz)
  * @version $Revision$
  */
-public class StringToWordVector extends Filter implements UnsupervisedFilter,
-        OptionHandler, WeightedInstancesHandler {
+// StringToWordVector将字符串属性转换为向量属性.
+public class StringToWordVector extends Filter implements UnsupervisedFilter, OptionHandler, WeightedInstancesHandler {
 
     /**
      * Used to build and manage the dictionary + vectorization

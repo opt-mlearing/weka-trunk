@@ -76,7 +76,7 @@ import weka.filters.SimpleBatchFilter;
  * @author fracpete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
-// 根据逻辑表达式进行实例选择.
+// SubsetByExpression根据应用于属性值的、由数学和逻辑运算符组成的逻辑表达式的评价结果.
 public class SubsetByExpression extends SimpleBatchFilter
         implements WeightedInstancesHandler, WeightedAttributesHandler {
 

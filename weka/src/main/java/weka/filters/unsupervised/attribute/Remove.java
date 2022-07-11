@@ -58,6 +58,7 @@ import weka.filters.UnsupervisedFilter;
  * @author Len Trigg (trigg@cs.waikato.ac.nz)
  * @version $Revision$
  */
+// 过滤器删除数据集中指定范围的属性，如果打开反向匹配（即反选），并且没有指定属性列索引按升序排列, 则重新排序其余属性.
 public class Remove extends Filter implements UnsupervisedFilter,
         StreamableFilter, OptionHandler, WeightedAttributesHandler, WeightedInstancesHandler {
 
@@ -81,7 +82,6 @@ public class Remove extends Filter implements UnsupervisedFilter,
      * Constructor so that we can initialize the Range variable properly.
      */
     public Remove() {
-
         m_SelectCols.setInvert(true);
     }
 
@@ -92,18 +92,11 @@ public class Remove extends Filter implements UnsupervisedFilter,
      */
     @Override
     public Enumeration<Option> listOptions() {
-
         Vector<Option> newVector = new Vector<Option>(2);
-
-        newVector
-                .addElement(new Option(
-                        "\tSpecify list of columns to delete. First and last are valid\n"
-                                + "\tindexes. (default none)", "R", 1,
-                        "-R <index1,index2-index4,...>"));
-        newVector.addElement(new Option(
-                "\tInvert matching sense (i.e. only keep specified columns)", "V", 0,
-                "-V"));
-
+        newVector.addElement(new Option("\tSpecify list of columns to delete. First and last are valid\n"
+                + "\tindexes. (default none)", "R", 1, "-R <index1,index2-index4,...>"));
+        newVector.addElement(new Option("\tInvert matching sense (i.e. only keep specified columns)",
+                "V", 0, "-V"));
         return newVector.elements();
     }
 
@@ -331,8 +324,7 @@ public class Remove extends Filter implements UnsupervisedFilter,
     /**
      * Returns the tip text for this property
      *
-     * @return tip text for this property suitable for displaying in the
-     * explorer/experimenter gui
+     * @return tip text for this property suitable for displaying in the explorer/experimenter gui
      */
     public String attributeIndicesTipText() {
 
