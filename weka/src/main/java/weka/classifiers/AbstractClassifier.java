@@ -146,8 +146,7 @@ public abstract class AbstractClassifier implements Classifier, BatchPredictor,
             }
             System.out.println(Evaluation.evaluateModel(classifier, options));
         } catch (Exception e) {
-            if (((e.getMessage() != null)
-                    && (e.getMessage().indexOf("General options") == -1))
+            if (((e.getMessage() != null) && (e.getMessage().indexOf("General options") == -1))
                     || (e.getMessage() == null)) {
                 e.printStackTrace();
             } else {
