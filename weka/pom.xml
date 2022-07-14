@@ -5,8 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>nz.ac.waikato.cms.weka</groupId>
+
     <artifactId>weka-dev</artifactId>
     <!-- weka-version -->
+    <!-- weka源码爱好者中文标注记录，仅供个人使用，感谢 weka核心团队 -->
     <version>0.0.1-Mr.C-SNAPSHOT</version>
     <!--mvn package target-->
     <packaging>jar</packaging>
