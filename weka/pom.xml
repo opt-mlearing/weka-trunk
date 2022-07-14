@@ -6,8 +6,11 @@
 
     <groupId>nz.ac.waikato.cms.weka</groupId>
     <artifactId>weka-dev</artifactId>
-    <version>3.9.7-SNAPSHOT</version><!-- weka-version -->
+    <!-- weka-version -->
+    <version>0.0.1-Mr.C-SNAPSHOT</version>
+    <!--mvn package target-->
     <packaging>jar</packaging>
+    <!--my weka practice record-->
 
     <name>weka-dev</name>
     <description>The Waikato Environment for Knowledge Analysis (WEKA), a machine
@@ -519,8 +522,6 @@
             <version>8.11.1</version>
         </dependency>
 
-
-
     </dependencies>
 
     <properties>
@@ -530,9 +531,9 @@
     </properties>
 
     <build>
-        <directory>dist</directory>
-        <outputDirectory>build/classes</outputDirectory>
-        <testOutputDirectory>build/testcases</testOutputDirectory>
+        <directory>target</directory>
+        <outputDirectory>target/classes</outputDirectory>
+        <testOutputDirectory>target/testcases</testOutputDirectory>
 
         <resources>
             <resource>
@@ -593,7 +594,6 @@
 
         <pluginManagement>
             <plugins>
-
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
@@ -719,4 +719,5 @@
 
         </plugins>
     </build>
+
 </project>

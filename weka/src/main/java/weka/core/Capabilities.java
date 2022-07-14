@@ -1255,8 +1255,7 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
         }
 
         // no Capabilities? -> warning
-        if ((m_Capabilities.size() == 0)
-                || ((m_Capabilities.size() == 1) && handles(Capability.NO_CLASS))) {
+        if ((m_Capabilities.size() == 0) || ((m_Capabilities.size() == 1) && handles(Capability.NO_CLASS))) {
             System.err.println(createMessage("No capabilities set!"));
         }
 
@@ -1268,8 +1267,7 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
 
         // do wee need to test the class attribute, i.e., is the class attribute
         // within the range of attributes?
-        testClass = (data.classIndex() > -1) && (data.classIndex() >= fromIndex)
-                && (data.classIndex() <= toIndex);
+        testClass = (data.classIndex() > -1) && (data.classIndex() >= fromIndex) && (data.classIndex() <= toIndex);
 
         // attributes
         Class weightedAttributesHandler = getClass("weka.core.WeightedAttributesHandler");
@@ -1298,8 +1296,7 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
 
         // class
         if (!handles(Capability.NO_CLASS) && (data.classIndex() == -1)) {
-            m_FailReason = new UnassignedClassException(
-                    createMessage("Class attribute not set!"));
+            m_FailReason = new UnassignedClassException(createMessage("Class attribute not set!"));
             return false;
         }
 
@@ -1309,8 +1306,7 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
             cap.disable(Capability.NO_CLASS);
             iter = cap.capabilities();
             if (!iter.hasNext()) {
-                m_FailReason = new WekaException(
-                        createMessage("Cannot handle any class attribute!"));
+                m_FailReason = new WekaException(createMessage("Cannot handle any class attribute!"));
                 return false;
             }
         }
@@ -1329,8 +1325,7 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
                 if (!handles(Capability.MISSING_CLASS_VALUES)) {
                     for (i = 0; i < data.numInstances(); i++) {
                         if (data.instance(i).classIsMissing()) {
-                            m_FailReason = new WekaException(
-                                    createMessage("Cannot handle missing class values!"));
+                            m_FailReason = new WekaException(createMessage("Cannot handle missing class values!"));
                             return false;
                         }
                     }
@@ -1517,15 +1512,13 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
     }
 
     /**
-     * tests the given data by calling the test(Instances) method and throws an
-     * exception if the test fails.
+     * tests the given data by calling the test(Instances) method and throws an exception if the test fails.
      *
      * @param data the data to test
      * @throws Exception in case the data doesn't pass the tests
      * @see #test(Instances)
      */
     public void testWithFail(Instances data) throws Exception {
-
         if (!test(data)) {
             throw m_FailReason;
         }
