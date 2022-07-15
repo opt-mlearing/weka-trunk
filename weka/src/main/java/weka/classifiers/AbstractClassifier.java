@@ -49,6 +49,7 @@ import java.util.Vector;
  * @author Len Trigg (trigg@cs.waikato.ac.nz)
  * @version $Revision$
  */
+// 分类器.
 public abstract class AbstractClassifier implements Classifier, BatchPredictor,
         Cloneable, Serializable, OptionHandler, CapabilitiesHandler, RevisionHandler,
         CapabilitiesIgnorer, CommandlineRunnable {

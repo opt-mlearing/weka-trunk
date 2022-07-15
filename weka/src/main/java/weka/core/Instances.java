@@ -135,9 +135,10 @@ public class Instances extends AbstractList<Instance> implements Serializable, R
     // @ protected invariant classIndex() == m_ClassIndex;
 
     /**
-     * The lines read so far in case of incremental loading. Since the
-     * StreamTokenizer will be re-initialized with every instance that is read, we
-     * have to keep track of the number of lines read so far.
+     * 增加加载数据进行训练的时候使用.
+     * The lines read so far in case of incremental loading.
+     * Since the StreamTokenizer will be re-initialized with every instance that is read,
+     * we have to keep track of the number of lines read so far.
      *
      * @see #readInstance(Reader)
      */
@@ -266,8 +267,7 @@ public class Instances extends AbstractList<Instance> implements Serializable, R
      * @param capacity the capacity of the set
      * @throws IllegalArgumentException if attribute names are not unique
      */
-    public Instances(/* @non_null@ */String name,
-            /* @non_null@ */ArrayList<Attribute> attInfo, int capacity) {
+    public Instances(/* @non_null@ */String name,/* @non_null@ */ArrayList<Attribute> attInfo, int capacity) {
 
         // check whether the attribute names are unique
         HashSet<String> names = new HashSet<String>();
@@ -285,6 +285,7 @@ public class Instances extends AbstractList<Instance> implements Serializable, R
         names.clear();
 
         m_RelationName = name;
+        // 默认情况下分类标签的索引是-1，需用户在完成数据加载之后，显示设置分类标签的索引号.
         m_ClassIndex = -1;
         m_Attributes = attInfo;
         m_NamesToAttributeIndices = new HashMap<String, Integer>((int) (numAttributes() / 0.75));
@@ -634,9 +635,7 @@ public class Instances extends AbstractList<Instance> implements Serializable, R
      */
     // @ requires 0 <= attIndex && attIndex < numAttributes();
     public void deleteWithMissing(int attIndex) {
-
         ArrayList<Instance> newInstances = new ArrayList<Instance>(numInstances());
-
         for (int i = 0; i < numInstances(); i++) {
             if (!instance(i).isMissing(attIndex)) {
                 newInstances.add(instance(i));
@@ -657,12 +656,13 @@ public class Instances extends AbstractList<Instance> implements Serializable, R
     }
 
     /**
+     * 删除缺失分类信息（或标签）的数据.
      * Removes all instances with a missing class value from the dataset.
      *
      * @throws UnassignedClassException if class is not set
      */
     public void deleteWithMissingClass() {
-
+        // m_ClassIndex一般情况下，分类标签是最后一列.
         if (m_ClassIndex < 0) {
             throw new UnassignedClassException("Class index is negative (not set)!");
         }

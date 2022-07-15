@@ -442,11 +442,9 @@ public class Capabilities implements Cloneable, Serializable, RevisionHandler {
     }
 
     /**
-     * Does owner implement CapabilitiesIgnorer and does it not
-     * want capability checking to be performed?
+     * Does owner implement CapabilitiesIgnorer and does it not want capability checking to be performed?
      */
     public boolean doNotCheckCapabilities() {
-
         // Do we actually want to check capabilities?
         if ((getOwner() != null) && (getOwner() instanceof CapabilitiesIgnorer)) {
             return ((CapabilitiesIgnorer) getOwner()).getDoNotCheckCapabilities();

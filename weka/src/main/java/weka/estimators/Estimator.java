@@ -89,9 +89,7 @@ import weka.core.Utils;
  * @author Len Trigg (trigg@cs.waikato.ac.nz)
  * @version $Revision$
  */
-public abstract class Estimator implements Cloneable, Serializable,
-        OptionHandler, CapabilitiesHandler,
-        CapabilitiesIgnorer, RevisionHandler {
+public abstract class Estimator implements Cloneable, Serializable, OptionHandler, CapabilitiesHandler, CapabilitiesIgnorer, RevisionHandler {
 
     /**
      * for serialization
