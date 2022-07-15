@@ -26,7 +26,6 @@ import java.util.Enumeration;
 import java.util.Vector;
 
 import weka.core.Option;
-import weka.core.Range;
 import weka.core.Utils;
 
 /**
@@ -51,6 +50,7 @@ import weka.core.Utils;
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
+// 聚类数据生成器.
 public abstract class ClusterGenerator extends DataGenerator {
 
     /**

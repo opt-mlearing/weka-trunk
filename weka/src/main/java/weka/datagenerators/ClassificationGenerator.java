@@ -30,12 +30,12 @@ import weka.core.Utils;
 
 /**
  * Abstract class for data generators for classifiers.
- * <p/>
  *
  * @author Gabi Schmidberger (gabi@cs.waikato.ac.nz)
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
+// 分类数据生成器
 public abstract class ClassificationGenerator extends DataGenerator {
 
     /**

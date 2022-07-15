@@ -40,14 +40,13 @@ import weka.core.RevisionHandler;
 import weka.core.Utils;
 
 /**
- * Abstract superclass for data generators that generate data for classifiers
- * and clusterers.
+ * Abstract superclass for data generators that generate data for classifiers and clusterers.
  *
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
-public abstract class DataGenerator implements OptionHandler, Randomizable,
-        Serializable, RevisionHandler {
+// 数据生成器，data generator 按照指定的规则生成数据. 数据生成器的顶级父类.
+public abstract class DataGenerator implements OptionHandler, Randomizable, Serializable, RevisionHandler {
 
     /**
      * for serialization
@@ -78,8 +77,7 @@ public abstract class DataGenerator implements OptionHandler, Randomizable,
     /**
      * default output (stdout)
      */
-    protected transient PrintWriter m_DefaultOutput = new PrintWriter(
-            new java.io.OutputStreamWriter(System.out));
+    protected transient PrintWriter m_DefaultOutput = new PrintWriter(new java.io.OutputStreamWriter(System.out));
 
     /**
      * PrintWriter for outputting the generated data
@@ -139,15 +137,12 @@ public abstract class DataGenerator implements OptionHandler, Randomizable,
 
         result.addElement(new Option("\tPrints this help.", "h", 1, "-h"));
 
-        result.addElement(new Option(
-                "\tThe name of the output file, otherwise the generated data is\n"
-                        + "\tprinted to stdout.", "o", 1, "-o <file>"));
+        result.addElement(new Option("\tThe name of the output file, otherwise the generated data is\n"
+                + "\tprinted to stdout.", "o", 1, "-o <file>"));
 
-        result.addElement(new Option("\tThe name of the relation.", "r", 1,
-                "-r <name>"));
+        result.addElement(new Option("\tThe name of the relation.", "r", 1, "-r <name>"));
 
-        result.addElement(new Option("\tWhether to print debug informations.", "d",
-                0, "-d"));
+        result.addElement(new Option("\tWhether to print debug informations.", "d", 0, "-d"));
 
         result.addElement(new Option("\tThe seed for random function (default "
                 + defaultSeed() + ")", "S", 1, "-S"));
@@ -208,8 +203,7 @@ public abstract class DataGenerator implements OptionHandler, Randomizable,
 
     /**
      * Gets the current settings of the datagenerator RDG1. Removing of
-     * blacklisted options has to be done in the derived class, that defines the
-     * blacklist-entry.
+     * blacklisted options has to be done in the derived class, that defines the blacklist-entry.
      *
      * @return an array of strings suitable for passing to setOptions
      * @see #removeBlacklist(String[])
@@ -840,4 +834,5 @@ public abstract class DataGenerator implements OptionHandler, Randomizable,
             }
         }
     }
+
 }

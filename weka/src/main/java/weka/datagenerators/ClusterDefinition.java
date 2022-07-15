@@ -22,21 +22,18 @@
 package weka.datagenerators;
 
 import java.io.Serializable;
-import java.util.Enumeration;
 
-import weka.core.Option;
 import weka.core.OptionHandler;
 import weka.core.RevisionHandler;
 import weka.core.Utils;
 
 /**
- * Ancestor to all ClusterDefinitions, i.e., subclasses that handle their own
- * parameters that the cluster generator only passes on.
+ * Ancestor to all ClusterDefinitions, i.e.,
+ * subclasses that handle their own parameters that the cluster generator only passes on.
  *
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
-
 public abstract class ClusterDefinition implements Serializable, OptionHandler, RevisionHandler {
 
     /**
