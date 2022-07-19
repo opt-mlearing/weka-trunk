@@ -32,8 +32,7 @@ import weka.core.RevisionHandler;
  * @author Eibe Frank (eibe@cs.waikato.ac.nz)
  * @version $Revision$
  */
-public abstract class ModelSelection
-        implements Serializable, RevisionHandler {
+public abstract class ModelSelection implements Serializable, RevisionHandler {
 
     /**
      * for serialization
@@ -52,9 +51,9 @@ public abstract class ModelSelection
      *
      * @throws Exception if model can't be selected
      */
-    public ClassifierSplitModel selectModel(Instances train, Instances test)
-            throws Exception {
+    public ClassifierSplitModel selectModel(Instances train, Instances test) throws Exception {
 
         throw new Exception("Model selection method not implemented");
     }
+
 }

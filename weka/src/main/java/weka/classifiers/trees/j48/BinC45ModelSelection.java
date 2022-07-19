@@ -64,15 +64,11 @@ public class BinC45ModelSelection extends ModelSelection {
     /**
      * Initializes the split selection method with the given parameters.
      *
-     * @param minNoObj         minimum number of instances that have to occur in at least
-     *                         two subsets induced by split
-     * @param allData          FULL training dataset (necessary for selection of split
-     *                         points).
-     * @param useMDLcorrection whether to use MDL adjustement when finding splits
-     *                         on numeric attributes
+     * @param minNoObj         minimum number of instances that have to occur in at least two subsets induced by split
+     * @param allData          FULL training dataset (necessary for selection of split points).
+     * @param useMDLcorrection whether to use MDL adjustement when finding splits on numeric attributes
      */
-    public BinC45ModelSelection(int minNoObj, Instances allData,
-                                boolean useMDLcorrection, boolean doNotMakeSplitPointActualValue) {
+    public BinC45ModelSelection(int minNoObj, Instances allData, boolean useMDLcorrection, boolean doNotMakeSplitPointActualValue) {
         m_minNoObj = minNoObj;
         m_allData = allData;
         m_useMDLcorrection = useMDLcorrection;
@@ -83,7 +79,6 @@ public class BinC45ModelSelection extends ModelSelection {
      * Sets reference to training data to null.
      */
     public void cleanup() {
-
         m_allData = null;
     }
 
@@ -111,8 +106,7 @@ public class BinC45ModelSelection extends ModelSelection {
             checkDistribution = new Distribution(data);
             noSplitModel = new NoSplit(checkDistribution);
             if (Utils.sm(checkDistribution.total(), 2 * m_minNoObj)
-                    || Utils.eq(checkDistribution.total(),
-                    checkDistribution.perClass(checkDistribution.maxClass()))) {
+                    || Utils.eq(checkDistribution.total(), checkDistribution.perClass(checkDistribution.maxClass()))) {
                 return noSplitModel;
             }
 
@@ -121,8 +115,7 @@ public class BinC45ModelSelection extends ModelSelection {
             Enumeration<Attribute> enu = data.enumerateAttributes();
             while (enu.hasMoreElements()) {
                 Attribute attribute = enu.nextElement();
-                if ((attribute.isNumeric())
-                        || (Utils.sm(attribute.numValues(), (0.3 * m_allData.numInstances())))) {
+                if ((attribute.isNumeric()) || (Utils.sm(attribute.numValues(), (0.3 * m_allData.numInstances())))) {
                     multiVal = false;
                     break;
                 }
@@ -137,8 +130,7 @@ public class BinC45ModelSelection extends ModelSelection {
                 if (i != (data).classIndex()) {
 
                     // Get models for current attribute.
-                    currentModel[i] = new BinC45Split(i, m_minNoObj, sumOfWeights,
-                            m_useMDLcorrection);
+                    currentModel[i] = new BinC45Split(i, m_minNoObj, sumOfWeights, m_useMDLcorrection);
                     currentModel[i].buildClassifier(data);
 
                     // Check if useful split for current attribute
@@ -146,8 +138,7 @@ public class BinC45ModelSelection extends ModelSelection {
                     // a lot of values.
                     if (currentModel[i].checkModel()) {
                         if ((data.attribute(i).isNumeric())
-                                || (multiVal || Utils.sm(data.attribute(i).numValues(),
-                                (0.3 * m_allData.numInstances())))) {
+                                || (multiVal || Utils.sm(data.attribute(i).numValues(), (0.3 * m_allData.numInstances())))) {
                             averageInfoGain = averageInfoGain + currentModel[i].infoGain();
                             validModels++;
                         }
@@ -167,8 +158,7 @@ public class BinC45ModelSelection extends ModelSelection {
             minResult = 0;
             for (i = 0; i < data.numAttributes(); i++) {
                 if ((i != (data).classIndex()) && (currentModel[i].checkModel())) {
-                    // Use 1E-3 here to get a closer approximation to the original
-                    // implementation.
+                    // Use 1E-3 here to get a closer approximation to the original implementation.
                     if ((currentModel[i].infoGain() >= (averageInfoGain - 1E-3))
                             && Utils.gr(currentModel[i].gainRatio(), minResult)) {
                         bestModel = currentModel[i];
@@ -203,7 +193,6 @@ public class BinC45ModelSelection extends ModelSelection {
      */
     @Override
     public final ClassifierSplitModel selectModel(Instances train, Instances test) {
-
         return selectModel(train);
     }
 
@@ -216,4 +205,5 @@ public class BinC45ModelSelection extends ModelSelection {
     public String getRevision() {
         return RevisionUtils.extract("$Revision$");
     }
+
 }

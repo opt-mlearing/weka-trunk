@@ -40,6 +40,7 @@ import weka.core.Utils;
  * @author Eibe Frank (eibe@cs.waikato.ac.nz)
  * @version $Revision$
  */
+// 分类树模型.
 public class ClassifierTree implements Drawable, Serializable, RevisionHandler, CapabilitiesHandler {
 
     /**
@@ -88,8 +89,7 @@ public class ClassifierTree implements Drawable, Serializable, RevisionHandler, 
     protected int m_id;
 
     /**
-     * For getting a unique ID when outputting the tree (hashcode isn't guaranteed
-     * unique)
+     * For getting a unique ID when outputting the tree (hashcode isn't guaranteed unique)
      */
     private static long PRINTED_NODES = 0;
 
@@ -120,8 +120,7 @@ public class ClassifierTree implements Drawable, Serializable, RevisionHandler, 
     }
 
     /**
-     * Resets the unique node ID counter (e.g. between repeated separate print
-     * types)
+     * Resets the unique node ID counter (e.g. between repeated separate print types)
      */
     protected static void resetID() {
 
@@ -208,8 +207,7 @@ public class ClassifierTree implements Drawable, Serializable, RevisionHandler, 
      * @param keepData is training Data to be kept?
      * @throws Exception if something goes wrong
      */
-    public void buildTree(Instances train, Instances test, boolean keepData)
-            throws Exception {
+    public void buildTree(Instances train, Instances test, boolean keepData) throws Exception {
 
         Instances[] localTrain, localTest;
         int i;
@@ -290,8 +288,7 @@ public class ClassifierTree implements Drawable, Serializable, RevisionHandler, 
      * @return the distribution
      * @throws Exception if something goes wrong
      */
-    public double[] distributionForInstance(Instance instance,
-                                            boolean useLaplace) throws Exception {
+    public double[] distributionForInstance(Instance instance, boolean useLaplace) throws Exception {
 
         double[] doubles = new double[instance.numClasses()];
 
@@ -396,8 +393,7 @@ public class ClassifierTree implements Drawable, Serializable, RevisionHandler, 
      * Returns source code for the tree as an if-then statement. The class is
      * assigned to variable "p", and assumes the tested instance is named "i". The
      * results are returned as two stringbuffers: a section of code for assignment
-     * of the class, and a section of code containing support code (eg: other
-     * support methods).
+     * of the class, and a section of code containing support code (eg: other support methods).
      *
      * @param className the classname that this static classifier has
      * @return an array containing two stringbuffers, the first string containing

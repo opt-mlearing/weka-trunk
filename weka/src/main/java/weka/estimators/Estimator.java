@@ -89,6 +89,7 @@ import weka.core.Utils;
  * @author Len Trigg (trigg@cs.waikato.ac.nz)
  * @version $Revision$
  */
+// 分布估计顶级父类. 评估器
 public abstract class Estimator implements Cloneable, Serializable, OptionHandler, CapabilitiesHandler, CapabilitiesIgnorer, RevisionHandler {
 
     /**

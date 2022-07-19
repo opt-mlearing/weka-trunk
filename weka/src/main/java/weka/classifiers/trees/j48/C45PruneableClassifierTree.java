@@ -21,8 +21,6 @@
 
 package weka.classifiers.trees.j48;
 
-import weka.core.Capabilities;
-import weka.core.Capabilities.Capability;
 import weka.core.Instances;
 import weka.core.RevisionUtils;
 import weka.core.Utils;
@@ -35,8 +33,7 @@ import weka.core.Utils;
  * @version $Revision$
  */
 
-public class C45PruneableClassifierTree
-        extends ClassifierTree {
+public class C45PruneableClassifierTree extends ClassifierTree {
 
     /**
      * for serialization
@@ -69,8 +66,7 @@ public class C45PruneableClassifierTree
     protected boolean m_cleanup = true;
 
     /**
-     * Constructor for pruneable tree structure. Stores reference
-     * to associated training data at each node.
+     * Constructor for pruneable tree structure. Stores reference to associated training data at each node.
      *
      * @param toSelectLocModel selection method for local splitting model
      * @param pruneTree        true if the tree is to be pruned
@@ -83,8 +79,7 @@ public class C45PruneableClassifierTree
                                       boolean pruneTree, float cf,
                                       boolean raiseTree,
                                       boolean cleanup,
-                                      boolean collapseTree)
-            throws Exception {
+                                      boolean collapseTree) throws Exception {
 
         super(toSelectLocModel);
 
@@ -112,6 +107,7 @@ public class C45PruneableClassifierTree
             collapse();
         }
         if (m_pruneTheTree) {
+            // 减枝
             prune();
         }
         if (m_cleanup) {
@@ -140,8 +136,9 @@ public class C45PruneableClassifierTree
                 // Get NoSplit Model for tree.
                 m_localModel = new NoSplit(localModel().distribution());
             } else
-                for (i = 0; i < m_sons.length; i++)
+                for (i = 0; i < m_sons.length; i++) {
                     son(i).collapse();
+                }
         }
     }
 
@@ -162,28 +159,25 @@ public class C45PruneableClassifierTree
         if (!m_isLeaf) {
 
             // Prune all subtrees.
-            for (i = 0; i < m_sons.length; i++)
+            for (i = 0; i < m_sons.length; i++) {
                 son(i).prune();
-
+            }
             // Compute error for largest branch
             indexOfLargestBranch = localModel().distribution().maxBag();
             if (m_subtreeRaising) {
-                errorsLargestBranch = son(indexOfLargestBranch).
-                        getEstimatedErrorsForBranch((Instances) m_train);
+                errorsLargestBranch = son(indexOfLargestBranch).getEstimatedErrorsForBranch((Instances) m_train);
             } else {
                 errorsLargestBranch = Double.MAX_VALUE;
             }
 
             // Compute error if this Tree would be leaf
-            errorsLeaf =
-                    getEstimatedErrorsForDistribution(localModel().distribution());
+            errorsLeaf = getEstimatedErrorsForDistribution(localModel().distribution());
 
             // Compute error for the whole subtree
             errorsTree = getEstimatedErrors();
 
             // Decide if leaf is best choice.
-            if (Utils.smOrEq(errorsLeaf, errorsTree + 0.1) &&
-                    Utils.smOrEq(errorsLeaf, errorsLargestBranch + 0.1)) {
+            if (Utils.smOrEq(errorsLeaf, errorsTree + 0.1) && Utils.smOrEq(errorsLeaf, errorsLargestBranch + 0.1)) {
 
                 // Free son Trees
                 m_sons = null;
@@ -234,11 +228,12 @@ public class C45PruneableClassifierTree
         double errors = 0;
         int i;
 
-        if (m_isLeaf)
+        if (m_isLeaf) {
             return getEstimatedErrorsForDistribution(localModel().distribution());
-        else {
-            for (i = 0; i < m_sons.length; i++)
+        } else {
+            for (i = 0; i < m_sons.length; i++) {
                 errors = errors + son(i).getEstimatedErrors();
+            }
             return errors;
         }
     }
@@ -250,23 +245,22 @@ public class C45PruneableClassifierTree
      * @return the estimated errors
      * @throws Exception if something goes wrong
      */
-    protected double getEstimatedErrorsForBranch(Instances data)
-            throws Exception {
+    protected double getEstimatedErrorsForBranch(Instances data) throws Exception {
 
         Instances[] localInstances;
         double errors = 0;
         int i;
 
-        if (m_isLeaf)
+        if (m_isLeaf) {
             return getEstimatedErrorsForDistribution(new Distribution(data));
-        else {
+        } else {
             Distribution savedDist = localModel().m_distribution;
             localModel().resetDistribution(data);
             localInstances = (Instances[]) localModel().split(data);
             localModel().m_distribution = savedDist;
-            for (i = 0; i < m_sons.length; i++)
-                errors = errors +
-                        son(i).getEstimatedErrorsForBranch(localInstances[i]);
+            for (i = 0; i < m_sons.length; i++) {
+                errors = errors + son(i).getEstimatedErrorsForBranch(localInstances[i]);
+            }
             return errors;
         }
     }
@@ -277,15 +271,14 @@ public class C45PruneableClassifierTree
      * @param theDistribution the distribution to use
      * @return the estimated errors
      */
-    protected double getEstimatedErrorsForDistribution(Distribution
-                                                               theDistribution) {
+    protected double getEstimatedErrorsForDistribution(Distribution theDistribution) {
 
-        if (Utils.eq(theDistribution.total(), 0))
+        if (Utils.eq(theDistribution.total(), 0)) {
             return 0;
-        else
-            return theDistribution.numIncorrect() +
-                    Stats.addErrs(theDistribution.total(),
-                            theDistribution.numIncorrect(), m_CF);
+        } else {
+            return theDistribution.numIncorrect()
+                    + Stats.addErrs(theDistribution.total(), theDistribution.numIncorrect(), m_CF);
+        }
     }
 
     /**
@@ -298,11 +291,12 @@ public class C45PruneableClassifierTree
         double errors = 0;
         int i;
 
-        if (m_isLeaf)
+        if (m_isLeaf) {
             return localModel().distribution().numIncorrect();
-        else {
-            for (i = 0; i < m_sons.length; i++)
+        } else {
+            for (i = 0; i < m_sons.length; i++) {
                 errors = errors + son(i).getTrainingErrors();
+            }
             return errors;
         }
     }
@@ -318,8 +312,7 @@ public class C45PruneableClassifierTree
     }
 
     /**
-     * Computes new distributions of instances for nodes
-     * in tree.
+     * Computes new distributions of instances for nodes in tree.
      *
      * @param data the data to compute the distributions for
      * @throws Exception if something goes wrong
@@ -331,10 +324,10 @@ public class C45PruneableClassifierTree
         localModel().resetDistribution(data);
         m_train = data;
         if (!m_isLeaf) {
-            localInstances =
-                    (Instances[]) localModel().split(data);
-            for (int i = 0; i < m_sons.length; i++)
+            localInstances = (Instances[]) localModel().split(data);
+            for (int i = 0; i < m_sons.length; i++) {
                 son(i).newDistribution(localInstances[i]);
+            }
         } else {
 
             // Check whether there are some instances at the leaf now!
@@ -360,4 +353,5 @@ public class C45PruneableClassifierTree
     public String getRevision() {
         return RevisionUtils.extract("$Revision$");
     }
+
 }

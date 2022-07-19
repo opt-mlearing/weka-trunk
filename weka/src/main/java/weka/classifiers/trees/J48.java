@@ -209,6 +209,7 @@ public class J48 extends AbstractClassifier implements OptionHandler, Drawable,
     protected int m_numFolds = 3;
 
     /**
+     * 是否需要进行二分
      * Binary splits on nominal attributes?
      */
     protected boolean m_binarySplits = false;
@@ -329,22 +330,27 @@ public class J48 extends AbstractClassifier implements OptionHandler, Drawable,
         getCapabilities().testWithFail(instances);
 
         ModelSelection modSelection;
-
+        // todo，选择器
+        // 配置选择器
         if (m_binarySplits) {
-            modSelection = new BinC45ModelSelection(m_minNumObj, instances,
-                    m_useMDLcorrection, m_doNotMakeSplitPointActualValue);
+            modSelection = new BinC45ModelSelection(
+                    m_minNumObj, instances, m_useMDLcorrection, m_doNotMakeSplitPointActualValue);
         } else {
-            modSelection = new C45ModelSelection(m_minNumObj, instances,
-                    m_useMDLcorrection, m_doNotMakeSplitPointActualValue);
+            modSelection = new C45ModelSelection(
+                    m_minNumObj, instances, m_useMDLcorrection, m_doNotMakeSplitPointActualValue);
         }
+        // 生成分类树.
         if (!m_reducedErrorPruning) {
-            m_root = new C45PruneableClassifierTree(modSelection, !m_unpruned, m_CF,
-                    m_subtreeRaising, !m_noCleanup, m_collapseTree);
+            m_root = new C45PruneableClassifierTree(
+                    modSelection, !m_unpruned, m_CF, m_subtreeRaising, !m_noCleanup, m_collapseTree);
         } else {
-            m_root = new PruneableClassifierTree(modSelection, !m_unpruned,
-                    m_numFolds, !m_noCleanup, m_Seed);
+            m_root = new PruneableClassifierTree(
+                    modSelection, !m_unpruned, m_numFolds, !m_noCleanup, m_Seed);
         }
+        // 进行分类模型训练.
         m_root.buildClassifier(instances);
+        // todo, 也是选择器，抽象一个管理类执行类弄一下.
+        // 类似一些后置处理.
         if (m_binarySplits) {
             ((BinC45ModelSelection) modSelection).cleanup();
         } else {

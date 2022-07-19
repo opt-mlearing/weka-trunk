@@ -691,23 +691,20 @@ public class Instances extends AbstractList<Instance> implements Serializable, R
     }
 
     /**
-     * Checks if two headers are equivalent. If not, then returns a message why
-     * they differ.
+     * Checks if two headers are equivalent. If not, then returns a message why they differ.
      *
      * @param dataset another dataset
-     * @return null if the header of the given dataset is equivalent to this
-     * header, otherwise a message with details on why they differ
+     * @return null if the header of the given dataset is equivalent to this header,
+     * otherwise a message with details on why they differ.
      */
     public String equalHeadersMsg(Instances dataset) {
         // Check class and all attributes
         if (m_ClassIndex != dataset.m_ClassIndex) {
-            return "Class index differ: " + (m_ClassIndex + 1) + " != "
-                    + (dataset.m_ClassIndex + 1);
+            return "Class index differ: " + (m_ClassIndex + 1) + " != " + (dataset.m_ClassIndex + 1);
         }
 
         if (m_Attributes.size() != dataset.m_Attributes.size()) {
-            return "Different number of attributes: " + m_Attributes.size() + " != "
-                    + dataset.m_Attributes.size();
+            return "Different number of attributes: " + m_Attributes.size() + " != " + dataset.m_Attributes.size();
         }
 
         for (int i = 0; i < m_Attributes.size(); i++) {
