@@ -180,9 +180,8 @@ import weka.filters.supervised.attribute.ClassOrder;
  * @author Eibe Frank (eibe@cs.waikato.ac.nz)
  * @version $Revision$
  */
-public class JRip extends AbstractClassifier implements
-        AdditionalMeasureProducer, WeightedInstancesHandler,
-        TechnicalInformationHandler {
+public class JRip extends AbstractClassifier
+        implements AdditionalMeasureProducer, WeightedInstancesHandler, TechnicalInformationHandler {
 
     /**
      * for serialization

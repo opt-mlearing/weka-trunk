@@ -34,8 +34,7 @@ import weka.core.WeightedInstancesHandler;
  * @author Xin Xu (xx5@cs.waikato.ac.nz)
  * @version $Revision$
  */
-public abstract class Rule
-        implements WeightedInstancesHandler, Copyable, Serializable, RevisionHandler {
+public abstract class Rule implements WeightedInstancesHandler, Copyable, Serializable, RevisionHandler {
 
     /**
      * for serialization
